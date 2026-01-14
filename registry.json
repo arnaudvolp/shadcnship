@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcn-ui-blocks",
+  "homepage": "https://your-registry.com",
+  "items": [
+    {
+      "name": "hero-01",
+      "type": "registry:block",
+      "title": "Hero 01",
+      "description": "A simple hero section with a gradient background and call-to-action buttons",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-01/components/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "category": "hero",
+        "tags": ["landing", "cta", "gradient"],
+        "image": "/images/blocks/hero-01.png"
+      }
+    }
+  ]
+}
