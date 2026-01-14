@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# shadcn-ui-blocks
 
-## Getting Started
+Website - [shadcnship.com](https://shadcnship.com)
 
-First, run the development server:
+A curated collection of production-ready Shadcn UI blocks for Next.js developers. This platform helps you ship landing pages faster by providing ready-to-use code snippets for common sections, saving time and enhancing productivity.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **One-Command Install:** Install any block with a single npx command.
+- **Production-Ready:** All blocks are tested, responsive, and accessible.
+- **Copy & Customize:** Get the code and customize it to match your brand.
+- **Growing Library:** New blocks added regularly. Star to get notified.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Website Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Landing Page: Showcases available Shadcn UI blocks with previews and installation commands.
+Component Pages: Dedicated pages for each block with live preview, code, and customization options.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 14+
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📖 Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Visit [shadcnship.com](https://shadcnship.com)
+2. Browse through available blocks
+3. Preview how blocks look and function
+4. Copy the installation command or code snippet
+5. Paste into your Next.js project
 
-## Deploy on Vercel
+## 📦 What's Included
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Hero sections
+- Pricing tables
+- FAQ blocks
+- Testimonials
+- CTA sections
+- More coming soon
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🗺️ Roadmap
+
+- [ ] 30 landing page blocks
+- [ ] Dashboard templates
+- [ ] Auth templates
+- [ ] Forms + database integration
+
+⭐ Star this repo to support development
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have ideas for new blocks or improvements, feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+MIT - Free for commercial use
+
+---
