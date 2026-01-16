@@ -2,6 +2,8 @@ import { JSX } from "react";
 
 export type Theme = "light" | "dark";
 
+export type ScreenSize = "mobile" | "tablet" | "desktop";
+
 export type Plan = "free" | "pro" | "premium";
 
 export const BLOCK_PRICING: Record<Plan, Plan> = {

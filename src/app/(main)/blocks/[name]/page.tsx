@@ -93,17 +93,15 @@ export default async function BlockPage({
           )}
         </div>
 
-        {/* Controls */}
-        <div className="mb-6 flex justify-end">
-          <BlockControls />
-        </div>
-
         {/* Preview & Code */}
         <Tabs defaultValue="preview" className="mb-12">
-          <TabsList>
-            <TabsTrigger value="preview">Preview</TabsTrigger>
-            <TabsTrigger value="code">Code</TabsTrigger>
-          </TabsList>
+          <div className="flex items-center justify-between">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+            </TabsList>
+            <BlockControls />
+          </div>
 
           <TabsContent value="preview" className="mt-6">
             <BlockPreview />

@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import type { Theme } from "@/types/blocks";
+import type { Theme, ScreenSize } from "@/types/blocks";
 
 export function useBlockTheme() {
   const [theme, setTheme] = useState<Theme>("light");
+  const [screenSize, setScreenSize] = useState<ScreenSize>("desktop");
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const updateTheme = (newTheme: Theme) => {
@@ -19,5 +20,5 @@ export function useBlockTheme() {
     }
   };
 
-  return { theme, setTheme: updateTheme, iframeRef };
+  return { theme, setTheme: updateTheme, screenSize, setScreenSize, iframeRef };
 }

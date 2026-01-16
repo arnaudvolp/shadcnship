@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PackageManagerProvider } from "@/providers/package-manager-provider";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -28,7 +29,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <PackageManagerProvider>
+            {children}
+          </PackageManagerProvider>
         </ThemeProvider>
       </body>
     </html>
