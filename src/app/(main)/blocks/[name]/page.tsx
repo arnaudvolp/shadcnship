@@ -58,7 +58,7 @@ export default async function BlockPage({
 
   return (
     <BlockProvider block={block}>
-      <div className="container mx-auto py-12">
+      <div className="container mx-auto py-12 border-x px-4">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
           <Link href="/blocks" className="hover:text-foreground">

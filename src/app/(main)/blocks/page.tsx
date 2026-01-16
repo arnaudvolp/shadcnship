@@ -13,7 +13,7 @@ export default function BlocksPage() {
   const categories = getCategories();
 
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-12 border-x px-4">
       {blocks.length === 0 ? (
         <BlocksEmpty />
       ) : (
