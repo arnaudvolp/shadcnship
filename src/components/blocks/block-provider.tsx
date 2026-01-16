@@ -2,10 +2,10 @@
 
 import { createContext, useContext, ReactNode } from "react";
 import { useBlockTheme } from "@/hooks/use-block-theme";
-import type { RegistryBlock, Theme } from "@/types/blocks";
+import type { SerializableRegistryBlock, Theme } from "@/types/blocks";
 
 interface BlockContextValue {
-  block: RegistryBlock;
+  block: SerializableRegistryBlock;
   theme: Theme;
   setTheme: (theme: Theme) => void;
   iframeRef: React.RefObject<HTMLIFrameElement | null>;
@@ -23,7 +23,7 @@ export function useBlockContext() {
 
 interface BlockProviderProps {
   children: ReactNode;
-  block: RegistryBlock;
+  block: SerializableRegistryBlock;
 }
 
 export function BlockProvider({ children, block }: BlockProviderProps) {

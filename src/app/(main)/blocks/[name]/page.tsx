@@ -48,6 +48,9 @@ export default async function BlockPage({
     notFound();
   }
 
+  // Extract only serializable data (exclude component and layout functions)
+  const { component, layout, ...serializableBlock } = block;
+
   // Get code from main component file
   const mainFile = block.files?.[0]; // First file is the main component
   const code = mainFile
@@ -57,7 +60,7 @@ export default async function BlockPage({
   const primaryCategory = block.categories[0];
 
   return (
-    <BlockProvider block={block}>
+    <BlockProvider block={serializableBlock}>
       <div className="container mx-auto py-12 border-x px-4">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">

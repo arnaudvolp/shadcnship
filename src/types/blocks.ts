@@ -56,3 +56,6 @@ export interface RegistryBlock {
   registryDependencies?: string[];
   image?: string;
 }
+
+// Serializable version (for passing to Client Components)
+export type SerializableRegistryBlock = Omit<RegistryBlock, "component" | "layout">;
