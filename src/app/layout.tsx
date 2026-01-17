@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PackageManagerProvider } from "@/providers/package-manager-provider";
+import { baseMetadata } from "@/config/site";
 
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Shadcn UI Blocks",
-  description:
-    "Beautiful, reusable components built with Shadcn UI and Tailwind CSS",
-};
+export const metadata = baseMetadata;
 
 export default function RootLayout({
   children,

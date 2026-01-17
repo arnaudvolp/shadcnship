@@ -23,7 +23,7 @@ export function BlockInstallCommand({ blockName }: BlockInstallCommandProps) {
   const { packageManager, setPackageManager, isHydrated } = usePackageManager();
 
   const currentPM = packageManagers[packageManager];
-  const blockUrl = `${siteConfig.appUrl}/r/${blockName}.json`;
+  const blockUrl = `${siteConfig.url}/r/${blockName}.json`;
 
   const handleCopy = () => {
     copyToClipboard(currentPM.command(blockUrl));

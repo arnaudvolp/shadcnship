@@ -1,12 +1,16 @@
 import { getBlocks, getCategories } from "@/lib/registry";
 import { BlocksGrid, BlocksEmpty } from "@/components/blocks";
 import type { SerializableRegistryBlock } from "@/types/blocks";
+import { constructMetadata, absoluteUrl } from "@/config/site";
 
-export const metadata = {
-  title: "Blocks",
+export const metadata = constructMetadata({
+  title: "Browse All Blocks",
   description:
-    "Beautiful, reusable components built with Shadcn UI and Tailwind CSS. Copy, paste, and customize.",
-};
+    "Explore our collection of beautiful, reusable Shadcn UI blocks and components. Filter by category, preview live demos, and copy code with one click.",
+  alternates: {
+    canonical: absoluteUrl("/blocks"),
+  },
+});
 
 export default function BlocksPage() {
   const blocks = getBlocks();

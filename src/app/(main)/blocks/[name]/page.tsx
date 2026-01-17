@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlock, getBlocks } from "@/lib/registry";
@@ -5,6 +6,7 @@ import { getBlockCode } from "@/lib/transform-code";
 import { BlockProvider } from "@/providers/block-provider";
 import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
+import { constructMetadata, absoluteUrl } from "@/config/site";
 
 export async function generateStaticParams() {
   const blocks = getBlocks();
@@ -15,23 +17,32 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ name: string }>;
-}) {
+}): Promise<Metadata> {
   const { name } = await params;
   const block = getBlock(name);
 
   if (!block) {
-    return {
+    return constructMetadata({
       title: "Block Not Found",
       description: "The requested block could not be found.",
-    };
+      noIndex: true,
+    });
   }
 
   const primaryCategory = block.categories[0];
+  const categoryTitle = primaryCategory?.title || "Component";
 
-  return {
-    title: `${block.title} - ${primaryCategory?.title || "Block"}`,
-    description: block.description || "",
-  };
+  return constructMetadata({
+    title: `${block.title} - ${categoryTitle} Block`,
+    description: `${block.description} A fully customizable and responsive ${categoryTitle.toLowerCase()} component built with Shadcn UI and Tailwind CSS. Preview and copy the code.`,
+    image: block.image || "/og-image.png",
+    alternates: {
+      canonical: absoluteUrl(`/blocks/${block.name}`),
+    },
+    openGraph: {
+      type: "article",
+    },
+  });
 }
 
 export default async function BlockPage({

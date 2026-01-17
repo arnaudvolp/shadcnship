@@ -16,7 +16,7 @@ import { siteConfig } from "@/config/site";
 export function BlockControls() {
   const { block } = useBlockContext();
 
-  const v0RegistryUrl = `${siteConfig.appUrl}/r/${block.name}.json`;
+  const v0RegistryUrl = `${siteConfig.url}/r/${block.name}.json`;
 
   return (
     <TooltipProvider delayDuration={0}>
