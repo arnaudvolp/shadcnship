@@ -1,11 +1,15 @@
-import React from "react";
-import type { BlockCategory, RegistryBlock } from "@/types/blocks";
+import type { BlockCategory } from "@/types/blocks";
 
+/**
+ * Categories configuration
+ * This is the single source of truth for category metadata (title, icon, description)
+ * registry.json references categories by name (string), this file provides the rich data
+ */
 export const categories = {
   hero: {
     name: "hero",
     title: "Hero",
-    icon: "",
+    icon: "🚀",
     description: "Eye-catching hero sections for landing pages",
   },
   pricing: {
@@ -100,21 +104,18 @@ export const categories = {
   },
 } as const satisfies Record<string, BlockCategory>;
 
-export const blocks: RegistryBlock[] = [
-  // Hero Blocks
-  {
-    name: "hero-01",
-    title: "Hero 01",
-    description: "A simple hero block with gradient background and CTA buttons",
-    component: React.lazy(() =>
-      import("@/registry/blocks/hero-01/hero").then((mod) => ({
-        default: mod.Hero01,
-      }))
-    ),
-    categories: [categories.hero],
-    files: [{ path: "hero.tsx" }],
-    dependencies: ["lucide-react"],
-    registryDependencies: ["button"],
-    image: "/images/blocks/hero-01.png",
-  },
-];
+export type CategoryName = keyof typeof categories;
+
+/**
+ * Get category by name
+ */
+export function getCategory(name: string): BlockCategory | undefined {
+  return categories[name as CategoryName];
+}
+
+/**
+ * Get all categories as array
+ */
+export function getAllCategories(): BlockCategory[] {
+  return Object.values(categories);
+}

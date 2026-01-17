@@ -46,14 +46,12 @@ export default async function BlockPage({
     notFound();
   }
 
-  // Extract only serializable data (exclude component and layout functions)
-  const { component, layout, ...serializableBlock } = block;
+  // Extract only serializable data (exclude component function)
+  const { component, ...serializableBlock } = block;
 
-  // Get code from main component file
-  const mainFile = block.files?.[0]; // First file is the main component
-  const code = mainFile
-    ? await getBlockCode(`src/registry/blocks/${block.name}/${mainFile.path}`)
-    : "";
+  // Get code from main component file (path is already full path from registry.json)
+  const mainFile = block.files?.[0];
+  const code = mainFile ? await getBlockCode(mainFile.path) : "";
 
   const primaryCategory = block.categories[0];
 

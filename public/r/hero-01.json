@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-01",
+  "title": "Hero 01",
+  "description": "A simple hero section with a gradient background and call-to-action buttons",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/hero-01/hero.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { ArrowRight } from \"lucide-react\";\n\nexport function Hero01() {\n  return (\n    <section className=\"relative min-h-screen flex items-center justify-center overflow-hidden\">\n      {/* Gradient background */}\n      <div className=\"absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20\" />\n\n      {/* Content */}\n      <div className=\"relative z-10 container mx-auto px-4 text-center\">\n        <h1 className=\"text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary\">\n          Build faster with Blocks\n        </h1>\n\n        <p className=\"text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto\">\n          Beautiful, reusable components built with Shadcn UI and Tailwind CSS.\n          Copy, paste, and customize for your next project.\n        </p>\n\n        <div className=\"flex flex-col sm:flex-row gap-4 justify-center\">\n          <Button size=\"lg\" className=\"group\">\n            Get Started\n            <ArrowRight className=\"ml-2 h-4 w-4 transition-transform group-hover:translate-x-1\" />\n          </Button>\n          <Button size=\"lg\" variant=\"outline\">\n            View Blocks\n          </Button>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/images/blocks/hero-01.png"
+  },
+  "categories": [
+    "hero"
+  ],
+  "type": "registry:block"
+}

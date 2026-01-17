@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { getBlock } from "@/lib/registry";
+import { getBlock, getBlocks } from "@/lib/registry";
 import { PreviewThemeHandler } from "@/components/blocks";
 
 interface PreviewPageProps {
@@ -8,7 +8,7 @@ interface PreviewPageProps {
 }
 
 export async function generateStaticParams() {
-  const { blocks } = await import("@/config/blocks");
+  const blocks = getBlocks();
   return blocks.map((block) => ({ name: block.name }));
 }
 
@@ -35,13 +35,7 @@ export default async function PreviewPage(props: PreviewPageProps) {
             </div>
           }
         >
-          {blockDetails.layout ? (
-            <blockDetails.layout>
-              <Component />
-            </blockDetails.layout>
-          ) : (
-            <Component />
-          )}
+          <Component />
         </Suspense>
       </div>
     </>

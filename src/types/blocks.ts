@@ -4,14 +4,7 @@ export type Theme = "light" | "dark";
 
 export type ScreenSize = "mobile" | "tablet" | "desktop";
 
-export type Plan = "free" | "pro" | "premium";
-
-export const BLOCK_PRICING: Record<Plan, Plan> = {
-  free: "free",
-  pro: "pro",
-  premium: "premium",
-};
-
+// Category with rich metadata (from config/categories.ts)
 export type BlockCategory = {
   name: string;
   title: string;
@@ -26,41 +19,46 @@ export interface RegistryFile {
 }
 
 export interface RegistryMeta {
-  category?: string;
-  tags?: string[];
   image?: string;
+  [key: string]: unknown;
 }
 
-// Type for registry.json (shadcn CLI compatibility)
-export interface RegistryItem {
+// Type for raw registry.json items (shadcn CLI schema)
+export interface RegistryJsonItem {
   name: string;
   type: string;
   title: string;
   description?: string;
   dependencies?: string[];
   registryDependencies?: string[];
+  categories?: string[]; // Official schema: string[]
   files?: RegistryFile[];
   meta?: RegistryMeta;
 }
 
-// Type for blocks config (with React components)
+// Type for registry.json file structure
+export interface RegistryJson {
+  $schema?: string;
+  name: string;
+  homepage?: string;
+  items: RegistryJsonItem[];
+}
+
+// Type for enriched blocks (with React components and category objects)
 export interface RegistryBlock {
   name: string;
   title: string;
-  slug?: string;
   description: string;
-  categories: BlockCategory[];
+  categories: BlockCategory[]; // Enriched with full category data
   component?: React.LazyExoticComponent<() => JSX.Element>;
   files: RegistryFile[];
-  layout?: React.FC<{ children: React.ReactNode }>;
-  pricing?: Plan;
   dependencies?: string[];
   registryDependencies?: string[];
   image?: string;
 }
 
 // Serializable version (for passing to Client Components)
-export type SerializableRegistryBlock = Omit<RegistryBlock, "component" | "layout">;
+export type SerializableRegistryBlock = Omit<RegistryBlock, "component">;
 
 // Theme preset system
 export interface ThemePresetColors {

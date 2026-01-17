@@ -12,9 +12,9 @@ export default function BlocksPage() {
   const blocks = getBlocks();
   const categories = getCategories();
 
-  // Convert blocks to serializable format (remove component and layout functions)
+  // Convert blocks to serializable format (remove component function)
   const serializableBlocks: SerializableRegistryBlock[] = blocks.map(
-    ({ component, layout, ...rest }) => rest
+    ({ component, ...rest }) => rest
   );
 
   return (
