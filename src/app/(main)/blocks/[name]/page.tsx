@@ -4,7 +4,7 @@ import { getBlock, getBlocks } from "@/lib/registry";
 import { getBlockCode } from "@/lib/transform-code";
 import { BlockProvider } from "@/providers/block-provider";
 import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 
 export async function generateStaticParams() {
   const blocks = getBlocks();
@@ -59,100 +59,41 @@ export default async function BlockPage({
 
   return (
     <BlockProvider block={serializableBlock}>
-      <div className="container mx-auto py-12 border-x px-4">
-        {/* Breadcrumb */}
+      <div className="container mx-auto py-6 border-x px-4">
+        {/* Compact Header: Breadcrumb + Title inline */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
           <Link href="/blocks" className="hover:text-foreground">
             Blocks
           </Link>
           <span>/</span>
-          {primaryCategory && <span>{primaryCategory.title}</span>}
-        </div>
-
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{block.title}</h1>
-          {block.description && (
-            <p className="text-xl text-muted-foreground">{block.description}</p>
+          {primaryCategory && (
+            <span className="hover:text-foreground">
+              {primaryCategory.title}
+            </span>
           )}
-
-          {/* Categories */}
-          {block.categories && block.categories.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {block.categories.map((category) => (
-                <span
-                  key={category.name}
-                  className="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
-                >
-                  {category.icon} {category.title}
-                </span>
-              ))}
-            </div>
-          )}
+          <span>/</span>
+          <span className="font-medium text-foreground">{block.title}</span>
         </div>
 
         {/* Preview & Code */}
-        <Tabs defaultValue="preview" className="mb-12">
-          <div className="flex items-center justify-between">
-            <TabsList>
-              <TabsTrigger value="preview">Preview</TabsTrigger>
-              <TabsTrigger value="code">Code</TabsTrigger>
-            </TabsList>
-            <BlockControls />
-          </div>
+        <Tabs defaultValue="preview">
+          <div className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center justify-between mb-2">
+            {/* Line 1: Component name */}
+            <h1 className="text-lg font-semibold mb-3md:mb-0">{block.title}</h1>
 
-          <TabsContent value="preview" className="mt-6">
+            {/* Line 2: Toolbar */}
+            <div className="w-full md:w-fit">
+              <BlockControls />
+            </div>
+          </div>
+          <TabsContent value="preview" className="mt-0">
             <BlockPreview />
           </TabsContent>
 
-          <TabsContent value="code" className="mt-6">
+          <TabsContent value="code" className="mt-0">
             <BlockCode code={code} />
           </TabsContent>
         </Tabs>
-
-        {/* Installation */}
-        <div className="rounded-lg border p-6">
-          <h2 className="text-2xl font-semibold mb-4">Installation</h2>
-
-          <div className="space-y-4">
-            <div>
-              <p className="text-sm text-muted-foreground mb-2">
-                Install via CLI:
-              </p>
-              <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-                <code className="text-sm">
-                  npx shadcn@latest add{" "}
-                  {process.env.NEXT_PUBLIC_REGISTRY_URL ||
-                    "https://your-registry.com"}
-                  /r/{block.name}.json
-                </code>
-              </pre>
-            </div>
-
-            {block.dependencies && block.dependencies.length > 0 && (
-              <div>
-                <p className="text-sm font-medium mb-2">Dependencies:</p>
-                <ul className="text-sm text-muted-foreground list-disc list-inside">
-                  {block.dependencies.map((dep) => (
-                    <li key={dep}>{dep}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {block.registryDependencies &&
-              block.registryDependencies.length > 0 && (
-                <div>
-                  <p className="text-sm font-medium mb-2">Shadcn Components:</p>
-                  <ul className="text-sm text-muted-foreground list-disc list-inside">
-                    {block.registryDependencies.map((dep) => (
-                      <li key={dep}>{dep}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-          </div>
-        </div>
       </div>
     </BlockProvider>
   );

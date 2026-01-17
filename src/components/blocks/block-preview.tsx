@@ -10,7 +10,7 @@ const screenWidths: Record<ScreenSize, string> = {
 };
 
 export function BlockPreview() {
-  const { block, theme, screenSize, iframeRef } = useBlockContext();
+  const { block, screenSize, iframeRef } = useBlockContext();
 
   return (
     <div className="relative w-full overflow-hidden rounded-lg border bg-muted/50">
@@ -20,7 +20,7 @@ export function BlockPreview() {
       >
         <iframe
           ref={iframeRef}
-          src={`/blocks/${block.name}/preview?theme=${theme}`}
+          src={`/blocks/${block.name}/preview`}
           className="w-full border-0"
           style={{ height: "600px" }}
           title={`Preview of ${block.title}`}

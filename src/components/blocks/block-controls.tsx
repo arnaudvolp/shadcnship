@@ -1,6 +1,7 @@
 "use client";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useBlockContext } from "../../providers/block-provider";
 import {
   BlockInstallCommand,
@@ -19,13 +20,37 @@ export function BlockControls() {
 
   return (
     <TooltipProvider delayDuration={0}>
-      <div className="flex items-center gap-2">
-        <BlockInstallCommand blockName={block.name} />
-        <BlockThemeToggle />
-        <BlockFullscreenButton blockName={block.name} />
-        <V0Button url={v0RegistryUrl} />
-        <ScreenSizeSelector />
+      {/* Mobile layout */}
+      <div className="flex md:hidden items-center justify-between w-full">
+        <div className="flex items-center gap-2">
+          <BlockInstallCommand blockName={block.name} />
+          <V0Button url={v0RegistryUrl} />
+          <BlockFullscreenButton blockName={block.name} />
+        </div>
         <ThemePresetSelector />
+      </div>
+
+      {/* Desktop layout */}
+      <div className="hidden md:flex flex-wrap items-center gap-2">
+        <BlockInstallCommand blockName={block.name} />
+        <V0Button url={v0RegistryUrl} />
+        <BlockFullscreenButton blockName={block.name} />
+
+        <div className="h-4 w-px bg-border mx-1" />
+
+        <BlockThemeToggle />
+        <ThemePresetSelector />
+
+        <div className="h-4 w-px bg-border mx-1" />
+
+        <ScreenSizeSelector />
+
+        <div className="h-4 w-px bg-border mx-1" />
+
+        <TabsList>
+          <TabsTrigger value="preview">Preview</TabsTrigger>
+          <TabsTrigger value="code">Code</TabsTrigger>
+        </TabsList>
       </div>
     </TooltipProvider>
   );

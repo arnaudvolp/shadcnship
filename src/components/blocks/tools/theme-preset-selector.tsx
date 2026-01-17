@@ -14,14 +14,17 @@ import { themePresets } from "@/config/theme-presets";
 import type { ThemePreset, ThemePresetColors } from "@/types/blocks";
 import { cn } from "@/lib/utils";
 
-function ColorDots({ colors }: { colors: ThemePresetColors }) {
+function ColorDots({ colors, compact = false }: { colors: ThemePresetColors; compact?: boolean }) {
   // Extract the main colors for display
-  const dotColors = [
+  const allColors = [
     colors.primary,
     colors.secondary,
     colors.accent,
     colors.muted,
   ];
+
+  // Show only first 2 colors in compact mode (mobile)
+  const dotColors = compact ? allColors.slice(0, 2) : allColors;
 
   return (
     <div className="flex items-center gap-0.5">
@@ -60,13 +63,20 @@ export function ThemePresetSelector() {
         <Button
           variant="outline"
           size="sm"
-          className="gap-2 min-w-[140px] justify-between"
+          className="gap-2 md:min-w-[140px] justify-between"
         >
           <div className="flex items-center gap-2">
-            <ColorDots colors={currentColors} />
-            <span className="font-normal">{themePreset.label}</span>
+            {/* Mobile: 2 dots only */}
+            <div className="md:hidden">
+              <ColorDots colors={currentColors} compact />
+            </div>
+            {/* Desktop: 4 dots */}
+            <div className="hidden md:block">
+              <ColorDots colors={currentColors} />
+            </div>
+            <span className="font-normal hidden md:inline">{themePreset.label}</span>
           </div>
-          <ChevronDown className="size-3.5 text-muted-foreground" />
+          <ChevronDown className="size-3.5 text-muted-foreground hidden md:block" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[240px]">
