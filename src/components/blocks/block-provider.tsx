@@ -2,7 +2,7 @@
 
 import { createContext, useContext, ReactNode } from "react";
 import { useBlockTheme } from "@/hooks/use-block-theme";
-import type { SerializableRegistryBlock, Theme, ScreenSize } from "@/types/blocks";
+import type { SerializableRegistryBlock, Theme, ScreenSize, ThemePreset } from "@/types/blocks";
 
 interface BlockContextValue {
   block: SerializableRegistryBlock;
@@ -10,6 +10,8 @@ interface BlockContextValue {
   setTheme: (theme: Theme) => void;
   screenSize: ScreenSize;
   setScreenSize: (size: ScreenSize) => void;
+  themePreset: ThemePreset;
+  setThemePreset: (preset: ThemePreset) => void;
   iframeRef: React.RefObject<HTMLIFrameElement | null>;
 }
 
@@ -29,10 +31,10 @@ interface BlockProviderProps {
 }
 
 export function BlockProvider({ children, block }: BlockProviderProps) {
-  const { theme, setTheme, screenSize, setScreenSize, iframeRef } = useBlockTheme();
+  const { theme, setTheme, screenSize, setScreenSize, themePreset, setThemePreset, iframeRef } = useBlockTheme();
 
   return (
-    <BlockContext.Provider value={{ block, theme, setTheme, screenSize, setScreenSize, iframeRef }}>
+    <BlockContext.Provider value={{ block, theme, setTheme, screenSize, setScreenSize, themePreset, setThemePreset, iframeRef }}>
       {children}
     </BlockContext.Provider>
   );
