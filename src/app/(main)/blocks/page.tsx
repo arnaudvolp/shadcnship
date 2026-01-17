@@ -1,6 +1,6 @@
 import { getBlocks, getCategories } from "@/lib/registry";
-import { BlocksList } from "@/components/blocks/blocks-list";
-import { BlocksEmpty } from "@/components/blocks/blocks-empty";
+import { BlocksGrid, BlocksEmpty } from "@/components/blocks";
+import type { SerializableRegistryBlock } from "@/types/blocks";
 
 export const metadata = {
   title: "Blocks",
@@ -12,12 +12,17 @@ export default function BlocksPage() {
   const blocks = getBlocks();
   const categories = getCategories();
 
+  // Convert blocks to serializable format (remove component and layout functions)
+  const serializableBlocks: SerializableRegistryBlock[] = blocks.map(
+    ({ component, layout, ...rest }) => rest
+  );
+
   return (
     <div className="container mx-auto py-12 border-x px-4">
       {blocks.length === 0 ? (
         <BlocksEmpty />
       ) : (
-        <BlocksList blocks={blocks} categories={categories} />
+        <BlocksGrid blocks={serializableBlocks} categories={categories} />
       )}
     </div>
   );

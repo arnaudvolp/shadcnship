@@ -1,6 +1,6 @@
 "use client";
 
-import { useBlockContext } from "./block-provider";
+import { useBlockContext } from "../../providers/block-provider";
 import type { ScreenSize } from "@/types/blocks";
 
 const screenWidths: Record<ScreenSize, string> = {

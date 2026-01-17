@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { getBlock } from "@/lib/registry";
-import { PreviewThemeHandler } from "@/components/blocks/preview-theme-handler";
+import { PreviewThemeHandler } from "@/components/blocks";
 
 interface PreviewPageProps {
   params: Promise<{ name: string }>;

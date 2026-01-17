@@ -1,13 +1,15 @@
 "use client";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useBlockContext } from "./block-provider";
-import { BlockInstallCommand } from "./block-install-command";
-import { BlockThemeToggle } from "./block-theme-toggle";
-import { BlockFullscreenButton } from "./block-fullscreen-button";
-import { V0Button } from "./v0-button";
-import { ScreenSizeSelector } from "./screen-size-selector";
-import { ThemePresetSelector } from "./theme-preset-selector";
+import { useBlockContext } from "../../providers/block-provider";
+import {
+  BlockInstallCommand,
+  BlockThemeToggle,
+  BlockFullscreenButton,
+  V0Button,
+  ScreenSizeSelector,
+  ThemePresetSelector,
+} from "./tools";
 
 export function BlockControls() {
   const { block } = useBlockContext();

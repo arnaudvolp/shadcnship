@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useBlockContext } from "./block-provider";
+import { useBlockContext } from "@/providers/block-provider";
 import { themePresets } from "@/config/theme-presets";
 import type { ThemePreset, ThemePresetColors } from "@/types/blocks";
 import { cn } from "@/lib/utils";
@@ -57,7 +57,11 @@ export function ThemePresetSelector() {
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2 min-w-[140px] justify-between">
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-2 min-w-[140px] justify-between"
+        >
           <div className="flex items-center gap-2">
             <ColorDots colors={currentColors} />
             <span className="font-normal">{themePreset.label}</span>
@@ -67,7 +71,9 @@ export function ThemePresetSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[240px]">
         <div className="p-2">
-          <p className="text-xs font-medium text-muted-foreground mb-2">Themes</p>
+          <p className="text-xs font-medium text-muted-foreground mb-2">
+            Themes
+          </p>
           <div className="relative">
             <Search className="absolute left-2 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
             <input
@@ -97,7 +103,9 @@ export function ThemePresetSelector() {
                 <ColorDots colors={preset.colors[theme]} />
                 <span className="flex-1">{preset.label}</span>
                 {preset.author && (
-                  <span className="text-xs text-muted-foreground">by {preset.author}</span>
+                  <span className="text-xs text-muted-foreground">
+                    by {preset.author}
+                  </span>
                 )}
                 {themePreset.name === preset.name && (
                   <Check className="size-4 text-green-500" />

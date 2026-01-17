@@ -7,14 +7,15 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useBlockContext } from "./block-provider";
+import { useBlockContext } from "../../../providers/block-provider";
 import type { ScreenSize } from "@/types/blocks";
 
-const screenSizes: { name: ScreenSize; icon: typeof Monitor; label: string }[] = [
-  { name: "mobile", icon: Smartphone, label: "Mobile" },
-  { name: "tablet", icon: Tablet, label: "Tablet" },
-  { name: "desktop", icon: Monitor, label: "Desktop" },
-];
+const screenSizes: { name: ScreenSize; icon: typeof Monitor; label: string }[] =
+  [
+    { name: "mobile", icon: Smartphone, label: "Mobile" },
+    { name: "tablet", icon: Tablet, label: "Tablet" },
+    { name: "desktop", icon: Monitor, label: "Desktop" },
+  ];
 
 export function ScreenSizeSelector() {
   const { screenSize, setScreenSize } = useBlockContext();

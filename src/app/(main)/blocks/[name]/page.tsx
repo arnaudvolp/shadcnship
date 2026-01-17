@@ -2,10 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlock, getBlocks } from "@/lib/registry";
 import { getBlockCode } from "@/lib/transform-code";
-import { BlockProvider } from "@/components/blocks/block-provider";
-import { BlockPreview } from "@/components/blocks/block-preview";
-import { BlockControls } from "@/components/blocks/block-controls";
-import { BlockCode } from "@/components/blocks/block-code";
+import { BlockProvider } from "@/providers/block-provider";
+import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export async function generateStaticParams() {

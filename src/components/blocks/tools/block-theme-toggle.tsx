@@ -7,7 +7,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useBlockContext } from "./block-provider";
+import { useBlockContext } from "../../../providers/block-provider";
 
 export function BlockThemeToggle() {
   const { theme, setTheme } = useBlockContext();

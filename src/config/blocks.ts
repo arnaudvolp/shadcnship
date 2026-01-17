@@ -4,8 +4,8 @@ import type { BlockCategory, RegistryBlock } from "@/types/blocks";
 export const categories = {
   hero: {
     name: "hero",
-    title: "Hero Sections",
-    icon: "🚀",
+    title: "Hero",
+    icon: "",
     description: "Eye-catching hero sections for landing pages",
   },
   pricing: {
@@ -106,13 +106,13 @@ export const blocks: RegistryBlock[] = [
     name: "hero-01",
     title: "Hero 01",
     description: "A simple hero block with gradient background and CTA buttons",
-    component: React.lazy(
-      () => import("@/registry/blocks/hero-01/hero").then(mod => ({ default: mod.Hero01 }))
+    component: React.lazy(() =>
+      import("@/registry/blocks/hero-01/hero").then((mod) => ({
+        default: mod.Hero01,
+      }))
     ),
     categories: [categories.hero],
-    files: [
-      { path: "hero.tsx" },
-    ],
+    files: [{ path: "hero.tsx" }],
     dependencies: ["lucide-react"],
     registryDependencies: ["button"],
     image: "/images/blocks/hero-01.png",

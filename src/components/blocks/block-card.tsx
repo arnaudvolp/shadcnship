@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import type { RegistryBlock } from "@/types/blocks";
+import type { SerializableRegistryBlock } from "@/types/blocks";
 
 interface BlockCardProps {
-  block: RegistryBlock;
+  block: SerializableRegistryBlock;
 }
 
 export function BlockCard({ block }: BlockCardProps) {
