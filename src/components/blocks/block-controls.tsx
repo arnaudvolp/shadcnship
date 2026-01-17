@@ -11,12 +11,12 @@ import {
   ScreenSizeSelector,
   ThemePresetSelector,
 } from "./tools";
+import { siteConfig } from "@/config/site";
 
 export function BlockControls() {
   const { block } = useBlockContext();
 
-  const registryUrl = process.env.NEXT_PUBLIC_REGISTRY_URL || "";
-  const v0RegistryUrl = `${registryUrl}/r/${block.name}.json`;
+  const v0RegistryUrl = `${siteConfig.appUrl}/r/${block.name}.json`;
 
   return (
     <TooltipProvider delayDuration={0}>

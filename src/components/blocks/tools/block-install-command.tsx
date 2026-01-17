@@ -12,6 +12,7 @@ import {
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { usePackageManager } from "@/providers/package-manager-provider";
 import { packageManagers, type PackageManager } from "@/config/package-managers";
+import { siteConfig } from "@/config/site";
 
 interface BlockInstallCommandProps {
   blockName: string;
@@ -22,8 +23,7 @@ export function BlockInstallCommand({ blockName }: BlockInstallCommandProps) {
   const { packageManager, setPackageManager, isHydrated } = usePackageManager();
 
   const currentPM = packageManagers[packageManager];
-  const registryUrl = process.env.NEXT_PUBLIC_REGISTRY_URL || "";
-  const blockUrl = `${registryUrl}/r/${blockName}.json`;
+  const blockUrl = `${siteConfig.appUrl}/r/${blockName}.json`;
 
   const handleCopy = () => {
     copyToClipboard(currentPM.command(blockUrl));
