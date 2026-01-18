@@ -7,6 +7,7 @@ import { BlockProvider } from "@/providers/block-provider";
 import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { constructMetadata, absoluteUrl } from "@/config/site";
+import { ChevronRight } from "lucide-react";
 
 export async function generateStaticParams() {
   const blocks = getBlocks();
@@ -68,25 +69,25 @@ export default async function BlockPage({
 
   return (
     <BlockProvider block={serializableBlock}>
-      <div className="container mx-auto py-6 border-x px-4">
+      <div className="container mx-auto border-x">
         {/* Compact Header: Breadcrumb + Title inline */}
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground border-b p-4">
           <Link href="/blocks" className="hover:text-foreground">
             Blocks
           </Link>
-          <span>/</span>
+          <span><ChevronRight className="size-4" /></span>
           {primaryCategory && (
             <span className="hover:text-foreground">
               {primaryCategory.title}
             </span>
           )}
-          <span>/</span>
+          <span><ChevronRight className="size-4" /></span>
           <span className="font-medium text-foreground">{block.title}</span>
         </div>
 
         {/* Preview & Code */}
-        <Tabs defaultValue="preview">
-          <div className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center justify-between mb-2">
+        <Tabs defaultValue="preview" className="gap-0">
+          <div className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center justify-between p-4">
             {/* Line 1: Component name */}
             <h1 className="text-lg font-semibold mb-3 md:mb-0">{block.title}</h1>
 
@@ -95,11 +96,11 @@ export default async function BlockPage({
               <BlockControls />
             </div>
           </div>
-          <TabsContent value="preview" className="mt-0">
+          <TabsContent value="preview">
             <BlockPreview />
           </TabsContent>
 
-          <TabsContent value="code" className="mt-0">
+          <TabsContent value="code" >
             <BlockCode code={code} />
           </TabsContent>
         </Tabs>

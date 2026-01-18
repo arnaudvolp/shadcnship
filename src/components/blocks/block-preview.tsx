@@ -13,7 +13,7 @@ export function BlockPreview() {
   const { block, screenSize, iframeRef } = useBlockContext();
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg border bg-background">
+    <div className="relative w-full overflow-hidden border-t bg-accent">
       <div
         className="mx-auto transition-all duration-300 w-full shadow-sm h-[700px] overflow-auto"
         style={{ width: screenWidths[screenSize] }}
