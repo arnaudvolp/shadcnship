@@ -11,6 +11,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],
       "categories": ["hero"],
+      "meta": { "image": "/r/previews/hero-01.webp" },
       "files": [{ "path": "src/registry/blocks/hero-01/hero.tsx", "type": "registry:component" }]
     },
     {
@@ -21,6 +22,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],
       "categories": ["hero"],
+      "meta": { "image": "/r/previews/hero-02.webp" },
       "files": [{ "path": "src/registry/blocks/hero-02/hero.tsx", "type": "registry:component" }]
     },
     {
@@ -31,6 +33,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge", "card", "separator"],
       "categories": ["hero"],
+      "meta": { "image": "/r/previews/hero-03.webp" },
       "files": [{ "path": "src/registry/blocks/hero-03/hero.tsx", "type": "registry:component" }]
     },
     {
@@ -41,6 +44,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge", "avatar"],
       "categories": ["hero"],
+      "meta": { "image": "/r/previews/hero-04.webp" },
       "files": [{ "path": "src/registry/blocks/hero-04/hero.tsx", "type": "registry:component" }]
     },
     {
@@ -51,6 +55,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],
       "categories": ["hero"],
+      "meta": { "image": "/r/previews/hero-05.webp" },
       "files": [{ "path": "src/registry/blocks/hero-05/hero.tsx", "type": "registry:component" }]
     },
     {
@@ -61,6 +66,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
       "categories": ["feature"],
+      "meta": { "image": "/r/previews/feature-01.webp" },
       "files": [{ "path": "src/registry/blocks/feature-01/feature.tsx", "type": "registry:component" }]
     },
     {
@@ -71,6 +77,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card"],
       "categories": ["feature"],
+      "meta": { "image": "/r/previews/feature-02.webp" },
       "files": [{ "path": "src/registry/blocks/feature-02/feature.tsx", "type": "registry:component" }]
     },
     {
@@ -81,6 +88,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card"],
       "categories": ["feature"],
+      "meta": { "image": "/r/previews/feature-03.webp" },
       "files": [{ "path": "src/registry/blocks/feature-03/feature.tsx", "type": "registry:component" }]
     },
     {
@@ -91,6 +99,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card"],
       "categories": ["feature"],
+      "meta": { "image": "/r/previews/feature-04.webp" },
       "files": [{ "path": "src/registry/blocks/feature-04/feature.tsx", "type": "registry:component" }]
     },
     {
@@ -101,6 +110,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["accordion"],
       "categories": ["feature"],
+      "meta": { "image": "/r/previews/feature-05.webp" },
       "files": [{ "path": "src/registry/blocks/feature-05/feature.tsx", "type": "registry:component" }]
     },
     {
@@ -111,6 +121,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card", "switch", "badge"],
       "categories": ["pricing"],
+      "meta": { "image": "/r/previews/pricing-01.webp" },
       "files": [{ "path": "src/registry/blocks/pricing-01/pricing.tsx", "type": "registry:component" }]
     },
     {
@@ -121,6 +132,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
       "categories": ["pricing"],
+      "meta": { "image": "/r/previews/pricing-02.webp" },
       "files": [{ "path": "src/registry/blocks/pricing-02/pricing.tsx", "type": "registry:component" }]
     },
     {
@@ -131,6 +143,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card", "tabs", "badge", "separator"],
       "categories": ["pricing"],
+      "meta": { "image": "/r/previews/pricing-03.webp" },
       "files": [{ "path": "src/registry/blocks/pricing-03/pricing.tsx", "type": "registry:component" }]
     },
     {
@@ -141,6 +154,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
       "categories": ["cta"],
+      "meta": { "image": "/r/previews/cta-01.webp" },
       "files": [{ "path": "src/registry/blocks/cta-01/cta.tsx", "type": "registry:component" }]
     },
     {
@@ -151,6 +165,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
       "categories": ["cta"],
+      "meta": { "image": "/r/previews/cta-02.webp" },
       "files": [{ "path": "src/registry/blocks/cta-02/cta.tsx", "type": "registry:component" }]
     },
     {
@@ -161,6 +176,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "input"],
       "categories": ["cta"],
+      "meta": { "image": "/r/previews/cta-03.webp" },
       "files": [{ "path": "src/registry/blocks/cta-03/cta.tsx", "type": "registry:component" }]
     },
     {
@@ -171,6 +187,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
       "categories": ["cta"],
+      "meta": { "image": "/r/previews/cta-04.webp" },
       "files": [{ "path": "src/registry/blocks/cta-04/cta.tsx", "type": "registry:component" }]
     },
     {
@@ -181,6 +198,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["accordion"],
       "categories": ["faq"],
+      "meta": { "image": "/r/previews/faq-01.webp" },
       "files": [{ "path": "src/registry/blocks/faq-01/faq.tsx", "type": "registry:component" }]
     },
     {
@@ -191,6 +209,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["accordion"],
       "categories": ["faq"],
+      "meta": { "image": "/r/previews/faq-02.webp" },
       "files": [{ "path": "src/registry/blocks/faq-02/faq.tsx", "type": "registry:component" }]
     },
     {
@@ -201,6 +220,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card", "avatar", "https://magicui.design/r/marquee.json"],
       "categories": ["testimonial"],
+      "meta": { "image": "/r/previews/testimonial-01.webp" },
       "files": [{ "path": "src/registry/blocks/testimonial-01/testimonial.tsx", "type": "registry:component" }]
     },
     {
@@ -211,6 +231,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card"],
       "categories": ["stat"],
+      "meta": { "image": "/r/previews/stat-01.webp" },
       "files": [{ "path": "src/registry/blocks/stat-01/stat.tsx", "type": "registry:component" }]
     },
     {
@@ -221,6 +242,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "categories": ["stat"],
+      "meta": { "image": "/r/previews/stat-02.webp" },
       "files": [{ "path": "src/registry/blocks/stat-02/stat.tsx", "type": "registry:component" }]
     },
     {
@@ -231,6 +253,7 @@
       "dependencies": [],
       "registryDependencies": ["card", "https://magicui.design/r/marquee.json"],
       "categories": ["logo"],
+      "meta": { "image": "/r/previews/logo-01.webp" },
       "files": [{ "path": "src/registry/blocks/logo-01/logo.tsx", "type": "registry:component" }]
     },
     {
@@ -241,6 +264,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card", "input", "label"],
       "categories": ["contact"],
+      "meta": { "image": "/r/previews/contact-01.webp" },
       "files": [{ "path": "src/registry/blocks/contact-01/contact.tsx", "type": "registry:component" }]
     },
     {
@@ -251,6 +275,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "categories": ["footer"],
+      "meta": { "image": "/r/previews/footer-01.webp" },
       "files": [{ "path": "src/registry/blocks/footer-01/footer.tsx", "type": "registry:component" }]
     },
     {
@@ -261,6 +286,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "sheet", "navigation-menu", "accordion"],
       "categories": ["navbar"],
+      "meta": { "image": "/r/previews/navbar-01.webp" },
       "files": [{ "path": "src/registry/blocks/navbar-01/navbar.tsx", "type": "registry:component" }]
     }
   ]
