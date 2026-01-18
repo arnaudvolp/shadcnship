@@ -13,16 +13,16 @@ export function BlockPreview() {
   const { block, screenSize, iframeRef } = useBlockContext();
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg border bg-muted/50">
+    <div className="relative w-full overflow-hidden rounded-lg border bg-background">
       <div
-        className="mx-auto bg-background transition-all duration-300"
+        className="mx-auto transition-all duration-300 w-full shadow-sm h-[700px] overflow-auto"
         style={{ width: screenWidths[screenSize] }}
       >
         <iframe
           ref={iframeRef}
           src={`/blocks/${block.name}/preview`}
-          className="w-full border-0"
-          style={{ height: "600px" }}
+          height="100%" width="100%" 
+     
           title={`Preview of ${block.title}`}
         />
       </div>

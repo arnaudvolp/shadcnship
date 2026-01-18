@@ -88,7 +88,7 @@ export default async function BlockPage({
         <Tabs defaultValue="preview">
           <div className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center justify-between mb-2">
             {/* Line 1: Component name */}
-            <h1 className="text-lg font-semibold mb-3md:mb-0">{block.title}</h1>
+            <h1 className="text-lg font-semibold mb-3 md:mb-0">{block.title}</h1>
 
             {/* Line 2: Toolbar */}
             <div className="w-full md:w-fit">

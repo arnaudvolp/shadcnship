@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-03",
+  "title": "Hero 03",
+  "description": "A two-column hero with star rating, stats card and image",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "badge",
+    "card",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/hero-03/hero.tsx",
+      "content": "import { ArrowUpRight, Star } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { Button } from \"@/components/ui/button\";\nimport { Card } from \"@/components/ui/card\";\nimport { Separator } from \"@/components/ui/separator\";\n\ninterface Hero03Props {\n  badge?: string;\n  heading?: string;\n  buttonText?: string;\n  buttonUrl?: string;\n  ratingText?: string;\n  stats?: { value: string; label: string }[];\n  image?: string;\n  className?: string;\n}\n\nconst Hero03 = ({\n  badge = \"5000+ Developers Using\",\n  heading = \"Build Faster with  shadcn ui\",\n  buttonText = \"Browse Components\",\n  buttonUrl = \"#\",\n  ratingText = \"Loved by developers worldwide\",\n  stats = [\n    { value: \"100+\", label: \"Components\" },\n    { value: \"5000+\", label: \"Developers\" },\n    { value: \"99%\", label: \"Time Saved\" },\n  ],\n  image = \"/placeholder.svg\",\n  className,\n}: Hero03Props) => {\n  return (\n    <section className={cn(\"py-20 lg:py-32\", className)}>\n      <div className=\"container\">\n        <div className=\"grid gap-8 lg:grid-cols-2 lg:gap-12\">\n          <div className=\"flex flex-col justify-center items-center lg:items-start gap-6 text-center lg:text-left\">\n            <Badge\n              variant=\"outline\"\n              className=\"rounded-full w-fit mx-auto lg:mx-0\"\n            >\n              {badge}\n            </Badge>\n\n            <h1 className=\"text-4xl font-semibold md:text-5xl lg:text-6xl\">\n              {heading}\n            </h1>\n\n            <Button size=\"lg\" asChild className=\"w-fit mx-auto lg:mx-0\">\n              <a href={buttonUrl} className=\"gap-2\">\n                {buttonText}\n                <ArrowUpRight className=\"size-4\" />\n              </a>\n            </Button>\n\n            <div className=\"flex items-center gap-2 mx-auto lg:mx-0\">\n              <div className=\"flex\">\n                {[...Array(5)].map((_, i) => (\n                  <Star\n                    key={`star-${i}`}\n                    className=\"size-4 fill-primary text-primary\"\n                  />\n                ))}\n              </div>\n              <Separator orientation=\"vertical\" className=\"h-4\" />\n              <span className=\"text-sm text-muted-foreground\">\n                {ratingText}\n              </span>\n            </div>\n\n            <Card className=\"w-full\">\n              <div className=\"flex divide-x\">\n                {stats.map((stat) => (\n                  <div\n                    key={stat.label}\n                    className=\"flex flex-1 flex-col items-center py-6\"\n                  >\n                    <span className=\"lg:text-2xl text-xl font-semibold\">\n                      {stat.value}\n                    </span>\n                    <span className=\"text-sm text-muted-foreground\">\n                      {stat.label}\n                    </span>\n                  </div>\n                ))}\n              </div>\n            </Card>\n          </div>\n\n          <div className=\"overflow-hidden rounded-lg\">\n            <img src={image} alt={heading} className=\"w-full object-cover\" />\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Hero03 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/images/blocks/hero-03.png"
+  },
+  "categories": [
+    "hero"
+  ],
+  "type": "registry:block"
+}

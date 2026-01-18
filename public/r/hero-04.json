@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-04",
+  "title": "Hero 04",
+  "description": "A full-screen centered hero with vertical line background",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "badge",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/hero-04/hero.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\nimport { Badge } from \"@/components/ui/badge\";\n\ninterface LineBackgroundProps {\n  className?: string;\n  lineCount?: number;\n  lineWidth?: number;\n  lineColor?: string;\n  gap?: number;\n}\n\nconst LineBackground = ({\n  className,\n  lineCount = 12,\n  lineWidth = 1,\n  lineColor = \"var(--border)\",\n  gap,\n}: LineBackgroundProps) => {\n  return (\n    <div\n      className={cn(\n        \"pointer-events-none absolute inset-0 z-0 overflow-hidden\",\n        className\n      )}\n    >\n      <div\n        className=\"flex size-full items-stretch justify-between\"\n        style={{ padding: gap ? `0 ${gap}px` : undefined }}\n      >\n        {Array.from({ length: lineCount }).map((_, i) => (\n          <div\n            key={i}\n            style={{\n              width: `${lineWidth}px`,\n              backgroundColor: lineColor,\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};\n\ninterface Hero04Props {\n  badge?: {\n    text: string;\n    avatars?: string[];\n  };\n  heading?: string;\n  description?: string;\n  buttons?: {\n    primary?: {\n      text: string;\n      url: string;\n    };\n    secondary?: {\n      text: string;\n      url: string;\n    };\n  };\n  className?: string;\n}\n\nconst Hero04 = ({\n  badge = {\n    text: \"5000+ Developers Using\",\n    avatars: [\n      \"https://avatar.vercel.sh/18\",\n      \"https://avatar.vercel.sh/8\",\n      \"https://avatar.vercel.sh/12\",\n    ],\n  },\n  heading = \"Build Faster with\\nReady-to-Use Components\",\n  description = \"Copy, paste, and customize. Production-ready components built with shadcn/ui and Tailwind CSS.\",\n  buttons = {\n    primary: {\n      text: \"Browse Components\",\n      url: \"#\",\n    },\n    secondary: {\n      text: \"View Documentation\",\n      url: \"#\",\n    },\n  },\n  className,\n}: Hero04Props) => {\n  return (\n    <section\n      className={cn(\n        \"relative flex min-h-screen items-center overflow-hidden py-20 lg:py-32\",\n        className\n      )}\n    >\n      <LineBackground\n        className=\"z-0\"\n        lineCount={14}\n        lineColor=\"var(--border)\"\n        gap={0}\n      />\n\n      <div className=\"pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]\" />\n      <div className=\"container relative z-10 flex flex-col items-center gap-6 text-center\">\n        {badge && (\n          <Badge variant=\"outline\" className=\"gap-2 rounded-full py-1\">\n            <div className=\"flex -space-x-2\">\n              {badge.avatars?.map((avatar, i) => (\n                <Avatar key={`avatar-${i}`} className=\"size-5\">\n                  <AvatarImage src={avatar} />\n                  <AvatarFallback>U</AvatarFallback>\n                </Avatar>\n              ))}\n            </div>\n            <span className=\"font-medium italic\">{badge.text}</span>\n          </Badge>\n        )}\n\n        <h1 className=\"max-w-5xl text-4xl font-bold md:text-5xl lg:text-6xl\">\n          {heading.split(\"\\n\").map((line, i) => (\n            <span key={`line-${i}`}>\n              {line}\n              {i < heading.split(\"\\n\").length - 1 && <br />}\n            </span>\n          ))}\n        </h1>\n\n        <p className=\"max-w-xl text-muted-foreground md:text-lg\">\n          {description}\n        </p>\n\n        <div className=\"flex flex-col gap-4 md:flex-row\">\n          {buttons?.primary && (\n            <Button size=\"lg\" asChild>\n              <a href={buttons.primary.url}>{buttons.primary.text}</a>\n            </Button>\n          )}\n          {buttons?.secondary && (\n            <Button variant=\"outline\" size=\"lg\" asChild>\n              <a href={buttons.secondary.url}>{buttons.secondary.text}</a>\n            </Button>\n          )}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Hero04 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/images/blocks/hero-04.png"
+  },
+  "categories": [
+    "hero"
+  ],
+  "type": "registry:block"
+}

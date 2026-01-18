@@ -1,0 +1,137 @@
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+
+interface LineBackgroundProps {
+  className?: string;
+  lineCount?: number;
+  lineWidth?: number;
+  lineColor?: string;
+  gap?: number;
+}
+
+const LineBackground = ({
+  className,
+  lineCount = 12,
+  lineWidth = 1,
+  lineColor = "var(--border)",
+  gap,
+}: LineBackgroundProps) => {
+  return (
+    <div
+      className={cn(
+        "pointer-events-none absolute inset-0 z-0 overflow-hidden",
+        className
+      )}
+    >
+      <div
+        className="flex size-full items-stretch justify-between"
+        style={{ padding: gap ? `0 ${gap}px` : undefined }}
+      >
+        {Array.from({ length: lineCount }).map((_, i) => (
+          <div
+            key={i}
+            style={{
+              width: `${lineWidth}px`,
+              backgroundColor: lineColor,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+interface Hero04Props {
+  badge?: {
+    text: string;
+    avatars?: string[];
+  };
+  heading?: string;
+  description?: string;
+  buttons?: {
+    primary?: { text: string; url: string; icon?: React.ReactNode };
+    secondary?: { text: string; url: string; icon?: React.ReactNode };
+  };
+  className?: string;
+}
+
+const Hero04 = ({
+  badge = {
+    text: "Trusted by developers",
+    avatars: [
+      "https://avatar.vercel.sh/1",
+      "https://avatar.vercel.sh/2",
+      "https://avatar.vercel.sh/3",
+    ],
+  },
+  heading = "Shadcn UI Blocks, Copy & Customize",
+  description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
+  buttons = {
+    primary: { text: "Browse Components", url: "#", icon: <ArrowUpRight className="size-4" /> },
+    secondary: { text: "View Docs", url: "#" },
+  },
+  className,
+}: Hero04Props) => {
+  return (
+    <section
+      className={cn(
+        "relative min-h-screen flex items-center justify-center overflow-hidden py-12",
+        className
+      )}
+    >
+      <LineBackground lineCount={14} lineColor="var(--border)" gap={0} />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
+
+      <div className="relative z-10 max-w-7xl w-full mx-auto text-center px-6 md:px-12">
+        {badge && (
+          <Badge
+            variant="secondary"
+            className="py-1 px-3 border border-border gap-2"
+          >
+            <div className="flex -space-x-2">
+              {badge.avatars?.map((avatar, i) => (
+                <Avatar key={`avatar-${i}`} className="size-5 border-2 border-background">
+                  <AvatarImage src={avatar} />
+                  <AvatarFallback>U</AvatarFallback>
+                </Avatar>
+              ))}
+            </div>
+            <span>{badge.text}</span>
+          </Badge>
+        )}
+        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
+          {heading}
+        </h1>
+        <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground">
+          {description}
+        </p>
+        <div className="mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm md:max-w-none md:w-fit">
+          {buttons?.primary && (
+            <Button size="lg" className="w-full md:w-auto" asChild>
+              <a href={buttons.primary.url}>
+                {buttons.primary.text} {buttons.primary.icon}
+              </a>
+            </Button>
+          )}
+          {buttons?.secondary && (
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full md:w-auto"
+              asChild
+            >
+              <a href={buttons.secondary.url}>
+                {buttons.secondary.text} {buttons.secondary.icon}
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export { Hero04 };

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-02",
+  "title": "Hero 02",
+  "description": "A centered hero with grid background and featured image",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/hero-02/hero.tsx",
+      "content": "import { ArrowUpRight, Zap } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { Button } from \"@/components/ui/button\";\n\ninterface GridBackgroundProps {\n  className?: string;\n  gridSize?: number;\n  lineColor?: string;\n  lineWidth?: number;\n  mask?: boolean;\n  maskFrom?: \"top\" | \"bottom\" | \"center\";\n}\n\nconst GridBackground = ({\n  className,\n  gridSize = 64,\n  lineColor = \"var(--border)\",\n  lineWidth = 1,\n  mask = true,\n  maskFrom = \"top\",\n}: GridBackgroundProps) => {\n  const maskGradients = {\n    top: \"radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)\",\n    bottom:\n      \"radial-gradient(ellipse_60%_50%_at_50%_100%,#000_70%,transparent_110%)\",\n    center:\n      \"radial-gradient(ellipse_50%_50%_at_50%_50%,#000_40%,transparent_70%)\",\n  };\n\n  return (\n    <div\n      className={cn(\n        \"pointer-events-none absolute inset-0 z-0 h-full w-full\",\n        className\n      )}\n    >\n      <div\n        className={cn(\n          \"absolute inset-0 h-full w-full\",\n          mask && `[mask-image:${maskGradients[maskFrom]}]`\n        )}\n        style={{\n          backgroundImage: `linear-gradient(to right, ${lineColor} ${lineWidth}px, transparent ${lineWidth}px), linear-gradient(to bottom, ${lineColor} ${lineWidth}px, transparent ${lineWidth}px)`,\n          backgroundSize: `${gridSize}px ${gridSize}px`,\n          ...(mask && {\n            maskImage: maskGradients[maskFrom],\n            WebkitMaskImage: maskGradients[maskFrom],\n          }),\n        }}\n      />\n    </div>\n  );\n};\n\ninterface Hero02Props {\n  badge?: string;\n  heading?: string | string[];\n  description?: string;\n  buttons?: {\n    primary?: {\n      text: string;\n      url: string;\n    };\n    secondary?: {\n      text: string;\n      url: string;\n    };\n  };\n  image?: {\n    src: string;\n    alt: string;\n  };\n  className?: string;\n}\n\nconst Hero02 = ({\n  badge = \"Your All-in-One AI SaaS Platform\",\n  heading = [\"Blocks built with\", \"Shadcn & Tailwind\"],\n  description = \"Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.\",\n  buttons = {\n    primary: {\n      text: \"Get Started\",\n      url: \"#\",\n    },\n    secondary: {\n      text: \"Learn More\",\n      url: \"#\",\n    },\n  },\n  image = {\n    src: \"/placeholder.svg\",\n    alt: \"Dashboard preview\",\n  },\n  className,\n}: Hero02Props) => {\n  return (\n    <section\n      className={cn(\"relative overflow-hidden py-20 lg:py-32\", className)}\n    >\n      <GridBackground />\n\n      <div className=\"container relative z-10\">\n        <div className=\"flex flex-col items-center gap-6 text-center\">\n          {badge && (\n            <Badge variant=\"secondary\" className=\"gap-2 rounded-full py-1\">\n              <Zap className=\"size-4\" />\n              {badge}\n            </Badge>\n          )}\n\n          <h1 className=\"text-4xl font-semibold md:text-5xl lg:text-6xl\">\n            {Array.isArray(heading)\n              ? heading.map((line) => (\n                  <span key={line} className=\"block\">\n                    {line}\n                  </span>\n                ))\n              : heading}\n          </h1>\n\n          <p className=\"max-w-2xl text-muted-foreground md:text-lg\">\n            {description}\n          </p>\n\n          <div className=\"flex gap-4\">\n            {buttons.primary && (\n              <Button size=\"lg\" asChild>\n                <a href={buttons.primary.url}>\n                  {buttons.primary.text}\n                  <ArrowUpRight className=\"size-4\" />\n                </a>\n              </Button>\n            )}\n            {buttons.secondary && (\n              <Button size=\"lg\" variant=\"outline\" asChild>\n                <a href={buttons.secondary.url}>{buttons.secondary.text}</a>\n              </Button>\n            )}\n          </div>\n\n          {image && (\n            <div className=\"mt-10 w-full max-w-5xl\">\n              <div className=\"overflow-hidden rounded-lg border shadow-2xl\">\n                <img\n                  src={image.src}\n                  alt={image.alt}\n                  className=\"w-full aspect-video\"\n                />\n              </div>\n            </div>\n          )}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Hero02 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/images/blocks/hero-02.png"
+  },
+  "categories": [
+    "hero"
+  ],
+  "type": "registry:block"
+}

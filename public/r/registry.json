@@ -7,9 +7,9 @@
       "name": "hero-01",
       "type": "registry:block",
       "title": "Hero 01",
-      "description": "A simple hero section with a gradient background and call-to-action buttons",
+      "description": "A two-column hero with badge, avatars, stats and image",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["button", "badge", "avatar"],
       "categories": ["hero"],
       "files": [
         {
@@ -19,6 +19,78 @@
       ],
       "meta": {
         "image": "/images/blocks/hero-01.png"
+      }
+    },
+    {
+      "name": "hero-02",
+      "type": "registry:block",
+      "title": "Hero 02",
+      "description": "A centered hero with grid background and featured image",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge"],
+      "categories": ["hero"],
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-02/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "image": "/images/blocks/hero-02.png"
+      }
+    },
+    {
+      "name": "hero-03",
+      "type": "registry:block",
+      "title": "Hero 03",
+      "description": "A two-column hero with star rating, stats card and image",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge", "card", "separator"],
+      "categories": ["hero"],
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-03/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "image": "/images/blocks/hero-03.png"
+      }
+    },
+    {
+      "name": "hero-04",
+      "type": "registry:block",
+      "title": "Hero 04",
+      "description": "A full-screen centered hero with vertical line background",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge", "avatar"],
+      "categories": ["hero"],
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-04/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "image": "/images/blocks/hero-04.png"
+      }
+    },
+    {
+      "name": "hero-05",
+      "type": "registry:block",
+      "title": "Hero 05",
+      "description": "A minimal full-screen centered hero with multi-line heading",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge"],
+      "categories": ["hero"],
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-05/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "image": "/images/blocks/hero-05.png"
       }
     }
   ]

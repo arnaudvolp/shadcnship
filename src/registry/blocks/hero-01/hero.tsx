@@ -1,33 +1,79 @@
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
-export function Hero01() {
+interface Hero01Props {
+  badge?: string;
+  heading?: string;
+  description?: string;
+  buttons?: {
+    primary?: { text: string; url: string; icon?: React.ReactNode };
+    secondary?: { text: string; url: string; icon?: React.ReactNode };
+  };
+  className?: string;
+}
+
+const Hero01 = ({
+  badge = "Production-ready components",
+  heading = "Shadcn UI Blocks, Copy & Customize",
+  description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
+  buttons = {
+    primary: { text: "Browse Components", url: "#" ,icon: <ArrowUpRight className="size-4" /> },
+    secondary: { text: "View Docs", url: "#" },
+  },
+  className,
+}: Hero01Props) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20" />
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-          Build faster with Blocks
-        </h1>
-
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Beautiful, reusable components built with Shadcn UI and Tailwind CSS.
-          Copy, paste, and customize for your next project.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="group">
-            Get Started
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-          <Button size="lg" variant="outline">
-            View Blocks
-          </Button>
+    <section
+      className={cn(
+        "min-h-screen flex items-center justify-center overflow-hidden py-12",
+        className
+      )}
+    >
+      <div className="max-w-7xl w-full mx-auto text-center lg:text-left grid lg:grid-cols-2 gap-12 px-6 md:px-12  ">
+        <div className="my-auto">
+          <Badge
+            variant="secondary"
+            className="py-1 border border-border"
+            asChild
+          >
+            <a href="#">
+              {badge} 
+            </a>
+          </Badge>
+          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
+            {heading}
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            {description}
+          </p>
+          <div className="mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm md:max-w-none md:w-fit lg:ml-0">
+            {buttons?.primary && (
+              <Button size="lg" className="w-full md:w-auto" asChild>
+                <a href={buttons.primary.url}>
+                  {buttons.primary.text} {buttons.primary.icon}
+                </a>
+              </Button>
+            )}
+            {buttons?.secondary && (
+              <Button
+                variant="outline"
+                size="lg"
+                className=" w-full md:w-auto"
+                asChild
+              >
+                <a href={buttons.secondary.url}>
+                  {buttons.secondary.text} {buttons.secondary.icon}
+                </a>
+              </Button>
+            )}
+          </div>
         </div>
+        <div className="w-full aspect-video lg:aspect-square bg-accent rounded-md" />
       </div>
     </section>
   );
-}
+};
+
+export { Hero01 };

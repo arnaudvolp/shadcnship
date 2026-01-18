@@ -7,19 +7,261 @@
       "name": "hero-01",
       "type": "registry:block",
       "title": "Hero 01",
-      "description": "A simple hero section with a gradient background and call-to-action buttons",
+      "description": "A minimal two-column hero with badge and call-to-action buttons",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge"],
+      "categories": ["hero"],
+      "files": [{ "path": "src/registry/blocks/hero-01/hero.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "hero-02",
+      "type": "registry:block",
+      "title": "Hero 02",
+      "description": "A centered hero with grid background and featured image",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge"],
+      "categories": ["hero"],
+      "files": [{ "path": "src/registry/blocks/hero-02/hero.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "hero-03",
+      "type": "registry:block",
+      "title": "Hero 03",
+      "description": "A two-column hero with star rating and stats card",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge", "card", "separator"],
+      "categories": ["hero"],
+      "files": [{ "path": "src/registry/blocks/hero-03/hero.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "hero-04",
+      "type": "registry:block",
+      "title": "Hero 04",
+      "description": "A full-screen centered hero with vertical line background",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge", "avatar"],
+      "categories": ["hero"],
+      "files": [{ "path": "src/registry/blocks/hero-04/hero.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "hero-05",
+      "type": "registry:block",
+      "title": "Hero 05",
+      "description": "A minimal full-screen centered hero",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge"],
+      "categories": ["hero"],
+      "files": [{ "path": "src/registry/blocks/hero-05/hero.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "feature-01",
+      "type": "registry:block",
+      "title": "Feature 01",
+      "description": "A 3-column feature grid with cards and links",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card"],
+      "categories": ["feature"],
+      "files": [{ "path": "src/registry/blocks/feature-01/feature.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "feature-02",
+      "type": "registry:block",
+      "title": "Feature 02",
+      "description": "A feature section with hero image and icon cards",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
+      "categories": ["feature"],
+      "files": [{ "path": "src/registry/blocks/feature-02/feature.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "feature-03",
+      "type": "registry:block",
+      "title": "Feature 03",
+      "description": "A 2-column feature grid with images",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
+      "categories": ["feature"],
+      "files": [{ "path": "src/registry/blocks/feature-03/feature.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "feature-04",
+      "type": "registry:block",
+      "title": "Feature 04",
+      "description": "A 3-column feature grid with icon cards",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
+      "categories": ["feature"],
+      "files": [{ "path": "src/registry/blocks/feature-04/feature.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "feature-05",
+      "type": "registry:block",
+      "title": "Feature 05",
+      "description": "An accordion feature section with image preview",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["accordion"],
+      "categories": ["feature"],
+      "files": [{ "path": "src/registry/blocks/feature-05/feature.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "pricing-01",
+      "type": "registry:block",
+      "title": "Pricing 01",
+      "description": "A 3-column pricing table with monthly/yearly toggle",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card", "switch", "badge"],
+      "categories": ["pricing"],
+      "files": [{ "path": "src/registry/blocks/pricing-01/pricing.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "pricing-02",
+      "type": "registry:block",
+      "title": "Pricing 02",
+      "description": "A comparison pricing table",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
-      "categories": ["hero"],
-      "files": [
-        {
-          "path": "src/registry/blocks/hero-01/hero.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "image": "/images/blocks/hero-01.png"
-      }
+      "categories": ["pricing"],
+      "files": [{ "path": "src/registry/blocks/pricing-02/pricing.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "pricing-03",
+      "type": "registry:block",
+      "title": "Pricing 03",
+      "description": "A 3-column pricing with tabs toggle",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card", "tabs", "badge", "separator"],
+      "categories": ["pricing"],
+      "files": [{ "path": "src/registry/blocks/pricing-03/pricing.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "cta-01",
+      "type": "registry:block",
+      "title": "CTA 01",
+      "description": "A horizontal CTA section with border",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "categories": ["cta"],
+      "files": [{ "path": "src/registry/blocks/cta-01/cta.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "cta-02",
+      "type": "registry:block",
+      "title": "CTA 02",
+      "description": "A CTA card with image placeholder",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card"],
+      "categories": ["cta"],
+      "files": [{ "path": "src/registry/blocks/cta-02/cta.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "cta-03",
+      "type": "registry:block",
+      "title": "CTA 03",
+      "description": "A newsletter subscription CTA",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "input"],
+      "categories": ["cta"],
+      "files": [{ "path": "src/registry/blocks/cta-03/cta.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "cta-04",
+      "type": "registry:block",
+      "title": "CTA 04",
+      "description": "A centered CTA card with grid background",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card"],
+      "categories": ["cta"],
+      "files": [{ "path": "src/registry/blocks/cta-04/cta.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "faq-01",
+      "type": "registry:block",
+      "title": "FAQ 01",
+      "description": "A single-column accordion FAQ",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["accordion"],
+      "categories": ["faq"],
+      "files": [{ "path": "src/registry/blocks/faq-01/faq.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "faq-02",
+      "type": "registry:block",
+      "title": "FAQ 02",
+      "description": "A 2-column accordion FAQ grid",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["accordion"],
+      "categories": ["faq"],
+      "files": [{ "path": "src/registry/blocks/faq-02/faq.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "testimonial-01",
+      "type": "registry:block",
+      "title": "Testimonial 01",
+      "description": "A testimonial section with marquee animation and user cards",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card", "avatar", "https://magicui.design/r/marquee.json"],
+      "categories": ["testimonial"],
+      "files": [{ "path": "src/registry/blocks/testimonial-01/testimonial.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "stat-01",
+      "type": "registry:block",
+      "title": "Stat 01",
+      "description": "A stats section with cards",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
+      "categories": ["stat"],
+      "files": [{ "path": "src/registry/blocks/stat-01/stat.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "stat-02",
+      "type": "registry:block",
+      "title": "Stat 02",
+      "description": "A horizontal stats section with dividers",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "categories": ["stat"],
+      "files": [{ "path": "src/registry/blocks/stat-02/stat.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "logo-01",
+      "type": "registry:block",
+      "title": "Logo 01",
+      "description": "A logo cloud section with marquee animation",
+      "dependencies": [],
+      "registryDependencies": ["card", "https://magicui.design/r/marquee.json"],
+      "categories": ["logo"],
+      "files": [{ "path": "src/registry/blocks/logo-01/logo.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "contact-01",
+      "type": "registry:block",
+      "title": "Contact 01",
+      "description": "A contact section with form",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card", "input", "label"],
+      "categories": ["contact"],
+      "files": [{ "path": "src/registry/blocks/contact-01/contact.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "footer-01",
+      "type": "registry:block",
+      "title": "Footer 01",
+      "description": "A multi-column footer with links",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "categories": ["footer"],
+      "files": [{ "path": "src/registry/blocks/footer-01/footer.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "navbar-01",
+      "type": "registry:block",
+      "title": "Navbar 01",
+      "description": "A responsive navbar with navigation menu dropdowns and mobile accordion",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "sheet", "navigation-menu", "accordion"],
+      "categories": ["navbar"],
+      "files": [{ "path": "src/registry/blocks/navbar-01/navbar.tsx", "type": "registry:component" }]
     }
   ]
 }
