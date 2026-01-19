@@ -40,8 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# screenshots (generated locally, not committed)
-/public/r/previews/
 
 # playwright
 /test-results/
