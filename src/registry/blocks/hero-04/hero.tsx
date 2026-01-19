@@ -85,20 +85,20 @@ const Hero04 = ({
       <LineBackground lineCount={14} lineColor="var(--border)" gap={0} />
       <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto text-center px-6 md:px-12">
+      <div className="relative z-10 max-w-5xl w-full mx-auto text-center px-6 md:px-12">
         {badge && (
           <Badge
             variant="secondary"
             className="py-1 px-3 border border-border gap-2"
           >
-            <div className="flex -space-x-2">
+             {badge.avatars && badge.avatars.length > 0 &&( <div className="flex -space-x-2">
               {badge.avatars?.map((avatar, i) => (
                 <Avatar key={`avatar-${i}`} className="size-5 border-2 border-background">
                   <AvatarImage src={avatar} />
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>
               ))}
-            </div>
+            </div>)}
             <span>{badge.text}</span>
           </Badge>
         )}
