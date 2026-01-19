@@ -1,6 +1,12 @@
-# shadcn-ui-blocks
+# Shadcn-ui-blocks
+> ⚠️ **Note:** The registry code is still in progress — some blocks may be incomplete or change. The website [shadcnship.com](https://shadcnship.com) is fully functional for browsing and previewing.
+
+---
+
+> **Building in public** — Star ⭐ to follow progress and get notified at launch!
 
 Website - [shadcnship.com](https://shadcnship.com)
+
 
 A curated collection of production-ready Shadcn UI blocks for Next.js developers. This platform helps you ship landing pages faster by providing ready-to-use code snippets for common sections, saving time and enhancing productivity.
 
@@ -18,7 +24,7 @@ Component Pages: Dedicated pages for each block with live preview, code, and cus
 
 ## 🛠️ Tech Stack
 
-- Next.js 14+
+- Next.js 16+
 - TypeScript
 - Tailwind CSS
 - Shadcn UI
