@@ -81,7 +81,6 @@ export interface ThemePresetColors {
   border: string;
   input: string;
   ring: string;
-  radius?: string;
   // Chart colors (optional)
   "chart-1"?: string;
   "chart-2"?: string;
@@ -89,7 +88,7 @@ export interface ThemePresetColors {
   "chart-4"?: string;
   "chart-5"?: string;
   // Sidebar colors (optional)
-  "sidebar-background"?: string;
+  sidebar?: string;
   "sidebar-foreground"?: string;
   "sidebar-primary"?: string;
   "sidebar-primary-foreground"?: string;
@@ -97,6 +96,31 @@ export interface ThemePresetColors {
   "sidebar-accent-foreground"?: string;
   "sidebar-border"?: string;
   "sidebar-ring"?: string;
+  // Fonts (optional)
+  "font-sans"?: string;
+  "font-serif"?: string;
+  "font-mono"?: string;
+  // Radius (optional)
+  radius?: string;
+  // Shadow primitives (optional)
+  "shadow-x"?: string;
+  "shadow-y"?: string;
+  "shadow-blur"?: string;
+  "shadow-spread"?: string;
+  "shadow-opacity"?: string;
+  "shadow-color"?: string;
+  // Shadow presets (optional)
+  "shadow-2xs"?: string;
+  "shadow-xs"?: string;
+  "shadow-sm"?: string;
+  shadow?: string;
+  "shadow-md"?: string;
+  "shadow-lg"?: string;
+  "shadow-xl"?: string;
+  "shadow-2xl"?: string;
+  // Spacing & tracking (optional)
+  "tracking-normal"?: string;
+  spacing?: string;
 }
 
 export interface ThemePreset {
