@@ -18,9 +18,9 @@ export const categories = {
     icon: "💰",
     description: "Pricing tables and comparison cards",
   },
-  features: {
-    name: "features",
-    title: "Features",
+  feature: {
+    name: "feature",
+    title: "Feature",
     icon: "✨",
     description: "Showcase your product features",
   },
@@ -30,9 +30,9 @@ export const categories = {
     icon: "❓",
     description: "Frequently asked questions",
   },
-  testimonials: {
-    name: "testimonials",
-    title: "Testimonials",
+  testimonial: {
+    name: "testimonial",
+    title: "Testimonial",
     icon: "💬",
     description: "Social proof and customer reviews",
   },
@@ -72,9 +72,9 @@ export const categories = {
     icon: "👥",
     description: "Team member sections",
   },
-  stats: {
-    name: "stats",
-    title: "Stats",
+  stat: {
+    name: "stat",
+    title: "Stat",
     icon: "📊",
     description: "Statistics and metrics displays",
   },
@@ -102,6 +102,19 @@ export const categories = {
     icon: "🎯",
     description: "Call to action sections",
   },
+  background: {
+    name: "background",
+    title: "Background",
+    icon: "🖼️",
+    description: "Background sections",
+  },
+  logo: {
+    name: "logo",
+    title: "Logo",
+    icon: "☁️",
+    description: "Logo sections",
+  },
+
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

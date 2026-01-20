@@ -31,7 +31,7 @@ export function BlocksCategoryFilter({
         <SelectItem value="all">All</SelectItem>
         {categories.map((category) => (
           <SelectItem key={category.name} value={category.name}>
-            {category.icon} {category.title}
+            {category.title}
           </SelectItem>
         ))}
       </SelectContent>
