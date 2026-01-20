@@ -657,7 +657,7 @@
       "description": "A background block with a diagonal grid pattern.",
       "files": [
         {
-          "path": "src/components/registry/blocks/background/background-06.tsx",
+          "path": "src/registry/blocks/background-06/background.tsx",
           "type": "registry:component",
           "target": "components/background-06.tsx"
         }

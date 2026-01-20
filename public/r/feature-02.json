@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-02",
+  "title": "Feature 02",
+  "description": "A feature section with hero image and icon cards",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/feature-02/feature.tsx",
+      "content": "import { ArrowRight, Blocks, Paintbrush, Zap } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Card } from \"@/components/ui/card\";\n\ninterface Feature {\n  icon: React.ReactNode;\n  title: string;\n  description: string;\n  link?: string;\n}\n\ninterface Feature02Props {\n  image?: string;\n  heading?: string;\n  features?: Feature[];\n  className?: string;\n}\n\nconst Feature02 = ({\n  heading = \"Everything You Need to Build Faster\",\n  image,\n  features = [\n    {\n      icon: <Blocks className=\"size-5\" />,\n      title: \"Copy & Paste Ready\",\n      description: \"Copy and paste components into your project. No dependencies, just pure code you own.\",\n      link: \"#\",\n    },\n    {\n      icon: <Paintbrush className=\"size-5\" />,\n      title: \"Fully Customizable\",\n      description: \"Every component is built with Tailwind CSS. Adapt colors, spacing, and styles to your brand.\",\n      link: \"#\",\n    },\n    {\n      icon: <Zap className=\"size-5\" />,\n      title: \"Developer Experience\",\n      description: \"TypeScript support, dark mode ready, and responsive by default. Focus on your product.\",\n      link: \"#\",\n    },\n  ],\n  className,\n}: Feature02Props) => (\n  <section className={cn(\"container mx-auto px-6 py-12 md:py-24\", className)}>\n      <div className=\"relative flex h-64 md:h-80 items-center justify-center rounded-xl bg-accent overflow-hidden\">\n        <h2 className=\"relative text-center text-4xl md:text-5xl font-semibold leading-tight tracking-tight px-4 z-2\">\n          {heading}\n        </h2>\n        {image && <img src={image} alt={heading} className=\"absolute inset-0 w-full h-full object-cover  z-1\" />}\n      </div>\n      <div className=\"mt-6 grid gap-6 md:grid-cols-3\">\n        {features.map((feature, i) => (\n          <Card key={i} className=\"flex flex-col gap-4 p-6 shadow-none\">\n            <div className=\"grid size-10 place-items-center rounded-md bg-primary/10 text-primary\">\n              {feature.icon}\n            </div>\n            <h3 className=\"text-xl font-medium\">{feature.title}</h3>\n            <p className=\"flex-1 text-sm text-muted-foreground\">\n              {feature.description}\n            </p>\n            {feature.link && (\n              <a\n                href={feature.link}\n                className=\"inline-flex items-center gap-1 text-sm font-medium\"\n              >\n                Learn more\n                <ArrowRight className=\"size-4\" />\n              </a>\n            )}\n          </Card>\n        ))}\n      </div>\n  </section>\n);\n\nexport { Feature02 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/feature-02.webp"
+  },
+  "categories": [
+    "feature"
+  ],
+  "type": "registry:block"
+}

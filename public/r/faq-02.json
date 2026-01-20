@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq-02",
+  "title": "FAQ 02",
+  "description": "A 2-column accordion FAQ grid",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/faq-02/faq.tsx",
+      "content": "\"use client\";\n\nimport { Plus, X } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\n\ninterface FaqItem {\n  question: string;\n  answer: string;\n}\n\ninterface Faq02Props {\n  label?: string;\n  heading?: string;\n  description?: string;\n  items?: FaqItem[];\n  className?: string;\n}\n\nconst defaultItems: FaqItem[] = [\n  {\n    question: \"What is this component library?\",\n    answer: \"A collection of production-ready UI blocks built with shadcn/ui and Tailwind CSS.\",\n  },\n  {\n    question: \"Is it free to use?\",\n    answer: \"Yes, all components are free and open source for personal and commercial use.\",\n  },\n  {\n    question: \"Can I customize the components?\",\n    answer: \"Absolutely! You own the code and can customize every aspect to match your brand.\",\n  },\n  {\n    question: \"What dependencies are required?\",\n    answer: \"Components are built on shadcn/ui and Tailwind CSS with some Radix UI primitives.\",\n  },\n  {\n    question: \"How do I get started?\",\n    answer: \"Browse the components, copy the code, and paste it into your project. No setup required.\",\n  },\n  {\n    question: \"Is TypeScript supported?\",\n    answer: \"Yes, all components are written in TypeScript with full type safety.\",\n  },\n];\n\nconst Faq02 = ({\n  label = \"FAQ\",\n  heading = \"Frequently Asked Questions\",\n  description,\n  items = defaultItems,\n  className,\n}: Faq02Props) => (\n  <section className={cn(\"container mx-auto py-12 md:py-24\", className)}>\n    <div className=\"px-6 md:px-12\">\n      <div className=\"mb-12 text-center\">\n        {label && (\n          <p className=\"mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground\">\n            {label}\n          </p>\n        )}\n        <h2 className=\"text-4xl md:text-5xl font-semibold leading-tight tracking-tight\">\n          {heading}\n        </h2>\n        {description && (\n          <p className=\"mt-2 text-lg text-muted-foreground\">{description}</p>\n        )}\n      </div>\n      <Accordion type=\"multiple\" className=\"grid gap-4 md:grid-cols-2\">\n        {items.map((item, index) => (\n          <AccordionItem\n            key={index}\n            value={`item-${index}`}\n            className=\"relative h-fit rounded-md border-0 bg-muted/50 px-6 data-[state=open]:bg-muted\"\n          >\n            <AccordionTrigger className=\"group flex items-center justify-between gap-4 py-5 text-left text-lg font-medium hover:no-underline\">\n              {item.question}\n              <span className=\"absolute right-4 flex size-8 shrink-0 items-center justify-center rounded-full bg-background shadow-sm z-10\" >\n                <Plus className=\"size-4 text-muted-foreground group-data-[state=open]:hidden\" />\n                <X className=\"hidden size-4 text-muted-foreground group-data-[state=open]:block\" />\n              </span>\n            </AccordionTrigger>\n            <AccordionContent className=\"pb-5 text-muted-foreground text-base\">\n              {item.answer}\n            </AccordionContent>\n          </AccordionItem>\n        ))}\n      </Accordion>\n    </div>\n  </section>\n);\n\nexport { Faq02 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/faq-02.webp"
+  },
+  "categories": [
+    "faq"
+  ],
+  "type": "registry:block"
+}

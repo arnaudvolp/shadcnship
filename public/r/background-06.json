@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-06",
+  "title": "Diagonal Grid Background",
+  "description": "A background block with a diagonal grid pattern.",
+  "files": [
+    {
+      "path": "src/registry/blocks/background-06/background.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ntype Background06Props = {\n  className?: string;\n  stripeWidth?: number;\n  stripeGap?: number;\n  stripeColor?: string;\n  angle?: number;\n};\n\nconst Background06 = ({\n  className,\n  stripeWidth = 1,\n  stripeGap = 12,\n  stripeColor = \"var(--border)\",\n  angle = 315,\n}: Background06Props) => {\n  const total = stripeWidth + stripeGap;\n  return (\n    <div className={cn(\"absolute inset-0 z-0 h-full w-full \", className)}>\n      <div\n        className=\"absolute inset-0 h-full w-full pointer-events-none\"\n        style={{\n          backgroundImage: `repeating-linear-gradient(${angle}deg,transparent,transparent ${stripeGap}px,${stripeColor} ${stripeGap}px,${stripeColor} ${total}px)`,\n        }}\n      />\n    </div>\n  );\n};\n\nexport { Background06 };\n",
+      "type": "registry:component",
+      "target": "components/background-06.tsx"
+    }
+  ],
+  "categories": [
+    "background"
+  ],
+  "type": "registry:block"
+}

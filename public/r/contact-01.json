@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "contact-01",
+  "title": "Contact 01",
+  "description": "A contact section with form",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/contact-01/contact.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { Card } from \"@/components/ui/card\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\nimport { Phone, Mail, Send } from \"lucide-react\";\n\ninterface ContactInfo {\n  icon: React.ReactNode;\n  value: string;\n}\n\ninterface Contact01Props {\n  heading?: string;\n  description?: string;\n  contactInfo?: ContactInfo[];\n  className?: string;\n}\n\nconst Contact01 = ({\n  heading = \"Get in Touch\",\n  description = \"Have questions about our components? Want to collaborate? We'd love to hear from you.\",\n  contactInfo = [\n    { icon: <Phone className=\"size-4\" />, value: \"+1 (555) 123-4567\" },\n    { icon: <Mail className=\"size-4\" />, value: \"hello@example.com\" },\n  ],\n  className,\n}: Contact01Props) => {\n  return (\n    <section className={cn(\"container max-w-7xl mx-auto py-12 md:py-24\", className)}>\n      <div className=\"px-6 md:px-12\">\n        <div className=\"grid items-center gap-12 lg:grid-cols-2\">\n          <div>\n            <h2 className=\"text-4xl md:text-5xl font-semibold leading-tight tracking-tight\">\n              {heading}\n            </h2>\n            <p className=\"mt-2 text-lg text-muted-foreground\">{description}</p>\n            <div className=\"mt-8 flex flex-wrap gap-6\">\n              {contactInfo.map((info, i) => (\n                <div key={i} className=\"flex items-center gap-3\">\n                  <div className=\"flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground\">\n                    {info.icon}\n                  </div>\n                  <span className=\"text-sm font-medium\">{info.value}</span>\n                </div>\n              ))}\n            </div>\n          </div>\n          <Card className=\"p-8\">\n            <form className=\"space-y-6\">\n              <div className=\"space-y-2\">\n                <Label>Your Name</Label>\n                <Input placeholder=\"John Doe\" />\n              </div>\n              <div className=\"space-y-2\">\n                <Label>Your Email</Label>\n                <Input type=\"email\" placeholder=\"john@example.com\" />\n              </div>\n              <div className=\"space-y-2\">\n                <Label>Message</Label>\n                <Input placeholder=\"How can we help?\" />\n              </div>\n              <Button size=\"lg\" className=\"w-full\">\n                <Send className=\"size-4\" />\n                Send Message\n              </Button>\n            </form>\n          </Card>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport { Contact01 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/contact-01.webp"
+  },
+  "categories": [
+    "contact"
+  ],
+  "type": "registry:block"
+}

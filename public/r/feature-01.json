@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-01",
+  "title": "Feature 01",
+  "description": "A 3-column feature grid with cards and links",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/feature-01/feature.tsx",
+      "content": "import { ArrowRight } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Card } from \"@/components/ui/card\";\nimport { Button } from \"@/components/ui/button\";\n\ninterface FeatureItem {\n  image?: string;\n  title: string;\n  description: string;\n  link?: { text: string; url: string };\n}\n\ninterface Feature01Props {\n  heading?: string;\n  description?: string;\n  features?: FeatureItem[];\n  className?: string;\n}\n\nconst Feature01 = ({\n  heading = \"Everything You Need to Build Faster\",\n  description = \"Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship. \",\n  features = [\n    {\n      title: \"Copy & Paste Ready\",\n      description: \"All components are ready to use. Just copy the code and paste it into your project.\",\n      link: { text: \"Browse Components\", url: \"#\" },\n    },\n    {\n      title: \"Fully Customizable\",\n      description: \"Built with Tailwind CSS, every component is fully customizable to match your brand.\",\n      link: { text: \"View Docs\", url: \"#\" },\n    },\n    {\n      title: \"TypeScript First\",\n      description: \"Written in TypeScript with full type safety and IntelliSense support for better DX.\",\n      link: { text: \"Get Started\", url: \"#\" },\n    },\n  ],\n  className,\n}: Feature01Props) => {\n  return (\n    <section className={cn(\"container mx-auto px-6 py-12 md:py-24\", className)}>\n    \n        <div className=\"max-w-5xl mx-auto text-center\">\n          <h2 className=\"text-4xl md:text-5xl font-semibold leading-tight tracking-tight \">\n            {heading}\n          </h2>\n          <p className=\"mt-2 text-lg text-muted-foreground\">{description}</p>\n        </div>\n        <div className=\"mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3\">\n          {features.map((feature, index) => (\n            <Card key={index} className=\"flex flex-col p-4 shadow-none gap-4\">\n              <div className=\"aspect-video rounded-lg bg-accent\" >\n                {feature.image && <img src={feature.image} alt={feature.title} className=\"aspect-video object-cover rounded-lg\" />}\n                </div>\n              <h3 className=\"text-xl font-medium\">{feature.title}</h3>\n              <p className=\"flex-1 text-sm text-muted-foreground\">\n                {feature.description}\n              </p>\n              {feature.link && (\n                <Button variant=\"ghost\" size=\"sm\" className=\" w-fit\" asChild>\n                  <a href={feature.link.url}>\n                    {feature.link.text}\n                    <ArrowRight className=\"size-4\" />\n                  </a>\n                </Button>\n              )}\n            </Card>\n          ))}\n        </div>\n      \n    </section>\n  );\n};\n\nexport { Feature01 };\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/feature-01.webp"
+  },
+  "categories": [
+    "feature"
+  ],
+  "type": "registry:block"
+}
