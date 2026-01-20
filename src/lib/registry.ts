@@ -54,7 +54,7 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
 }
 
 // Transform all registry items to blocks
-const blocks: RegistryBlock[] = registryData.items.map(transformToBlock);
+const blocks: RegistryBlock[] = registryData.items.filter((item) => !item.categories?.includes("background")).map(transformToBlock);
 
 /**
  * Get all blocks

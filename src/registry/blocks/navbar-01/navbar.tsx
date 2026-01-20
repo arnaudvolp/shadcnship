@@ -253,7 +253,7 @@ const renderMenuItem = (item: MenuItemWithType) => {
               <NavigationMenuLink asChild>
                 <Link
                   href={item.featured.url}
-                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none transition-all duration-200 hover:shadow-md focus:shadow-md md:p-6"
+                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 no-underline outline-none transition-all duration-200 hover:shadow-md focus:shadow-md md:p-6"
                 >
                   <Sparkles className="size-6" />
                   <div className="mb-2 mt-4 text-lg font-medium">

@@ -10,6 +10,7 @@ interface Feature {
 }
 
 interface Feature02Props {
+  image?: string;
   heading?: string;
   features?: Feature[];
   className?: string;
@@ -17,6 +18,7 @@ interface Feature02Props {
 
 const Feature02 = ({
   heading = "Everything You Need to Build Faster",
+  image,
   features = [
     {
       icon: <Blocks className="size-5" />,
@@ -40,10 +42,11 @@ const Feature02 = ({
   className,
 }: Feature02Props) => (
   <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-      <div className="relative flex h-64 md:h-80 items-center justify-center rounded-xl bg-accent">
-        <h2 className="relative text-center text-4xl md:text-5xl font-semibold leading-tight tracking-tight px-4">
+      <div className="relative flex h-64 md:h-80 items-center justify-center rounded-xl bg-accent overflow-hidden">
+        <h2 className="relative text-center text-4xl md:text-5xl font-semibold leading-tight tracking-tight px-4 z-2">
           {heading}
         </h2>
+        {image && <img src={image} alt={heading} className="absolute inset-0 w-full h-full object-cover  z-1" />}
       </div>
       <div className="mt-6 grid gap-6 md:grid-cols-3">
         {features.map((feature, i) => (

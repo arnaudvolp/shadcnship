@@ -11,6 +11,7 @@ interface Hero01Props {
     primary?: { text: string; url: string; icon?: React.ReactNode };
     secondary?: { text: string; url: string; icon?: React.ReactNode };
   };
+  image?: string;
   className?: string;
 }
 
@@ -22,6 +23,7 @@ const Hero01 = ({
     primary: { text: "Browse Components", url: "#" ,icon: <ArrowUpRight className="size-4" /> },
     secondary: { text: "View Docs", url: "#" },
   },
+  image,
   className,
 }: Hero01Props) => {
   return (
@@ -70,7 +72,9 @@ const Hero01 = ({
             )}
           </div>
         </div>
-        <div className="w-full aspect-video lg:aspect-square bg-accent rounded-md" />
+        <div className="w-full aspect-video lg:aspect-square bg-accent rounded-md">
+          {image && <img src={image} alt={heading} width={1000} height={1000} className="w-full h-full object-cover rounded-md" />}
+        </div>
       </div>
     </section>
   );

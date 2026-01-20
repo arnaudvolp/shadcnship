@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface FeatureItem {
+  image?: string;
   title: string;
   description: string;
   link?: { text: string; url: string };
@@ -50,7 +51,9 @@ const Feature01 = ({
         <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Card key={index} className="flex flex-col p-4 shadow-none gap-4">
-              <div className="aspect-video rounded-lg bg-accent" />
+              <div className="aspect-video rounded-lg bg-accent" >
+                {feature.image && <img src={feature.image} alt={feature.title} className="aspect-video object-cover rounded-lg" />}
+                </div>
               <h3 className="text-xl font-medium">{feature.title}</h3>
               <p className="flex-1 text-sm text-muted-foreground">
                 {feature.description}

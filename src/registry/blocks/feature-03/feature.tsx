@@ -6,6 +6,7 @@ interface Feature {
   badge: string;
   title: string;
   description: string;
+  image?: string;
   button?: {
     text: string;
     url: string;
@@ -77,7 +78,9 @@ const Feature03 = ({
                 index % 2 !== 0 && "md:flex-row-reverse"
               )}
             >
-              <div className="w-full md:w-1/2 aspect-video border border-border bg-accent rounded-md" />
+              <div className="w-full md:w-1/2 aspect-video border border-border bg-accent rounded-md overflow-hidden" >
+                {feature.image && <img src={feature.image} alt={feature.title} className="w-full h-full object-cover " />}
+                </div>
               <div className="w-full md:w-1/2 space-y-6">
                 <p className="text-sm font-semibold uppercase text-muted-foreground">
                   {feature.badge}

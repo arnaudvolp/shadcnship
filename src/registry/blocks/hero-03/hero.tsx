@@ -15,7 +15,9 @@ interface Hero03Props {
   };
   ratingText?: string;
   stats?: { value: string; label: string }[];
+  image?: string;
   className?: string;
+
 }
 
 const Hero03 = ({
@@ -31,8 +33,9 @@ const Hero03 = ({
     { value: "50+", label: "Blocks" },
     { value: "100%", label: "Free" },
     { value: "Open", label: "Source" },
-  ],
-  className,
+    ],
+  image,
+    className,
 }: Hero03Props) => {
   return (
     <section
@@ -89,7 +92,7 @@ const Hero03 = ({
             <Separator orientation="vertical" className="h-4" />
             <span className="text-sm text-muted-foreground">{ratingText}</span>
           </div>
-          <Card className="mt-12 w-full shadow-none">
+          <Card className="mt-12 w-full shadow-none max-w-2xl">
             <div className="flex divide-x">
               {stats.map((stat) => (
                 <div
@@ -107,7 +110,10 @@ const Hero03 = ({
             </div>
           </Card>
         </div>
-        <div className="w-full aspect-video lg:aspect-auto lg:h-screen bg-accent" />
+        <div className="w-full aspect-video lg:aspect-auto lg:h-screen bg-accent">
+             {image && <img src={image} alt={heading} width={1000} height={1000} className="w-full h-full object-cover" />}
+        </div>
+      
       </div>
     </section>
   );

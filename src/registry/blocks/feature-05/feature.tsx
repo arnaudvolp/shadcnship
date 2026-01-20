@@ -38,25 +38,21 @@ const Feature05 = ({
       title: "Copy & Paste Ready",
       description: "Every component is ready to use. Just copy the code and paste it into your project.",
       icon: Copy,
-      image: "https://images.pexels.com/photos/17791448/pexels-photo-17791448.jpeg",
     },
     {
       title: "Fully Customizable",
       description: "Built with Tailwind CSS, every component can be easily modified to match your brand.",
       icon: SquareDashedMousePointer,
-      image: "https://images.pexels.com/photos/17791448/pexels-photo-17791448.jpeg",
     },
     {
       title: "TypeScript First",
       description: "All components are fully typed with TypeScript for better developer experience.",
       icon: TypeOutline,
-      image: "https://images.pexels.com/photos/17791448/pexels-photo-17791448.jpeg",
     },
     {
       title: "Accessible by Default",
       description: "Built on Radix UI primitives, all components follow WAI-ARIA guidelines.",
       icon: Info,
-      image: "https://images.pexels.com/photos/17791448/pexels-photo-17791448.jpeg",
     },
   ],
   className,
@@ -102,27 +98,27 @@ const Feature05 = ({
                     <p className={feature.icon ? "pl-8" : ""}>
                       {feature.description}
                     </p>
+                    <div className="mt-4 aspect-video overflow-hidden rounded-lg bg-accent lg:hidden">
                     {feature.image && (
-                      <div className="mt-4 aspect-video overflow-hidden rounded-lg bg-muted lg:hidden">
                         <img
                           src={feature.image}
                           alt={feature.title}
                           className="size-full object-cover"
                         />
-                      </div>
                     )}
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </div>
           <div className="relative hidden lg:block">
-          <div className="sticky top-24 aspect-square overflow-hidden rounded-lg h-full border">
-              <img
+          <div className="sticky top-24 aspect-square overflow-hidden rounded-lg h-full border bg-accent">
+            {activeImage && <img
                 src={activeImage}
                 alt="Feature illustration"
                 className="size-full object-cover "
-              />
+              />}
             </div>
           </div>
         </div>

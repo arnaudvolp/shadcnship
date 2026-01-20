@@ -22,7 +22,7 @@ const Cta02 = ({
     primary: { text: "Browse Components", url: "#", icon: <ArrowUpRight className="size-4" /> },
     secondary: { text: "View Docs", url: "#" },
   },
-  image = "https://images.pexels.com/photos/5659346/pexels-photo-5659346.jpeg",
+  image,
   className,
 }: Cta02Props) => (
   <section className={cn("container mx-auto py-12 md:py-24", className)}>
@@ -49,7 +49,7 @@ const Cta02 = ({
           </div>
         </div>
         <div className="hidden max-h-80 self-end overflow-hidden md:block">
-          <Iphone src={image} />
+          <Iphone src={image??undefined} />
         </div>
       </Card>
     </div>
