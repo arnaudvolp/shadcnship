@@ -50,8 +50,8 @@ const Cta04 = ({
   },
   className,
 }: Cta04Props) => (
-  <section className={cn("py-12 md:py-24", className)}>
-    <div className="max-w-7xl mx-auto px-6 md:px-12">
+  <section className={cn("container mx-auto py-12 md:py-24", className)}>
+    <div className="px-6 md:px-12">
       <Card className="relative overflow-hidden flex flex-col items-center gap-4 px-8 py-16 text-center shadow-none">
         <GridBackground />
         <div className="relative z-10 grid size-12 place-items-center rounded-md bg-primary text-primary-foreground">

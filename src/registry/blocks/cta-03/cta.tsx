@@ -17,8 +17,8 @@ const Cta03 = ({
   buttonText = "Subscribe",
   className,
 }: Cta03Props) => (
-  <section className={cn("py-12 md:py-24", className)}>
-    <div className="max-w-7xl mx-auto px-6 md:px-12">
+  <section className={cn("container max-w-7xl mx-auto py-12 md:py-24", className)}>
+    <div className="px-6 md:px-12">
       <div className="grid items-center gap-8 rounded-md bg-primary p-8 text-primary-foreground lg:grid-cols-2 md:p-12">
         <div>
           <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">

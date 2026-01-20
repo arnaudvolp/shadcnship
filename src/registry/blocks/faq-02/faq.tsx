@@ -56,8 +56,8 @@ const Faq02 = ({
   items = defaultItems,
   className,
 }: Faq02Props) => (
-  <section className={cn("py-12 md:py-24", className)}>
-    <div className="max-w-6xl mx-auto px-6 md:px-12">
+  <section className={cn("container mx-auto py-12 md:py-24", className)}>
+    <div className="px-6 md:px-12">
       <div className="mb-12 text-center">
         {label && (
           <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">

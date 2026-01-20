@@ -24,9 +24,9 @@ const Stat01 = ({
   className,
 }: Stat01Props) => {
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-12 text-center">
+    <section className={cn("container mx-auto py-12 md:py-24", className)}>
+      <div className="px-6 md:px-12">
+        <div className="mb-8 text-center">
           <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
             {heading}
           </h2>

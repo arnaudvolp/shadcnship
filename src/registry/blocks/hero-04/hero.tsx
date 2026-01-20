@@ -78,14 +78,14 @@ const Hero04 = ({
   return (
     <section
       className={cn(
-        "relative min-h-screen flex items-center justify-center overflow-hidden py-12",
+        "relative flex w-full min-h-screen items-center overflow-hidden py-12 md:py-24",
         className
       )}
     >
       <LineBackground lineCount={14} lineColor="var(--border)" gap={0} />
       <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-5xl w-full mx-auto text-center px-6 md:px-12">
+      <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
         {badge && (
           <Badge
             variant="secondary"

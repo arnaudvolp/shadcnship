@@ -39,15 +39,15 @@ const Feature01 = ({
   className,
 }: Feature01Props) => {
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight ">
+    <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
+    
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight ">
             {heading}
           </h2>
           <p className="mt-2 text-lg text-muted-foreground">{description}</p>
         </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Card key={index} className="flex flex-col p-4 shadow-none gap-4">
               <div className="aspect-video rounded-lg bg-accent" />
@@ -66,7 +66,7 @@ const Feature01 = ({
             </Card>
           ))}
         </div>
-      </div>
+      
     </section>
   );
 };

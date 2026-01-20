@@ -27,8 +27,8 @@ const Contact01 = ({
   className,
 }: Contact01Props) => {
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+    <section className={cn("container max-w-7xl mx-auto py-12 md:py-24", className)}>
+      <div className="px-6 md:px-12">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">

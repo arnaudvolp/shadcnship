@@ -27,11 +27,11 @@ const Hero01 = ({
   return (
     <section
       className={cn(
-        "min-h-screen flex items-center justify-center overflow-hidden py-12",
+        "min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-24",
         className
       )}
     >
-      <div className="max-w-7xl w-full mx-auto text-center lg:text-left grid lg:grid-cols-2 gap-12 px-6 md:px-12  ">
+      <div className="container w-full mx-auto text-center lg:text-left grid lg:grid-cols-2 gap-12 p-4 ">
         <div className="my-auto">
           <Badge
             variant="secondary"

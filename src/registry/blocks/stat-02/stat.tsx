@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Background06 } from "@/registry/blocks/background-06/background";
 
 interface StatItem {
   value: string;
@@ -23,9 +24,9 @@ const Stat02 = ({
   className,
 }: Stat02Props) => {
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-12 text-center">
+    <section className={cn("container mx-auto py-12 md:py-24", className)}>
+      <div className="px-6 md:px-12">
+        <div className="mb-8 text-center">
           <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
             {heading}
           </h2>
@@ -41,7 +42,13 @@ const Stat02 = ({
                 <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
               </div>
               {i < stats.length - 1 && (
-                <div className="h-px w-full bg-border md:h-auto md:w-px" />
+                <div className="relative min-h-8 w-full md:w-8">
+                  <Background06
+                    stripeWidth={1}
+                    stripeGap={6}
+                    stripeColor="var(--border)"
+                  />
+                </div>
               )}
             </div>
           ))}

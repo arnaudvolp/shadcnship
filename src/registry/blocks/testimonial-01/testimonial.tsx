@@ -95,8 +95,8 @@ const Testimonial01 = ({
   const secondRow = items.slice(Math.ceil(items.length / 2));
 
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className={cn("container mx-auto py-12 md:py-24", className)}>
+      <div className="px-6 md:px-12">
         <div className="mx-auto text-center">
           <h2 className=" text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
             {heading}

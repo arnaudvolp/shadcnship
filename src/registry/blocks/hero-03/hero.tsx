@@ -42,7 +42,7 @@ const Hero03 = ({
       )}
     >
       <div className="w-full grid lg:grid-cols-2">
-        <div className="m-auto max-w-xl lg:max-w-none lg:ml-auto lg:mr-12 px-6 md:px-12 py-12 text-center lg:text-left space-y-4">
+        <div className="m-auto container p-6 md:p-20 text-center lg:text-left space-y-4">
           <Badge
             variant="secondary"
             className="py-1 border border-border"

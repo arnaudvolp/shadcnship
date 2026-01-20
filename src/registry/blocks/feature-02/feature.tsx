@@ -39,10 +39,9 @@ const Feature02 = ({
   ],
   className,
 }: Feature02Props) => (
-  <section className={cn("py-12 md:py-24", className)}>
-    <div className="max-w-7xl mx-auto px-6 md:px-12">
+  <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
       <div className="relative flex h-64 md:h-80 items-center justify-center rounded-xl bg-accent">
-        <h2 className="relative text-center text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight px-4">
+        <h2 className="relative text-center text-4xl md:text-5xl font-semibold leading-tight tracking-tight px-4">
           {heading}
         </h2>
       </div>
@@ -68,7 +67,6 @@ const Feature02 = ({
           </Card>
         ))}
       </div>
-    </div>
   </section>
 );
 

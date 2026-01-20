@@ -23,6 +23,7 @@ export default function Home() {
       primary: { text: "Browse Components", url: "/blocks",icon: <ArrowUpRight className="size-4" /> },
       secondary: { text: "View Documentation", url: "/blocks" },
     }}
+       className="-mt-16"
     />
   </div>;
 }

@@ -91,8 +91,8 @@ const Footer01 = ({
     .join(" ");
 
   return (
-    <footer className={cn("border-t", className)}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
+    <footer className={cn("border-t w-full fixed bottom-0", className)}>
+      <div className="container mx-auto px-6 md:px-12 py-12">
         <div className="mb-8 max-w-sm lg:hidden">
           {logo}
           <p className="mt-4 text-sm text-muted-foreground">{tagline}</p>

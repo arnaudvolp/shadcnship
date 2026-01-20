@@ -103,11 +103,11 @@ export function constructMetadata({
       creator: siteConfig.author.twitter,
     },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon-16x16.png",
-      apple: "/apple-touch-icon.png",
+      icon: "/images//favicon.ico",
+      shortcut: "/images//favicon-16x16.png",
+      apple: "/images/apple-touch-icon.png",
     },
-    manifest: "/site.webmanifest",
+    manifest: "/images/site.webmanifest",
     ...(noIndex && {
       robots: {
         index: false,

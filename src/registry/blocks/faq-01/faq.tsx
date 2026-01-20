@@ -48,8 +48,8 @@ const Faq01 = ({
   items = defaultItems,
   className,
 }: Faq01Props) => (
-  <section className={cn("py-12 md:py-24", className)}>
-    <div className="max-w-3xl mx-auto px-6 md:px-12">
+  <section className={cn("container mx-auto py-12 md:py-24", className)}>
+    <div className="px-6 md:px-12">
       <div className="text-center">
         {label && (
           <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -63,7 +63,7 @@ const Faq01 = ({
           <p className="mt-2 text-lg text-muted-foreground">{description}</p>
         )}
       </div>
-      <Accordion type="single" collapsible className="mt-12 space-y-4">
+      <Accordion type="single" collapsible className="mt-12 space-y-4 max-w-5xl mx-auto">
         {items.map((item, index) => (
           <AccordionItem
             key={index}

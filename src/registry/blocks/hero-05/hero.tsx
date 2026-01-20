@@ -27,11 +27,11 @@ const Hero05 = ({
   return (
     <section
       className={cn(
-        "relative min-h-screen flex items-center justify-center overflow-hidden py-12",
+        "relative h-full overflow-hidden py-12 md:py-24",
         className
       )}
     >
-      <div className="max-w-7xl w-full mx-auto text-center px-6 md:px-12">
+      <div className="container w-full mx-auto text-center px-6 md:px-12">
         <Badge
           variant="secondary"
           className="py-1 border border-border"

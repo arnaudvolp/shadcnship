@@ -457,12 +457,12 @@ const Navbar01 = ({
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 py-4 transition-all duration-300",
+        "fixed top-0 z-50 py-4 transition-all duration-300 w-full",
         scrolled && "w-full border-b border-border/40 bg-background",
         className
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="px-6 md:px-12">
         {/* Desktop Menu */}
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">

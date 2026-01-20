@@ -74,13 +74,13 @@ const Hero02 = ({
   return (
     <section
       className={cn(
-        "relative min-h-screen flex items-center justify-center overflow-hidden pb-12 pt-24",
+        "relative overflow-hidden w-full py-20 md:pt-32",
         className
       )}
     >
       <GridBackground />
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto text-center px-6 md:px-12">
+      <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
         <Badge
           variant="secondary"
           className="py-1 border border-border"
@@ -115,7 +115,7 @@ const Hero02 = ({
             </Button>
           )}
         </div>
-        <div className="mt-12 mx-auto w-full max-w-5xl aspect-video bg-accent rounded-md" />
+        <div className="mt-20  mx-auto w-full max-w-5xl lg:max-w-7xl aspect-video bg-accent rounded-md" />
       </div>
     </section>
   );

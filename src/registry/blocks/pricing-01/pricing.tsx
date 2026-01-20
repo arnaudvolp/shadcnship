@@ -93,14 +93,14 @@ const Pricing01 = ({
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-7xl mx-auto px-6 ">
+    <section className={cn("w-full py-12 md:py-24", className)}>
+      <div className="container mx-auto px-6 ">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
             {heading}
           </h2>
           <p className="mt-2 text-lg text-muted-foreground">{description}</p>
-          <div className="mt-4 flex items-center justify-center gap-4 text-sm">
+          <div className="mt-8 flex items-center justify-center gap-4 text-sm">
             <span className={cn(!isYearly ? "font-medium" : "text-muted-foreground")}>
               Monthly
             </span>
@@ -110,7 +110,7 @@ const Pricing01 = ({
             </span>
           </div>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div className="grid gap-6 lg:grid-cols-3  mx-auto">
           {plans.map((plan) => (
             <div key={plan.id} className="relative">
               {plan.popular && (
