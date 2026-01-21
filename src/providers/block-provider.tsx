@@ -13,6 +13,7 @@ interface BlockContextValue {
   themePreset: ThemePreset;
   setThemePreset: (preset: ThemePreset) => void;
   iframeRef: React.RefObject<HTMLIFrameElement | null>;
+  previewBasePath: string;
 }
 
 const BlockContext = createContext<BlockContextValue | undefined>(undefined);
@@ -28,13 +29,14 @@ export function useBlockContext() {
 interface BlockProviderProps {
   children: ReactNode;
   block: SerializableRegistryBlock;
+  previewBasePath?: string;
 }
 
-export function BlockProvider({ children, block }: BlockProviderProps) {
+export function BlockProvider({ children, block, previewBasePath = "/blocks" }: BlockProviderProps) {
   const { theme, setTheme, screenSize, setScreenSize, themePreset, setThemePreset, iframeRef } = useBlockTheme();
 
   return (
-    <BlockContext.Provider value={{ block, theme, setTheme, screenSize, setScreenSize, themePreset, setThemePreset, iframeRef }}>
+    <BlockContext.Provider value={{ block, theme, setTheme, screenSize, setScreenSize, themePreset, setThemePreset, iframeRef, previewBasePath }}>
       {children}
     </BlockContext.Provider>
   );

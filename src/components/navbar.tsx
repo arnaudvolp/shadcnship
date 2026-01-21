@@ -15,7 +15,7 @@ import {
 
 const navigation = [
   { name: "Blocks", href: "/blocks" },
-  { name: "Components", href: "/components" },
+  { name: "Backgrounds", href: "/background" },
   { name: "Templates", href: "/templates" },
 ];
 
@@ -43,16 +43,13 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             <NavigationMenu>
               <NavigationMenuList className="space-x-0">
-                <NavigationMenuItem>
-                  <Button size="sm" variant="ghost" asChild>
-                    <Link href="/blocks">Blocks</Link>
-                  </Button>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Button size="sm" variant="ghost" asChild>
-                    <Link href="/templates">Templates</Link>
-                  </Button>
-                </NavigationMenuItem>
+                {navigation.map((item) => (
+                  <NavigationMenuItem key={item.name}>
+                    <Button size="sm" variant="ghost" asChild>
+                      <Link href={item.href}>{item.name}</Link>
+                    </Button>
+                  </NavigationMenuItem>
+                ))}
               </NavigationMenuList>
             </NavigationMenu>
           </div>

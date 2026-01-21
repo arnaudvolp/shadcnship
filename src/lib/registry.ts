@@ -42,7 +42,8 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
     files: item.files || [],
     dependencies: item.dependencies,
     registryDependencies: item.registryDependencies,
-    image: item.meta?.image as string | undefined,
+    // Use meta.image if available, otherwise fallback to standard preview path
+    image: (item.meta?.image as string | undefined) || `/r/previews/${item.name}.webp`,
     // Lazy load the component based on block name convention
     component: React.lazy(() =>
       import(`@/registry/blocks/${item.name}/${componentName}`).then((mod) => ({
@@ -53,8 +54,15 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
   };
 }
 
-// Transform all registry items to blocks
-const blocks: RegistryBlock[] = registryData.items.filter((item) => !item.categories?.includes("background")).map(transformToBlock);
+// Transform all registry items to blocks (excluding backgrounds)
+const blocks: RegistryBlock[] = registryData.items
+  .filter((item) => !item.categories?.includes("background"))
+  .map(transformToBlock);
+
+// Transform background items separately
+const backgroundBlocks: RegistryBlock[] = registryData.items
+  .filter((item) => item.categories?.includes("background"))
+  .map(transformToBlock);
 
 /**
  * Get all blocks
@@ -96,4 +104,35 @@ export function getCategories(): BlockCategory[] {
   return Array.from(categoryMap.values()).sort((a, b) =>
     a.title.localeCompare(b.title)
   );
+}
+
+/**
+ * Get all background blocks
+ */
+export function getBackgroundBlocks(): RegistryBlock[] {
+  return backgroundBlocks;
+}
+
+/**
+ * Get a single background block by name
+ */
+export function getBackgroundBlock(name: string): RegistryBlock | undefined {
+  return backgroundBlocks.find((block) => block.name === name);
+}
+
+/**
+ * Get any block by name (blocks or backgrounds)
+ * Used for preview pages that need to handle both types
+ */
+export function getAnyBlock(name: string): RegistryBlock | undefined {
+  return blocks.find((block) => block.name === name) ||
+    backgroundBlocks.find((block) => block.name === name);
+}
+
+/**
+ * Get all blocks including backgrounds
+ * Used for generating static params
+ */
+export function getAllBlocks(): RegistryBlock[] {
+  return [...blocks, ...backgroundBlocks];
 }

@@ -6,9 +6,10 @@ import type { SerializableRegistryBlock } from "@/types/blocks";
 
 interface BlockCardProps {
   block: SerializableRegistryBlock;
+  basePath?: string;
 }
 
-export function BlockCard({ block }: BlockCardProps) {
+export function BlockCard({ block, basePath = "/blocks" }: BlockCardProps) {
   const cardContent = (
     <>
       {/* Preview Area */}
@@ -43,7 +44,7 @@ export function BlockCard({ block }: BlockCardProps) {
   );
 
   return (
-    <Link href={`/blocks/${block.name}`} className="block">
+    <Link href={`${basePath}/${block.name}`} className="block">
       <Card className="group cursor-pointer overflow-hidden shadow-none p-0 transition-all hover:shadow-lg">
         <CardContent className="p-0">{cardContent}</CardContent>
       </Card>

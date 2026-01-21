@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { getBlock, getBlocks } from "@/lib/registry";
+import { getAnyBlock, getAllBlocks } from "@/lib/registry";
 import { PreviewThemeHandler } from "@/components/blocks";
 import { constructMetadata } from "@/config/site";
 
@@ -10,7 +10,7 @@ interface PreviewPageProps {
 }
 
 export async function generateStaticParams() {
-  const blocks = getBlocks();
+  const blocks = getAllBlocks();
   return blocks.map((block) => ({ name: block.name }));
 }
 
@@ -20,7 +20,7 @@ export async function generateMetadata({
   params: Promise<{ name: string }>;
 }): Promise<Metadata> {
   const { name } = await params;
-  const block = getBlock(name);
+  const block = getAnyBlock(name);
 
   return constructMetadata({
     title: block ? `${block.title} Preview` : "Preview",
@@ -33,7 +33,7 @@ export default async function PreviewPage(props: PreviewPageProps) {
   const params = await props.params;
   const { name } = params;
 
-  const blockDetails = getBlock(name);
+  const blockDetails = getAnyBlock(name);
 
   if (!blockDetails || !blockDetails.component) {
     notFound();
