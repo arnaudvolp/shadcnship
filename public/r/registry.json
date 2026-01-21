@@ -664,7 +664,10 @@
       ],
       "categories": [
         "background"
-      ]
+      ],
+      "meta": {
+        "image": "/r/previews/background-06.webp"
+      }
     }
   ]
 }

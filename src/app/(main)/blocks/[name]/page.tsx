@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlock, getBlocks } from "@/lib/registry";
-import { getBlockCode } from "@/lib/transform-code";
+import { getBlockCodeWithHighlight } from "@/lib/transform-code";
 import { BlockProvider } from "@/providers/block-provider";
 import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
@@ -63,7 +63,12 @@ export default async function BlockPage({
 
   // Get code from main component file (path is already full path from registry.json)
   const mainFile = block.files?.[0];
-  const code = mainFile ? await getBlockCode(mainFile.path) : "";
+  const { raw: code, highlighted: highlightedCode } = mainFile
+    ? await getBlockCodeWithHighlight(mainFile.path)
+    : { raw: "", highlighted: "" };
+
+  // Extract file name for display (use target if available, otherwise derive from path)
+  const fileName = mainFile?.target || mainFile?.path?.split("/").pop() || "component.tsx";
 
   const primaryCategory = block.categories[0];
 
@@ -100,8 +105,8 @@ export default async function BlockPage({
             <BlockPreview />
           </TabsContent>
 
-          <TabsContent value="code" >
-            <BlockCode code={code} />
+          <TabsContent value="code">
+            <BlockCode code={code} highlightedCode={highlightedCode} fileName={fileName} />
           </TabsContent>
         </Tabs>
       </div>

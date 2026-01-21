@@ -1,4 +1,10 @@
 import { readFile } from "fs/promises";
+import { highlightCode, detectLanguage } from "./highlight";
+
+export interface BlockCodeResult {
+  raw: string;
+  highlighted: string;
+}
 
 /**
  * Transform registry imports to user-friendly imports
@@ -17,7 +23,7 @@ export function transformCode(code: string): string {
 }
 
 /**
- * Read and transform a block file
+ * Read and transform a block file (raw code only)
  */
 export async function getBlockCode(filePath: string): Promise<string> {
   try {
@@ -26,5 +32,28 @@ export async function getBlockCode(filePath: string): Promise<string> {
   } catch (error) {
     console.error(`Error reading file ${filePath}:`, error);
     return "";
+  }
+}
+
+/**
+ * Read, transform, and highlight a block file
+ * Returns both raw code (for copying) and highlighted HTML
+ */
+export async function getBlockCodeWithHighlight(
+  filePath: string
+): Promise<BlockCodeResult> {
+  try {
+    const rawCode = await readFile(filePath, "utf-8");
+    const transformedCode = transformCode(rawCode);
+    const lang = detectLanguage(filePath);
+    const highlighted = await highlightCode(transformedCode, lang);
+
+    return {
+      raw: transformedCode,
+      highlighted,
+    };
+  } catch (error) {
+    console.error(`Error reading file ${filePath}:`, error);
+    return { raw: "", highlighted: "" };
   }
 }

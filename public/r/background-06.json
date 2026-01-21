@@ -11,6 +11,9 @@
       "target": "components/background-06.tsx"
     }
   ],
+  "meta": {
+    "image": "/r/previews/background-06.webp"
+  },
   "categories": [
     "background"
   ],
