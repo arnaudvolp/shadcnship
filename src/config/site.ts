@@ -10,7 +10,7 @@ export const siteConfig = {
     "A curated collection of beautiful, customizable Shadcn UI blocks and components. Preview, copy, and integrate ready-to-use code snippets into your Next.js projects.",
   url:
     process.env.NODE_ENV === "production"
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` || ""
+      ? `https://${process.env.NEXT_PUBLIC_SITE_URL}` || ""
       : "http://localhost:3000",
   ogImage: "/og-image.png",
   author: {
