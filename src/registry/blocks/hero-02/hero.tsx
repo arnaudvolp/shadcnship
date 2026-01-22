@@ -2,53 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
-interface GridBackgroundProps {
-  className?: string;
-  gridSize?: number;
-  lineColor?: string;
-  lineWidth?: number;
-  mask?: boolean;
-  maskFrom?: "top" | "bottom" | "center";
-}
-
-const GridBackground = ({
-  className,
-  gridSize = 64,
-  lineColor = "var(--border)",
-  lineWidth = 1,
-  mask = true,
-  maskFrom = "center",
-}: GridBackgroundProps) => {
-  const maskGradients = {
-    top: "radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)",
-    bottom:
-      "radial-gradient(ellipse_60%_50%_at_50%_100%,#000_70%,transparent_110%)",
-    center:
-      "radial-gradient(ellipse_50%_50%_at_50%_50%,#000_40%,transparent_70%)",
-  };
-
-  return (
-    <div
-      className={cn(
-        "pointer-events-none absolute inset-0 z-0 h-full w-full",
-        className
-      )}
-    >
-      <div
-        className="absolute inset-0 h-full w-full"
-        style={{
-          backgroundImage: `linear-gradient(to right, ${lineColor} ${lineWidth}px, transparent ${lineWidth}px), linear-gradient(to bottom, ${lineColor} ${lineWidth}px, transparent ${lineWidth}px)`,
-          backgroundSize: `${gridSize}px ${gridSize}px`,
-          ...(mask && {
-            maskImage: maskGradients[maskFrom],
-            WebkitMaskImage: maskGradients[maskFrom],
-          }),
-        }}
-      />
-    </div>
-  );
-};
+import { Background02 } from "@/components/background-02";
 
 interface Hero02Props {
   badge?: string;
@@ -80,7 +34,7 @@ const Hero02 = ({
         className
       )}
     >
-      <GridBackground />
+      <Background02/>
 
       <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
         <Badge

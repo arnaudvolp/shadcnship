@@ -3,46 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-
-interface LineBackgroundProps {
-  className?: string;
-  lineCount?: number;
-  lineWidth?: number;
-  lineColor?: string;
-  gap?: number;
-}
-
-const LineBackground = ({
-  className,
-  lineCount = 12,
-  lineWidth = 1,
-  lineColor = "var(--border)",
-  gap,
-}: LineBackgroundProps) => {
-  return (
-    <div
-      className={cn(
-        "pointer-events-none absolute inset-0 z-0 overflow-hidden",
-        className
-      )}
-    >
-      <div
-        className="flex size-full items-stretch justify-between"
-        style={{ padding: gap ? `0 ${gap}px` : undefined }}
-      >
-        {Array.from({ length: lineCount }).map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: `${lineWidth}px`,
-              backgroundColor: lineColor,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
+import { Background04 } from "@/components/background-04";
 
 interface Hero04Props {
   badge?: {
@@ -82,7 +43,7 @@ const Hero04 = ({
         className
       )}
     >
-      <LineBackground lineCount={14} lineColor="var(--border)" gap={0} />
+      <Background04 lineCount={14} />
       <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
 
       <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">

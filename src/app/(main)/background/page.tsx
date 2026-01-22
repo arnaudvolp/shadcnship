@@ -15,7 +15,6 @@ export const metadata = constructMetadata({
 
 export default function BackgroundsPage() {
   const backgrounds = getBackgroundBlocks();
-  console.log(backgrounds);
 
   // Convert backgrounds to serializable format (remove component function)
   const serializableBackgrounds: SerializableRegistryBlock[] = backgrounds.map(

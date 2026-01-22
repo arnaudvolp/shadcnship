@@ -39,7 +39,8 @@
       ],
       "registryDependencies": [
         "button",
-        "badge"
+        "badge",
+        "background-02"
       ],
       "categories": [
         "hero"
@@ -94,7 +95,8 @@
       "registryDependencies": [
         "button",
         "badge",
-        "avatar"
+        "avatar",
+        "background-04"
       ],
       "categories": [
         "hero"
@@ -677,22 +679,79 @@
       ]
     },
     {
-      "name": "background-06",
+      "name": "background-01",
       "type": "registry:block",
-      "title": "Diagonal Grid Background",
-      "description": "A background block with a diagonal grid pattern.",
+      "title": "Square Grid Background",
+      "description": "A customizable square grid background with adjustable line color, grid size, and mask position.",
       "files": [
         {
-          "path": "src/registry/blocks/background-06/background.tsx",
+          "path": "src/registry/blocks/background-01/background.tsx",
           "type": "registry:component",
-          "target": "components/background-06.tsx"
+          "target": "components/background-01.tsx"
         }
       ],
       "categories": [
         "background"
       ],
       "meta": {
-        "image": "/r/previews/background-06.webp"
+        "image": "/r/previews/background-01.webp"
+      }
+    },
+    {
+      "name": "background-02",
+      "type": "registry:block",
+      "title": "Dot Pattern Background",
+      "description": "A customizable dot pattern background with adjustable dot color, size, spacing, and mask position.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-02/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-02.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-02.webp"
+      }
+    },
+    {
+      "name": "background-03",
+      "type": "registry:block",
+      "title": "Diagonal Stripes Background",
+      "description": "A customizable diagonal stripes background with adjustable line color, width, spacing, angle, and mask position.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-03/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-03.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-03.webp"
+      }
+    },
+    {
+      "name": "background-04",
+      "type": "registry:block",
+      "title": "Vertical Lines Background",
+      "description": "A customizable vertical lines background with adjustable line count, width, color, gap, and mask position.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-04/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-04.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-04.webp"
       }
     }
   ]

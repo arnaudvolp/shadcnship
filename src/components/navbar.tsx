@@ -31,12 +31,12 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo.svg"
-              alt="Shadcn UI Blocks"
+              alt="ShadcnShip"
               width={32}
               height={32}
               className="h-8 w-8 dark:invert"
             />
-            <span className="font-semibold">Shadcn UI Blocks</span>
+            <span className="font-semibold">ShadcnShip</span>
           </Link>
 
           {/* Desktop Navigation */}

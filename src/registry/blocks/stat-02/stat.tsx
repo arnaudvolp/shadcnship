@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Background06 } from "@/registry/blocks/background-06/background";
+import { Background03 } from "@/registry/blocks/background-03/background";
 
 interface StatItem {
   value: string;
@@ -43,10 +43,10 @@ const Stat02 = ({
               </div>
               {i < stats.length - 1 && (
                 <div className="relative min-h-8 w-full md:w-8">
-                  <Background06
-                    stripeWidth={1}
-                    stripeGap={6}
-                    stripeColor="var(--border)"
+                  <Background03
+                    lineWidth={1}
+                    spacing={6}
+                    lineColor="var(--border)"
                   />
                 </div>
               )}
