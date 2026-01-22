@@ -24,7 +24,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-01/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-01.tsx"
         }
       ]
     },
@@ -49,7 +50,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-02/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-02.tsx"
         }
       ]
     },
