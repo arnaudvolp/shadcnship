@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-03",
+  "title": "Diagonal Stripes Background",
+  "description": "A customizable diagonal stripes background with adjustable line color, width, spacing, angle, and mask position.",
+  "files": [
+    {
+      "path": "src/registry/blocks/background-03/background.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ntype MaskPosition = \"top\" | \"bottom\" | \"center\" | \"none\";\n\ntype Background03Props = {\n  className?: string;\n  lineColor?: string;\n  lineWidth?: number;\n  spacing?: number;\n  angle?: number;\n  mask?: MaskPosition;\n};\n\nconst getMaskStyle = (mask: MaskPosition): string => {\n  switch (mask) {\n    case \"top\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 0%, transparent 40%, #000 110%)\";\n    case \"bottom\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 100%, transparent 40%, #000 110%)\";\n    case \"center\":\n      return \"radial-gradient(ellipse 50% 50% at 50% 50%, transparent 20%, #000 70%)\";\n    case \"none\":\n    default:\n      return \"none\";\n  }\n};\n\nconst Background03 = ({\n  className,\n  lineColor = \"var(--border)\",\n  lineWidth = 1,\n  spacing = 24,\n  angle = 135,\n  mask = \"none\",\n}: Background03Props) => {\n  const maskStyle = getMaskStyle(mask);\n\n  return (\n    <div className={cn(\"absolute inset-0 z-0 h-full w-full\", className)}>\n      <div\n        className=\"absolute inset-0 h-full w-full pointer-events-none\"\n        style={{\n          backgroundImage: `repeating-linear-gradient(${angle}deg, ${lineColor} 0px ${lineWidth}px, transparent ${lineWidth}px ${spacing}px)`,\n          ...(mask !== \"none\" && {\n            maskImage: maskStyle,\n            WebkitMaskImage: maskStyle,\n          }),\n        }}\n      />\n    </div>\n  );\n};\n\nexport { Background03 };\n",
+      "type": "registry:component",
+      "target": "components/background-03.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/background-03.webp"
+  },
+  "categories": [
+    "background"
+  ],
+  "type": "registry:block"
+}

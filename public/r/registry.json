@@ -24,7 +24,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-01/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-01.tsx"
         }
       ]
     },
@@ -38,7 +39,8 @@
       ],
       "registryDependencies": [
         "button",
-        "badge"
+        "badge",
+        "background-02"
       ],
       "categories": [
         "hero"
@@ -49,7 +51,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-02/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-02.tsx"
         }
       ]
     },
@@ -76,7 +79,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-03/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-03.tsx"
         }
       ]
     },
@@ -91,7 +95,8 @@
       "registryDependencies": [
         "button",
         "badge",
-        "avatar"
+        "avatar",
+        "background-04"
       ],
       "categories": [
         "hero"
@@ -102,7 +107,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-04/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-04.tsx"
         }
       ]
     },
@@ -127,7 +133,8 @@
       "files": [
         {
           "path": "src/registry/blocks/hero-05/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-05.tsx"
         }
       ]
     },
@@ -152,7 +159,8 @@
       "files": [
         {
           "path": "src/registry/blocks/feature-01/feature.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/feature-01.tsx"
         }
       ]
     },
@@ -176,7 +184,8 @@
       "files": [
         {
           "path": "src/registry/blocks/feature-02/feature.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/feature-02.tsx"
         }
       ]
     },
@@ -200,7 +209,8 @@
       "files": [
         {
           "path": "src/registry/blocks/feature-03/feature.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/feature-03.tsx"
         }
       ]
     },
@@ -224,7 +234,8 @@
       "files": [
         {
           "path": "src/registry/blocks/feature-04/feature.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/feature-04.tsx"
         }
       ]
     },
@@ -248,7 +259,8 @@
       "files": [
         {
           "path": "src/registry/blocks/feature-05/feature.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/feature-05.tsx"
         }
       ]
     },
@@ -275,7 +287,8 @@
       "files": [
         {
           "path": "src/registry/blocks/pricing-01/pricing.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing-01.tsx"
         }
       ]
     },
@@ -299,7 +312,8 @@
       "files": [
         {
           "path": "src/registry/blocks/pricing-02/pricing.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing-02.tsx"
         }
       ]
     },
@@ -327,7 +341,8 @@
       "files": [
         {
           "path": "src/registry/blocks/pricing-03/pricing.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing-03.tsx"
         }
       ]
     },
@@ -351,7 +366,8 @@
       "files": [
         {
           "path": "src/registry/blocks/cta-01/cta.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/cta-01.tsx"
         }
       ]
     },
@@ -377,7 +393,8 @@
       "files": [
         {
           "path": "src/registry/blocks/cta-02/cta.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/cta-02.tsx"
         }
       ]
     },
@@ -402,7 +419,8 @@
       "files": [
         {
           "path": "src/registry/blocks/cta-03/cta.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/cta-03.tsx"
         }
       ]
     },
@@ -427,7 +445,8 @@
       "files": [
         {
           "path": "src/registry/blocks/cta-04/cta.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/cta-04.tsx"
         }
       ]
     },
@@ -451,7 +470,8 @@
       "files": [
         {
           "path": "src/registry/blocks/faq-01/faq.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/faq-01.tsx"
         }
       ]
     },
@@ -475,7 +495,8 @@
       "files": [
         {
           "path": "src/registry/blocks/faq-02/faq.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/faq-02.tsx"
         }
       ]
     },
@@ -501,7 +522,8 @@
       "files": [
         {
           "path": "src/registry/blocks/testimonial-01/testimonial.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonial-01.tsx"
         }
       ]
     },
@@ -525,7 +547,8 @@
       "files": [
         {
           "path": "src/registry/blocks/stat-01/stat.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/stat-01.tsx"
         }
       ]
     },
@@ -547,7 +570,8 @@
       "files": [
         {
           "path": "src/registry/blocks/stat-02/stat.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/stat-02.tsx"
         }
       ]
     },
@@ -570,7 +594,8 @@
       "files": [
         {
           "path": "src/registry/blocks/logo-01/logo.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/logo-01.tsx"
         }
       ]
     },
@@ -597,7 +622,8 @@
       "files": [
         {
           "path": "src/registry/blocks/contact-01/contact.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/contact-01.tsx"
         }
       ]
     },
@@ -619,7 +645,8 @@
       "files": [
         {
           "path": "src/registry/blocks/footer-01/footer.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/footer-01.tsx"
         }
       ]
     },
@@ -646,27 +673,85 @@
       "files": [
         {
           "path": "src/registry/blocks/navbar-01/navbar.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/navbar-01.tsx"
         }
       ]
     },
     {
-      "name": "background-06",
+      "name": "background-01",
       "type": "registry:block",
-      "title": "Diagonal Grid Background",
-      "description": "A background block with a diagonal grid pattern.",
+      "title": "Square Grid Background",
+      "description": "A customizable square grid background with adjustable line color, grid size, and mask position.",
       "files": [
         {
-          "path": "src/registry/blocks/background-06/background.tsx",
+          "path": "src/registry/blocks/background-01/background.tsx",
           "type": "registry:component",
-          "target": "components/background-06.tsx"
+          "target": "components/background-01.tsx"
         }
       ],
       "categories": [
         "background"
       ],
       "meta": {
-        "image": "/r/previews/background-06.webp"
+        "image": "/r/previews/background-01.webp"
+      }
+    },
+    {
+      "name": "background-02",
+      "type": "registry:block",
+      "title": "Dot Pattern Background",
+      "description": "A customizable dot pattern background with adjustable dot color, size, spacing, and mask position.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-02/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-02.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-02.webp"
+      }
+    },
+    {
+      "name": "background-03",
+      "type": "registry:block",
+      "title": "Diagonal Stripes Background",
+      "description": "A customizable diagonal stripes background with adjustable line color, width, spacing, angle, and mask position.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-03/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-03.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-03.webp"
+      }
+    },
+    {
+      "name": "background-04",
+      "type": "registry:block",
+      "title": "Vertical Lines Background",
+      "description": "A customizable vertical lines background with adjustable line count, width, color, gap, and mask position.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-04/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-04.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-04.webp"
       }
     }
   ]

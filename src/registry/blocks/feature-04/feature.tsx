@@ -29,32 +29,38 @@ const Feature04 = ({
   features = [
     {
       title: "Copy & Paste Ready",
-      description: "Copy any component directly into your project. No dependencies, just pure code you own.",
+      description:
+        "Copy any component directly into your project. No dependencies, just pure code you own.",
       icon: Copy,
     },
     {
       title: "Pre-built Templates",
-      description: "Start with production-ready templates for common layouts and patterns.",
+      description:
+        "Start with production-ready templates for common layouts and patterns.",
       icon: LayoutTemplate,
     },
     {
       title: "Developer Experience",
-      description: "Built with TypeScript, fully typed, and optimized for modern frameworks.",
+      description:
+        "Built with TypeScript, fully typed, and optimized for modern frameworks.",
       icon: Sparkles,
     },
     {
       title: "Fully Customizable",
-      description: "Every component is built with Tailwind CSS. Modify styles easily.",
+      description:
+        "Every component is built with Tailwind CSS. Modify styles easily.",
       icon: SquareDashedMousePointer,
     },
     {
       title: "Performance Optimized",
-      description: "Lightweight components with zero runtime overhead. Fast load times.",
+      description:
+        "Lightweight components with zero runtime overhead. Fast load times.",
       icon: Gauge,
     },
     {
       title: "Active Community",
-      description: "Join thousands of developers sharing components and best practices.",
+      description:
+        "Join thousands of developers sharing components and best practices.",
       icon: MessageCircle,
     },
   ],
@@ -69,11 +75,17 @@ const Feature04 = ({
           </h2>
           <p className="mt-2 text-lg text-muted-foreground">{description}</p>
         </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">
           {features.map((feature) => (
-            <Card key={feature.title} className="flex flex-col gap-4 p-6 shadow-none">
+            <Card
+              key={feature.title}
+              className="flex flex-col gap-4 p-6 shadow-none"
+            >
               <div className="flex size-12 items-center justify-center rounded-md border ">
-                <feature.icon className="size-5 text-primary" strokeWidth={1.5}  />
+                <feature.icon
+                  className="size-5 text-primary"
+                  strokeWidth={1.5}
+                />
               </div>
               <h3 className="text-lg font-semibold">{feature.title}</h3>
               <p className="text-sm text-muted-foreground">

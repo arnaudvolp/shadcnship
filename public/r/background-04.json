@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-04",
+  "title": "Vertical Lines Background",
+  "description": "A customizable vertical lines background with adjustable line count, width, color, gap, and mask position.",
+  "files": [
+    {
+      "path": "src/registry/blocks/background-04/background.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ntype MaskPosition = \"top\" | \"bottom\" | \"center\" | \"none\";\n\ntype Background04Props = {\n  className?: string;\n  lineCount?: number;\n  lineWidth?: number;\n  lineColor?: string;\n  gap?: number;\n  mask?: MaskPosition;\n};\n\nconst getMaskStyle = (mask: MaskPosition): string => {\n  switch (mask) {\n    case \"top\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 0%, transparent 40%, #000 110%)\";\n    case \"bottom\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 100%, transparent 40%, #000 110%)\";\n    case \"center\":\n      return \"radial-gradient(ellipse 50% 50% at 50% 50%, transparent 20%, #000 70%)\";\n    case \"none\":\n    default:\n      return \"none\";\n  }\n};\n\nconst Background04 = ({\n  className,\n  lineCount = 12,\n  lineWidth = 1,\n  lineColor = \"var(--border)\",\n  gap = 0,\n  mask = \"none\",\n}: Background04Props) => {\n  const maskStyle = getMaskStyle(mask);\n\n  return (\n    <div\n      className={cn(\n        \"pointer-events-none absolute inset-0 z-0 overflow-hidden\",\n        className\n      )}\n      style={\n        mask !== \"none\"\n          ? {\n              maskImage: maskStyle,\n              WebkitMaskImage: maskStyle,\n            }\n          : undefined\n      }\n    >\n      <div\n        className=\"flex size-full items-stretch justify-between\"\n        style={{ padding: gap ? `0 ${gap}px` : undefined }}\n      >\n        {Array.from({ length: lineCount }).map((_, i) => (\n          <div\n            key={i}\n            style={{\n              width: `${lineWidth}px`,\n              backgroundColor: lineColor,\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};\n\nexport { Background04 };\n",
+      "type": "registry:component",
+      "target": "components/background-04.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/background-04.webp"
+  },
+  "categories": [
+    "background"
+  ],
+  "type": "registry:block"
+}

@@ -3,15 +3,11 @@ import Link from "next/link";
 const links = [
   {
     title: "Components",
-    href: "/dashboard/blocks",
+    href: "/blocks",
   },
   {
     title: "Backgrounds",
-    href: "/dashboard/background",
-  },
-  {
-    title: "Templates",
-    href: "/dashboard/templates",
+    href: "/background",
   },
   {
     title: "Contact",

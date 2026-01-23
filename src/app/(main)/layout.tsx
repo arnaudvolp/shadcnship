@@ -1,4 +1,4 @@
-import { FooterLanding } from "@/components/footer-landing";
+import { FooterLanding } from "@/components/landing/footer-landing";
 import { Navbar } from "@/components/navbar";
 
 export default function MainLayout({

@@ -8,7 +8,7 @@
 Website - [shadcnship.com](https://shadcnship.com)
 
 
-A curated collection of production-ready Shadcn UI blocks for Next.js developers. This platform helps you ship landing pages faster by providing ready-to-use code snippets for common sections, saving time and enhancing productivity.
+A curated collection of production-ready Shadcn UI blocks for React developers. This platform helps you ship landing pages faster by providing ready-to-use code snippets for common sections, saving time and enhancing productivity.
 
 ## 🚀 Features
 

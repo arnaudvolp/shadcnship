@@ -63,9 +63,7 @@ export function constructMetadata({
   image?: string;
   noIndex?: boolean;
 } & Partial<Metadata> = {}): Metadata {
-  const metaTitle = title
-    ? `${title} | ${siteConfig.name}`
-    : siteConfig.name;
+  const metaTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
   const metaDescription = description || siteConfig.description;
 
   return {

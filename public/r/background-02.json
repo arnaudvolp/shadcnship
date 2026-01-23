@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-02",
+  "title": "Dot Pattern Background",
+  "description": "A customizable dot pattern background with adjustable dot color, size, spacing, and mask position.",
+  "files": [
+    {
+      "path": "src/registry/blocks/background-02/background.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ntype MaskPosition = \"top\" | \"bottom\" | \"center\" | \"none\";\n\ntype Background02Props = {\n  className?: string;\n  dotColor?: string;\n  dotSize?: number;\n  spacingX?: number;\n  spacingY?: number;\n  mask?: MaskPosition;\n};\n\nconst getMaskStyle = (mask: MaskPosition): string => {\n  switch (mask) {\n    case \"top\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 0%, transparent 40%, #000 110%)\";\n    case \"bottom\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 100%, transparent 40%, #000 110%)\";\n    case \"center\":\n      return \"radial-gradient(ellipse 50% 50% at 50% 50%, transparent 20%, #000 70%)\";\n    case \"none\":\n    default:\n      return \"none\";\n  }\n};\n\nconst Background02 = ({\n  className,\n  dotColor = \"var(--border)\",\n  dotSize = 1,\n  spacingX = 16,\n  spacingY = 16,\n  mask = \"none\",\n}: Background02Props) => {\n  const maskStyle = getMaskStyle(mask);\n\n  return (\n    <div className={cn(\"absolute inset-0 z-0 h-full w-full\", className)}>\n      <div\n        className=\"absolute inset-0 h-full w-full pointer-events-none\"\n        style={{\n          backgroundImage: `radial-gradient(${dotColor} ${dotSize}px, transparent ${dotSize}px)`,\n          backgroundSize: `${spacingX}px ${spacingY}px`,\n          ...(mask !== \"none\" && {\n            maskImage: maskStyle,\n            WebkitMaskImage: maskStyle,\n          }),\n        }}\n      />\n    </div>\n  );\n};\n\nexport { Background02 };\n",
+      "type": "registry:component",
+      "target": "components/background-02.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/background-02.webp"
+  },
+  "categories": [
+    "background"
+  ],
+  "type": "registry:block"
+}

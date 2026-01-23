@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-01",
+  "title": "Square Grid Background",
+  "description": "A customizable square grid background with adjustable line color, grid size, and mask position.",
+  "files": [
+    {
+      "path": "src/registry/blocks/background-01/background.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ntype MaskPosition = \"top\" | \"bottom\" | \"center\" | \"none\";\n\ntype Background01Props = {\n  className?: string;\n  lineColor?: string;\n  gridSizeX?: number;\n  gridSizeY?: number;\n  mask?: MaskPosition;\n};\n\nconst getMaskStyle = (mask: MaskPosition): string => {\n  switch (mask) {\n    case \"top\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 0%, transparent 40%, #000 110%)\";\n    case \"bottom\":\n      return \"radial-gradient(ellipse 60% 50% at 50% 100%, transparent 40%, #000 110%)\";\n    case \"center\":\n      return \"radial-gradient(ellipse 50% 50% at 50% 50%, transparent 20%, #000 70%)\";\n    case \"none\":\n    default:\n      return \"none\";\n  }\n};\n\nconst Background01 = ({\n  className,\n  lineColor = \"var(--border)\",\n  gridSizeX = 20,\n  gridSizeY = 20,\n  mask = \"none\",\n}: Background01Props) => {\n  const maskStyle = getMaskStyle(mask);\n\n  return (\n    <div className={cn(\"absolute inset-0 z-0 h-full w-full\", className)}>\n      <div\n        className=\"absolute inset-0 h-full w-full pointer-events-none\"\n        style={{\n          backgroundImage: `linear-gradient(to right, ${lineColor} 1px, transparent 1px), linear-gradient(to bottom, ${lineColor} 1px, transparent 1px)`,\n          backgroundSize: `${gridSizeX}px ${gridSizeY}px`,\n          ...(mask !== \"none\" && {\n            maskImage: maskStyle,\n            WebkitMaskImage: maskStyle,\n          }),\n        }}\n      />\n    </div>\n  );\n};\n\nexport { Background01 };\n",
+      "type": "registry:component",
+      "target": "components/background-01.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/background-01.webp"
+  },
+  "categories": [
+    "background"
+  ],
+  "type": "registry:block"
+}
