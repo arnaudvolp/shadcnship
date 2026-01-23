@@ -13,7 +13,7 @@ interface Registry {
   items: RegistryItem[];
 }
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 const OUTPUT_DIR = join(process.cwd(), "public", "r", "previews");
 
 // 16:9 aspect ratio dimensions
@@ -36,7 +36,9 @@ async function generateScreenshots() {
     mkdirSync(OUTPUT_DIR, { recursive: true });
   }
 
-  console.log(`🚀 Starting screenshot generation for ${blocks.length} blocks...`);
+  console.log(
+    `🚀 Starting screenshot generation for ${blocks.length} blocks...`,
+  );
   console.log(`📁 Output directory: ${OUTPUT_DIR}`);
   console.log(`🌐 Base URL: ${BASE_URL}`);
   console.log(`📐 Viewport: ${VIEWPORT.width}x${VIEWPORT.height} (16:9)`);
@@ -106,26 +108,28 @@ async function generateScreenshots() {
         if (devOverlay) devOverlay.remove();
 
         // Remove any fixed position debug buttons in corners
-        document.querySelectorAll('[style*="position: fixed"]').forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const viewportWidth = window.innerWidth;
+        document
+          .querySelectorAll('[style*="position: fixed"]')
+          .forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
 
-          // If it's a small element in the bottom-right corner, likely a debug button
-          if (
-            rect.width < 150 &&
-            rect.height < 150 &&
-            rect.bottom > viewportHeight - 100 &&
-            rect.right > viewportWidth - 100
-          ) {
-            (el as HTMLElement).style.display = "none";
-          }
-        });
+            // If it's a small element in the bottom-right corner, likely a debug button
+            if (
+              rect.width < 150 &&
+              rect.height < 150 &&
+              rect.bottom > viewportHeight - 100 &&
+              rect.right > viewportWidth - 100
+            ) {
+              (el as HTMLElement).style.display = "none";
+            }
+          });
 
         // Also hide by common dev tool patterns
         document
           .querySelectorAll(
-            '[id*="__next"], [class*="__next"], [id*="devtools"], [class*="devtools"]'
+            '[id*="__next"], [class*="__next"], [id*="devtools"], [class*="devtools"]',
           )
           .forEach((el) => {
             if (el.tagName !== "SCRIPT") {
@@ -147,9 +151,7 @@ async function generateScreenshots() {
       });
 
       // Convert to WebP with compression
-      await sharp(tempPath)
-        .webp({ quality: WEBP_QUALITY })
-        .toFile(outputPath);
+      await sharp(tempPath).webp({ quality: WEBP_QUALITY }).toFile(outputPath);
 
       // Remove temporary PNG file
       unlinkSync(tempPath);
