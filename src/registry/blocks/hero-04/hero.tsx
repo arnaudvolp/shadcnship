@@ -39,7 +39,7 @@ const Hero04 = ({
   return (
     <section
       className={cn(
-        "relative flex w-full min-h-screen items-center overflow-hidden py-12 md:py-24",
+        "relative flex w-full min-h-screen items-center overflow-hidden",
         className
       )}
     >

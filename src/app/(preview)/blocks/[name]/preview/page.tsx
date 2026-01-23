@@ -44,7 +44,7 @@ export default async function PreviewPage(props: PreviewPageProps) {
   return (
     <>
       <PreviewThemeHandler />
-      <div className="bg-background text-foreground min-h-screen flex items-center justify-center">
+      <div className="bg-background text-foreground min-h-screen flex items-stretch justify-center">
         <Suspense
           fallback={
             <div className="flex min-h-screen items-center justify-center">
