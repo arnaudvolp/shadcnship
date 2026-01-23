@@ -82,9 +82,12 @@ export default async function BlockPage({
           </Link>
           <span><ChevronRight className="size-4" /></span>
           {primaryCategory && (
-            <span className="hover:text-foreground">
+            <Link
+              href={`/blocks?category=${primaryCategory.name}`}
+              className="hover:text-foreground"
+            >
               {primaryCategory.title}
-            </span>
+            </Link>
           )}
           <span><ChevronRight className="size-4" /></span>
           <span className="font-medium text-foreground">{block.title}</span>

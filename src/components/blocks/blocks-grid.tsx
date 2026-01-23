@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 interface BlocksGridProps {
   blocks: SerializableRegistryBlock[];
   categories: BlockCategory[];
+  initialCategory?: string;
 }
 
 const columnClasses: Record<ColumnCount, string> = {
@@ -20,10 +21,10 @@ const columnClasses: Record<ColumnCount, string> = {
   4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
 };
 
-export function BlocksGrid({ blocks, categories }: BlocksGridProps) {
+export function BlocksGrid({ blocks, categories, initialCategory }: BlocksGridProps) {
   // Filter state
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory || "all");
 
   // View state
   const [viewMode, setViewMode] = useState<ViewMode>("grid");

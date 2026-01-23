@@ -12,7 +12,12 @@ export const metadata = constructMetadata({
   },
 });
 
-export default function BlocksPage() {
+interface BlocksPageProps {
+  searchParams: Promise<{ category?: string }>;
+}
+
+export default async function BlocksPage({ searchParams }: BlocksPageProps) {
+  const { category } = await searchParams;
   const blocks = getBlocks();
   const categories = getCategories();
 
@@ -26,7 +31,11 @@ export default function BlocksPage() {
       {blocks.length === 0 ? (
         <BlocksEmpty />
       ) : (
-        <BlocksGrid blocks={serializableBlocks} categories={categories} />
+        <BlocksGrid
+          blocks={serializableBlocks}
+          categories={categories}
+          initialCategory={category}
+        />
       )}
     </div>
   );
