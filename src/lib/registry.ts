@@ -43,25 +43,33 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
     dependencies: item.dependencies,
     registryDependencies: item.registryDependencies,
     // Use meta.image if available, otherwise fallback to standard preview path
-    image: (item.meta?.image as string | undefined) || `/r/previews/${item.name}.webp`,
+    image:
+      (item.meta?.image as string | undefined) ||
+      `/r/previews/${item.name}.webp`,
     // Lazy load the component based on block name convention
     component: React.lazy(() =>
       import(`@/registry/blocks/${item.name}/${componentName}`).then((mod) => ({
         // Try to find the exported component (PascalCase version of name or default)
         default: mod.default || mod[Object.keys(mod)[0]],
-      }))
+      })),
     ),
   };
 }
 
-// Transform all registry items to blocks (excluding backgrounds)
+// Transform all registry items to blocks (excluding backgrounds and other categories)
+const excludedCategories = ["background", "social-icons"]; // Add more categories here to exclude
 const blocks: RegistryBlock[] = registryData.items
-  .filter((item) => !item.categories?.includes("background"))
+  .filter((item) => {
+    const categories = item.categories as string[] | undefined;
+    return !categories?.some((cat) => excludedCategories.includes(cat));
+  })
   .map(transformToBlock);
 
 // Transform background items separately
 const backgroundBlocks: RegistryBlock[] = registryData.items
-  .filter((item) => item.categories?.includes("background"))
+  .filter((item) =>
+    (item.categories as string[] | undefined)?.includes("background"),
+  )
   .map(transformToBlock);
 
 /**
@@ -83,7 +91,7 @@ export function getBlock(name: string): RegistryBlock | undefined {
  */
 export function getBlocksByCategory(categoryName: string): RegistryBlock[] {
   return blocks.filter((block) =>
-    block.categories.some((cat) => cat.name === categoryName)
+    block.categories.some((cat) => cat.name === categoryName),
   );
 }
 
@@ -102,7 +110,7 @@ export function getCategories(): BlockCategory[] {
   });
 
   return Array.from(categoryMap.values()).sort((a, b) =>
-    a.title.localeCompare(b.title)
+    a.title.localeCompare(b.title),
   );
 }
 
@@ -125,8 +133,10 @@ export function getBackgroundBlock(name: string): RegistryBlock | undefined {
  * Used for preview pages that need to handle both types
  */
 export function getAnyBlock(name: string): RegistryBlock | undefined {
-  return blocks.find((block) => block.name === name) ||
-    backgroundBlocks.find((block) => block.name === name);
+  return (
+    blocks.find((block) => block.name === name) ||
+    backgroundBlocks.find((block) => block.name === name)
+  );
 }
 
 /**

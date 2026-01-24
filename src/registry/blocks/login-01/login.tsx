@@ -69,6 +69,7 @@ const FormField = ({
 interface Login01Props {
   logo?: React.ReactNode;
   logoText?: string;
+  img?: string;
   tagline?: string;
   heading?: string;
   subheading?: string;
@@ -79,8 +80,9 @@ interface Login01Props {
 }
 
 const Login01 = ({
-  logo = <LogoIcon className="size-6" />,
+  logo = <LogoIcon className="size-6 dark:invert" />,
   logoText = "ShadcnShip",
+  img,
   tagline = "Convert your ideas into successful business.",
   heading = "Sign Up Account",
   subheading = "Get Started",
@@ -116,16 +118,25 @@ const Login01 = ({
         <div
           className={cn(
             "relative hidden lg:flex flex-col justify-between p-10 overflow-hidden",
-            "bg-linear-to-br from-orange-100 via-orange-200/80 to-rose-200/60 dark:text-background",
+            "bg-accent text-white",
           )}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl bg-linear-to-br from-orange-300/60 via-rose-300/40 to-orange-200/50" />
+          {img && (
+            <img
+              src={img}
+              alt="img"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            ></img>
+          )}
+          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
           <div className="relative z-10 flex items-center gap-2">
             {logo}
             <span className="text-lg font-semibold">{logoText}</span>
           </div>
           <div className="relative z-10 max-w-md">
-            <p className="text-sm text-muted-foreground mb-2">{subheading}</p>
+            <p className="text-sm text-muted mb-2 dark:text-muted-foreground">
+              {subheading}
+            </p>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
               {tagline}
             </h2>

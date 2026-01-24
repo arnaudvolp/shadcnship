@@ -528,6 +528,33 @@
       ]
     },
     {
+      "name": "testimonial-02",
+      "type": "registry:block",
+      "title": "Testimonial 02",
+      "description": "A wall of love testimonial section with masonry grid layout",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "avatar",
+        "button"
+      ],
+      "categories": [
+        "testimonial"
+      ],
+      "meta": {
+        "image": "/r/previews/testimonial-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/testimonial-02/testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/testimonial-02.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-01",
       "type": "registry:block",
       "title": "Stat 01",
@@ -756,7 +783,6 @@
       "dependencies": [],
       "registryDependencies": [
         "badge",
-        "button",
         "card",
         "avatar"
       ],
