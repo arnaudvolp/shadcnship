@@ -1,66 +1,40 @@
-# Shadcn-ui-blocks
-> ⚠️ **Note:** The registry code is still in progress — some blocks may be incomplete or change. The website [shadcnship.com](https://shadcnship.com) is fully functional for browsing and previewing.
 
----
+# ShadcnShip
 
-> **Building in public** — Star ⭐ to follow progress and get notified at launch!
+ ShadcnShip is a collection of production-ready blocks built with Shadcn/ui, Tailwind CSS, React.js, and TypeScript. Designed for developers who want to ship landing pages faster without building common sections from scratch.
 
-Website - [shadcnship.com](https://shadcnship.com)
+All components are fully open and editable, integrating naturally into your codebase without introducing a new design system.
 
+⭐ **Star this repo** to follow development • [Shadcnship.com](https://shadcnship.com)
 
-A curated collection of production-ready Shadcn UI blocks for React developers. This platform helps you ship landing pages faster by providing ready-to-use code snippets for common sections, saving time and enhancing productivity.
+<img width="1527" height="611" alt="Capture d’écran 2026-01-24 à 12 07 04" src="https://github.com/user-attachments/assets/05b20aea-089e-48f3-9e4a-f763305a30be" />
 
-## 🚀 Features
+**Tech Stack:** Next.js 16+ • TypeScript • Tailwind CSS • Shadcn UI
 
-- **One-Command Install:** Install any block with a single npx command.
-- **Production-Ready:** All blocks are tested, responsive, and accessible.
-- **Copy & Customize:** Get the code and customize it to match your brand.
-- **Growing Library:** New blocks added regularly. Star to get notified.
+## Features
 
-## 🌐 Website Structure
+**One-command install** — Add any block with a single npx command  
+**Production-ready** — Responsive, accessible, fully typed  
+**Copy & customize** — No lock-in, edit freely to match your brand  
+**Growing library** — New blocks added regularly
 
-Landing Page: Showcases available Shadcn UI blocks with previews and installation commands.
-Component Pages: Dedicated pages for each block with live preview, code, and customization options.
+## Available Blocks
+Discover 25+ blocks for design your Hero sections • Pricing tables • CTAs • Testimonials • Features • FAQs
 
-## 🛠️ Tech Stack
+| Hero           |  Feature       | Pricing        | Call to Action |  Background    |  Footer/Navgiation/Logo ...  |
+| :--------      | :--------      | :--------      | :--------      | :--------      | :--------                    |
+| `5 blocks`     | `5 blocks`     | `3 blocks`     | `4 blocks`     | `4 blocks`     | `15+ blocks to discover`     |
 
-- Next.js 16+
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
+## Roadmap
 
-## 📖 Usage
+- Adding new blocks every week
+- Landing & Dashboard templates
+- Database-connected forms
 
-1. Visit [shadcnship.com](https://shadcnship.com)
-2. Browse through available blocks
-3. Preview how blocks look and function
-4. Copy the installation command or code snippet
-5. Paste into your Next.js project
+## Start using
 
-## 📦 What's Included
+Visit [ShadcnShip](https://shadcnship.com/) to start using our components.
 
-- Hero sections
-- Pricing tables
-- FAQ blocks
-- Testimonials
-- CTA sections
-- More coming soon
+## License
 
-## 🗺️ Roadmap
-
-- [ ] 30 landing page blocks
-- [ ] Dashboard templates
-- [ ] Auth templates
-- [ ] Forms + database integration
-
-⭐ Star this repo to support development
-
-## 🤝 Contributing
-
-Contributions are welcome! If you have ideas for new blocks or improvements, feel free to open an issue or submit a pull request.
-
-## 📄 License
-
-MIT - Free for commercial use
-
----
+ShadcnShip is released under the [MIT License](LICENSE).
