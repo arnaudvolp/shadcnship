@@ -749,6 +749,31 @@
       ]
     },
     {
+      "name": "blog-01",
+      "type": "registry:block",
+      "title": "Blog 01",
+      "description": "A blog section with post cards featuring images, categories, and author info",
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "card",
+        "avatar"
+      ],
+      "categories": [
+        "blog"
+      ],
+      "meta": {
+        "image": "/r/previews/blog-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/blog-01/blog.tsx",
+          "type": "registry:component",
+          "target": "components/blog-01.tsx"
+        }
+      ]
+    },
+    {
       "name": "background-01",
       "type": "registry:block",
       "title": "Square Grid Background",
