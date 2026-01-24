@@ -679,6 +679,31 @@
       ]
     },
     {
+      "name": "team-01",
+      "type": "registry:block",
+      "title": "Team 01",
+      "description": "A team section with member cards featuring images, roles, and social links",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "team"
+      ],
+      "meta": {
+        "image": "/r/previews/team-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/team-01/team.tsx",
+          "type": "registry:component",
+          "target": "components/team-01.tsx"
+        }
+      ]
+    },
+    {
       "name": "background-01",
       "type": "registry:block",
       "title": "Square Grid Background",

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "team-01",
+  "title": "Team 01",
+  "description": "A team section with member cards featuring images, roles, and social links",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/team-01/team.tsx",
+      "content": "import { Linkedin, Twitter } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\n\ninterface TeamMember {\n  name: string;\n  role: string;\n  image: string;\n  socials?: {\n    linkedin?: string;\n    twitter?: string;\n  };\n}\n\ninterface Team01Props {\n  tagline?: string;\n  heading?: string;\n  description?: string;\n  buttonText?: string;\n  buttonUrl?: string;\n  members?: TeamMember[];\n  className?: string;\n}\n\nconst defaultMembers: TeamMember[] = [\n  {\n    name: \"Ethan Brooks\",\n    role: \"CEO, Co-founder\",\n    image: \"https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=600&fit=crop&crop=face\",\n    socials: {\n      linkedin: \"#\",\n      twitter: \"#\",\n    },\n  },\n  {\n    name: \"Alex Warren\",\n    role: \"CTO, Co-founder\",\n    image: \"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=600&fit=crop&crop=face\",\n    socials: {\n      linkedin: \"#\",\n      twitter: \"#\",\n    },\n  },\n  {\n    name: \"Lucy Aniston\",\n    role: \"CFO, Co-founder\",\n    image: \"https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop&crop=face\",\n    socials: {\n      linkedin: \"#\",\n      twitter: \"#\",\n    },\n  },\n];\n\nconst TeamMemberCard = ({ name, role, image, socials }: TeamMember) => {\n  return (\n    <div className=\"group relative overflow-hidden rounded-xl\">\n      <img\n        src={image}\n        alt={name}\n        className=\"aspect-[3/4] w-full object-cover transition-transform duration-300 group-hover:scale-105\"\n      />\n      <div className=\"absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent\" />\n      <div className=\"absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between\">\n        <div>\n          <h3 className=\"text-lg font-semibold text-white\">{name}</h3>\n          <p className=\"text-sm text-white/80\">{role}</p>\n        </div>\n        {socials && (\n          <div className=\"flex gap-2\">\n            {socials.linkedin && (\n              <a\n                href={socials.linkedin}\n                className=\"flex size-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/30\"\n                target=\"_blank\"\n                rel=\"noopener noreferrer\"\n              >\n                <Linkedin className=\"size-4\" />\n              </a>\n            )}\n            {socials.twitter && (\n              <a\n                href={socials.twitter}\n                className=\"flex size-9 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/30\"\n                target=\"_blank\"\n                rel=\"noopener noreferrer\"\n              >\n                <Twitter className=\"size-4\" />\n              </a>\n            )}\n          </div>\n        )}\n      </div>\n    </div>\n  );\n};\n\nconst Team01 = ({\n  tagline = \"Our team\",\n  heading = \"Meet the Team\",\n  description = \"The people behind Acme AI are builders, designers, and problem-solvers dedicated to helping you work smarter every day.\",\n  buttonText = \"Get in touch\",\n  buttonUrl = \"#\",\n  members = defaultMembers,\n  className,\n}: Team01Props) => {\n  return (\n    <section className={cn(\"container mx-auto px-6 py-12 md:py-24\", className)}>\n      <div className=\"mx-auto max-w-2xl text-center\">\n        <p className=\"text-sm font-medium\">{tagline}</p>\n        <h2 className=\"mt-2 text-4xl font-semibold tracking-tight md:text-5xl\">\n          {heading}\n        </h2>\n        <p className=\"mt-4 text-muted-foreground\">{description}</p>\n        <Button variant=\"outline\" className=\"mt-6\" asChild>\n          <a href={buttonUrl}>{buttonText}</a>\n        </Button>\n      </div>\n      <div className=\"mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3\">\n        {members.map((member, index) => (\n          <TeamMemberCard key={index} {...member} />\n        ))}\n      </div>\n    </section>\n  );\n};\n\nexport { Team01 };\n",
+      "type": "registry:component",
+      "target": "components/team-01.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/team-01.webp"
+  },
+  "categories": [
+    "team"
+  ],
+  "type": "registry:block"
+}
