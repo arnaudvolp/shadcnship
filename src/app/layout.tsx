@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PackageManagerProvider } from "@/providers/package-manager-provider";
 import { baseMetadata } from "@/config/site";
+import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -25,9 +27,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <PackageManagerProvider>
-            {children}
-          </PackageManagerProvider>
+          <PackageManagerProvider>{children}</PackageManagerProvider>
+          <Analytics />
+          <GoogleAnalytics gaId="G-8EGMH4N98S" />
         </ThemeProvider>
       </body>
     </html>
