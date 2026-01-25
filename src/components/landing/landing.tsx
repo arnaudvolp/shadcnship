@@ -3,10 +3,11 @@
 import { Hero04 } from "@/registry/blocks/hero-04/hero";
 import { Faq01 } from "@/registry/blocks/faq-01/faq";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, LayoutTemplate } from "lucide-react";
+import { ArrowUpRight, Github, LayoutTemplate, Star } from "lucide-react";
 import { BentoLanding } from "@/components/landing/bento-landing";
 import { Separator } from "@/components/ui/separator";
 import { Cta04 } from "@/registry/blocks/cta-04/cta";
+import { GithubIcon } from "@/registry/blocks/social-icons/icons";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -25,9 +26,9 @@ export const Landing = () => {
       >
         <Hero04
           badge={{
-            text: "Copy, paste, ship",
+            text: "Copy, Paste, Ship 🚢",
           }}
-          heading="Stop building UI from scratch. Start shipping."
+          heading="Stop building UI from scratch Focus on what matter"
           description="Production-ready landing page blocks built with Shadcn UI. Copy the code, customize to your brand, and launch in hours instead of weeks."
           buttons={{
             primary: {
@@ -35,7 +36,12 @@ export const Landing = () => {
               url: "/blocks",
               icon: <ArrowUpRight className="size-4" />,
             },
-            secondary: { text: "View Backgrounds", url: "/background" },
+            secondary: {
+              text: "Star Us on Github",
+              url: "https://github.com/arnaudvolp/shadcn-ui-blocks",
+              icon: <GithubIcon />,
+              openInNewPage: true,
+            },
           }}
           className="-mt-16"
         />
