@@ -28,7 +28,7 @@ const BentoLanding = () => {
       <div className=" container grid p-0 h-auto min-h-[800px] md:min-h-[1200px] lg:min-h-[1400px] grid-cols-4 md:grid-cols-8 lg:grid-cols-12 grid-rows-auto 2xl:grid-rows-15  gap-0 border-x border-border  ">
         {/* Hero Preview - Large Top Left */}
         <Link
-          href="/blocks/hero-05"
+          href="/blocks/hero-02"
           className="group relative col-span-4 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-6 md:row-span-4 lg:row-span-6 2xl:row-span-6 6xl:row-span-6 min-h-[250px] md:min-h-0 overflow-hidden md:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -36,13 +36,13 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4 md:p-6"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hiddenbg-muted">
               <img
-                src="/r/previews/hero-05.webp"
+                src="/r/previews/hero-02.webp"
                 alt="Hero"
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-105 dark:invert"
+                className="size-full object-contain bg-white transition-transform duration-500 group-hover:scale-105 dark:invert"
               />
             </div>
           </motion.div>
@@ -58,9 +58,9 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4 md:p-6"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
                 src="/r/previews/pricing-01.webp"
                 alt="Pricing"
@@ -80,9 +80,9 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4 md:p-6"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
                 src="/r/previews/hero-04.webp"
                 alt="Hero Alt"
@@ -94,7 +94,7 @@ const BentoLanding = () => {
 
         {/* Logo Preview - Top Far Right */}
         <Link
-          href="/blocks/logo-01"
+          href="/blocks/testimonial-02"
           className="group relative col-span-2 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-4 md:row-span-4 lg:row-span-3 2xl:row-span-3 min-h-[180px] md:min-h-0 overflow-hidden border-r md:border-r-0 lg:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -102,11 +102,11 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4 md:p-6"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
-                src="/r/previews/logo-01.webp"
+                src="/r/previews/testimonial-02.webp"
                 alt="Logo"
                 className="size-full object-cover transition-transform duration-500 group-hover:scale-105 dark:invert"
               />
@@ -116,7 +116,7 @@ const BentoLanding = () => {
 
         {/* Stats Preview */}
         <Link
-          href="/blocks/stat-01"
+          href="/blocks/testimonial-01"
           className="group relative col-span-2 md:col-span-4 lg:col-span-6 2xl:col-span-6 row-span-4 md:row-span-4 lg:row-span-5 2xl:row-span-5 min-h-[180px] md:min-h-0 overflow-hidden md:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -124,11 +124,11 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
-                src="/r/previews/stat-01.webp"
+                src="/r/previews/testimonial-01.webp"
                 alt="Stats"
                 className="size-full object-cover transition-transform duration-500 group-hover:scale-105 dark:invert"
               />
@@ -146,9 +146,9 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
                 src="/r/previews/feature-05.webp"
                 alt="Features"
@@ -168,9 +168,9 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
                 src="/r/previews/faq-01.webp"
                 alt="FAQ"
@@ -190,13 +190,13 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
                 src="/r/previews/contact-01.webp"
                 alt="Contact"
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-105 dark:invert"
+                className="size-full object-contain bg-white transition-transform duration-500 group-hover:scale-105 dark:invert"
               />
             </div>
           </motion.div>
@@ -212,13 +212,13 @@ const BentoLanding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 p-4 md:p-6"
+            className="absolute inset-0 p-4 md:p-0"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-muted">
+            <div className="relative h-full w-full overflow-hidden bg-muted">
               <img
                 src="/r/previews/pricing-02.webp"
                 alt="Pricing Alt"
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-105 dark:invert"
+                className="size-full object-contain bg-white transition-transform duration-500 group-hover:scale-105 dark:invert"
               />
             </div>
           </motion.div>
