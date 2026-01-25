@@ -21,20 +21,24 @@ const Hero02 = ({
   heading = "Shadcn UI Blocks, Copy & Customize",
   description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
   buttons = {
-    primary: { text: "Browse Components", url: "#", icon: <ArrowUpRight className="size-4" /> },
+    primary: {
+      text: "Browse Components",
+      url: "#",
+      icon: <ArrowUpRight className="size-4" />,
+    },
     secondary: { text: "View Docs", url: "#" },
   },
-  image,
+  image = "https://www.shadcnship.com/images/image-preview.webp",
   className,
 }: Hero02Props) => {
   return (
     <section
       className={cn(
         "relative overflow-hidden w-full py-20 md:pt-32",
-        className
+        className,
       )}
     >
-      <Background02/>
+      <Background02 />
 
       <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
         <Badge
@@ -72,7 +76,15 @@ const Hero02 = ({
           )}
         </div>
         <div className="mt-20  mx-auto w-full max-w-5xl lg:max-w-7xl aspect-video bg-accent rounded-md">
-          {image && <img src={image} alt={heading} width={1000} height={1000} className="w-full h-full object-cover rounded-md" />}
+          {image && (
+            <img
+              src={image}
+              alt={heading}
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover rounded-md"
+            />
+          )}
         </div>
       </div>
     </section>

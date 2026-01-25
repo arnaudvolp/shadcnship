@@ -17,7 +17,6 @@ interface Hero03Props {
   stats?: { value: string; label: string }[];
   image?: string;
   className?: string;
-
 }
 
 const Hero03 = ({
@@ -25,7 +24,11 @@ const Hero03 = ({
   heading = "Shadcn UI Blocks, Copy & Customize",
   description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
   buttons = {
-    primary: { text: "Browse Components", url: "#", icon: <ArrowUpRight className="size-4" /> },
+    primary: {
+      text: "Browse Components",
+      url: "#",
+      icon: <ArrowUpRight className="size-4" />,
+    },
     secondary: { text: "View Docs", url: "#" },
   },
   ratingText = "Loved by developers worldwide",
@@ -33,15 +36,15 @@ const Hero03 = ({
     { value: "50+", label: "Blocks" },
     { value: "100%", label: "Free" },
     { value: "Open", label: "Source" },
-    ],
-  image,
-    className,
+  ],
+  image = "https://www.shadcnship.com/images/image-preview.webp",
+  className,
 }: Hero03Props) => {
   return (
     <section
       className={cn(
         "min-h-screen flex items-center overflow-hidden",
-        className
+        className,
       )}
     >
       <div className="w-full grid lg:grid-cols-2">
@@ -56,9 +59,7 @@ const Hero03 = ({
           <h1 className=" text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight">
             {heading}
           </h1>
-          <p className="mt-2 text-muted-foreground">
-            {description}
-          </p>
+          <p className="mt-2 text-muted-foreground">{description}</p>
           <div className="mt-0 flex flex-col md:flex-row items-center gap-4 justify-center lg:justify-start">
             {buttons?.primary && (
               <Button size="lg" className="w-full md:w-auto" asChild>
@@ -111,9 +112,16 @@ const Hero03 = ({
           </Card>
         </div>
         <div className="w-full aspect-video lg:aspect-auto lg:h-screen bg-accent">
-             {image && <img src={image} alt={heading} width={1000} height={1000} className="w-full h-full object-cover" />}
+          {image && (
+            <img
+              src={image}
+              alt={heading}
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover"
+            />
+          )}
         </div>
-      
       </div>
     </section>
   );

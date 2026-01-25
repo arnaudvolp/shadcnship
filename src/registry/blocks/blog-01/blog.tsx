@@ -82,6 +82,7 @@ const Blog01 = ({
   description = "Discover insights, tutorials, and best practices to build better products faster.",
   posts = [
     {
+      image: "https://www.shadcnship.com/images/image-preview.webp",
       category: "Design System",
       readTime: "5 min read",
       title: "Building Consistent UI with Shadcn",
@@ -91,6 +92,7 @@ const Blog01 = ({
       date: "15 Jan, 2026",
     },
     {
+      image: "https://www.shadcnship.com/images/image-preview.webp",
       category: "Tutorial",
       readTime: "8 min read",
       title: "From Zero to Landing Page in 10 Minutes",
@@ -100,6 +102,7 @@ const Blog01 = ({
       date: "12 Jan, 2026",
     },
     {
+      image: "https://www.shadcnship.com/images/image-preview.webp",
       category: "Best Practices",
       readTime: "4 min read",
       title: "Accessible Components That Convert",

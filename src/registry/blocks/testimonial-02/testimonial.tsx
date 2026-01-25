@@ -120,7 +120,7 @@ const Testimonial02 = ({
   testimonials = [
     {
       type: "image",
-      //image: "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       type: "text",
@@ -136,7 +136,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      //  image: "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       type: "text",
@@ -164,7 +164,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      // image:  "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       type: "text",
@@ -180,7 +180,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      // image: "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       type: "cta",
@@ -206,7 +206,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      // image:        "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       type: "text",

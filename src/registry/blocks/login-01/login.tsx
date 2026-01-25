@@ -69,7 +69,7 @@ const FormField = ({
 interface Login01Props {
   logo?: React.ReactNode;
   logoText?: string;
-  img?: string;
+  image?: string;
   tagline?: string;
   heading?: string;
   subheading?: string;
@@ -80,9 +80,9 @@ interface Login01Props {
 }
 
 const Login01 = ({
-  logo = <LogoIcon className="size-6 dark:invert" />,
+  logo = <LogoIcon className="size-6 dark:invert invert" />,
   logoText = "ShadcnShip",
-  img,
+  image = "https://www.shadcnship.com/images/image-preview.webp",
   tagline = "Convert your ideas into successful business.",
   heading = "Sign Up Account",
   subheading = "Get Started",
@@ -121,11 +121,11 @@ const Login01 = ({
             "bg-accent text-white",
           )}
         >
-          {img && (
+          {image && (
             <img
-              src={img}
+              src={image}
               alt="img"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover h-full"
             ></img>
           )}
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />

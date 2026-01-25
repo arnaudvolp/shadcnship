@@ -22,18 +22,24 @@ const Feature01 = ({
   description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship. ",
   features = [
     {
+      image: "https://www.shadcnship.com/images/image-preview.webp",
       title: "Copy & Paste Ready",
-      description: "All components are ready to use. Just copy the code and paste it into your project.",
+      description:
+        "All components are ready to use. Just copy the code and paste it into your project.",
       link: { text: "Browse Components", url: "#" },
     },
     {
+      image: "https://www.shadcnship.com/images/image-preview.webp",
       title: "Fully Customizable",
-      description: "Built with Tailwind CSS, every component is fully customizable to match your brand.",
+      description:
+        "Built with Tailwind CSS, every component is fully customizable to match your brand.",
       link: { text: "View Docs", url: "#" },
     },
     {
+      image: "https://www.shadcnship.com/images/image-preview.webp",
       title: "TypeScript First",
-      description: "Written in TypeScript with full type safety and IntelliSense support for better DX.",
+      description:
+        "Written in TypeScript with full type safety and IntelliSense support for better DX.",
       link: { text: "Get Started", url: "#" },
     },
   ],
@@ -41,35 +47,39 @@ const Feature01 = ({
 }: Feature01Props) => {
   return (
     <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-    
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight ">
-            {heading}
-          </h2>
-          <p className="mt-2 text-lg text-muted-foreground">{description}</p>
-        </div>
-        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <Card key={index} className="flex flex-col p-4 shadow-none gap-4">
-              <div className="aspect-video rounded-lg bg-accent" >
-                {feature.image && <img src={feature.image} alt={feature.title} className="aspect-video object-cover rounded-lg" />}
-                </div>
-              <h3 className="text-xl font-medium">{feature.title}</h3>
-              <p className="flex-1 text-sm text-muted-foreground">
-                {feature.description}
-              </p>
-              {feature.link && (
-                <Button variant="ghost" size="sm" className=" w-fit" asChild>
-                  <a href={feature.link.url}>
-                    {feature.link.text}
-                    <ArrowRight className="size-4" />
-                  </a>
-                </Button>
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight ">
+          {heading}
+        </h2>
+        <p className="mt-2 text-lg text-muted-foreground">{description}</p>
+      </div>
+      <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature, index) => (
+          <Card key={index} className="flex flex-col p-4 shadow-none gap-4">
+            <div className="aspect-video rounded-lg bg-accent">
+              {feature.image && (
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="aspect-video object-cover rounded-lg"
+                />
               )}
-            </Card>
-          ))}
-        </div>
-      
+            </div>
+            <h3 className="text-xl font-medium">{feature.title}</h3>
+            <p className="flex-1 text-sm text-muted-foreground">
+              {feature.description}
+            </p>
+            {feature.link && (
+              <Button variant="ghost" size="sm" className=" w-fit" asChild>
+                <a href={feature.link.url}>
+                  {feature.link.text}
+                  <ArrowRight className="size-4" />
+                </a>
+              </Button>
+            )}
+          </Card>
+        ))}
+      </div>
     </section>
   );
 };
