@@ -68,7 +68,8 @@ export default async function BlockPage({
     : { raw: "", highlighted: "" };
 
   // Extract file name for display (use target if available, otherwise derive from path)
-  const fileName = mainFile?.target || mainFile?.path?.split("/").pop() || "component.tsx";
+  const fileName =
+    mainFile?.target || mainFile?.path?.split("/").pop() || "component.tsx";
 
   const primaryCategory = block.categories[0];
 
@@ -80,7 +81,9 @@ export default async function BlockPage({
           <Link href="/blocks" className="hover:text-foreground">
             Blocks
           </Link>
-          <span><ChevronRight className="size-4" /></span>
+          <span>
+            <ChevronRight className="size-4" />
+          </span>
           {primaryCategory && (
             <Link
               href={`/blocks?category=${primaryCategory.name}`}
@@ -89,7 +92,9 @@ export default async function BlockPage({
               {primaryCategory.title}
             </Link>
           )}
-          <span><ChevronRight className="size-4" /></span>
+          <span>
+            <ChevronRight className="size-4" />
+          </span>
           <span className="font-medium text-foreground">{block.title}</span>
         </div>
 
@@ -97,7 +102,9 @@ export default async function BlockPage({
         <Tabs defaultValue="preview" className="gap-0">
           <div className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center justify-between p-4">
             {/* Line 1: Component name */}
-            <h1 className="text-lg font-semibold mb-3 md:mb-0">{block.title}</h1>
+            <h1 className="text-lg font-semibold mb-3 md:mb-0">
+              {block.title}
+            </h1>
 
             {/* Line 2: Toolbar */}
             <div className="w-full md:w-fit">
@@ -109,7 +116,11 @@ export default async function BlockPage({
           </TabsContent>
 
           <TabsContent value="code">
-            <BlockCode code={code} highlightedCode={highlightedCode} fileName={fileName} />
+            <BlockCode
+              code={code}
+              highlightedCode={highlightedCode}
+              fileName={fileName}
+            />
           </TabsContent>
         </Tabs>
       </div>

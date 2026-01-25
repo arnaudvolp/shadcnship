@@ -36,23 +36,31 @@ const Feature05 = ({
   features = [
     {
       title: "Copy & Paste Ready",
-      description: "Every component is ready to use. Just copy the code and paste it into your project.",
+      description:
+        "Every component is ready to use. Just copy the code and paste it into your project.",
       icon: Copy,
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       title: "Fully Customizable",
-      description: "Built with Tailwind CSS, every component can be easily modified to match your brand.",
+      description:
+        "Built with Tailwind CSS, every component can be easily modified to match your brand.",
       icon: SquareDashedMousePointer,
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       title: "TypeScript First",
-      description: "All components are fully typed with TypeScript for better developer experience.",
+      description:
+        "All components are fully typed with TypeScript for better developer experience.",
       icon: TypeOutline,
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
     {
       title: "Accessible by Default",
-      description: "Built on Radix UI primitives, all components follow WAI-ARIA guidelines.",
+      description:
+        "Built on Radix UI primitives, all components follow WAI-ARIA guidelines.",
       icon: Info,
+      image: "https://www.shadcnship.com/images/image-preview.webp",
     },
   ],
   className,
@@ -69,7 +77,9 @@ const Feature05 = ({
               {heading}
             </h2>
             {description && (
-              <p className="mt-4 text-lg text-muted-foreground">{description}</p>
+              <p className="mt-4 text-lg text-muted-foreground">
+                {description}
+              </p>
             )}
             <Accordion
               type="single"
@@ -99,13 +109,13 @@ const Feature05 = ({
                       {feature.description}
                     </p>
                     <div className="mt-4 aspect-video overflow-hidden rounded-lg bg-accent lg:hidden">
-                    {feature.image && (
+                      {feature.image && (
                         <img
                           src={feature.image}
                           alt={feature.title}
                           className="size-full object-cover"
                         />
-                    )}
+                      )}
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -113,12 +123,14 @@ const Feature05 = ({
             </Accordion>
           </div>
           <div className="relative hidden lg:block">
-          <div className="sticky top-24 aspect-square overflow-hidden rounded-lg h-full border bg-accent">
-            {activeImage && <img
-                src={activeImage}
-                alt="Feature illustration"
-                className="size-full object-cover "
-              />}
+            <div className="sticky top-24 aspect-square overflow-hidden rounded-lg h-full border bg-accent">
+              {activeImage && (
+                <img
+                  src={activeImage}
+                  alt="Feature illustration"
+                  className="size-full object-cover "
+                />
+              )}
             </div>
           </div>
         </div>
