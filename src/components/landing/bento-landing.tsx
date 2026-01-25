@@ -28,7 +28,7 @@ const BentoLanding = () => {
       <div className=" container grid p-0 h-auto min-h-[800px] md:min-h-[1200px] lg:min-h-[1400px] grid-cols-4 md:grid-cols-8 lg:grid-cols-12 grid-rows-auto 2xl:grid-rows-15  gap-0 border-x border-border  ">
         {/* Hero Preview - Large Top Left */}
         <Link
-          href="/dashboard/blocks/hero/hero-05"
+          href="/blocks/hero-05"
           className="group relative col-span-4 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-6 md:row-span-4 lg:row-span-6 2xl:row-span-6 6xl:row-span-6 min-h-[250px] md:min-h-0 overflow-hidden md:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -50,7 +50,7 @@ const BentoLanding = () => {
 
         {/* Pricing Preview - Top */}
         <Link
-          href="/dashboard/blocks/pricing/pricing-01"
+          href="/blocks/pricing-01"
           className="group relative col-span-4 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-6 md:row-span-4 lg:row-span-3 2xl:row-span-3 min-h-[250px] md:min-h-0 overflow-hidden lg:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -72,7 +72,7 @@ const BentoLanding = () => {
 
         {/* Hero 04 Preview - Top Right */}
         <Link
-          href="/dashboard/blocks/hero/hero-04"
+          href="/blocks/hero-04"
           className="group relative col-span-4 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-6 md:row-span-4 lg:row-span-6 2xl:row-span-6 min-h-[250px] md:min-h-0 overflow-hidden md:border-r lg:border-r-0 border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -94,7 +94,7 @@ const BentoLanding = () => {
 
         {/* Logo Preview - Top Far Right */}
         <Link
-          href="/dashboard/blocks/logo/logo-01"
+          href="/blocks/logo-01"
           className="group relative col-span-2 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-4 md:row-span-4 lg:row-span-3 2xl:row-span-3 min-h-[180px] md:min-h-0 overflow-hidden border-r md:border-r-0 lg:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -116,7 +116,7 @@ const BentoLanding = () => {
 
         {/* Stats Preview */}
         <Link
-          href="/dashboard/blocks/stat/stat-01"
+          href="/blocks/stat-01"
           className="group relative col-span-2 md:col-span-4 lg:col-span-6 2xl:col-span-6 row-span-4 md:row-span-4 lg:row-span-5 2xl:row-span-5 min-h-[180px] md:min-h-0 overflow-hidden md:border-r border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -138,7 +138,7 @@ const BentoLanding = () => {
 
         {/* Features Preview */}
         <Link
-          href="/dashboard/blocks/feature/feature-05"
+          href="/blocks/feature-05"
           className="group relative col-span-4  md:col-span-4 lg:col-span-6 2xl:col-span-6 row-span-8 md:row-span-4 lg:row-span-5 2xl:row-span-5 min-h-[320px] md:min-h-0 overflow-hidden border-b border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -160,7 +160,7 @@ const BentoLanding = () => {
 
         {/* FAQ Preview - Bottom Row */}
         <Link
-          href="/dashboard/blocks/faq/faq-01"
+          href="/blocks/faq-01"
           className="group relative col-span-2 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-4 min-h-[120px] md:min-h-0 overflow-hidden border-r border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -182,7 +182,7 @@ const BentoLanding = () => {
 
         {/* Contact Preview */}
         <Link
-          href="/dashboard/blocks/contact/contact-01"
+          href="/blocks/contact-01"
           className="group relative col-span-2 md:col-span-4 lg:col-span-4 2xl:col-span-4 row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-4 min-h-[180px] md:min-h-0 overflow-hidden md:border-r-0 lg:border-r border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div
@@ -204,7 +204,7 @@ const BentoLanding = () => {
 
         {/* Pricing 02 Preview */}
         <Link
-          href="/dashboard/blocks/pricing/pricing-02"
+          href="/blocks/pricing-02"
           className=" hidden lg:block group relative col-span-2 md:col-span-3 lg:col-span-4 2xl:col-span-4 row-span-2 md:row-span-3 lg:row-span-4 2xl:row-span-4 min-h-[180px] md:min-h-0 overflow-hidden border-border bg-card transition-colors hover:bg-accent/5"
         >
           <motion.div

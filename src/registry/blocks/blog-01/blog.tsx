@@ -39,7 +39,7 @@ const BlogCard = ({
 }: BlogPost) => (
   <Card className="group overflow-hidden bg-transparent shadow-none pt-0">
     <a href={href} className="flex flex-col">
-      <div className="aspect-4/3 w-full overflow-hidden rounded-xl bg-muted">
+      <div className="aspect-4/3 w-full overflow-hidden rounded-lg bg-muted">
         {image && (
           <img
             src={image}
