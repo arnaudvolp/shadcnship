@@ -801,6 +801,38 @@
       ]
     },
     {
+      "name": "register-01",
+      "type": "registry:block",
+      "title": "Register 01",
+      "description": "A centered registration card with form validation and social authentication",
+      "dependencies": [
+        "lucide-react",
+        "zod",
+        "react-hook-form",
+        "@hookform/resolvers"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "form",
+        "social-icons"
+      ],
+      "categories": [
+        "signup"
+      ],
+      "meta": {
+        "image": "/r/previews/register-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/register-01/register.tsx",
+          "type": "registry:component",
+          "target": "components/register-01.tsx"
+        }
+      ]
+    },
+    {
       "name": "background-01",
       "type": "registry:block",
       "title": "Square Grid Background",

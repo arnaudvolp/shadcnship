@@ -64,12 +64,7 @@ const BlogCard = ({
         <div className="mt-4 flex items-center gap-3">
           <Avatar className="size-9">
             <AvatarImage src={author.avatar} alt={author.name} />
-            <AvatarFallback>
-              {author.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </AvatarFallback>
+            <AvatarFallback className="bg-accent"></AvatarFallback>
           </Avatar>
           <div className="text-sm">
             <p className="font-medium">{author.name}</p>
@@ -92,7 +87,7 @@ const Blog01 = ({
       title: "Building Consistent UI with Shadcn",
       description:
         "Learn how to create a cohesive design system using Shadcn components.",
-      author: { name: "Sarah Chen", avatar: "https://avatar.vercel.sh/8" },
+      author: { name: "Sarah Chen", avatar: "" },
       date: "15 Jan, 2026",
     },
     {
@@ -101,7 +96,7 @@ const Blog01 = ({
       title: "From Zero to Landing Page in 10 Minutes",
       description:
         "Ship your next project faster with pre-built blocks and components.",
-      author: { name: "Marcus Johnson", avatar: "https://avatar.vercel.sh/8" },
+      author: { name: "Marcus Johnson", avatar: "" },
       date: "12 Jan, 2026",
     },
     {
@@ -110,7 +105,7 @@ const Blog01 = ({
       title: "Accessible Components That Convert",
       description:
         "Why accessibility matters for your business and how to implement it.",
-      author: { name: "Emily Rodriguez", avatar: "https://avatar.vercel.sh/8" },
+      author: { name: "Emily Rodriguez", avatar: "" },
       date: "10 Jan, 2026",
     },
   ],
@@ -125,7 +120,7 @@ const Blog01 = ({
         </h2>
         <p className="mt-4 text-muted-foreground">{description}</p>
       </div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post, index) => (
           <BlogCard key={index} {...post} />
         ))}

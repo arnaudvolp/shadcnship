@@ -37,7 +37,7 @@ const StarRating = ({ rating = 5 }: { rating?: number }) => (
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   if (testimonial.type === "cta") {
     return (
-      <Card className="bg-primary text-primary-foreground h-full shadow-none ">
+      <Card className="bg-primary text-primary-foreground h-full shadow-none aspect-3/4">
         <CardContent className="flex h-full flex-col p-6">
           <h3 className="text-xl font-semibold">{testimonial.title}</h3>
           <p className="mt-2 flex-1 text-sm opacity-90">
@@ -238,7 +238,6 @@ const Testimonial02 = ({
         <p className="mt-4 text-muted-foreground">{description}</p>
       </div>
       <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {/*ctaCard && <CTACardComponent cta={ctaCard} />*/}
         {testimonials.map((testimonial, index) => (
           <TestimonialCard testimonial={testimonial} key={index} />
         ))}
