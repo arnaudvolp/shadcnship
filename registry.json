@@ -907,6 +907,25 @@
       "meta": {
         "image": "/r/previews/background-04.webp"
       }
+    },
+    {
+      "name": "background-05",
+      "type": "registry:block",
+      "title": "Interactive Grid Background",
+      "description": "An interactive grid background with hover effects on individual cells, featuring customizable colors and animations.",
+      "files": [
+        {
+          "path": "src/registry/blocks/background-05/background.tsx",
+          "type": "registry:component",
+          "target": "components/background-05.tsx"
+        }
+      ],
+      "categories": [
+        "background"
+      ],
+      "meta": {
+        "image": "/r/previews/background-05.webp"
+      }
     }
   ]
 }
