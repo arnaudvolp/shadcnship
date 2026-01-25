@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-01",
+  "title": "Blog 01",
+  "description": "A blog section with post cards featuring images, categories, and author info",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge",
+    "card",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/blog-01/blog.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { Card, CardContent } from \"@/components/ui/card\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\";\n\ninterface Author {\n  name: string;\n  avatar?: string;\n}\n\ninterface BlogPost {\n  image?: string;\n  category: string;\n  readTime: string;\n  title: string;\n  description: string;\n  author: Author;\n  date: string;\n  href?: string;\n}\n\ninterface Blog01Props {\n  tagline?: string;\n  heading?: string;\n  description?: string;\n  posts?: BlogPost[];\n  className?: string;\n}\n\nconst BlogCard = ({\n  image,\n  category,\n  readTime,\n  title,\n  description,\n  author,\n  date,\n  href = \"#\",\n}: BlogPost) => (\n  <Card className=\"group overflow-hidden bg-transparent shadow-none pt-0\">\n    <a href={href} className=\"flex flex-col\">\n      <div className=\"aspect-4/3 w-full overflow-hidden rounded-xl bg-muted\">\n        {image && (\n          <img\n            src={image}\n            alt={title}\n            className=\"size-full object-cover transition-transform duration-300 group-hover:scale-105\"\n          />\n        )}\n      </div>\n      <CardContent className=\"px-4 pt-4\">\n        <div className=\"flex items-center justify-between\">\n          <Badge variant=\"secondary\" className=\"rounded-full font-normal\">\n            {category}\n          </Badge>\n          <span className=\"text-sm text-muted-foreground\">{readTime}</span>\n        </div>\n        <h3 className=\"mt-3 text-lg font-semibold leading-snug group-hover:underline\">\n          {title}\n        </h3>\n        <p className=\"mt-1 text-sm text-muted-foreground line-clamp-2\">\n          {description}\n        </p>\n        <div className=\"mt-4 flex items-center gap-3\">\n          <Avatar className=\"size-9\">\n            <AvatarImage src={author.avatar} alt={author.name} />\n            <AvatarFallback>\n              {author.name\n                .split(\" \")\n                .map((n) => n[0])\n                .join(\"\")}\n            </AvatarFallback>\n          </Avatar>\n          <div className=\"text-sm\">\n            <p className=\"font-medium\">{author.name}</p>\n            <p className=\"text-muted-foreground\">{date}</p>\n          </div>\n        </div>\n      </CardContent>\n    </a>\n  </Card>\n);\n\nconst Blog01 = ({\n  tagline = \"Blog\",\n  heading = \"Latest Articles\",\n  description = \"Discover insights, tutorials, and best practices to build better products faster.\",\n  posts = [\n    {\n      category: \"Design System\",\n      readTime: \"5 min read\",\n      title: \"Building Consistent UI with Shadcn\",\n      description:\n        \"Learn how to create a cohesive design system using Shadcn components.\",\n      author: { name: \"Sarah Chen\", avatar: \"https://avatar.vercel.sh/8\" },\n      date: \"15 Jan, 2026\",\n    },\n    {\n      category: \"Tutorial\",\n      readTime: \"8 min read\",\n      title: \"From Zero to Landing Page in 10 Minutes\",\n      description:\n        \"Ship your next project faster with pre-built blocks and components.\",\n      author: { name: \"Marcus Johnson\", avatar: \"https://avatar.vercel.sh/8\" },\n      date: \"12 Jan, 2026\",\n    },\n    {\n      category: \"Best Practices\",\n      readTime: \"4 min read\",\n      title: \"Accessible Components That Convert\",\n      description:\n        \"Why accessibility matters for your business and how to implement it.\",\n      author: { name: \"Emily Rodriguez\", avatar: \"https://avatar.vercel.sh/8\" },\n      date: \"10 Jan, 2026\",\n    },\n  ],\n  className,\n}: Blog01Props) => {\n  return (\n    <section className={cn(\"container mx-auto px-6 py-12 md:py-24\", className)}>\n      <div className=\"mx-auto max-w-2xl text-center\">\n        <p className=\"text-sm font-medium\">{tagline}</p>\n        <h2 className=\"mt-2 text-4xl font-semibold tracking-tight md:text-5xl\">\n          {heading}\n        </h2>\n        <p className=\"mt-4 text-muted-foreground\">{description}</p>\n      </div>\n      <div className=\"mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3\">\n        {posts.map((post, index) => (\n          <BlogCard key={index} {...post} />\n        ))}\n      </div>\n    </section>\n  );\n};\n\nexport { Blog01 };\n",
+      "type": "registry:component",
+      "target": "components/blog-01.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/blog-01.webp"
+  },
+  "categories": [
+    "blog"
+  ],
+  "type": "registry:block"
+}

@@ -528,6 +528,33 @@
       ]
     },
     {
+      "name": "testimonial-02",
+      "type": "registry:block",
+      "title": "Testimonial 02",
+      "description": "A wall of love testimonial section with masonry grid layout",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "avatar",
+        "button"
+      ],
+      "categories": [
+        "testimonial"
+      ],
+      "meta": {
+        "image": "/r/previews/testimonial-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/testimonial-02/testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/testimonial-02.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-01",
       "type": "registry:block",
       "title": "Stat 01",
@@ -675,6 +702,101 @@
           "path": "src/registry/blocks/navbar-01/navbar.tsx",
           "type": "registry:component",
           "target": "components/navbar-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "team-01",
+      "type": "registry:block",
+      "title": "Team 01",
+      "description": "A team section with member cards featuring images, roles, and social links",
+      "dependencies": [],
+      "registryDependencies": [
+        "social-icons"
+      ],
+      "categories": [
+        "team"
+      ],
+      "meta": {
+        "image": "/r/previews/team-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/team-01/team.tsx",
+          "type": "registry:component",
+          "target": "components/team-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-icons",
+      "type": "registry:component",
+      "title": "Social Icons",
+      "description": "A collection of social media brand icons for authentication and social links",
+      "dependencies": [],
+      "registryDependencies": [],
+      "categories": [],
+      "files": [
+        {
+          "path": "src/registry/blocks/social-icons/icons.tsx",
+          "type": "registry:component",
+          "target": "components/social-icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-01",
+      "type": "registry:block",
+      "title": "Login 01",
+      "description": "A split-screen login page with gradient background and social authentication",
+      "dependencies": [
+        "lucide-react",
+        "zod",
+        "react-hook-form",
+        "@hookform/resolvers"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "social-icons"
+      ],
+      "categories": [
+        "login"
+      ],
+      "meta": {
+        "image": "/r/previews/login-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/login-01/login.tsx",
+          "type": "registry:component",
+          "target": "components/login-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-01",
+      "type": "registry:block",
+      "title": "Blog 01",
+      "description": "A blog section with post cards featuring images, categories, and author info",
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "card",
+        "avatar"
+      ],
+      "categories": [
+        "blog"
+      ],
+      "meta": {
+        "image": "/r/previews/blog-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/blog-01/blog.tsx",
+          "type": "registry:component",
+          "target": "components/blog-01.tsx"
         }
       ]
     },
