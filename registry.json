@@ -95,7 +95,7 @@
         "button",
         "badge",
         "avatar",
-        "background-04"
+        "https://shadcnship.com/r/background-04.json"
       ],
       "categories": [
         "hero"
@@ -587,7 +587,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "background-03"
+        "https://shadcnship.com/r/background-03.json"
       ],
       "categories": [
         "stat"
@@ -713,7 +713,7 @@
       "description": "A team section with member cards featuring images, roles, and social links",
       "dependencies": [],
       "registryDependencies": [
-        "social-icons"
+        "https://shadcnship.com/r/social-icons.json"
       ],
       "categories": [
         "team"
@@ -760,7 +760,7 @@
         "button",
         "input",
         "label",
-        "social-icons"
+        "https://shadcnship.com/r/social-icons.json"
       ],
       "categories": [
         "login"
@@ -817,7 +817,7 @@
         "input",
         "card",
         "form",
-        "social-icons"
+        "https://shadcnship.com/r/social-icons.json"
       ],
       "categories": [
         "signup"
