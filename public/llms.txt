@@ -1,0 +1,109 @@
+# ShadcnShip
+
+> Free, production-ready Shadcn UI blocks and components. Copy, customize, and ship your project faster.
+
+## About
+
+ShadcnShip is a free, open-source collection of 30+ UI blocks built with Shadcn UI, Tailwind CSS, and TypeScript. Designed for developers who want to ship landing pages and web apps faster without building common sections from scratch.
+
+All components are fully accessible, responsive, and MIT licensed for personal and commercial use.
+
+## Website
+
+https://shadcnship.com
+
+## Key Pages
+
+- https://shadcnship.com/blocks - Browse all blocks and components
+- https://shadcnship.com/blocks?category=hero - Hero sections (5 variants)
+- https://shadcnship.com/blocks?category=feature - Feature sections (5 variants)
+- https://shadcnship.com/blocks?category=pricing - Pricing tables (3 variants)
+- https://shadcnship.com/blocks?category=cta - Call to action blocks (4 variants)
+- https://shadcnship.com/blocks?category=faq - FAQ sections (2 variants)
+- https://shadcnship.com/blocks?category=testimonial - Testimonials (2 variants)
+- https://shadcnship.com/blocks?category=navbar - Navigation bars
+- https://shadcnship.com/blocks?category=footer - Footer sections
+- https://shadcnship.com/blocks?category=login - Login forms
+- https://shadcnship.com/blocks?category=contact - Contact forms
+- https://shadcnship.com/blocks?category=background - Background patterns
+
+## Available Blocks
+
+### Hero Sections
+hero-01, hero-02, hero-03, hero-04, hero-05
+
+### Feature Sections
+feature-01, feature-02, feature-03, feature-04, feature-05
+
+### Pricing Tables
+pricing-01, pricing-02, pricing-03
+
+### Call to Action
+cta-01, cta-02, cta-03, cta-04
+
+### FAQ Sections
+faq-01, faq-02
+
+### Testimonials
+testimonial-01, testimonial-02
+
+### Statistics
+stat-01, stat-02
+
+### Navigation & Layout
+navbar-01, footer-01, logo-01
+
+### Forms & Auth
+login-01, register-01, contact-01
+
+### Other
+team-01, blog-01, social-icons, background-01, background-02, background-03, background-04
+
+## How to Use
+
+### Option 1: CLI Installation (Recommended)
+```bash
+npx shadcn@latest add https://shadcnship.com/r/[block-name].json
+```
+
+Example:
+```bash
+npx shadcn@latest add https://shadcnship.com/r/hero-01.json
+```
+
+### Option 2: Copy & Paste
+1. Visit https://shadcnship.com/blocks
+2. Click on any block to preview
+3. Copy the code directly into your project
+
+## Tech Stack
+
+- **Framework**: React, Next.js 15+
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Components**: Shadcn UI (built on Radix UI)
+- **Accessibility**: WAI-ARIA compliant
+
+## Compatibility
+
+Works with any React-based framework:
+- Next.js
+- Remix
+- Vite
+- Astro
+- Gatsby
+
+Requirements: Tailwind CSS configured in your project.
+
+## License
+
+MIT License - Free for personal and commercial use. No attribution required.
+
+## Source Code
+
+https://github.com/arnaudvolp/shadcn-ui-blocks
+
+## Contact
+
+- Twitter: https://twitter.com/arnaudbuilds
+- GitHub: https://github.com/arnaudvolp

@@ -6,8 +6,13 @@ import { getBlockCodeWithHighlight } from "@/lib/transform-code";
 import { BlockProvider } from "@/providers/block-provider";
 import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
-import { constructMetadata, absoluteUrl } from "@/config/site";
+import {
+  constructMetadata,
+  absoluteUrl,
+  generateBlockKeywords,
+} from "@/config/site";
 import { ChevronRight } from "lucide-react";
+import { BlockDetailJsonLd } from "@/components/json-ld";
 
 export async function generateStaticParams() {
   const blocks = getBlocks();
@@ -33,10 +38,14 @@ export async function generateMetadata({
   const primaryCategory = block.categories[0];
   const categoryTitle = primaryCategory?.title || "Component";
 
+  // Generate block-specific keywords
+  const keywords = generateBlockKeywords(block.title, categoryTitle);
+
   return constructMetadata({
     title: `${block.title} - ${categoryTitle} Block`,
     description: `${block.description} A fully customizable and responsive ${categoryTitle.toLowerCase()} component built with Shadcn UI and Tailwind CSS. Preview and copy the code.`,
     image: block.image || "/og-image.png",
+    keywords,
     alternates: {
       canonical: absoluteUrl(`/blocks/${block.name}`),
     },
@@ -73,8 +82,19 @@ export default async function BlockPage({
 
   const primaryCategory = block.categories[0];
 
+  // Prepare block data for JSON-LD
+  const blockJsonLdData = {
+    name: block.name,
+    title: block.title,
+    description: block.description,
+    category: primaryCategory?.title || "Component",
+    categorySlug: primaryCategory?.name || "component",
+    image: block.image,
+  };
+
   return (
     <BlockProvider block={serializableBlock}>
+      <BlockDetailJsonLd block={blockJsonLdData} />
       <div className="container mx-auto border-x">
         {/* Compact Header: Breadcrumb + Title inline */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground border-b p-4">
