@@ -26,10 +26,10 @@ export const Landing = () => {
       >
         <Hero04
           badge={{
-            text: "Copy, Paste, Ship 🚢",
+            text: "New: 30+ blocks available! 🚀",
           }}
-          heading="Stop building UI from scratch Focus on what matter"
-          description="Production-ready landing page blocks built with Shadcn UI. Copy the code, customize to your brand, and launch in hours instead of weeks."
+          heading="Free Production Ready Shadcn UI & Tailwind blocks"
+          description="Production-ready React.js blocks built with Shadcn UI. Copy the code, customize to your brand, and launch in hours instead of weeks."
           buttons={{
             primary: {
               text: "Browse Components",
@@ -37,7 +37,7 @@ export const Landing = () => {
               icon: <ArrowUpRight className="size-4" />,
             },
             secondary: {
-              text: "Star Us on Github",
+              text: "Star on Github",
               url: "https://github.com/arnaudvolp/shadcn-ui-blocks",
               icon: <GithubIcon />,
               openInNewPage: true,
@@ -106,9 +106,9 @@ export const Landing = () => {
               icon: <ArrowUpRight className="size-4" />,
             },
             secondary: {
-              text: "Start project on Github",
+              text: "Start on Github",
               url: "https://github.com/arnaudvolp/shadcn-ui-blocks",
-              icon: <Github className="size-4" />,
+              icon: <GithubIcon className="size-4" />,
             },
           }}
           icon={<LayoutTemplate className="size-6" />}

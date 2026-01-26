@@ -39,8 +39,7 @@
       ],
       "registryDependencies": [
         "button",
-        "badge",
-        "background-02"
+        "badge"
       ],
       "categories": [
         "hero"
@@ -587,7 +586,9 @@
       "dependencies": [
         "lucide-react"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "background-03"
+      ],
       "categories": [
         "stat"
       ],

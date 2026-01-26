@@ -2,7 +2,6 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Background02 } from "@/components/background-02";
 
 interface Hero02Props {
   badge?: string;
@@ -38,8 +37,6 @@ const Hero02 = ({
         className,
       )}
     >
-      <Background02 />
-
       <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
         <Badge
           variant="secondary"
