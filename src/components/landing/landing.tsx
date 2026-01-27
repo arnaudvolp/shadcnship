@@ -37,7 +37,7 @@ export const Landing = () => {
           badge={{
             text: "New: 30+ blocks available! 🚀",
           }}
-          heading="Free Production Ready Shadcn UI & Tailwind blocks"
+          heading="Production-Ready \n Shadcn UI & Tailwind blocks"
           description="Browse 30+ production-ready blocks built with Shadcn UI. Copy the code, start building your project, and ship in hours instead of weeks."
           buttons={{
             primary: {
@@ -62,7 +62,7 @@ export const Landing = () => {
       >
         <Feature04
           className="border-t border-x py-64"
-          heading="Production-Ready Components"
+          heading="Ready to use components"
           description="Browse components and blocks you can install with one command. Copy, customize, and ship your project faster."
           features={[
             {

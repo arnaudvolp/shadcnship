@@ -3,7 +3,7 @@ import { Landing } from "@/components/landing/landing";
 import { HomePageJsonLd, FaqJsonLd } from "@/components/json-ld";
 
 export const metadata = constructMetadata({
-  title: "Free Production Ready Shadcn UI & Tailwind Blocks",
+  title: "Production Ready Shadcn UI & Tailwind Blocks",
   description:
     "Browse 30+ production-ready blocks built with Shadcn UI. Copy the code, start building your project, and ship in hours instead of weeks.",
   alternates: {

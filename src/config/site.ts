@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "ShadcnShip",
   description:
-    "Free Production Ready Shadcn UI & Tailwind Blocks. Browse, copy, and start building with 30+ ready-to-use blocks.",
+    "Production Ready Shadcn UI & Tailwind Blocks. Browse, copy, and start building with 30+ ready-to-use blocks.",
   url:
     process.env.NODE_ENV === "production"
       ? `https://${process.env.NEXT_PUBLIC_SITE_URL}` || ""
@@ -23,11 +23,14 @@ export const siteConfig = {
   },
   keywords: [
     "ShadcnShip",
+    "Shadcn",
+    "Shadcn blocks",
+    "Shadcn ui",
     "Shadcn UI blocks",
     "Shadcn UI components",
+    "Shadcn landing pages",
     "production-ready components",
     "copy paste components",
-    "ship faster",
     "React components",
     "Next.js components",
     "Tailwind CSS blocks",
@@ -52,7 +55,7 @@ export function absoluteUrl(path: string = ""): string {
  */
 export function generateBlockKeywords(
   blockTitle: string,
-  categoryTitle: string
+  categoryTitle: string,
 ): string[] {
   const blockLower = blockTitle.toLowerCase();
   const categoryLower = categoryTitle.toLowerCase();
