@@ -926,6 +926,29 @@
       "meta": {
         "image": "/r/previews/background-05.webp"
       }
+    },
+    {
+      "name": "changelog-01",
+      "type": "registry:block",
+      "title": "Changelog 01",
+      "description": "A timeline-style changelog with version numbers, dates, and feature highlights",
+      "dependencies": [],
+      "registryDependencies": [
+        "badge"
+      ],
+      "categories": [
+        "changelog"
+      ],
+      "meta": {
+        "image": "/r/previews/changelog-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/changelog-01/changelog.tsx",
+          "type": "registry:component",
+          "target": "components/changelog-01.tsx"
+        }
+      ]
     }
   ]
 }
