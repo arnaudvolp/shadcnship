@@ -970,6 +970,56 @@
           "target": "components/integration-01.tsx"
         }
       ]
+    },
+    {
+      "name": "banner-01",
+      "type": "registry:block",
+      "title": "Banner 01",
+      "description": "A full-width announcement banner with text and call-to-action link",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "banner"
+      ],
+      "meta": {
+        "image": "/r/previews/banner-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/banner-01/banner.tsx",
+          "type": "registry:component",
+          "target": "components/banner-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-01",
+      "type": "registry:block",
+      "title": "Waitlist 01",
+      "description": "A waitlist signup section with email form, social proof avatars, and countdown timer",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "badge"
+      ],
+      "categories": [
+        "waitlist"
+      ],
+      "meta": {
+        "image": "/r/previews/waitlist-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/waitlist-01/waitlist.tsx",
+          "type": "registry:component",
+          "target": "components/waitlist-01.tsx"
+        }
+      ]
     }
   ]
 }
