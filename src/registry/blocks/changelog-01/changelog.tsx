@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { features } from "process";
 
 interface ChangelogEntry {
   version: string;
@@ -49,7 +48,7 @@ const ChangelogEntryCard = ({
       <div className="absolute left-[7px] top-3 bottom-0 w-px bg-border last:hidden " />
 
       {/* Timeline dot */}
-      <div className="absolute left-0 top-1.5 size-4 -ml-0.5 rounded-full border-2 border-primary bg-primary" />
+      <div className="absolute left-0 top-1.5 size-4 rounded-full border-2 border-primary bg-primary" />
 
       {/* Content */}
       <div className="space-y-3">
@@ -165,7 +164,7 @@ const Changelog01 = ({
 }: Changelog01Props) => {
   return (
     <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-12">
           <div className="inline-flex items-center gap-2 text-primary mb-4">

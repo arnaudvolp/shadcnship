@@ -120,6 +120,12 @@ export const categories = {
     icon: "☁️",
     description: "Changelog sections",
   },
+  integration: {
+    name: "integration",
+    title: "Integration",
+    icon: "🔗",
+    description: "Integration and tools showcase sections",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

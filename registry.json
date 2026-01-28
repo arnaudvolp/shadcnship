@@ -949,6 +949,27 @@
           "target": "components/changelog-01.tsx"
         }
       ]
+    },
+    {
+      "name": "integration-01",
+      "type": "registry:block",
+      "title": "Integration 01",
+      "description": "A dark integration showcase section with curved path, tool icons, and testimonial",
+      "dependencies": [],
+      "registryDependencies": [],
+      "categories": [
+        "integration"
+      ],
+      "meta": {
+        "image": "/r/previews/integration-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/integration-01/integration.tsx",
+          "type": "registry:component",
+          "target": "components/integration-01.tsx"
+        }
+      ]
     }
   ]
 }
