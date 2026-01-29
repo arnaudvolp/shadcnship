@@ -1018,7 +1018,17 @@
         {
           "path": "src/registry/blocks/waitlist-01/waitlist.tsx",
           "type": "registry:component",
-          "target": "components/waitlist-01.tsx"
+          "target": "components/waitlist-01/waitlist.tsx"
+        },
+        {
+          "path": "src/registry/blocks/waitlist-01/providers.ts",
+          "type": "registry:component",
+          "target": "components/waitlist-01/providers.ts"
+        },
+        {
+          "path": "src/registry/blocks/waitlist-01/types.ts",
+          "type": "registry:component",
+          "target": "components/waitlist-01/types.ts"
         }
       ]
     }

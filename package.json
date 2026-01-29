@@ -40,6 +40,7 @@
     "schema-dts": "^1.1.5",
     "shiki": "^3.21.0",
     "tailwind-merge": "^3.4.0",
+    "to-path-tree": "^1.2.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {

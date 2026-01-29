@@ -29,7 +29,7 @@ export function BlockCode({ code, highlightedCode, fileName }: BlockCodeProps) {
   }, [lineCount]);
 
   return (
-    <div className="border-t overflow-hidden">
+    <div className="overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b bg-accent/30">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">

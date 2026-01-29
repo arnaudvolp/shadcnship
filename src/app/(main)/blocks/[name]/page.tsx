@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlock, getBlocks } from "@/lib/registry";
 import { getBlockCodeWithHighlight } from "@/lib/transform-code";
-import { BlockProvider } from "@/providers/block-provider";
-import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
+import { BlockProvider, type FileCodeData } from "@/providers/block-provider";
+import { BlockPreview, BlockControls, BlockCodeExplorer } from "@/components/blocks";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import {
   constructMetadata,
@@ -70,15 +70,18 @@ export default async function BlockPage({
   // Extract only serializable data (exclude component function)
   const { component, ...serializableBlock } = block;
 
-  // Get code from main component file (path is already full path from registry.json)
-  const mainFile = block.files?.[0];
-  const { raw: code, highlighted: highlightedCode } = mainFile
-    ? await getBlockCodeWithHighlight(mainFile.path)
-    : { raw: "", highlighted: "" };
-
-  // Extract file name for display (use target if available, otherwise derive from path)
-  const fileName =
-    mainFile?.target || mainFile?.path?.split("/").pop() || "component.tsx";
+  // Load code for ALL files at build time
+  const filesCode: FileCodeData[] = await Promise.all(
+    (block.files || []).map(async (file) => {
+      const { raw, highlighted } = await getBlockCodeWithHighlight(file.path);
+      return {
+        path: file.path,
+        code: raw,
+        highlightedCode: highlighted,
+        fileName: file.target || file.path.split("/").pop() || "file",
+      };
+    })
+  );
 
   const primaryCategory = block.categories[0];
 
@@ -93,7 +96,7 @@ export default async function BlockPage({
   };
 
   return (
-    <BlockProvider block={serializableBlock}>
+    <BlockProvider block={serializableBlock} filesCode={filesCode}>
       <BlockDetailJsonLd block={blockJsonLdData} />
       <div className="container mx-auto border-x">
         {/* Compact Header: Breadcrumb + Title inline */}
@@ -136,11 +139,7 @@ export default async function BlockPage({
           </TabsContent>
 
           <TabsContent value="code">
-            <BlockCode
-              code={code}
-              highlightedCode={highlightedCode}
-              fileName={fileName}
-            />
+            <BlockCodeExplorer />
           </TabsContent>
         </Tabs>
       </div>
