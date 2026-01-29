@@ -7,7 +7,8 @@ All components are fully open and editable, integrating naturally into your code
 
 ⭐ **Star this repo** to follow development • [Shadcnship.com](https://shadcnship.com)
 
-<img width="1527" height="611" alt="Capture d’écran 2026-01-24 à 12 07 04" src="https://github.com/user-attachments/assets/05b20aea-089e-48f3-9e4a-f763305a30be" />
+<img width="1268" height="508" alt="image" src="https://github.com/user-attachments/assets/8273b3a6-2322-4c24-96f7-54fae48a1c9d" />
+
 
 **Tech Stack:** Next.js 16+ • TypeScript • Tailwind CSS • Shadcn UI
 

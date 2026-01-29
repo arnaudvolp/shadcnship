@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Background03 } from "@/registry/blocks/background-03/background";
+import { Background03 } from "@/components/background-03";
 
 interface StatItem {
   value: string;
@@ -39,7 +39,9 @@ const Stat02 = ({
             <div key={i} className="flex flex-1 flex-col md:flex-row">
               <div className="flex-1 py-12 text-center">
                 <p className="text-4xl md:text-5xl font-bold">{stat.value}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {stat.label}
+                </p>
               </div>
               {i < stats.length - 1 && (
                 <div className="relative min-h-8 w-full md:w-8">

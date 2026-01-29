@@ -15,7 +15,7 @@ const BentoLanding = () => {
         className="container relative text-center items-center justify-center py-8  border-x border-border space-y-4"
       >
         <h2 className="text-2xl md:text-5xl font-bold">
-          All the blocks you need in one place
+          Discovers ours blocks
         </h2>
         <p className="text-muted-foreground">
           Production-ready components for your landing pages. One command to

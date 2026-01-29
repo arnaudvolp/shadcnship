@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Background04 } from "@/components/background-04";
+import {
+  NextIcon,
+  ReactIcon,
+  ShadcnIcon,
+  TailwindIcon,
+} from "@/components/icons";
 
 interface Hero04Props {
   badge?: {
@@ -26,6 +32,7 @@ interface Hero04Props {
       openInNewPage?: boolean;
     };
   };
+  logos?: React.ReactNode[];
   className?: string;
 }
 
@@ -38,7 +45,7 @@ const Hero04 = ({
       "https://avatar.vercel.sh/3",
     ],
   },
-  heading = "Shadcn UI Blocks, Copy & Customize",
+  heading = "Production ready Shadcn UI & Tailwind blocks",
   description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
   buttons = {
     primary: {
@@ -48,6 +55,12 @@ const Hero04 = ({
     },
     secondary: { text: "View Docs", url: "#" },
   },
+  logos = [
+    <ShadcnIcon className="size-6 dark:invert" />,
+    <TailwindIcon className="size-8" />,
+    <ReactIcon className="size-8" />,
+    <NextIcon className="size-8 dark:invert" />,
+  ],
   className,
 }: Hero04Props) => {
   return (
@@ -82,8 +95,13 @@ const Hero04 = ({
             <span>{badge.text}</span>
           </Badge>
         )}
-        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight max-w-3xl mx-auto">
-          {heading}
+        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl flex flex-col font-semibold leading-tight tracking-tight max-w-3xl mx-auto">
+          {heading.split("\\n").map((line, i) => (
+            <span key={`line-${i}`}>
+              {line}
+              {i < heading.split("\n").length - 1 && <br />}
+            </span>
+          ))}
         </h1>
         <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground">
           {description}
@@ -115,6 +133,13 @@ const Hero04 = ({
             </Button>
           )}
         </div>
+        {logos && logos.length > 0 && (
+          <div className="mt-10 flex items-center justify-center gap-6">
+            {logos.map((logo, index) => (
+              <div key={index}>{logo}</div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

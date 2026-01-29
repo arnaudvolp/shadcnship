@@ -81,7 +81,7 @@ const Hero03 = ({
               </Button>
             )}
           </div>
-          <div className="mt-4 flex items-center gap-2 justify-center lg:justify-start">
+          <div className="mt-8 flex items-center gap-2 justify-center lg:justify-start">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -93,7 +93,7 @@ const Hero03 = ({
             <Separator orientation="vertical" className="h-4" />
             <span className="text-sm text-muted-foreground">{ratingText}</span>
           </div>
-          <Card className="mt-12 w-full shadow-none max-w-2xl">
+          <Card className="mt-8 w-full shadow-none max-w-2xl">
             <div className="flex divide-x">
               {stats.map((stat) => (
                 <div

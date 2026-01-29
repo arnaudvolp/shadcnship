@@ -24,7 +24,8 @@
       "@/components/background-01": ["./src/registry/blocks/background-01/background.tsx"],
       "@/components/background-02": ["./src/registry/blocks/background-02/background.tsx"],
       "@/components/background-03": ["./src/registry/blocks/background-03/background.tsx"],
-      "@/components/background-04": ["./src/registry/blocks/background-04/background.tsx"]
+      "@/components/background-04": ["./src/registry/blocks/background-04/background.tsx"],
+      "@/components/icons":["./src/registry/blocks/social-icons/icons.tsx"]
     }
   },
   "include": [

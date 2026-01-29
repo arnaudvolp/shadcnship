@@ -2,7 +2,6 @@ import { ArrowUpRight, Book, Grid2x2Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Background02 } from "@/components/background-02";
 
 interface Cta04Props {
   heading?: string;
@@ -36,7 +35,6 @@ const Cta04 = ({
   <section className={cn("container mx-auto py-12 md:py-24", className)}>
     <div className="px-6 md:px-12">
       <Card className="relative overflow-hidden flex flex-col items-center gap-4 px-8 py-16 text-center shadow-none">
-        <Background02 />
         <div className="relative z-10 grid size-12 place-items-center rounded-md bg-primary text-primary-foreground">
           {icon}
         </div>

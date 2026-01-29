@@ -3,11 +3,20 @@
 import { Hero04 } from "@/registry/blocks/hero-04/hero";
 import { Faq01 } from "@/registry/blocks/faq-01/faq";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, LayoutTemplate, Star } from "lucide-react";
+import {
+  ArrowUpRight,
+  Copy,
+  Terminal,
+  Paintbrush,
+  Zap,
+  Blocks,
+  Users,
+} from "lucide-react";
 import { BentoLanding } from "@/components/landing/bento-landing";
 import { Separator } from "@/components/ui/separator";
 import { Cta04 } from "@/registry/blocks/cta-04/cta";
-import { GithubIcon } from "@/registry/blocks/social-icons/icons";
+import { GithubIcon, LogoIcon } from "@/registry/blocks/social-icons/icons";
+import { Feature04 } from "@/registry/blocks/feature-04/feature";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -26,10 +35,10 @@ export const Landing = () => {
       >
         <Hero04
           badge={{
-            text: "Copy, Paste, Ship 🚢",
+            text: "New: 30+ blocks available! 🚀",
           }}
-          heading="Stop building UI from scratch Focus on what matter"
-          description="Production-ready landing page blocks built with Shadcn UI. Copy the code, customize to your brand, and launch in hours instead of weeks."
+          heading="Production-Ready \n Shadcn UI & Tailwind blocks"
+          description="Browse 30+ production-ready blocks built with Shadcn UI. Copy the code, start building your project, and ship in hours instead of weeks."
           buttons={{
             primary: {
               text: "Browse Components",
@@ -37,13 +46,62 @@ export const Landing = () => {
               icon: <ArrowUpRight className="size-4" />,
             },
             secondary: {
-              text: "Star Us on Github",
+              text: "Star on Github",
               url: "https://github.com/arnaudvolp/shadcn-ui-blocks",
               icon: <GithubIcon />,
               openInNewPage: true,
             },
           }}
           className="-mt-16"
+        />
+      </motion.div>
+
+      <motion.div
+        {...fadeInUp}
+        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+      >
+        <Feature04
+          className="border-t border-x py-64"
+          heading="Ready to use components"
+          description="Browse components and blocks you can install with one command. Copy, customize, and ship your project faster."
+          features={[
+            {
+              title: "One-Command Install",
+              description:
+                "Add any block to your project with a single npx command. No complex setup required.",
+              icon: Terminal,
+            },
+            {
+              title: "Copy & Paste Ready",
+              description:
+                "Own 100% of the code. Copy any component directly into your project with zero dependencies.",
+              icon: Copy,
+            },
+            {
+              title: "30+ Ready Blocks",
+              description:
+                "Hero sections, pricing tables, CTAs, testimonials, FAQs, and more. New blocks added weekly.",
+              icon: Blocks,
+            },
+            {
+              title: "Fully Customizable",
+              description:
+                "Built with Tailwind CSS and Shadcn. Easily modify colors, spacing, and styles to match your brand.",
+              icon: Paintbrush,
+            },
+            {
+              title: "Production-Ready",
+              description:
+                "Responsive, accessible, and fully typed with TypeScript.",
+              icon: Zap,
+            },
+            {
+              title: "Open Source",
+              description:
+                "MIT licensed. Use freely in personal and commercial projects. Join our growing community.",
+              icon: Users,
+            },
+          ]}
         />
       </motion.div>
 
@@ -62,28 +120,32 @@ export const Landing = () => {
         transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
       >
         <Faq01
-          heading="Still Have Questions? We've Got You Covered"
+          heading="Still Have Questions?"
           items={[
             {
-              question: "How quickly can I actually use these in my project?",
+              question: "What exactly is ShadcnShip?",
               answer:
-                "Literally in minutes. Browse, preview, copy, paste—that's it. No complex setup, no package installations, no learning curve. Just pure, copy-paste code that works immediately. Most developers ship their first block in under 5 minutes.",
+                "ShadcnShip is a collection of production-ready UI blocks built with shadcn/ui, Tailwind CSS, and TypeScript. Think of it as a library of pre-built sections (heroes, pricing tables, CTAs, FAQs, etc.) that you can copy directly into your project and customize to your needs.",
             },
             {
-              question: "Do I need to be a React expert to use these?",
+              question: "Which React frameworks are compatible?",
               answer:
-                "Not at all. If you can copy and paste, you can use these blocks. They work with any React project (Next.js, Astro, etc.) that has Tailwind CSS configured. No advanced knowledge required—just paste and customize to match your brand.",
+                "All of them! ShadcnShip works with Next.js, Remix, Vite, Astro, Gatsby, and any React-based framework. As long as you have Tailwind CSS configured, you can use these blocks. They're just React components—no vendor lock-in or special dependencies.",
             },
             {
-              question: "Can I really make these look like my brand?",
+              question: "How do I install a block?",
               answer:
-                "Absolutely. You own 100% of the code, so you can change everything—colors, fonts, spacing, animations, layouts. These aren't locked templates. They're starting points you can transform into anything that matches your unique style.",
+                "Two ways: use our one-command npx installer to add blocks directly to your project, or simply copy and paste the code from our website. Either way, you own the code completely and can modify it however you like.",
             },
             {
-              question:
-                "Will these work for production apps, or just prototypes?",
+              question: "Are these blocks accessible and production-ready?",
               answer:
-                "These are production-ready, battle-tested components. Built on Radix UI and shadcn/ui, they follow accessibility standards, work across all devices, and perform beautifully. Thousands of developers are already using them in live products.",
+                "Yes. All blocks are built on Radix UI primitives and follow WAI-ARIA accessibility standards. They're responsive, fully typed with TypeScript, and tested across browsers. Many developers already use them in production apps.",
+            },
+            {
+              question: "Can I use these for commercial projects?",
+              answer:
+                "Absolutely. ShadcnShip is MIT licensed, so you can use it freely in personal, client, and commercial projects. No attribution required, no restrictions.",
             },
           ]}
           className="border-x border-border"
@@ -97,21 +159,21 @@ export const Landing = () => {
         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
       >
         <Cta04
-          heading="Ready to Ship Your App Faster?"
-          description="Start building with production-ready components. Copy, customize, and ship your next project."
+          heading="Start Building Your Project "
+          description="Browse components and copy production-ready blocks. Customize to your brand and ship your project in hours—not weeks."
           buttons={{
             primary: {
-              text: "Browse Components",
+              text: "Explore All Blocks",
               url: "/blocks",
               icon: <ArrowUpRight className="size-4" />,
             },
             secondary: {
-              text: "Start project on Github",
+              text: "Star on GitHub",
               url: "https://github.com/arnaudvolp/shadcn-ui-blocks",
-              icon: <Github className="size-4" />,
+              icon: <GithubIcon className="size-4" />,
             },
           }}
-          icon={<LayoutTemplate className="size-6" />}
+          icon={<LogoIcon className="size-6 invert dark:invert-0" />}
           className="border-x border-border"
         />
       </motion.div>

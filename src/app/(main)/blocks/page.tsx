@@ -2,6 +2,7 @@ import { getBlocks, getCategories } from "@/lib/registry";
 import { BlocksGrid, BlocksEmpty } from "@/components/blocks";
 import type { SerializableRegistryBlock } from "@/types/blocks";
 import { constructMetadata, absoluteUrl } from "@/config/site";
+import { BlocksPageJsonLd } from "@/components/json-ld";
 
 export const metadata = constructMetadata({
   title: "Browse All Blocks",
@@ -26,17 +27,28 @@ export default async function BlocksPage({ searchParams }: BlocksPageProps) {
     ({ component, ...rest }) => rest
   );
 
+  // Prepare blocks for JSON-LD
+  const blocksForJsonLd = blocks.map((block) => ({
+    name: block.name,
+    title: block.title,
+    description: block.description,
+    image: block.image,
+  }));
+
   return (
-    <div className="container mx-auto py-12 border-x px-4">
-      {blocks.length === 0 ? (
-        <BlocksEmpty />
-      ) : (
-        <BlocksGrid
-          blocks={serializableBlocks}
-          categories={categories}
-          initialCategory={category}
-        />
-      )}
-    </div>
+    <>
+      <BlocksPageJsonLd blocks={blocksForJsonLd} />
+      <div className="container mx-auto py-12 border-x px-4">
+        {blocks.length === 0 ? (
+          <BlocksEmpty />
+        ) : (
+          <BlocksGrid
+            blocks={serializableBlocks}
+            categories={categories}
+            initialCategory={category}
+          />
+        )}
+      </div>
+    </>
   );
 }

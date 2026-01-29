@@ -5,9 +5,9 @@ import type { Metadata } from "next";
  * Central place for all site-wide settings and metadata
  */
 export const siteConfig = {
-  name: "Shadcn UI Blocks",
+  name: "ShadcnShip",
   description:
-    "A curated collection of beautiful, customizable Shadcn UI blocks and components. Preview, copy, and integrate ready-to-use code snippets into your Next.js projects.",
+    "Production Ready Shadcn UI & Tailwind Blocks. Browse, copy, and start building with 30+ ready-to-use blocks.",
   url:
     process.env.NODE_ENV === "production"
       ? `https://${process.env.NEXT_PUBLIC_SITE_URL}` || ""
@@ -22,21 +22,24 @@ export const siteConfig = {
     github: "https://github.com/arnaudvolpi/shadcn-ui-blocks",
   },
   keywords: [
-    "Shadcn UI",
+    "ShadcnShip",
+    "Shadcn",
+    "Shadcn blocks",
+    "Shadcn ui",
     "Shadcn UI blocks",
     "Shadcn UI components",
+    "Shadcn landing pages",
+    "production-ready components",
+    "copy paste components",
     "React components",
     "Next.js components",
-    "Tailwind CSS",
-    "UI components",
+    "Tailwind CSS blocks",
+    "browse components",
+    "building projects",
     "UI blocks",
-    "Copy paste components",
-    "Ready-to-use components",
     "Hero sections",
     "Pricing components",
     "Landing page blocks",
-    "Web development",
-    "Frontend development",
   ],
 };
 
@@ -48,6 +51,35 @@ export function absoluteUrl(path: string = ""): string {
 }
 
 /**
+ * Generate keywords for a block page based on category and block name
+ */
+export function generateBlockKeywords(
+  blockTitle: string,
+  categoryTitle: string,
+): string[] {
+  const blockLower = blockTitle.toLowerCase();
+  const categoryLower = categoryTitle.toLowerCase();
+
+  return [
+    // Block-specific
+    blockTitle,
+    `${blockLower} component`,
+    `${blockLower} section`,
+    `shadcn ${blockLower}`,
+    // Category-specific
+    `${categoryLower} block`,
+    `${categoryLower} component`,
+    `shadcn ${categoryLower}`,
+    `react ${categoryLower}`,
+    // Generic tech stack
+    "shadcn ui",
+    "tailwind css",
+    "react component",
+    "nextjs component",
+  ];
+}
+
+/**
  * Construct metadata with site defaults
  * Use this helper to create consistent metadata across pages
  */
@@ -55,12 +87,14 @@ export function constructMetadata({
   title,
   description,
   image = siteConfig.ogImage,
+  keywords,
   noIndex = false,
   ...rest
 }: {
   title?: string;
   description?: string;
   image?: string;
+  keywords?: string[];
   noIndex?: boolean;
 } & Partial<Metadata> = {}): Metadata {
   const metaTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
@@ -69,7 +103,7 @@ export function constructMetadata({
   return {
     title: metaTitle,
     description: metaDescription,
-    keywords: siteConfig.keywords,
+    keywords: keywords || siteConfig.keywords,
     authors: [
       {
         name: siteConfig.author.name,
@@ -120,7 +154,7 @@ export function constructMetadata({
  * Base metadata for the root layout
  */
 export const baseMetadata: Metadata = constructMetadata({
-  title: "Beautiful Shadcn UI Blocks & Components",
+  title: "Copy Production-Ready Blocks & Components to Ship Faster",
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url || "http://localhost:3000"),
 });
