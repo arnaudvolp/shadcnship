@@ -9,6 +9,7 @@ export { BlockCode } from "./block-code";
 export { BlockCodeExplorer } from "./block-code-explorer";
 export { BlockCodeSidebar } from "./block-code-sidebar";
 export { BlockControls } from "./block-controls";
+export { BlockDocs } from "./block-docs";
 export { PreviewThemeHandler } from "./preview-theme-handler";
 
 // Category/filter components

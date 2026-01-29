@@ -26,6 +26,8 @@ interface BlockContextValue {
   filesCode: Record<string, FileCodeData>;
   activeFilePath: string;
   setActiveFilePath: (path: string) => void;
+  // Documentation
+  docs: string | null;
 }
 
 const BlockContext = createContext<BlockContextValue | undefined>(undefined);
@@ -43,6 +45,7 @@ interface BlockProviderProps {
   block: SerializableRegistryBlock;
   previewBasePath?: string;
   filesCode?: FileCodeData[];
+  docs?: string | null;
 }
 
 export function BlockProvider({
@@ -50,6 +53,7 @@ export function BlockProvider({
   block,
   previewBasePath = "/blocks",
   filesCode = [],
+  docs = null,
 }: BlockProviderProps) {
   const { theme, setTheme, screenSize, setScreenSize, themePreset, setThemePreset, iframeRef } = useBlockTheme();
 
@@ -76,6 +80,7 @@ export function BlockProvider({
       filesCode: filesCodeRecord,
       activeFilePath,
       setActiveFilePath,
+      docs,
     }}>
       {children}
     </BlockContext.Provider>

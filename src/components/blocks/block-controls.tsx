@@ -13,7 +13,11 @@ import {
 } from "./tools";
 import { siteConfig } from "@/config/site";
 
-export function BlockControls() {
+interface BlockControlsProps {
+  hasDocs?: boolean;
+}
+
+export function BlockControls({ hasDocs = false }: BlockControlsProps) {
   const { block } = useBlockContext();
 
   const v0RegistryUrl = `${siteConfig.url}/r/${block.name}.json`;
@@ -50,6 +54,7 @@ export function BlockControls() {
         <TabsList>
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
+          {hasDocs && <TabsTrigger value="docs">Docs</TabsTrigger>}
         </TabsList>
       </div>
     </TooltipProvider>
