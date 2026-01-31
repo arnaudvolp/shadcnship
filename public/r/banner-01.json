@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner-01",
+  "title": "Banner 01",
+  "description": "A full-width announcement banner with text and call-to-action link",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/blocks/banner-01/banner.tsx",
+      "content": "import { ArrowRight } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Banner01Props {\n  title?: string;\n  description?: string;\n  button?: {\n    text: string;\n    url: string;\n  };\n  className?: string;\n}\n\nconst Banner01 = ({\n  title = \"Shadcn 2026\",\n  description = \"Join us in Paris from June 20 - 24 to see what's coming next.\",\n  button = {\n    text: \"Register now\",\n    url: \"#\",\n  },\n  className,\n}: Banner01Props) => {\n  return (\n    <div\n      className={cn(\"w-full bg-primary text-neutral-50 fixed top-0\", className)}\n    >\n      <div className=\"container mx-auto flex items-center justify-between gap-4 px-4 py-3 md:px-6\">\n        <p className=\"text-sm\">\n          <span className=\"font-semibold\">{title}</span>\n          <span className=\"mx-2 text-neutral-400 dark:text-neutral-500\">·</span>\n          <span className=\"text-neutral-300 dark:text-neutral-600\">\n            {description}\n          </span>\n        </p>\n        {button && (\n          <a\n            href={button.url}\n            className=\"group flex shrink-0 items-center gap-1 text-sm font-medium transition-colors hover:text-neutral-300 dark:hover:text-neutral-600\"\n          >\n            {button.text}\n            <ArrowRight className=\"size-4 transition-transform group-hover:translate-x-0.5\" />\n          </a>\n        )}\n      </div>\n    </div>\n  );\n};\n\nexport { Banner01 };\n",
+      "type": "registry:component",
+      "target": "components/banner-01.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/banner-01.webp"
+  },
+  "categories": [
+    "banner"
+  ],
+  "type": "registry:block"
+}
