@@ -15,6 +15,7 @@ import {
 
 const navigation = [
   { name: "Blocks", href: "/blocks" },
+  { name: "Saas Blocks", href: "/saas" },
   { name: "Backgrounds", href: "/background" },
   { name: "Templates", href: "/templates" },
 ];

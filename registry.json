@@ -999,7 +999,7 @@
       "name": "waitlist-01",
       "type": "registry:block",
       "title": "Waitlist 01",
-      "description": "A waitlist signup section with email form, social proof avatars, and countdown timer",
+      "description": "A waitlist signup section with email form and social proof",
       "dependencies": [
         "lucide-react"
       ],
@@ -1012,7 +1012,8 @@
         "waitlist"
       ],
       "meta": {
-        "image": "/r/previews/waitlist-01.webp"
+        "image": "/r/previews/waitlist-01.webp",
+        "stacks": ["supabase", "postgres"]
       },
       "files": [
         {
@@ -1021,14 +1022,44 @@
           "target": "components/waitlist-01/waitlist.tsx"
         },
         {
-          "path": "src/registry/blocks/waitlist-01/providers.ts",
+          "path": "src/registry/blocks/waitlist-01/supabase/use-waitlist.ts",
           "type": "registry:component",
-          "target": "components/waitlist-01/providers.ts"
+          "target": "components/waitlist-01/supabase/use-waitlist.ts"
         },
         {
-          "path": "src/registry/blocks/waitlist-01/types.ts",
+          "path": "src/registry/blocks/waitlist-01/postgres/action.ts",
           "type": "registry:component",
-          "target": "components/waitlist-01/types.ts"
+          "target": "components/waitlist-01/postgres/action.ts"
+        }
+      ]
+    },
+    {
+      "name": "table-01",
+      "type": "registry:block",
+      "title": "Table 01",
+      "description": "A users management table with search, filters, status badges and actions",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "badge",
+        "switch",
+        "table",
+        "dropdown-menu"
+      ],
+      "categories": [
+        "table"
+      ],
+      "meta": {
+        "image": "/r/previews/table-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/table-01/table.tsx",
+          "type": "registry:component",
+          "target": "components/table-01/table.tsx"
         }
       ]
     }

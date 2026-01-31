@@ -1,45 +1,55 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Calendar, CheckCircle2, Loader2, XCircle } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle2, Loader2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
-import type { SubmitStatus, TimeLeft, Waitlist01Props } from "./types";
-import { isValidEmail, submitToProvider } from "./providers";
-
 // ============================================================================
-// Helper Components
+// Types
 // ============================================================================
 
-const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col items-center">
-    <span className="text-xl font-semibold tabular-nums md:text-2xl">
-      {value.toString().padStart(2, "0")}
-    </span>
-    <span className="text-xs uppercase tracking-wider text-muted-foreground">
-      {label}
-    </span>
-  </div>
-);
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
-const CountdownSeparator = () => (
-  <span className="text-2xl font-light text-muted-foreground/50">:</span>
-);
+interface Waitlist01Props {
+  badge?: string;
+  heading?: string;
+  description?: string;
+  inputPlaceholder?: string;
+  buttonText?: string;
+  // Submit handler - injected by stack-specific hooks
+  onSubmit?: (email: string) => Promise<void>;
+  // Messages
+  successMessage?: string;
+  errorMessage?: string;
+  // Social proof
+  socialProof?: {
+    avatars: string[];
+    text: string;
+  };
+  className?: string;
+}
+
+// ============================================================================
+// Email Validation
+// ============================================================================
+
+const isValidEmail = (email: string): boolean => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
 
 // ============================================================================
 // Main Component
 // ============================================================================
 
 const Waitlist01 = ({
-  badge = "Available in early 2026",
+  badge = "Coming Soon",
   heading = "Join the Waiting List",
   description = "Be amongst the first to experience our product. Sign up to be notified when we launch!",
   inputPlaceholder = "Enter your email",
   buttonText = "Join waitlist",
-  provider,
   onSubmit,
   successMessage = "You're on the list! We'll notify you when we launch.",
   errorMessage = "Something went wrong. Please try again.",
@@ -52,56 +62,12 @@ const Waitlist01 = ({
     ],
     text: "Join 2,500+ others on the waitlist",
   },
-  countdown,
   className,
 }: Waitlist01Props) => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
 
-  // Default countdown: 30 days from now
-  const defaultTargetTime = useMemo(
-    () => Date.now() + 30 * 24 * 60 * 60 * 1000,
-    [],
-  );
-
-  const targetTimestamp = useMemo(() => {
-    if (!countdown?.targetDate) return defaultTargetTime;
-    return typeof countdown.targetDate === "number"
-      ? countdown.targetDate
-      : countdown.targetDate.getTime();
-  }, [countdown?.targetDate, defaultTargetTime]);
-
-  const countdownLabel = countdown?.label ?? "Left until launch";
-
-  // Countdown timer
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const difference = targetTimestamp - Date.now();
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetTimestamp]);
-
-  // Form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -115,7 +81,12 @@ const Waitlist01 = ({
     setMessage("");
 
     try {
-      await submitToProvider(email, provider, onSubmit);
+      if (onSubmit) {
+        await onSubmit(email);
+      } else {
+        // Demo mode - simulate success
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
       setStatus("success");
       setMessage(successMessage);
       setEmail("");
@@ -174,7 +145,7 @@ const Waitlist01 = ({
             className={cn(
               "flex items-center justify-center gap-2 text-sm",
               status === "success" && "text-green-600 dark:text-green-400",
-              status === "error" && "text-red-600 dark:text-red-400",
+              status === "error" && "text-red-600 dark:text-red-400"
             )}
           >
             {status === "success" && <CheckCircle2 className="size-4" />}
@@ -199,31 +170,10 @@ const Waitlist01 = ({
             <p className="text-sm text-muted-foreground">{socialProof.text}</p>
           </div>
         )}
-
-        {/* Countdown Timer */}
-        <div className="mt-6">
-          <div className="flex items-center justify-center gap-4 md:gap-6">
-            <CountdownUnit value={timeLeft.days} label="Days" />
-            <CountdownSeparator />
-            <CountdownUnit value={timeLeft.hours} label="Hours" />
-            <CountdownSeparator />
-            <CountdownUnit value={timeLeft.minutes} label="Minutes" />
-            <CountdownSeparator />
-            <CountdownUnit value={timeLeft.seconds} label="Seconds" />
-          </div>
-          {countdownLabel && (
-            <div className="mt-4 flex items-center justify-center gap-2 text-sm">
-              <Calendar className="size-4 text-muted-foreground" />
-              <span className="text-xs font-medium uppercase">
-                {countdownLabel}
-              </span>
-            </div>
-          )}
-        </div>
       </div>
     </section>
   );
 };
 
 export { Waitlist01 };
-export type { Waitlist01Props, WaitlistProvider } from "./types";
+export type { Waitlist01Props };

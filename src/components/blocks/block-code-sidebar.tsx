@@ -4,12 +4,13 @@ import { useMemo } from "react";
 import { File, Folder, ChevronRight } from "lucide-react";
 import { pathToTree, type TreeNode, type NodeItem } from "to-path-tree";
 import { cn } from "@/lib/utils";
-import type { RegistryFile } from "@/types/blocks";
+import type { RegistryFile, Stack } from "@/types/blocks";
 
 interface BlockCodeSidebarProps {
   files: RegistryFile[];
   activeFile: string;
   onFileSelect: (path: string) => void;
+  availableStacks?: Stack[];
 }
 
 // Maps display paths to actual file paths
@@ -110,23 +111,41 @@ export function BlockCodeSidebar({
   files,
   activeFile,
   onFileSelect,
+  availableStacks = [],
 }: BlockCodeSidebarProps) {
   // Build tree from display paths (targets or filenames)
+  // For stack-specific files, flatten the path by removing the stack folder
   const { tree, pathMap } = useMemo(() => {
-    const displayPaths = files.map(
-      (f) => f.target || f.path.split("/").pop() || "",
-    );
+    const getDisplayPath = (f: RegistryFile): string => {
+      const basePath = f.target || f.path.split("/").pop() || "";
+
+      // If there are available stacks, flatten stack-specific paths
+      if (availableStacks.length > 0) {
+        for (const stack of availableStacks) {
+          // Match patterns like "components/waitlist-01/supabase/file.ts"
+          const stackFolderPattern = new RegExp(`/${stack}/`);
+          if (stackFolderPattern.test(basePath)) {
+            // Remove the stack folder from the path
+            return basePath.replace(stackFolderPattern, "/");
+          }
+        }
+      }
+
+      return basePath;
+    };
+
+    const displayPaths = files.map(getDisplayPath);
     const tree = pathToTree(displayPaths);
 
     // Create map from display path to actual file path
     const pathMap: PathMap = new Map();
     files.forEach((f) => {
-      const displayPath = f.target || f.path.split("/").pop() || "";
+      const displayPath = getDisplayPath(f);
       pathMap.set(displayPath, f.path);
     });
 
     return { tree, pathMap };
-  }, [files]);
+  }, [files, availableStacks]);
 
   return (
     <div className="w-48 shrink-0 border-r bg-accent/20">

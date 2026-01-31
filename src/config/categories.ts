@@ -138,6 +138,12 @@ export const categories = {
     icon: "⏳",
     description: "Waitlist and coming soon sections",
   },
+  table: {
+    name: "table",
+    title: "Table",
+    icon: "📋",
+    description: "Data tables and management interfaces",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

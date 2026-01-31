@@ -2,6 +2,8 @@ import { JSX } from "react";
 
 export type Theme = "light" | "dark";
 
+export type Stack = "supabase" | "postgres";
+
 export type ScreenSize = "mobile" | "tablet" | "desktop";
 
 // Category with rich metadata (from config/categories.ts)
@@ -20,6 +22,7 @@ export interface RegistryFile {
 
 export interface RegistryMeta {
   image?: string;
+  stacks?: string[];
   [key: string]: unknown;
 }
 
@@ -55,6 +58,7 @@ export interface RegistryBlock {
   dependencies?: string[];
   registryDependencies?: string[];
   image?: string;
+  meta?: RegistryMeta;
 }
 
 // Serializable version (for passing to Client Components)

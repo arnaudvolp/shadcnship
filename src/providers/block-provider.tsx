@@ -1,8 +1,8 @@
 "use client";
 
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState, useMemo } from "react";
 import { useBlockTheme } from "@/hooks/use-block-theme";
-import type { SerializableRegistryBlock, Theme, ScreenSize, ThemePreset } from "@/types/blocks";
+import type { SerializableRegistryBlock, Theme, ScreenSize, ThemePreset, Stack } from "@/types/blocks";
 
 // File code data type
 export interface FileCodeData {
@@ -28,6 +28,10 @@ interface BlockContextValue {
   setActiveFilePath: (path: string) => void;
   // Documentation
   docs: string | null;
+  // Stack selection
+  selectedStack: Stack | null;
+  setSelectedStack: (stack: Stack | null) => void;
+  availableStacks: Stack[];
 }
 
 const BlockContext = createContext<BlockContextValue | undefined>(undefined);
@@ -66,6 +70,18 @@ export function BlockProvider({
   // Track active file (default to first file)
   const [activeFilePath, setActiveFilePath] = useState(filesCode[0]?.path || "");
 
+  // Stack selection - initialize from block's meta.stacks
+  // Filter to only include valid Stack values
+  const availableStacks = useMemo(() => {
+    const stacks = block.meta?.stacks || [];
+    const validStacks: Stack[] = ["supabase", "postgres"];
+    return stacks.filter((s): s is Stack => validStacks.includes(s as Stack));
+  }, [block.meta?.stacks]);
+
+  const [selectedStack, setSelectedStack] = useState<Stack | null>(
+    availableStacks.length > 0 ? availableStacks[0] : null
+  );
+
   return (
     <BlockContext.Provider value={{
       block,
@@ -81,6 +97,9 @@ export function BlockProvider({
       activeFilePath,
       setActiveFilePath,
       docs,
+      selectedStack,
+      setSelectedStack,
+      availableStacks,
     }}>
       {children}
     </BlockContext.Provider>

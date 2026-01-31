@@ -18,6 +18,7 @@ import { Cta04 } from "@/registry/blocks/cta-04/cta";
 import { GithubIcon, LogoIcon } from "@/registry/blocks/social-icons/icons";
 import { Feature04 } from "@/registry/blocks/feature-04/feature";
 import { Waitlist01 } from "@/registry/blocks/waitlist-01/waitlist";
+import { useWaitlist } from "@/registry/blocks/waitlist-01/supabase/use-waitlist";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -26,6 +27,7 @@ const fadeInUp = {
 };
 
 export const Landing = () => {
+  const { onSubmit } = useWaitlist();
   return (
     <div className="container mx-auto">
       {/* Hero Section */}
@@ -179,14 +181,7 @@ export const Landing = () => {
         />
       </motion.div>
 
-      <Waitlist01
-        provider={{
-          type: "supabase",
-          url: "https://bbptmxmpypikrbztdija.supabase.co",
-          anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJicHRteG1weXBpa3JienRkaWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3MTIyMDYsImV4cCI6MjA4NTI4ODIwNn0.ckCeQ2E-Y47AXnBFmyGVSt-bntnhWk9kaWb_9HVO4js",
-          table: "waitlist", // optionnel, défaut: "waitlist"
-        }}
-      />
+      <Waitlist01 onSubmit={onSubmit} />
     </div>
   );
 };
