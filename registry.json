@@ -1062,6 +1062,66 @@
           "target": "components/table-01/table.tsx"
         }
       ]
+    },
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard 01",
+      "description": "A modern dashboard layout with sidebar navigation, stats cards and sales trend chart with skeleton placeholders",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "skeleton",
+        "dropdown-menu",
+        "avatar"
+      ],
+      "categories": [
+        "dashboard"
+      ],
+      "meta": {
+        "image": "/r/previews/dashboard-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/dashboard-01/dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/dashboard.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/nav-user.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/nav-user.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/team-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/team-switcher.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/stats-card.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/stats-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/sales-trend-card.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/sales-trend-card.tsx"
+        }
+      ]
     }
   ]
 }

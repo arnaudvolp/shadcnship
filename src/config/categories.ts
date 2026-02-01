@@ -144,6 +144,12 @@ export const categories = {
     icon: "📋",
     description: "Data tables and management interfaces",
   },
+  dashboard: {
+    name: "dashboard",
+    title: "Dashboard",
+    icon: "📊",
+    description: "Dashboard layouts and analytics views",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;
