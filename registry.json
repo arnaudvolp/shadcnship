@@ -1134,6 +1134,104 @@
       ]
     },
     {
+      "name": "table-02",
+      "type": "registry:block",
+      "title": "Table 02",
+      "description": "A data-driven table with server pagination, sorting, filtering, and CRUD operations",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "table",
+        "button",
+        "input",
+        "badge",
+        "checkbox",
+        "dropdown-menu",
+        "select",
+        "skeleton"
+      ],
+      "categories": [
+        "table"
+      ],
+      "meta": {
+        "image": "/r/previews/table-02.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/table-02/table.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/types/table.ts",
+          "type": "registry:component",
+          "target": "components/table-02/types/table.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/index.ts",
+          "type": "registry:component",
+          "target": "components/table-02/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/data-table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/pagination.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/pagination.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/column-header.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/column-header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/filters.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/filters.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/search-input.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/search-input.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/bulk-actions.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/bulk-actions.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/row-actions.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/row-actions.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/loading-skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/loading-skeleton.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/supabase/use-table-data.ts",
+          "type": "registry:component",
+          "target": "components/table-02/supabase/use-table-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/postgres/fetch-action.ts",
+          "type": "registry:component",
+          "target": "components/table-02/postgres/fetch-action.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/postgres/schema.ts",
+          "type": "registry:component",
+          "target": "components/table-02/postgres/schema.ts"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "title": "Dashboard 01",
