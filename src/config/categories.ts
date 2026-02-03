@@ -150,6 +150,12 @@ export const categories = {
     icon: "📊",
     description: "Dashboard layouts and analytics views",
   },
+  confirmation: {
+    name: "confirmation",
+    title: "Confirmation",
+    icon: "✅",
+    description: "Success and confirmation modals and pages",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

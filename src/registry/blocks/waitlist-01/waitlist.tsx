@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 // ============================================================================
 // Types
@@ -89,10 +91,12 @@ const Waitlist01 = ({
       }
       setStatus("success");
       setMessage(successMessage);
+      toast(successMessage);
       setEmail("");
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : errorMessage);
+      toast(errorMessage);
     }
   };
 
@@ -140,19 +144,7 @@ const Waitlist01 = ({
         </form>
 
         {/* Status Message */}
-        {message && (
-          <div
-            className={cn(
-              "flex items-center justify-center gap-2 text-sm",
-              status === "success" && "text-green-600 dark:text-green-400",
-              status === "error" && "text-red-600 dark:text-red-400"
-            )}
-          >
-            {status === "success" && <CheckCircle2 className="size-4" />}
-            {status === "error" && <XCircle className="size-4" />}
-            {message}
-          </div>
-        )}
+        <Toaster />
 
         {/* Social Proof */}
         {socialProof && (

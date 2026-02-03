@@ -7,9 +7,14 @@ import {
   Plus,
   MoreHorizontal,
   ChevronDown,
+  ChevronRight,
   Pencil,
   KeyRound,
   Trash2,
+  Globe,
+  Sparkles,
+  Rocket,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -52,6 +57,17 @@ interface User {
   dealershipEnabled: boolean;
   roles: string[];
   status: UserStatus;
+}
+
+interface Deal {
+  id: string;
+  name: string;
+  icon: "globe" | "sparkles" | "rocket" | "zap";
+  loanId: string;
+  received: number;
+  goal: number;
+  rate: number;
+  created: string;
 }
 
 // =============================================================================
@@ -115,6 +131,49 @@ const users: User[] = [
   },
 ];
 
+const deals: Deal[] = [
+  {
+    id: "1",
+    name: "Region scaling",
+    icon: "globe",
+    loanId: "A-139141",
+    received: 420420,
+    goal: 3000000,
+    rate: 4.0,
+    created: "22.07.2022",
+  },
+  {
+    id: "2",
+    name: "Marlin Corp. deal",
+    icon: "sparkles",
+    loanId: "A-114002",
+    received: 54000,
+    goal: 104000,
+    rate: 2.0,
+    created: "10.07.2022",
+  },
+  {
+    id: "3",
+    name: "Alpha app launch 2.0",
+    icon: "rocket",
+    loanId: "A-110249",
+    received: 415200,
+    goal: 1000000,
+    rate: 3.2,
+    created: "11.05.2022",
+  },
+  {
+    id: "4",
+    name: "Beat app launch 2.0",
+    icon: "zap",
+    loanId: "A-102888",
+    received: 3527000,
+    goal: 6000000,
+    rate: 6.15,
+    created: "22.04.2022",
+  },
+];
+
 // =============================================================================
 // HELPERS
 // =============================================================================
@@ -148,6 +207,21 @@ function getStatusConfig(status: UserStatus) {
   };
   return configs[status];
 }
+
+function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat("en-US").format(amount);
+}
+
+function calculateProgress(received: number, goal: number): number {
+  return Math.min((received / goal) * 100, 100);
+}
+
+const iconMap = {
+  globe: Globe,
+  sparkles: Sparkles,
+  rocket: Rocket,
+  zap: Zap,
+};
 
 // =============================================================================
 // COMPONENTS
@@ -209,20 +283,35 @@ function UserActions({ user }: { user: User }) {
   );
 }
 
-function DealershipCell({ user }: { user: User }) {
-  const [enabled, setEnabled] = useState(user.dealershipEnabled);
-  const extraCount = user.dealerships.length - 1;
+function ProgressCircle({ progress }: { progress: number }) {
+  const radius = 10;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="flex items-center gap-3">
-      <Switch checked={enabled} onCheckedChange={setEnabled} />
-      <span className="text-sm">{user.dealerships[0]}</span>
-      {extraCount > 0 && (
-        <Badge variant="secondary" className="text-xs">
-          +{extraCount}
-        </Badge>
-      )}
-    </div>
+    <svg className="size-6 -rotate-90" viewBox="0 0 24 24">
+      <circle
+        cx="12"
+        cy="12"
+        r={radius}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        className="text-muted"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r={radius}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeDasharray={circumference}
+        strokeDashoffset={strokeDashoffset}
+        className="text-primary"
+      />
+    </svg>
   );
 }
 
@@ -231,13 +320,19 @@ function DealershipCell({ user }: { user: User }) {
 // =============================================================================
 
 export default function UsersTable() {
-  const [activeTab, setActiveTab] = useState<"customers" | "employees">("customers");
+  const [activeTab, setActiveTab] = useState<"customers" | "employees" | "deals">("customers");
   const [search, setSearch] = useState("");
 
   const filteredUsers = users.filter(
     (user) =>
       user.name.toLowerCase().includes(search.toLowerCase()) ||
       user.phone.includes(search)
+  );
+
+  const filteredDeals = deals.filter(
+    (deal) =>
+      deal.name.toLowerCase().includes(search.toLowerCase()) ||
+      deal.loanId.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -265,6 +360,13 @@ export default function UsersTable() {
           >
             Employees
           </Button>
+          <Button
+            variant={activeTab === "deals" ? "secondary" : "ghost"}
+            size="sm"
+            onClick={() => setActiveTab("deals")}
+          >
+            Deals
+          </Button>
         </div>
 
         {/* Search and actions */}
@@ -273,7 +375,7 @@ export default function UsersTable() {
             <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search for customers..."
+              placeholder={activeTab === "deals" ? "Search for deals..." : "Search for customers..."}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-64 pl-9"
@@ -285,67 +387,135 @@ export default function UsersTable() {
           </Button>
           <Button size="sm">
             <Plus className="mr-2 size-4" />
-            Add new customer
+            {activeTab === "deals" ? "Add new deal" : "Add new customer"}
           </Button>
         </div>
       </div>
 
       {/* Table */}
       <div className="px-6 py-4">
-        <Table>
-          <TableHeader>
-            <TableRow className="hover:bg-transparent">
-              <TableHead className="w-[200px]">
-                <Button variant="ghost" size="sm" className="-ml-3 h-8 font-medium">
-                  Name
-                  <ChevronDown className="ml-1 size-3" />
-                </Button>
-              </TableHead>
-              <TableHead className="w-[280px]">
-                <Button variant="ghost" size="sm" className="-ml-3 h-8 font-medium">
-                  Dealerships
-                  <ChevronDown className="ml-1 size-3" />
-                </Button>
-              </TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="w-[140px]"></TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredUsers.map((user) => (
-              <TableRow key={user.id}>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <ChevronDown className="size-4 text-muted-foreground" />
+        {activeTab === "deals" ? (
+          <Table>
+            <TableHeader>
+              <TableRow className="hover:bg-transparent border-none">
+                <TableHead className="text-muted-foreground font-normal">
+                  Deal name
+                </TableHead>
+                <TableHead className="text-muted-foreground font-normal">
+                  Loan ID
+                </TableHead>
+                <TableHead className="text-muted-foreground font-normal">
+                  Recieved / Goal
+                </TableHead>
+                <TableHead className="text-muted-foreground font-normal">
+                  Rate
+                </TableHead>
+                <TableHead className="text-muted-foreground font-normal">
+                  Created
+                </TableHead>
+                <TableHead className="w-10"></TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {filteredDeals.map((deal) => {
+                const progress = calculateProgress(deal.received, deal.goal);
+                const Icon = iconMap[deal.icon];
+                return (
+                  <TableRow
+                    key={deal.id}
+                    className="cursor-pointer border-none hover:bg-muted/50"
+                  >
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <span className="text-muted-foreground">
+                          <Icon className="size-4" />
+                        </span>
+                        <span className="font-medium">{deal.name}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {deal.loanId}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <ProgressCircle progress={progress} />
+                        <span>
+                          <span className="font-semibold">
+                            {formatCurrency(deal.received)}
+                          </span>
+                          <span className="text-muted-foreground">
+                            {" "}
+                            / {formatCurrency(deal.goal)} USD
+                          </span>
+                        </span>
+                      </div>
+                    </TableCell>
+                    <TableCell>{deal.rate.toFixed(2)}%</TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {deal.created}
+                    </TableCell>
+                    <TableCell>
+                      <ChevronRight className="size-5 text-muted-foreground" />
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        ) : (
+          <Table>
+            <TableHeader>
+              <TableRow className="hover:bg-transparent">
+                <TableHead className="w-[200px]">
+                  <Button variant="ghost" size="sm" className="-ml-3 h-8 font-medium">
+                    Name
+                    <ChevronDown className="ml-1 size-3" />
+                  </Button>
+                </TableHead>
+                <TableHead className="w-[280px]">
+                  <Button variant="ghost" size="sm" className="-ml-3 h-8 font-medium">
+                    Dealerships
+                    <ChevronDown className="ml-1 size-3" />
+                  </Button>
+                </TableHead>
+                <TableHead>Role</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="w-[140px]"></TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {filteredUsers.map((user) => (
+                <TableRow key={user.id} className="border-none hover:bg-muted/50">
+                  <TableCell>
                     <div>
                       <div className="font-medium">{user.name}</div>
                       <div className="text-sm text-muted-foreground">{user.phone}</div>
                     </div>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <DealershipCell user={user} />
-                </TableCell>
-                <TableCell>
-                  <div className="space-y-1">
-                    {user.roles.map((role, index) => (
-                      <div key={index} className="text-sm">
-                        {role}
-                      </div>
-                    ))}
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <StatusBadge status={user.status} />
-                </TableCell>
-                <TableCell>
-                  <UserActions user={user} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm">{user.dealerships[0]}</span>
+                      {user.dealerships.length > 1 && (
+                        <Badge variant="secondary" className="text-xs">
+                          +{user.dealerships.length - 1}
+                        </Badge>
+                      )}
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-sm text-muted-foreground">{user.roles[0]}</span>
+                  </TableCell>
+                  <TableCell>
+                    <StatusBadge status={user.status} />
+                  </TableCell>
+                  <TableCell>
+                    <UserActions user={user} />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
       </div>
     </div>
   );

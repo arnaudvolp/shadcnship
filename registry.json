@@ -1037,17 +1037,12 @@
       "name": "table-01",
       "type": "registry:block",
       "title": "Table 01",
-      "description": "A users management table with search, filters, status badges and actions",
+      "description": "A minimalist deals table with progress indicators",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
-        "button",
-        "input",
-        "badge",
-        "switch",
-        "table",
-        "dropdown-menu"
+        "table"
       ],
       "categories": [
         "table"
@@ -1120,6 +1115,105 @@
           "path": "src/registry/blocks/dashboard-01/components/sales-trend-card.tsx",
           "type": "registry:component",
           "target": "components/dashboard-01/components/sales-trend-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confirmation-01",
+      "type": "registry:block",
+      "title": "Confirmation 01",
+      "description": "A payment success confirmation modal with order summary",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "separator"
+      ],
+      "categories": [
+        "confirmation"
+      ],
+      "meta": {
+        "image": "/r/previews/confirmation-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/confirmation-01/confirmation.tsx",
+          "type": "registry:component",
+          "target": "components/confirmation-01/confirmation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-02",
+      "type": "registry:block",
+      "title": "Dashboard 02",
+      "description": "A sales analytics dashboard with revenue cards, bar charts, transactions list, and orders heatmap",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "chart",
+        "dropdown-menu",
+        "avatar",
+        "sidebar"
+      ],
+      "categories": [
+        "dashboard"
+      ],
+      "meta": {
+        "image": "/r/previews/dashboard-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/dashboard-02/dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/dashboard.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/index.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/nav-user.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/nav-user.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/team-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/team-switcher.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/stat-cards.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/stat-cards.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/analytics-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/analytics-chart.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/transactions-list.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/transactions-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/orders-heatmap.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/orders-heatmap.tsx"
         }
       ]
     }
