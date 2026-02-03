@@ -346,6 +346,81 @@
       ]
     },
     {
+      "name": "pricing-04",
+      "type": "registry:block",
+      "title": "Pricing 04",
+      "description": "A 3-column pricing table with Stripe Checkout integration",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "tabs",
+        "badge",
+        "separator"
+      ],
+      "categories": [
+        "pricing"
+      ],
+      "meta": {
+        "image": "/r/previews/pricing-04.webp",
+        "stacks": ["stripe"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/pricing-04/pricing.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/pricing.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/types/pricing.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/types/pricing.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/index.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/billing-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/billing-toggle.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/feature-list.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/feature-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/plan-card.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/plan-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/price-display.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/price-display.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/stripe/checkout-action.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/stripe/checkout-action.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/stripe/webhook-handler.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/stripe/webhook-handler.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/stripe/config.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/stripe/config.ts"
+        }
+      ]
+    },
+    {
       "name": "cta-01",
       "type": "registry:block",
       "title": "CTA 01",
