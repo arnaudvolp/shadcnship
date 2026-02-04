@@ -5,7 +5,7 @@
   "description": "A team section with member cards featuring images, roles, and social links",
   "dependencies": [],
   "registryDependencies": [
-    "social-icons"
+    "https://shadcnship.com/r/social-icons.json"
   ],
   "files": [
     {

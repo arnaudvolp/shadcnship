@@ -14,9 +14,11 @@ import {
 } from "lucide-react";
 import { BentoLanding } from "@/components/landing/bento-landing";
 import { Separator } from "@/components/ui/separator";
-import { Cta04 } from "@/registry/blocks/cta-04/cta";
 import { GithubIcon, LogoIcon } from "@/registry/blocks/social-icons/icons";
 import { Feature04 } from "@/registry/blocks/feature-04/feature";
+import { Waitlist01 } from "@/registry/blocks/waitlist-01/waitlist";
+import { joinWaitlist } from "@/app/actions/waitlist";
+import { Button } from "@/components/ui/button";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -25,6 +27,13 @@ const fadeInUp = {
 };
 
 export const Landing = () => {
+  const handleWaitlistSubmit = async (email: string) => {
+    const result = await joinWaitlist(email);
+    if (!result.success) {
+      throw new Error(result.message);
+    }
+  };
+
   return (
     <div className="container mx-auto">
       {/* Hero Section */}
@@ -148,33 +157,33 @@ export const Landing = () => {
                 "Absolutely. ShadcnShip is MIT licensed, so you can use it freely in personal, client, and commercial projects. No attribution required, no restrictions.",
             },
           ]}
-          className="border-x border-border"
+          className="border-x border-border md:py-32"
         />
       </motion.div>
 
-      {/* CTA Section */}
+      {/* Waitlist Section */}
       <Separator className="absolute right-0 left-0" />
       <motion.div
         {...fadeInUp}
         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
       >
-        <Cta04
-          heading="Start Building Your Project "
-          description="Browse components and copy production-ready blocks. Customize to your brand and ship your project in hours—not weeks."
-          buttons={{
-            primary: {
-              text: "Explore All Blocks",
-              url: "/blocks",
-              icon: <ArrowUpRight className="size-4" />,
-            },
-            secondary: {
-              text: "Star on GitHub",
-              url: "https://github.com/arnaudvolp/shadcn-ui-blocks",
-              icon: <GithubIcon className="size-4" />,
-            },
+        <Waitlist01
+          badge="New Blocks Weekly"
+          heading="Stay in the Loop"
+          description="Get notified when we release new blocks, templates, and features. No spam, just updates that help you ship faster."
+          buttonText="Subscribe"
+          successMessage="You're in! Check your inbox soon."
+          onSubmit={handleWaitlistSubmit}
+          socialProof={{
+            avatars: [
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png",
+              "https://github.com/shadcn.png",
+            ],
+            text: "Join 100+ developers shipping faster",
           }}
-          icon={<LogoIcon className="size-6 invert dark:invert-0" />}
-          className="border-x border-border"
+          className="border-x border-border md:py-42"
         />
       </motion.div>
     </div>
