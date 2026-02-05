@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { BillingToggle } from "./components/billing-toggle";
 import { PlanCard } from "./components/plan-card";
-import type { Pricing04Props, BillingInterval, PricingPlan } from "./types/pricing";
+import type { Pricing04Props, BillingInterval, PricingPlan, PricingFeature } from "./types/pricing";
 
 // ============================================================================
 // Default Plans Data

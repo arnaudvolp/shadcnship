@@ -346,6 +346,81 @@
       ]
     },
     {
+      "name": "pricing-04",
+      "type": "registry:block",
+      "title": "Pricing 04",
+      "description": "A 3-column pricing table with Stripe Checkout integration",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "tabs",
+        "badge",
+        "separator"
+      ],
+      "categories": [
+        "pricing"
+      ],
+      "meta": {
+        "image": "/r/previews/pricing-04.webp",
+        "stacks": ["stripe"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/pricing-04/pricing.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/pricing.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/types/pricing.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/types/pricing.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/index.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/billing-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/billing-toggle.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/feature-list.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/feature-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/plan-card.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/plan-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/components/price-display.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-04/components/price-display.tsx"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/stripe/checkout-action.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/stripe/checkout-action.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/stripe/webhook-handler.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/stripe/webhook-handler.ts"
+        },
+        {
+          "path": "src/registry/blocks/pricing-04/stripe/config.ts",
+          "type": "registry:component",
+          "target": "components/pricing-04/stripe/config.ts"
+        }
+      ]
+    },
+    {
       "name": "cta-01",
       "type": "registry:block",
       "title": "CTA 01",
@@ -999,7 +1074,7 @@
       "name": "waitlist-01",
       "type": "registry:block",
       "title": "Waitlist 01",
-      "description": "A waitlist signup section with email form, social proof avatars, and countdown timer",
+      "description": "A waitlist signup section with email form and social proof",
       "dependencies": [
         "lucide-react"
       ],
@@ -1012,7 +1087,8 @@
         "waitlist"
       ],
       "meta": {
-        "image": "/r/previews/waitlist-01.webp"
+        "image": "/r/previews/waitlist-01.webp",
+        "stacks": ["supabase", "postgres"]
       },
       "files": [
         {
@@ -1021,14 +1097,398 @@
           "target": "components/waitlist-01/waitlist.tsx"
         },
         {
-          "path": "src/registry/blocks/waitlist-01/providers.ts",
+          "path": "src/registry/blocks/waitlist-01/supabase/use-waitlist.ts",
           "type": "registry:component",
-          "target": "components/waitlist-01/providers.ts"
+          "target": "components/waitlist-01/supabase/use-waitlist.ts"
         },
         {
-          "path": "src/registry/blocks/waitlist-01/types.ts",
+          "path": "src/registry/blocks/waitlist-01/postgres/action.ts",
           "type": "registry:component",
-          "target": "components/waitlist-01/types.ts"
+          "target": "components/waitlist-01/postgres/action.ts"
+        }
+      ]
+    },
+    {
+      "name": "table-01",
+      "type": "registry:block",
+      "title": "Table 01",
+      "description": "A minimalist deals table with progress indicators",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "table"
+      ],
+      "categories": [
+        "table"
+      ],
+      "meta": {
+        "image": "/r/previews/table-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/table-01/table.tsx",
+          "type": "registry:component",
+          "target": "components/table-01/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table-02",
+      "type": "registry:block",
+      "title": "Table 02",
+      "description": "A data-driven table with server pagination, sorting, filtering, and CRUD operations",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "table",
+        "button",
+        "input",
+        "badge",
+        "checkbox",
+        "dropdown-menu",
+        "select",
+        "skeleton"
+      ],
+      "categories": [
+        "table"
+      ],
+      "meta": {
+        "image": "/r/previews/table-02.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/table-02/table.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/types/table.ts",
+          "type": "registry:component",
+          "target": "components/table-02/types/table.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/index.ts",
+          "type": "registry:component",
+          "target": "components/table-02/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/data-table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/pagination.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/pagination.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/column-header.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/column-header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/filters.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/filters.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/search-input.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/search-input.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/bulk-actions.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/bulk-actions.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/row-actions.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/row-actions.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/components/loading-skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/table-02/components/loading-skeleton.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-02/supabase/use-table-data.ts",
+          "type": "registry:component",
+          "target": "components/table-02/supabase/use-table-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/postgres/fetch-action.ts",
+          "type": "registry:component",
+          "target": "components/table-02/postgres/fetch-action.ts"
+        },
+        {
+          "path": "src/registry/blocks/table-02/postgres/schema.ts",
+          "type": "registry:component",
+          "target": "components/table-02/postgres/schema.ts"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard 01",
+      "description": "A modern dashboard layout with sidebar navigation, stats cards and sales trend chart with skeleton placeholders",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "skeleton",
+        "dropdown-menu",
+        "avatar"
+      ],
+      "categories": [
+        "dashboard"
+      ],
+      "meta": {
+        "image": "/r/previews/dashboard-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/dashboard-01/dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/dashboard.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/nav-user.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/nav-user.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/team-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/team-switcher.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/skeleton-card-stat.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/skeleton-card-stat.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-01/components/skeleton-card.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-01/components/skeleton-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confirmation-01",
+      "type": "registry:block",
+      "title": "Confirmation 01",
+      "description": "A payment success confirmation modal with order summary",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "separator"
+      ],
+      "categories": [
+        "confirmation"
+      ],
+      "meta": {
+        "image": "/r/previews/confirmation-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/confirmation-01/confirmation.tsx",
+          "type": "registry:component",
+          "target": "components/confirmation-01/confirmation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-02",
+      "type": "registry:block",
+      "title": "Dashboard 02",
+      "description": "A sales analytics dashboard with revenue cards, bar charts, transactions list, and orders heatmap",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "chart",
+        "dropdown-menu",
+        "avatar",
+        "sidebar"
+      ],
+      "categories": [
+        "dashboard"
+      ],
+      "meta": {
+        "image": "/r/previews/dashboard-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/dashboard-02/dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/dashboard.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/index.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/nav-user.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/nav-user.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/team-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/team-switcher.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/stat-cards.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/stat-cards.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/analytics-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/analytics-chart.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/projects-table.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/projects-table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-02/components/user-locations.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-02/components/user-locations.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-03",
+      "type": "registry:block",
+      "title": "Dashboard 03",
+      "description": "A data-driven dashboard with real-time stats, revenue charts, user growth, activity feed and quick actions. Includes Supabase and PostgreSQL integrations.",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "chart",
+        "dropdown-menu",
+        "avatar",
+        "sidebar",
+        "badge",
+        "skeleton",
+        "scroll-area",
+        "table"
+      ],
+      "categories": [
+        "dashboard"
+      ],
+      "meta": {
+        "image": "/r/previews/dashboard-03.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/dashboard-03/dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/dashboard.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/types/dashboard.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-03/types/dashboard.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/index.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/header.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/nav-user.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/nav-user.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/team-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/team-switcher.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/stat-card.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/stat-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/chart-card.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/chart-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/recent-activity.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/recent-activity.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/quick-actions.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/quick-actions.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/components/data-table-widget.tsx",
+          "type": "registry:component",
+          "target": "components/dashboard-03/components/data-table-widget.tsx"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/supabase/use-dashboard-data.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-03/supabase/use-dashboard-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/dashboard-03/postgres/dashboard-actions.ts",
+          "type": "registry:component",
+          "target": "components/dashboard-03/postgres/dashboard-actions.ts"
         }
       ]
     }
