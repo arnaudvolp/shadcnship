@@ -1491,6 +1491,95 @@
           "target": "components/dashboard-03/postgres/dashboard-actions.ts"
         }
       ]
+    },
+    {
+      "name": "auth-01",
+      "type": "registry:block",
+      "title": "Auth 01",
+      "description": "Complete authentication flow with login, register, forgot password, magic link and OAuth support. Includes Supabase Auth integration.",
+      "dependencies": [
+        "lucide-react",
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "card",
+        "form",
+        "label",
+        "tabs"
+      ],
+      "categories": [
+        "authentication"
+      ],
+      "meta": {
+        "image": "/r/previews/auth-01.webp",
+        "stacks": ["supabase"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/auth-01/auth.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/auth.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/types/auth.ts",
+          "type": "registry:component",
+          "target": "components/auth-01/types/auth.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/auth-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/auth-layout.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/auth-layout.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/login-form.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/login-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/register-form.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/register-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/forgot-password-form.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/forgot-password-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/reset-password-form.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/reset-password-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/magic-link-form.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/magic-link-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/components/oauth-buttons.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/components/oauth-buttons.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/supabase/auth-actions.ts",
+          "type": "registry:component",
+          "target": "components/auth-01/supabase/auth-actions.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/supabase/auth-provider.tsx",
+          "type": "registry:component",
+          "target": "components/auth-01/supabase/auth-provider.tsx"
+        }
+      ]
     }
   ]
 }

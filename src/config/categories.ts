@@ -156,6 +156,12 @@ export const categories = {
     icon: "✅",
     description: "Success and confirmation modals and pages",
   },
+  authentication: {
+    name: "authentication",
+    title: "Authentication",
+    icon: "🔐",
+    description: "Complete authentication flows with OAuth and magic link support",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;
