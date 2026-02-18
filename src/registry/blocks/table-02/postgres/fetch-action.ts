@@ -12,6 +12,8 @@ import type {
   FetchTableDataParams,
   TableDataResult,
   User,
+  CreateUserInput,
+  UpdateUserInput,
 } from "../types/table";
 
 /**
@@ -146,4 +148,117 @@ export async function deleteUsers(ids: string[]): Promise<void> {
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   console.log(`[Demo] Deleting users with IDs:`, ids);
   await new Promise((resolve) => setTimeout(resolve, 500));
+}
+
+/**
+ * Create a new user
+ *
+ * @example
+ * // page.tsx
+ * import { Table02 } from "@/components/table-02/table"
+ * import { fetchTableData, createUser } from "@/components/table-02/postgres/fetch-action"
+ *
+ * export default function Page() {
+ *   return <Table02 onFetchData={fetchTableData} onCreate={createUser} />
+ * }
+ */
+export async function createUser(data: CreateUserInput): Promise<User> {
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Drizzle ORM Implementation (uncomment when ready):
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // import { db } from "@/db";
+  // import { users } from "@/db/schema";
+  //
+  // const [newUser] = await db
+  //   .insert(users)
+  //   .values({
+  //     email: data.email,
+  //     name: data.name,
+  //     status: data.status ?? "pending",
+  //     role: data.role ?? "user",
+  //   })
+  //   .returning();
+  //
+  // return {
+  //   id: newUser.id,
+  //   email: newUser.email,
+  //   name: newUser.name,
+  //   status: newUser.status as User["status"],
+  //   role: newUser.role as User["role"],
+  //   createdAt: newUser.createdAt.toISOString(),
+  //   lastLogin: newUser.lastLogin?.toISOString(),
+  // };
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Demo mode:
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  console.log(`[Demo] Creating user:`, data);
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return {
+    id: crypto.randomUUID(),
+    email: data.email,
+    name: data.name,
+    status: data.status ?? "pending",
+    role: data.role ?? "user",
+    createdAt: new Date().toISOString(),
+  };
+}
+
+/**
+ * Update an existing user
+ *
+ * @example
+ * // page.tsx
+ * import { Table02 } from "@/components/table-02/table"
+ * import { fetchTableData, updateUser } from "@/components/table-02/postgres/fetch-action"
+ *
+ * export default function Page() {
+ *   return <Table02 onFetchData={fetchTableData} onUpdate={updateUser} />
+ * }
+ */
+export async function updateUser(data: UpdateUserInput): Promise<User> {
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Drizzle ORM Implementation (uncomment when ready):
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // import { db } from "@/db";
+  // import { users } from "@/db/schema";
+  // import { eq } from "drizzle-orm";
+  //
+  // const updateData: Partial<typeof users.$inferInsert> = {};
+  // if (data.email !== undefined) updateData.email = data.email;
+  // if (data.name !== undefined) updateData.name = data.name;
+  // if (data.status !== undefined) updateData.status = data.status;
+  // if (data.role !== undefined) updateData.role = data.role;
+  //
+  // const [updatedUser] = await db
+  //   .update(users)
+  //   .set(updateData)
+  //   .where(eq(users.id, data.id))
+  //   .returning();
+  //
+  // return {
+  //   id: updatedUser.id,
+  //   email: updatedUser.email,
+  //   name: updatedUser.name,
+  //   status: updatedUser.status as User["status"],
+  //   role: updatedUser.role as User["role"],
+  //   createdAt: updatedUser.createdAt.toISOString(),
+  //   lastLogin: updatedUser.lastLogin?.toISOString(),
+  // };
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // Demo mode:
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  console.log(`[Demo] Updating user:`, data);
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return {
+    id: data.id,
+    email: data.email ?? "user@example.com",
+    name: data.name ?? "Updated User",
+    status: data.status ?? "active",
+    role: data.role ?? "user",
+    createdAt: new Date().toISOString(),
+  };
 }

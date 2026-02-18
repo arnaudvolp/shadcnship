@@ -67,11 +67,30 @@ export interface User {
   lastLogin?: string;
 }
 
+// Input type for creating a new user
+export interface CreateUserInput {
+  email: string;
+  name: string;
+  status?: UserStatus;
+  role?: UserRole;
+}
+
+// Input type for updating an existing user
+export interface UpdateUserInput {
+  id: string;
+  email?: string;
+  name?: string;
+  status?: UserStatus;
+  role?: UserRole;
+}
+
 export interface Table02Props {
   className?: string;
   // Data fetching - injected by stack-specific hooks/actions
   onFetchData?: (params: FetchTableDataParams) => Promise<TableDataResult<User>>;
   // CRUD operations
+  onCreate?: (data: CreateUserInput) => Promise<User>;
+  onUpdate?: (data: UpdateUserInput) => Promise<User>;
   onDelete?: (ids: string[]) => Promise<void>;
   onEdit?: (id: string) => void;
   onView?: (id: string) => void;

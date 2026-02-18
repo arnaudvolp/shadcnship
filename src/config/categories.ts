@@ -162,6 +162,90 @@ export const categories = {
     icon: "🔐",
     description: "Complete authentication flows with OAuth and magic link support",
   },
+  "empty-state": {
+    name: "empty-state",
+    title: "Empty State",
+    icon: "📭",
+    description: "Empty states for no-data, errors, and not-found scenarios",
+  },
+  invoice: {
+    name: "invoice",
+    title: "Invoice",
+    icon: "🧾",
+    description: "Invoice and receipt templates",
+  },
+  notification: {
+    name: "notification",
+    title: "Notification",
+    icon: "🔔",
+    description: "Notification centers and alert systems",
+  },
+  settings: {
+    name: "settings",
+    title: "Settings",
+    icon: "⚙️",
+    description: "User settings and preferences pages",
+  },
+  onboarding: {
+    name: "onboarding",
+    title: "Onboarding",
+    icon: "🚀",
+    description: "Multi-step onboarding wizards",
+  },
+  command: {
+    name: "command",
+    title: "Command",
+    icon: "⌘",
+    description: "Command palettes and quick actions",
+  },
+  "file-upload": {
+    name: "file-upload",
+    title: "File Upload",
+    icon: "📁",
+    description: "File upload and dropzone components",
+  },
+  "activity-feed": {
+    name: "activity-feed",
+    title: "Activity Feed",
+    icon: "📜",
+    description: "Activity timelines and feed components",
+  },
+  "team-management": {
+    name: "team-management",
+    title: "Team Management",
+    icon: "👥",
+    description: "Team member management and invitations",
+  },
+  kanban: {
+    name: "kanban",
+    title: "Kanban",
+    icon: "📋",
+    description: "Kanban boards and task management",
+  },
+  chat: {
+    name: "chat",
+    title: "Chat",
+    icon: "💬",
+    description: "Chat interfaces and messaging",
+  },
+  calendar: {
+    name: "calendar",
+    title: "Calendar",
+    icon: "📅",
+    description: "Calendar and event scheduling",
+  },
+  sidebar: {
+    name: "sidebar",
+    title: "Sidebar",
+    icon: "📱",
+    description: "Collapsible sidebars and app navigation",
+  },
+  error: {
+    name: "error",
+    title: "Error",
+    icon: "⚠️",
+    description: "Error pages for 404, 500, maintenance, and more",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

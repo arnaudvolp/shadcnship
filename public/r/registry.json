@@ -1516,7 +1516,7 @@
       ],
       "meta": {
         "image": "/r/previews/auth-01.webp",
-        "stacks": ["supabase"]
+        "stacks": ["supabase", "postgres"]
       },
       "files": [
         {
@@ -1578,6 +1578,1083 @@
           "path": "src/registry/blocks/auth-01/supabase/auth-provider.tsx",
           "type": "registry:component",
           "target": "components/auth-01/supabase/auth-provider.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/supabase/middleware.ts",
+          "type": "registry:component",
+          "target": "components/auth-01/supabase/middleware.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/postgres/auth-actions.ts",
+          "type": "registry:component",
+          "target": "components/auth-01/postgres/auth-actions.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/postgres/middleware.ts",
+          "type": "registry:component",
+          "target": "components/auth-01/postgres/middleware.ts"
+        }
+      ]
+    },
+    {
+      "name": "empty-state-01",
+      "type": "registry:block",
+      "title": "Empty State 01",
+      "description": "A versatile empty states collection with variants for no-data, no-results, error, not-found, no-access, and more",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "categories": [
+        "empty-state"
+      ],
+      "meta": {
+        "image": "/r/previews/empty-state-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/empty-state-01/empty-state.tsx",
+          "type": "registry:component",
+          "target": "components/empty-state-01/empty-state.tsx"
+        },
+        {
+          "path": "src/registry/blocks/empty-state-01/types/empty-state.ts",
+          "type": "registry:component",
+          "target": "components/empty-state-01/types/empty-state.ts"
+        },
+        {
+          "path": "src/registry/blocks/empty-state-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/empty-state-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/empty-state-01/components/illustration.tsx",
+          "type": "registry:component",
+          "target": "components/empty-state-01/components/illustration.tsx"
+        }
+      ]
+    },
+    {
+      "name": "invoice-01",
+      "type": "registry:block",
+      "title": "Invoice 01",
+      "description": "A professional invoice template with line items, calculations, status badges, and print/download actions",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "table",
+        "badge",
+        "separator"
+      ],
+      "categories": [
+        "invoice"
+      ],
+      "meta": {
+        "image": "/r/previews/invoice-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/invoice-01/invoice.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/invoice.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/types/invoice.ts",
+          "type": "registry:component",
+          "target": "components/invoice-01/types/invoice.ts"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/invoice-header.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/invoice-header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/invoice-addresses.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/invoice-addresses.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/invoice-line-items.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/invoice-line-items.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/invoice-totals.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/invoice-totals.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/invoice-footer.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/invoice-footer.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-01/components/invoice-actions.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-01/components/invoice-actions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-01",
+      "type": "registry:block",
+      "title": "Notification 01",
+      "description": "A notification center with bell trigger, unread badge, category tabs, and real-time Supabase subscription support",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "popover",
+        "tabs",
+        "badge",
+        "avatar",
+        "scroll-area",
+        "skeleton",
+        "dropdown-menu"
+      ],
+      "categories": [
+        "notification"
+      ],
+      "meta": {
+        "image": "/r/previews/notification-01.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/notification-01/notification.tsx",
+          "type": "registry:component",
+          "target": "components/notification-01/notification.tsx"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/types/notification.ts",
+          "type": "registry:component",
+          "target": "components/notification-01/types/notification.ts"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/notification-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/components/notification-trigger.tsx",
+          "type": "registry:component",
+          "target": "components/notification-01/components/notification-trigger.tsx"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/components/notification-list.tsx",
+          "type": "registry:component",
+          "target": "components/notification-01/components/notification-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/components/notification-item.tsx",
+          "type": "registry:component",
+          "target": "components/notification-01/components/notification-item.tsx"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/components/notification-empty.tsx",
+          "type": "registry:component",
+          "target": "components/notification-01/components/notification-empty.tsx"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/supabase/notification-actions.ts",
+          "type": "registry:component",
+          "target": "components/notification-01/supabase/notification-actions.ts"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/supabase/use-notifications.ts",
+          "type": "registry:component",
+          "target": "components/notification-01/supabase/use-notifications.ts"
+        },
+        {
+          "path": "src/registry/blocks/notification-01/postgres/notification-actions.ts",
+          "type": "registry:component",
+          "target": "components/notification-01/postgres/notification-actions.ts"
+        }
+      ]
+    },
+    {
+      "name": "settings-01",
+      "type": "registry:block",
+      "title": "Settings 01",
+      "description": "A comprehensive user settings page with tabs for profile, notifications, security, billing, and appearance",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "tabs",
+        "input",
+        "label",
+        "switch",
+        "avatar",
+        "badge",
+        "separator",
+        "radio-group"
+      ],
+      "categories": [
+        "settings"
+      ],
+      "meta": {
+        "image": "/r/previews/settings-01.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/settings-01/settings.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/settings.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/types/settings.ts",
+          "type": "registry:component",
+          "target": "components/settings-01/types/settings.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/settings-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/settings-layout.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/components/settings-layout.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/profile-form.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/components/profile-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/notification-settings.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/components/notification-settings.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/security-settings.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/components/security-settings.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/billing-settings.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/components/billing-settings.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/components/appearance-settings.tsx",
+          "type": "registry:component",
+          "target": "components/settings-01/components/appearance-settings.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/supabase/settings-actions.ts",
+          "type": "registry:component",
+          "target": "components/settings-01/supabase/settings-actions.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/postgres/settings-actions.ts",
+          "type": "registry:component",
+          "target": "components/settings-01/postgres/settings-actions.ts"
+        }
+      ]
+    },
+    {
+      "name": "onboarding-01",
+      "type": "registry:block",
+      "title": "Onboarding 01",
+      "description": "A multi-step onboarding wizard with progress indicator, form validation, and celebration confetti",
+      "dependencies": [
+        "lucide-react",
+        "canvas-confetti"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "switch",
+        "avatar",
+        "select"
+      ],
+      "categories": [
+        "onboarding"
+      ],
+      "meta": {
+        "image": "/r/previews/onboarding-01.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/onboarding-01/onboarding.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/onboarding.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/types/onboarding.ts",
+          "type": "registry:component",
+          "target": "components/onboarding-01/types/onboarding.ts"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/step-indicator.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/step-indicator.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/step-welcome.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/step-welcome.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/step-profile.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/step-profile.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/step-preferences.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/step-preferences.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/step-workspace.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/step-workspace.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/step-complete.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/step-complete.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/components/navigation-buttons.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-01/components/navigation-buttons.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/supabase/onboarding-actions.ts",
+          "type": "registry:component",
+          "target": "components/onboarding-01/supabase/onboarding-actions.ts"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-01/postgres/onboarding-actions.ts",
+          "type": "registry:component",
+          "target": "components/onboarding-01/postgres/onboarding-actions.ts"
+        }
+      ]
+    },
+    {
+      "name": "command-01",
+      "type": "registry:block",
+      "title": "Command 01",
+      "description": "A command palette with Cmd+K shortcut, fuzzy search, grouped results, and keyboard navigation",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "scroll-area",
+        "separator"
+      ],
+      "categories": [
+        "command"
+      ],
+      "meta": {
+        "image": "/r/previews/command-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/command-01/command.tsx",
+          "type": "registry:component",
+          "target": "components/command-01/command.tsx"
+        },
+        {
+          "path": "src/registry/blocks/command-01/types/command.ts",
+          "type": "registry:component",
+          "target": "components/command-01/types/command.ts"
+        },
+        {
+          "path": "src/registry/blocks/command-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/command-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/command-01/components/command-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/command-01/components/command-dialog.tsx"
+        },
+        {
+          "path": "src/registry/blocks/command-01/components/command-input.tsx",
+          "type": "registry:component",
+          "target": "components/command-01/components/command-input.tsx"
+        },
+        {
+          "path": "src/registry/blocks/command-01/components/command-list.tsx",
+          "type": "registry:component",
+          "target": "components/command-01/components/command-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/command-01/components/command-item.tsx",
+          "type": "registry:component",
+          "target": "components/command-01/components/command-item.tsx"
+        },
+        {
+          "path": "src/registry/blocks/command-01/components/command-empty.tsx",
+          "type": "registry:component",
+          "target": "components/command-01/components/command-empty.tsx"
+        },
+        {
+          "path": "src/registry/blocks/command-01/hooks/use-command-palette.ts",
+          "type": "registry:component",
+          "target": "components/command-01/hooks/use-command-palette.ts"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-01",
+      "type": "registry:block",
+      "title": "File Upload 01",
+      "description": "A drag and drop file uploader with preview, progress bars, and multiple file support",
+      "dependencies": [
+        "lucide-react",
+        "react-dropzone"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "progress"
+      ],
+      "categories": [
+        "file-upload"
+      ],
+      "meta": {
+        "image": "/r/previews/file-upload-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/file-upload-01/file-upload.tsx",
+          "type": "registry:component",
+          "target": "components/file-upload-01/file-upload.tsx"
+        },
+        {
+          "path": "src/registry/blocks/file-upload-01/types/file-upload.ts",
+          "type": "registry:component",
+          "target": "components/file-upload-01/types/file-upload.ts"
+        },
+        {
+          "path": "src/registry/blocks/file-upload-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/file-upload-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/file-upload-01/components/dropzone.tsx",
+          "type": "registry:component",
+          "target": "components/file-upload-01/components/dropzone.tsx"
+        },
+        {
+          "path": "src/registry/blocks/file-upload-01/components/file-preview.tsx",
+          "type": "registry:component",
+          "target": "components/file-upload-01/components/file-preview.tsx"
+        },
+        {
+          "path": "src/registry/blocks/file-upload-01/components/file-list.tsx",
+          "type": "registry:component",
+          "target": "components/file-upload-01/components/file-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/file-upload-01/components/upload-progress.tsx",
+          "type": "registry:component",
+          "target": "components/file-upload-01/components/upload-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "activity-feed-01",
+      "type": "registry:block",
+      "title": "Activity Feed 01",
+      "description": "An activity timeline with filtering, loading states, and real-time support",
+      "dependencies": [
+        "lucide-react",
+        "date-fns"
+      ],
+      "registryDependencies": [
+        "button",
+        "avatar",
+        "badge",
+        "skeleton",
+        "select"
+      ],
+      "categories": [
+        "activity-feed"
+      ],
+      "meta": {
+        "image": "/r/previews/activity-feed-01.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/activity-feed-01/activity-feed.tsx",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/activity-feed.tsx"
+        },
+        {
+          "path": "src/registry/blocks/activity-feed-01/types/activity.ts",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/types/activity.ts"
+        },
+        {
+          "path": "src/registry/blocks/activity-feed-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/activity-feed-01/components/activity-item.tsx",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/components/activity-item.tsx"
+        },
+        {
+          "path": "src/registry/blocks/activity-feed-01/components/activity-list.tsx",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/components/activity-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/activity-feed-01/components/activity-filters.tsx",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/components/activity-filters.tsx"
+        },
+        {
+          "path": "src/registry/blocks/activity-feed-01/components/activity-skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/activity-feed-01/components/activity-skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "team-management-01",
+      "type": "registry:block",
+      "title": "Team Management 01",
+      "description": "Team member management with invitations, role management, and member list",
+      "dependencies": [
+        "lucide-react",
+        "date-fns"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "avatar",
+        "badge",
+        "input",
+        "label",
+        "dialog",
+        "dropdown-menu",
+        "select"
+      ],
+      "categories": [
+        "team-management"
+      ],
+      "meta": {
+        "image": "/r/previews/team-management-01.webp",
+        "stacks": ["supabase", "postgres"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/team-management-01/team-management.tsx",
+          "type": "registry:component",
+          "target": "components/team-management-01/team-management.tsx"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/types/team.ts",
+          "type": "registry:component",
+          "target": "components/team-management-01/types/team.ts"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/team-management-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/components/role-select.tsx",
+          "type": "registry:component",
+          "target": "components/team-management-01/components/role-select.tsx"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/components/member-row.tsx",
+          "type": "registry:component",
+          "target": "components/team-management-01/components/member-row.tsx"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/components/member-list.tsx",
+          "type": "registry:component",
+          "target": "components/team-management-01/components/member-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/components/invite-list.tsx",
+          "type": "registry:component",
+          "target": "components/team-management-01/components/invite-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/components/invite-member-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/team-management-01/components/invite-member-dialog.tsx"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/postgres/team-actions.ts",
+          "type": "registry:component",
+          "target": "components/team-management-01/postgres/team-actions.ts"
+        },
+        {
+          "path": "src/registry/blocks/team-management-01/supabase/team-actions.ts",
+          "type": "registry:component",
+          "target": "components/team-management-01/supabase/team-actions.ts"
+        }
+      ]
+    },
+    {
+      "name": "kanban-01",
+      "type": "registry:block",
+      "title": "Kanban 01",
+      "description": "A kanban board with drag and drop, task cards, and column management",
+      "dependencies": [
+        "lucide-react",
+        "date-fns",
+        "@dnd-kit/core",
+        "@dnd-kit/sortable",
+        "@dnd-kit/utilities"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "avatar",
+        "badge",
+        "input",
+        "label",
+        "dialog",
+        "dropdown-menu",
+        "select",
+        "textarea",
+        "separator"
+      ],
+      "categories": [
+        "kanban"
+      ],
+      "meta": {
+        "image": "/r/previews/kanban-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/kanban-01/kanban.tsx",
+          "type": "registry:component",
+          "target": "components/kanban-01/kanban.tsx"
+        },
+        {
+          "path": "src/registry/blocks/kanban-01/types/kanban.ts",
+          "type": "registry:component",
+          "target": "components/kanban-01/types/kanban.ts"
+        },
+        {
+          "path": "src/registry/blocks/kanban-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/kanban-01/components/index.ts"
+        },
+                {
+          "path": "src/registry/blocks/kanban-01/components/kanban-card.tsx",
+          "type": "registry:component",
+          "target": "components/kanban-01/components/kanban-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/kanban-01/components/kanban-column.tsx",
+          "type": "registry:component",
+          "target": "components/kanban-01/components/kanban-column.tsx"
+        },
+        {
+          "path": "src/registry/blocks/kanban-01/components/create-task-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/kanban-01/components/create-task-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chat-01",
+      "type": "registry:block",
+      "title": "Chat 01",
+      "description": "A real-time chat interface with message bubbles, typing indicators, and attachments",
+      "dependencies": [
+        "lucide-react",
+        "date-fns"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "avatar",
+        "input",
+        "textarea",
+        "dropdown-menu",
+        "scroll-area",
+        "tooltip"
+      ],
+      "categories": [
+        "chat"
+      ],
+      "meta": {
+        "image": "/r/previews/chat-01.webp",
+        "stacks": ["supabase"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/chat-01/chat.tsx",
+          "type": "registry:component",
+          "target": "components/chat-01/chat.tsx"
+        },
+        {
+          "path": "src/registry/blocks/chat-01/types/chat.ts",
+          "type": "registry:component",
+          "target": "components/chat-01/types/chat.ts"
+        },
+        {
+          "path": "src/registry/blocks/chat-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/chat-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/chat-01/components/conversation-header.tsx",
+          "type": "registry:component",
+          "target": "components/chat-01/components/conversation-header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/chat-01/components/message-bubble.tsx",
+          "type": "registry:component",
+          "target": "components/chat-01/components/message-bubble.tsx"
+        },
+        {
+          "path": "src/registry/blocks/chat-01/components/chat-input.tsx",
+          "type": "registry:component",
+          "target": "components/chat-01/components/chat-input.tsx"
+        },
+        {
+          "path": "src/registry/blocks/chat-01/components/typing-indicator.tsx",
+          "type": "registry:component",
+          "target": "components/chat-01/components/typing-indicator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-01",
+      "type": "registry:block",
+      "title": "Calendar 01",
+      "description": "An event calendar with month/week views, event creation, and scheduling",
+      "dependencies": [
+        "lucide-react",
+        "date-fns"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "dialog",
+        "select",
+        "switch",
+        "textarea",
+        "scroll-area"
+      ],
+      "categories": [
+        "calendar"
+      ],
+      "meta": {
+        "image": "/r/previews/calendar-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/calendar-01/calendar.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/calendar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/types/calendar.ts",
+          "type": "registry:component",
+          "target": "components/calendar-01/types/calendar.ts"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/event-card.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/event-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/calendar-header.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/calendar-header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/month-view.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/month-view.tsx"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/week-view.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/week-view.tsx"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/timeline-view.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/timeline-view.tsx"
+        },
+        {
+          "path": "src/registry/blocks/calendar-01/components/create-event-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/calendar-01/components/create-event-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "invoice-02",
+      "type": "registry:block",
+      "title": "Invoice 02",
+      "description": "An invoice creation form with live preview, line items, calculations, and customer management",
+      "dependencies": [
+        "lucide-react",
+        "date-fns"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "textarea",
+        "select",
+        "separator"
+      ],
+      "categories": [
+        "invoice"
+      ],
+      "meta": {
+        "image": "/r/previews/invoice-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/invoice-02/invoice.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-02/invoice.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-02/types/invoice.ts",
+          "type": "registry:component",
+          "target": "components/invoice-02/types/invoice.ts"
+        },
+        {
+          "path": "src/registry/blocks/invoice-02/components/index.ts",
+          "type": "registry:component",
+          "target": "components/invoice-02/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/invoice-02/components/invoice-form.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-02/components/invoice-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-02/components/invoice-preview-panel.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-02/components/invoice-preview-panel.tsx"
+        },
+        {
+          "path": "src/registry/blocks/invoice-02/components/line-item-row.tsx",
+          "type": "registry:component",
+          "target": "components/invoice-02/components/line-item-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "onboarding-02",
+      "type": "registry:block",
+      "title": "Onboarding 02",
+      "description": "A modern multi-step onboarding wizard with trait progress bars, chip selections, and confetti celebration",
+      "dependencies": [
+        "lucide-react",
+        "canvas-confetti"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "select"
+      ],
+      "categories": [
+        "onboarding"
+      ],
+      "meta": {
+        "image": "/r/previews/onboarding-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/onboarding-02/onboarding.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/onboarding.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/types/onboarding.ts",
+          "type": "registry:component",
+          "target": "components/onboarding-02/types/onboarding.ts"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/index.ts",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/step-progress.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/step-progress.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/chip-select.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/chip-select.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/step-company-type.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/step-company-type.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/step-company-size.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/step-company-size.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/step-funding.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/step-funding.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/step-use-case.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/step-use-case.tsx"
+        },
+        {
+          "path": "src/registry/blocks/onboarding-02/components/step-complete.tsx",
+          "type": "registry:component",
+          "target": "components/onboarding-02/components/step-complete.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-01",
+      "type": "registry:block",
+      "title": "Sidebar 01",
+      "description": "A modern collapsible sidebar with navigation groups, user menu, and mobile responsiveness",
+      "dependencies": [
+        "lucide-react",
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "button",
+        "avatar",
+        "badge",
+        "tooltip",
+        "dropdown-menu",
+        "collapsible",
+        "sheet"
+      ],
+      "categories": [
+        "sidebar"
+      ],
+      "meta": {
+        "image": "/r/previews/sidebar-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/sidebar-01/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar-01/sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/sidebar-01/types/sidebar.ts",
+          "type": "registry:component",
+          "target": "components/sidebar-01/types/sidebar.ts"
+        },
+        {
+          "path": "src/registry/blocks/sidebar-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/sidebar-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/sidebar-01/components/sidebar-header.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar-01/components/sidebar-header.tsx"
+        },
+        {
+          "path": "src/registry/blocks/sidebar-01/components/sidebar-nav.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar-01/components/sidebar-nav.tsx"
+        },
+        {
+          "path": "src/registry/blocks/sidebar-01/components/sidebar-user-menu.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar-01/components/sidebar-user-menu.tsx"
+        },
+        {
+          "path": "src/registry/blocks/sidebar-01/components/mobile-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar-01/components/mobile-sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-01",
+      "type": "registry:block",
+      "title": "Error 01",
+      "description": "Modern error pages with illustrations for 404, 500, 403, maintenance, and offline states",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "categories": [
+        "error"
+      ],
+      "meta": {
+        "image": "/r/previews/error-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/error-01/error.tsx",
+          "type": "registry:component",
+          "target": "components/error-01/error.tsx"
+        },
+        {
+          "path": "src/registry/blocks/error-01/types/error.ts",
+          "type": "registry:component",
+          "target": "components/error-01/types/error.ts"
+        },
+        {
+          "path": "src/registry/blocks/error-01/components/index.ts",
+          "type": "registry:component",
+          "target": "components/error-01/components/index.ts"
+        },
+        {
+          "path": "src/registry/blocks/error-01/components/error-illustration.tsx",
+          "type": "registry:component",
+          "target": "components/error-01/components/error-illustration.tsx"
         }
       ]
     }

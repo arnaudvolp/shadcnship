@@ -61,7 +61,7 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
 // Categories that are excluded from the regular blocks page
 const excludedCategories = ["background", "social-icons"];
 // Categories that belong to SaaS blocks (separate page)
-const saasCategories = ["waitlist", "table", "dashboard", "confirmation", "authentication"];
+const saasCategories = ["waitlist", "table", "dashboard", "confirmation", "authentication", "settings", "onboarding", "notification", "command", "invoice", "file-upload", "activity-feed", "team-management", "kanban", "chat", "calendar", "sidebar"];
 
 // Transform all registry items to blocks (excluding backgrounds, social-icons, and SaaS categories)
 const blocks: RegistryBlock[] = registryData.items
