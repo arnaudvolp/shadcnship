@@ -105,9 +105,11 @@ const Waitlist01 = ({
   return (
     <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
       <div className="mx-auto max-w-2xl space-y-4 text-center">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+        {/* Badge */}
+        <Badge variant="outline" className="gap-1.5 uppercase">
+          <div className="size-1.5 rounded-full bg-primary" />
           {badge}
-        </p>
+        </Badge>
 
         {/* Heading */}
         <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">

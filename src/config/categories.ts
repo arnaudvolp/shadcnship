@@ -138,6 +138,30 @@ export const categories = {
     icon: "⏳",
     description: "Waitlist and coming soon sections",
   },
+  table: {
+    name: "table",
+    title: "Table",
+    icon: "📋",
+    description: "Data tables and management interfaces",
+  },
+  dashboard: {
+    name: "dashboard",
+    title: "Dashboard",
+    icon: "📊",
+    description: "Dashboard layouts and analytics views",
+  },
+  confirmation: {
+    name: "confirmation",
+    title: "Confirmation",
+    icon: "✅",
+    description: "Success and confirmation modals and pages",
+  },
+  comparison: {
+    name: "comparison",
+    title: "Comparison",
+    icon: "⚖️",
+    description: "Product and feature comparison tables",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

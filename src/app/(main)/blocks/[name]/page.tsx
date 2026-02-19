@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { readFile } from "fs/promises";
 import { getBlock, getBlocks } from "@/lib/registry";
 import { getBlockCodeWithHighlight } from "@/lib/transform-code";
-import { BlockProvider } from "@/providers/block-provider";
-import { BlockPreview, BlockControls, BlockCode } from "@/components/blocks";
+import { BlockProvider, type FileCodeData } from "@/providers/block-provider";
+import {
+  BlockPreview,
+  BlockControls,
+  BlockCodeExplorer,
+  BlockDocs,
+} from "@/components/blocks";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import {
   constructMetadata,
@@ -13,6 +19,7 @@ import {
 } from "@/config/site";
 import { ChevronRight } from "lucide-react";
 import { BlockDetailJsonLd } from "@/components/json-ld";
+import { serialize } from "next-mdx-remote/serialize";
 
 export async function generateStaticParams() {
   const blocks = getBlocks();
@@ -70,15 +77,31 @@ export default async function BlockPage({
   // Extract only serializable data (exclude component function)
   const { component, ...serializableBlock } = block;
 
-  // Get code from main component file (path is already full path from registry.json)
-  const mainFile = block.files?.[0];
-  const { raw: code, highlighted: highlightedCode } = mainFile
-    ? await getBlockCodeWithHighlight(mainFile.path)
-    : { raw: "", highlighted: "" };
+  // Load code for ALL files at build time
+  const filesCode: FileCodeData[] = await Promise.all(
+    (block.files || []).map(async (file) => {
+      const { raw, highlighted } = await getBlockCodeWithHighlight(file.path);
+      return {
+        path: file.path,
+        code: raw,
+        highlightedCode: highlighted,
+        fileName: file.target || file.path.split("/").pop() || "file",
+      };
+    }),
+  );
 
-  // Extract file name for display (use target if available, otherwise derive from path)
-  const fileName =
-    mainFile?.target || mainFile?.path?.split("/").pop() || "component.tsx";
+  // Load documentation if exists
+  const docsPath = `docs/blocks/${block.name}.md`;
+  let docs: string | null = null;
+  let mdxSource = null;
+  try {
+    docs = await readFile(docsPath, "utf-8");
+
+    mdxSource = await serialize(docs);
+    console.log(mdxSource);
+  } catch {
+    // No docs file, that's ok
+  }
 
   const primaryCategory = block.categories[0];
 
@@ -93,7 +116,7 @@ export default async function BlockPage({
   };
 
   return (
-    <BlockProvider block={serializableBlock}>
+    <BlockProvider block={serializableBlock} filesCode={filesCode} docs={docs}>
       <BlockDetailJsonLd block={blockJsonLdData} />
       <div className="container mx-auto border-x">
         {/* Compact Header: Breadcrumb + Title inline */}
@@ -118,7 +141,7 @@ export default async function BlockPage({
           <span className="font-medium text-foreground">{block.title}</span>
         </div>
 
-        {/* Preview & Code */}
+        {/* Preview & Code & Docs */}
         <Tabs defaultValue="preview" className="gap-0">
           <div className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center justify-between p-4">
             {/* Line 1: Component name */}
@@ -128,7 +151,7 @@ export default async function BlockPage({
 
             {/* Line 2: Toolbar */}
             <div className="w-full md:w-fit">
-              <BlockControls />
+              <BlockControls hasDocs={!!mdxSource} />
             </div>
           </div>
           <TabsContent value="preview">
@@ -136,12 +159,13 @@ export default async function BlockPage({
           </TabsContent>
 
           <TabsContent value="code">
-            <BlockCode
-              code={code}
-              highlightedCode={highlightedCode}
-              fileName={fileName}
-            />
+            <BlockCodeExplorer />
           </TabsContent>
+          {mdxSource && (
+            <TabsContent value="docs">
+              <BlockDocs mdxSource={mdxSource} />
+            </TabsContent>
+          )}
         </Tabs>
       </div>
     </BlockProvider>

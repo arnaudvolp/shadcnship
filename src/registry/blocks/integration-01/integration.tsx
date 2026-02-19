@@ -7,6 +7,7 @@ import {
   NotionIcon,
   ReplitIcon,
   SlackIcon,
+  SupabaseIcon,
 } from "@/components/social-icons";
 
 interface IntegrationIcon {
@@ -60,7 +61,7 @@ const Integration01 = ({
   description = "Connect with the apps you already use. Our components integrate seamlessly with your existing workflow, from AI assistants to collaboration tools.",
   integrations = [
     { icon: <SlackIcon className="w-full p-1.5" /> },
-    { icon: <NotionIcon className="w-full p-1.5" /> },
+    { icon: <SupabaseIcon className="w-full p-1.5" /> },
     { icon: <ChatGptIcon className="w-full p-1.5 dark:invert" /> },
     { icon: <ClaudeIcon className="w-full p-1.5" /> },
     { icon: <NotionIcon className="w-full p-1.5" /> },

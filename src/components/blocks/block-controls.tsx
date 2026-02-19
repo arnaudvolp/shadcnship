@@ -9,12 +9,18 @@ import {
   BlockFullscreenButton,
   V0Button,
   ScreenSizeSelector,
+  StackSelector,
   ThemePresetSelector,
 } from "./tools";
 import { siteConfig } from "@/config/site";
 
-export function BlockControls() {
-  const { block } = useBlockContext();
+interface BlockControlsProps {
+  hasDocs?: boolean;
+}
+
+export function BlockControls({ hasDocs = false }: BlockControlsProps) {
+  const { block, availableStacks } = useBlockContext();
+  const hasStacks = availableStacks.length > 0;
 
   const v0RegistryUrl = `${siteConfig.url}/r/${block.name}.json`;
 
@@ -27,7 +33,10 @@ export function BlockControls() {
           <V0Button url={v0RegistryUrl} />
           <BlockFullscreenButton blockName={block.name} />
         </div>
-        <ThemePresetSelector />
+        <div className="flex items-center gap-2">
+          {hasStacks && <StackSelector />}
+          <ThemePresetSelector />
+        </div>
       </div>
 
       {/* Desktop layout */}
@@ -41,6 +50,13 @@ export function BlockControls() {
         <BlockThemeToggle />
         <ThemePresetSelector />
 
+        {hasStacks && (
+          <>
+            <div className="h-4 w-px bg-border mx-1" />
+            <StackSelector />
+          </>
+        )}
+
         <div className="h-4 w-px bg-border mx-1" />
 
         <ScreenSizeSelector />
@@ -50,6 +66,7 @@ export function BlockControls() {
         <TabsList>
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
+          {hasDocs && <TabsTrigger value="docs">Docs</TabsTrigger>}
         </TabsList>
       </div>
     </TooltipProvider>
