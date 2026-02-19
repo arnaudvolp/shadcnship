@@ -156,6 +156,12 @@ export const categories = {
     icon: "✅",
     description: "Success and confirmation modals and pages",
   },
+  comparison: {
+    name: "comparison",
+    title: "Comparison",
+    icon: "⚖️",
+    description: "Product and feature comparison tables",
+  },
 } as const satisfies Record<string, BlockCategory>;
 
 export type CategoryName = keyof typeof categories;

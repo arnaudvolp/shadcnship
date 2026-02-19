@@ -33,9 +33,9 @@ export function Navbar() {
             <Image
               src="/logo.svg"
               alt="ShadcnShip"
-              width={32}
-              height={32}
-              className="h-8 w-8 dark:invert"
+              width={24}
+              height={24}
+              className="h-6 w-6 dark:invert"
             />
             <span className="font-semibold">ShadcnShip</span>
           </Link>

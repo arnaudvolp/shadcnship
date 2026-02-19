@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-06",
+  "title": "Feature 06",
+  "description": "A 4-step process section with badges, icons/images, and step indicators",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/blocks/feature-06/feature.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { IterationCw, Handshake, FolderCog, UserRoundPlus } from \"lucide-react\";\n\ninterface Step {\n  step: number;\n  title: string;\n  description: string;\n  image?: string;\n  icon?: React.ReactNode;\n}\n\ninterface Feature06Props {\n  tagline?: string;\n  heading?: string;\n  description?: string;\n  steps?: Step[];\n  className?: string;\n}\n\nconst StepCard = ({ step, index, total }: { step: Step; index: number; total: number }) => {\n  const isLast = index === total - 1;\n  const isLeftColumnMd = index % 2 === 0;\n  const isTopRowMd = index < 2;\n\n  return (\n    <div\n      className={cn(\n        \"relative flex flex-col p-4 h-full\",\n        !isLast && \"border-b md:border-b-0\",\n        isLeftColumnMd && !isLast && \"md:border-r lg:border-r-0\",\n        isTopRowMd && \"md:border-b lg:border-b-0\",\n        !isLast && \"lg:border-r\",\n      )}\n    >\n      <div className=\"relative flex items-center mb-4\">\n        <span className=\"inline-flex items-center justify-center px-3 py-1 text-sm font-medium rounded-full border bg-background z-10\">\n          Step {step.step}\n        </span>\n      </div>\n      <div className=\"space-y-3 flex-1\">\n        <h3 className=\"text-xl font-semibold tracking-tight\">{step.title}</h3>\n        <p className=\"text-muted-foreground text-sm leading-relaxed\">{step.description}</p>\n      </div>\n      <div className=\"aspect-video w-full rounded-xl bg-muted overflow-hidden mt-4\">\n        {step.image ? (\n          <img src={step.image} alt={step.title} className=\"size-full object-cover\" />\n        ) : (\n          <div className=\"size-full flex items-center justify-center\">\n            {step.icon ? (\n              <div className=\"text-primary\">{step.icon}</div>\n            ) : (\n              <div className=\"size-16 rounded-full bg-muted-foreground/10 flex items-center justify-center\">\n                <span className=\"text-2xl font-semibold text-muted-foreground/40\">{step.step}</span>\n              </div>\n            )}\n          </div>\n        )}\n      </div>\n    </div>\n  );\n};\n\nconst Feature06 = ({\n  tagline = \"How it works\",\n  heading = \"Work normally. We handle the rest.\",\n  description = \"Get started in minutes with our simple 4-step process. No complex setup required.\",\n  steps = [\n    { step: 1, title: \"Create your account\", description: \"Sign up in seconds with your email or connect with your favorite tools. No credit card required to get started.\", icon: <UserRoundPlus className=\"size-16\" strokeWidth={1} /> },\n    { step: 2, title: \"Configure your workspace\", description: \"Set up your workspace with our intuitive dashboard. Import existing data or start fresh with our templates.\", icon: <FolderCog className=\"size-16\" strokeWidth={1} /> },\n    { step: 3, title: \"Invite your team\", description: \"Collaborate seamlessly by inviting team members. Set permissions and roles to keep everyone aligned.\", icon: <Handshake className=\"size-16\" strokeWidth={1} /> },\n    { step: 4, title: \"Launch and iterate\", description: \"Go live with confidence. Monitor performance with built-in analytics and optimize as you grow.\", icon: <IterationCw className=\"size-16\" strokeWidth={1} /> },\n  ],\n  className,\n}: Feature06Props) => (\n  <section className={cn(\"container mx-auto px-2 py-12 md:py-24\", className)}>\n    <div className=\"mx-auto text-center\">\n      <p className=\"text-sm font-medium text-muted-foreground\">{tagline}</p>\n      <h2 className=\"mt-2 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl\">{heading}</h2>\n      {description && <p className=\"mt-4 text-muted-foreground\">{description}</p>}\n    </div>\n    <div className=\"grid md:grid-cols-2 lg:grid-cols-4 border rounded-sm mt-12\">\n      {steps.map((step, index) => (\n        <StepCard key={step.step} step={step} index={index} total={steps.length} />\n      ))}\n    </div>\n  </section>\n);\n\nexport { Feature06 };\n",
+      "type": "registry:component",
+      "target": "components/feature-06.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/feature-06.webp"
+  },
+  "categories": [
+    "feature"
+  ],
+  "type": "registry:block"
+}

@@ -17,8 +17,6 @@ import { Separator } from "@/components/ui/separator";
 import { Cta04 } from "@/registry/blocks/cta-04/cta";
 import { GithubIcon, LogoIcon } from "@/registry/blocks/social-icons/icons";
 import { Feature04 } from "@/registry/blocks/feature-04/feature";
-import { Waitlist01 } from "@/registry/blocks/waitlist-01/waitlist";
-import { useWaitlist } from "@/registry/blocks/waitlist-01/supabase/use-waitlist";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -27,7 +25,6 @@ const fadeInUp = {
 };
 
 export const Landing = () => {
-  const { onSubmit } = useWaitlist();
   return (
     <div className="container mx-auto">
       {/* Hero Section */}
@@ -180,8 +177,6 @@ export const Landing = () => {
           className="border-x border-border"
         />
       </motion.div>
-
-      <Waitlist01 onSubmit={onSubmit} />
     </div>
   );
 };
