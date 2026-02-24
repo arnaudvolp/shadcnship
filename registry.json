@@ -1120,6 +1120,51 @@
           "target": "components/logo-02.tsx"
         }
       ]
+    },
+    {
+      "name": "table-01",
+      "type": "registry:block",
+      "title": "Table 01",
+      "description": "Data table with TanStack Table, pagination and Supabase server actions",
+      "dependencies": [
+        "lucide-react",
+        "@tanstack/react-table"
+      ],
+      "registryDependencies": [
+        "table",
+        "button",
+        "badge",
+        "select"
+      ],
+      "categories": [
+        "table"
+      ],
+      "meta": {
+        "image": "/r/previews/table-01.webp",
+        "stacks": ["supabase"]
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/table-01/table.tsx",
+          "type": "registry:component",
+          "target": "components/table-01/table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-01/components/columns.tsx",
+          "type": "registry:component",
+          "target": "components/table-01/components/columns.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-01/components/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/table-01/components/data-table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/table-01/supabase/fetch-data.ts",
+          "type": "registry:component",
+          "target": "components/table-01/supabase/fetch-data.ts"
+        }
+      ]
     }
   ]
 }
