@@ -12,7 +12,7 @@ interface ChangelogEntry {
 }
 
 interface Changelog01Props {
-  tagline?: string;
+  label?: string;
   heading?: string;
   description?: string;
   entries?: ChangelogEntry[];
@@ -41,68 +41,47 @@ const ChangelogEntryCard = ({
   highlights,
   image,
   type,
-}: ChangelogEntry) => {
-  return (
-    <div className="relative pl-8 pb-12 last:pb-0">
-      {/* Timeline line */}
-      <div className="absolute left-[7px] top-3 bottom-0 w-px bg-border last:hidden " />
-
-      {/* Timeline dot */}
-      <div className="absolute left-0 top-1.5 size-4 rounded-full border-2 border-primary bg-primary" />
-
-      {/* Content */}
-      <div className="space-y-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="outline" className="font-mono text-xs">
-            {version}
+}: ChangelogEntry) => (
+  <div className="relative pb-12 pl-8 last:pb-0">
+    <div className="absolute bottom-0 left-[7px] top-3 w-px bg-border last:hidden" />
+    <div className="absolute left-0 top-1.5 size-4 rounded-full border-2 border-primary bg-primary" />
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge variant="outline" className="font-mono text-xs">
+          {version}
+        </Badge>
+        {type && (
+          <Badge className={cn("text-xs font-medium", typeColors[type])}>
+            {typeLabels[type]}
           </Badge>
-          {type && (
-            <Badge className={cn("text-xs font-medium", typeColors[type])}>
-              {typeLabels[type]}
-            </Badge>
-          )}
-        </div>
-
-        <h3 className="text-xl font-semibold tracking-tight mb-0">{title}</h3>
-
-        <span className="text-sm text-muted-foreground"> {date}</span>
-
-        {description && (
-          <p className="text-muted-foreground leading-relaxed mt-4">
-            {description}
-          </p>
-        )}
-
-        {image && (
-          <div className="overflow-hidden rounded-xl border bg-accent">
-            <img
-              src={image}
-              alt={title}
-              className="w-full object-cover aspect-video"
-            />
-          </div>
-        )}
-
-        {highlights && highlights.length > 0 && (
-          <ul className="space-y-2 pt-2">
-            {highlights.map((highlight, index) => (
-              <li
-                key={index}
-                className="flex items-start gap-2 text-sm text-muted-foreground"
-              >
-                <span className="mt-2 size-1 shrink-0 rounded-full bg-muted-foreground" />
-                {highlight}
-              </li>
-            ))}
-          </ul>
         )}
       </div>
+      <h3 className="text-xl font-medium tracking-tight">{title}</h3>
+      <span className="text-sm text-muted-foreground">{date}</span>
+      {description && (
+        <p className="leading-relaxed text-muted-foreground">{description}</p>
+      )}
+      {image && (
+        <div className="overflow-hidden rounded-md border bg-muted/30">
+          <img src={image} alt={title} className="aspect-video w-full object-cover" />
+        </div>
+      )}
+      {highlights && highlights.length > 0 && (
+        <ul className="flex flex-col gap-2 pt-2">
+          {highlights.map((highlight, index) => (
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <span className="mt-2 size-1 shrink-0 rounded-full bg-muted-foreground" />
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-  );
-};
+  </div>
+);
 
 const Changelog01 = ({
-  tagline = "Changelog",
+  label = "Changelog",
   heading = "Our journey",
   description = "Follow along as we ship new features, improvements, and fixes to make our product better every day.",
   entries = [
@@ -161,32 +140,23 @@ const Changelog01 = ({
     },
   ],
   className,
-}: Changelog01Props) => {
-  return (
-    <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-      <div className="mx-auto max-w-5xl">
-        {/* Header */}
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 text-primary mb-4">
-            <span className="text-sm font-medium uppercase tracking-wider">
-              {tagline}
-            </span>
-          </div>
-          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            {heading}
-          </h2>
-          <p className="mt-4 text-muted-foreground">{description}</p>
-        </div>
-
-        {/* Timeline */}
-        <div className="relative">
-          {entries.map((entry, index) => (
-            <ChangelogEntryCard key={index} {...entry} />
-          ))}
-        </div>
+}: Changelog01Props) => (
+  <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+    <div className="mx-auto max-w-5xl">
+      <div className="mb-12 flex flex-col gap-4">
+        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+          {label}
+        </p>
+        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">{heading}</h2>
+        <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>
-    </section>
-  );
-};
+      <div className="relative">
+        {entries.map((entry, index) => (
+          <ChangelogEntryCard key={index} {...entry} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export { Changelog01 };

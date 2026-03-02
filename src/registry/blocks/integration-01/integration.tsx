@@ -8,7 +8,7 @@ import {
   ReplitIcon,
   SlackIcon,
   SupabaseIcon,
-} from "@/components/social-icons";
+} from "@/registry/blocks/social-icons/icons";
 
 interface IntegrationIcon {
   icon: React.ReactNode;
@@ -23,7 +23,7 @@ interface Testimonial {
 }
 
 interface Integration01Props {
-  tagline?: string;
+  label?: string;
   heading?: string;
   description?: string;
   integrations?: IntegrationIcon[];
@@ -37,7 +37,7 @@ const IntegrationIconBubble = ({
   size = "md",
 }: IntegrationIcon & { size?: "sm" | "md" | "lg" }) => {
   const sizeClasses = {
-    sm: "size-8 ",
+    sm: "size-8",
     md: "size-8 md:size-10",
     lg: "size-8 md:size-12",
   };
@@ -56,7 +56,7 @@ const IntegrationIconBubble = ({
 };
 
 const Integration01 = ({
-  tagline = "Seamless integrations",
+  label = "Seamless integrations",
   heading = "Works with your favorite tools",
   description = "Connect with the apps you already use. Our components integrate seamlessly with your existing workflow, from AI assistants to collaboration tools.",
   integrations = [
@@ -80,41 +80,24 @@ const Integration01 = ({
   },
   className,
 }: Integration01Props) => {
-  // Calculate positions on a flat elliptical arc (quadratic bezier curve)
-  // Curve goes from (0, 100) through (50, 30) to (100, 100)
   const getPositionOnCurve = (index: number, total: number) => {
-    // t goes from 0 to 1 across all icons
     const t = index / (total - 1);
-
-    // Quadratic bezier: P = (1-t)^2 * P0 + 2(1-t)t * P1 + t^2 * P2
-    // P0 = (0, 100), P1 = (50, 30), P2 = (100, 100)
     const p0 = { x: 0, y: 75 };
-    const p1 = { x: 50, y: -50 }; // Control point - lower = flatter curve
+    const p1 = { x: 50, y: -50 };
     const p2 = { x: 100, y: 75 };
-
     const x =
-      Math.pow(1 - t, 2) * p0.x +
-      2 * (1 - t) * t * p1.x +
-      Math.pow(t, 2) * p2.x;
+      Math.pow(1 - t, 2) * p0.x + 2 * (1 - t) * t * p1.x + Math.pow(t, 2) * p2.x;
     const y =
-      Math.pow(1 - t, 2) * p0.y +
-      2 * (1 - t) * t * p1.y +
-      Math.pow(t, 2) * p2.y;
-
+      Math.pow(1 - t, 2) * p0.y + 2 * (1 - t) * t * p1.y + Math.pow(t, 2) * p2.y;
     return { x, y };
   };
 
-  // Limit to 5 icons on mobile
   const mobileIntegrations = integrations.slice(0, 5);
 
-  const renderIntegrationArc = (
-    icons: IntegrationIcon[],
-    className?: string,
-  ) => {
+  const renderIntegrationArc = (icons: IntegrationIcon[], className?: string) => {
     const count = icons.length;
     return (
       <div className={cn("relative aspect-3/1", className)}>
-        {/* SVG curve */}
         <svg
           className="absolute inset-0 size-full overflow-visible"
           viewBox="0 0 100 100"
@@ -130,31 +113,23 @@ const Integration01 = ({
             vectorEffect="non-scaling-stroke"
           />
         </svg>
-
-        {/* Integration icons positioned along the curve */}
         {icons.map((integration, index) => {
           const pos = getPositionOnCurve(index, count);
           const isCenter = index === Math.floor(count / 2);
-
           return (
             <div
               key={index}
               className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{
-                left: `${pos.x}%`,
-                top: `${pos.y}%`,
-              }}
+              style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
             >
               <IntegrationIconBubble
                 icon={integration.icon}
-                size={isCenter ? "md" : "md"}
+                size="md"
                 className={isCenter ? "border-primary" : ""}
               />
             </div>
           );
         })}
-
-        {/* Opacity masks for fade effect on edges */}
         <div className="pointer-events-none absolute inset-y-0 -left-8 w-1/4 bg-linear-to-r from-background to-transparent md:w-24" />
         <div className="pointer-events-none absolute inset-y-0 -right-8 w-1/4 bg-linear-to-l from-background to-transparent md:w-24" />
       </div>
@@ -163,31 +138,20 @@ const Integration01 = ({
 
   return (
     <section
-      className={cn(
-        "container mx-auto px-6 py-12 md:py-24 overflow-hidden",
-        className,
-      )}
+      className={cn("container mx-auto overflow-hidden px-8 py-12 md:py-24", className)}
     >
-      {/* Header */}
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm font-medium">{tagline}</p>
-        <h2 className="mt-2 text-4xl font-semibold tracking-tight md:text-5xl">
-          {heading}
-        </h2>
-        <p className="mt-4 text-muted-foreground">{description}</p>
+      <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
+        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+          {label}
+        </p>
+        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">{heading}</h2>
+        <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>
-
-      {/* Integration visualization */}
       <div className="relative mx-auto mt-12 max-w-5xl">
-        {/* Mobile version - 5 icons max */}
         {renderIntegrationArc(mobileIntegrations, "md:hidden")}
-
-        {/* Desktop version - all icons */}
         {renderIntegrationArc(integrations, "hidden md:block")}
-
-        {/* Testimonial */}
-        <div className="md:absolute md:-bottom-6 lg:bottom-10 left-0 right-0 mx-auto mt-8  max-w-lg text-center">
-          <p className="text-sm md:text-base font-medium">
+        <div className="mx-auto mt-8 max-w-lg text-center md:absolute md:-bottom-6 md:left-0 md:right-0 lg:bottom-10">
+          <p className="text-sm font-medium md:text-base">
             &ldquo;{testimonial.quote}&rdquo;
           </p>
           <div className="mt-4 flex items-center justify-center gap-3">
@@ -198,11 +162,9 @@ const Integration01 = ({
                 className="size-10 rounded-full object-cover"
               />
             )}
-            <div className="text-left">
+            <div className="flex flex-col gap-0.5 text-left">
               <p className="text-sm font-medium">{testimonial.author}</p>
-              <p className="text-xs text-muted-foreground">
-                {testimonial.role}
-              </p>
+              <p className="text-xs text-muted-foreground">{testimonial.role}</p>
             </div>
           </div>
         </div>

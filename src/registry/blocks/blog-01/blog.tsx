@@ -20,7 +20,7 @@ interface BlogPost {
 }
 
 interface Blog01Props {
-  tagline?: string;
+  label?: string;
   heading?: string;
   description?: string;
   posts?: BlogPost[];
@@ -37,9 +37,9 @@ const BlogCard = ({
   date,
   href = "#",
 }: BlogPost) => (
-  <Card className="group overflow-hidden bg-transparent shadow-none pt-0">
+  <Card className="group overflow-hidden bg-transparent py-0 shadow-none">
     <a href={href} className="flex flex-col">
-      <div className="aspect-4/3 w-full overflow-hidden rounded-lg bg-muted">
+      <div className="aspect-4/3 w-full overflow-hidden rounded-md bg-muted/30">
         {image && (
           <img
             src={image}
@@ -48,25 +48,27 @@ const BlogCard = ({
           />
         )}
       </div>
-      <CardContent className="px-4 pt-4">
+      <CardContent className="flex flex-col gap-4 p-4">
         <div className="flex items-center justify-between">
           <Badge variant="secondary" className="rounded-full font-normal">
             {category}
           </Badge>
           <span className="text-sm text-muted-foreground">{readTime}</span>
         </div>
-        <h3 className="mt-3 text-lg font-semibold leading-snug group-hover:underline">
-          {title}
-        </h3>
-        <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-          {description}
-        </p>
-        <div className="mt-4 flex items-center gap-3">
+        <div className="flex flex-col gap-2">
+          <h3 className="text-lg leading-snug font-medium group-hover:underline">
+            {title}
+          </h3>
+          <p className="line-clamp-2 text-sm text-muted-foreground">
+            {description}
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
           <Avatar className="size-9">
             <AvatarImage src={author.avatar} alt={author.name} />
-            <AvatarFallback className="bg-accent"></AvatarFallback>
+            <AvatarFallback className="bg-muted/30" />
           </Avatar>
-          <div className="text-sm">
+          <div className="flex flex-col gap-0.5 text-sm">
             <p className="font-medium">{author.name}</p>
             <p className="text-muted-foreground">{date}</p>
           </div>
@@ -77,7 +79,7 @@ const BlogCard = ({
 );
 
 const Blog01 = ({
-  tagline = "Blog",
+  label = "Blog",
   heading = "Latest Articles",
   description = "Discover insights, tutorials, and best practices to build better products faster.",
   posts = [
@@ -88,7 +90,7 @@ const Blog01 = ({
       title: "Building Consistent UI with Shadcn",
       description:
         "Learn how to create a cohesive design system using Shadcn components.",
-      author: { name: "Sarah Chen", avatar: "" },
+      author: { name: "Sarah Chen", avatar: "/images/avatars/avatar-1.webp" },
       date: "15 Jan, 2026",
     },
     {
@@ -98,7 +100,10 @@ const Blog01 = ({
       title: "From Zero to Landing Page in 10 Minutes",
       description:
         "Ship your next project faster with pre-built blocks and components.",
-      author: { name: "Marcus Johnson", avatar: "" },
+      author: {
+        name: "Marcus Johnson",
+        avatar: "/images/avatars/avatar-4.webp",
+      },
       date: "12 Jan, 2026",
     },
     {
@@ -108,28 +113,31 @@ const Blog01 = ({
       title: "Accessible Components That Convert",
       description:
         "Why accessibility matters for your business and how to implement it.",
-      author: { name: "Emily Rodriguez", avatar: "" },
+      author: {
+        name: "Emily Rodriguez",
+        avatar: "/images/avatars/avatar-5.webp",
+      },
       date: "10 Jan, 2026",
     },
   ],
   className,
-}: Blog01Props) => {
-  return (
-    <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm font-medium">{tagline}</p>
-        <h2 className="mt-2 text-4xl font-semibold tracking-tight md:text-5xl">
-          {heading}
-        </h2>
-        <p className="mt-4 text-muted-foreground">{description}</p>
-      </div>
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post, index) => (
-          <BlogCard key={index} {...post} />
-        ))}
-      </div>
-    </section>
-  );
-};
+}: Blog01Props) => (
+  <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+    <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
+      <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+        {label}
+      </p>
+      <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
+        {heading}
+      </h2>
+      <p className="text-muted-foreground md:text-lg">{description}</p>
+    </div>
+    <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post, index) => (
+        <BlogCard key={index} {...post} />
+      ))}
+    </div>
+  </section>
+);
 
 export { Blog01 };
