@@ -1,7 +1,51 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Book, Grid2x2Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+
+const GRID = 80;
+
+const GridBackground = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [grid, setGrid] = useState({ cols: 0, rows: 0, cellW: 0, cellH: 0 });
+
+  useEffect(() => {
+    const update = () => {
+      if (!ref.current) return;
+      const { width, height } = ref.current.getBoundingClientRect();
+      const cols = Math.max(1, Math.round(width / GRID));
+      const rows = Math.max(1, Math.round(height / GRID));
+      setGrid({ cols, rows, cellW: width / cols, cellH: height / rows });
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const { cols, rows, cellW, cellH } = grid;
+  const total = cols * rows;
+
+  return (
+    <div ref={ref} className="absolute inset-0 overflow-hidden">
+      {total > 0 && (
+        <div
+          className="h-full w-full"
+          style={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${cols}, ${cellW}px)`,
+            gridTemplateRows: `repeat(${rows}, ${cellH}px)`,
+          }}
+        >
+          {Array.from({ length: total }).map((_, i) => (
+            <div key={i} className="border-r border-b border-white/6" />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 interface Cta04Props {
   heading?: string;
@@ -10,8 +54,8 @@ interface Cta04Props {
     primary?: { text: string; url: string; icon?: React.ReactNode };
     secondary?: { text: string; url: string; icon?: React.ReactNode };
   };
-  className?: string;
   icon?: React.ReactNode;
+  className?: string;
 }
 
 const Cta04 = ({
@@ -32,21 +76,22 @@ const Cta04 = ({
   },
   className,
 }: Cta04Props) => (
-  <section className={cn("container mx-auto py-12 md:py-24", className)}>
-    <div className="px-6 md:px-12">
-      <Card className="relative overflow-hidden flex flex-col items-center gap-4 px-8 py-16 text-center shadow-none">
-        <div className="relative z-10 grid size-12 place-items-center rounded-md bg-primary text-primary-foreground">
+  <section className={cn("w-full", className)}>
+    <div className="relative flex items-center justify-center overflow-hidden bg-zinc-950 py-16 text-white md:py-24 lg:py-32">
+      <GridBackground />
+      <div className="relative z-10 container mx-auto flex flex-col items-center gap-8 px-8 text-center">
+        <div className="grid size-12 place-items-center rounded-md bg-primary text-primary-foreground">
           {icon}
         </div>
-        <h2 className="relative z-10 max-w-2xl text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+        <h2 className="max-w-3xl text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
           {heading}
         </h2>
-        <p className="relative z-10 max-w-xl text-lg text-muted-foreground">
+        <p className="max-w-lg text-base leading-relaxed text-white/50 md:text-lg">
           {description}
         </p>
-        <div className="relative z-10 flex flex-col gap-4 sm:flex-row">
+        <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
           {buttons?.primary && (
-            <Button size="lg" className="relative z-10 py-4" asChild>
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto" asChild>
               <a href={buttons.primary.url}>
                 {buttons.primary.text} {buttons.primary.icon}
               </a>
@@ -54,9 +99,9 @@ const Cta04 = ({
           )}
           {buttons?.secondary && (
             <Button
-              variant="outline"
               size="lg"
-              className="relative z-10 py-4"
+              variant="outline"
+              className="w-full border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto"
               asChild
             >
               <a href={buttons.secondary.url}>
@@ -65,7 +110,7 @@ const Cta04 = ({
             </Button>
           )}
         </div>
-      </Card>
+      </div>
     </div>
   </section>
 );
