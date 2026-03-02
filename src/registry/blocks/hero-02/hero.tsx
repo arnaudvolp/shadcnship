@@ -33,53 +33,50 @@ const Hero02 = ({
   return (
     <section
       className={cn(
-        "relative overflow-hidden w-full py-20 md:pt-32",
+        "relative w-full overflow-hidden py-16 md:py-24",
         className,
       )}
     >
-      <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
+      <div className="relative z-10 container mx-auto flex flex-col items-center gap-4 px-8 text-center">
         <Badge
           variant="secondary"
-          className="py-1 border border-border"
+          className="border border-border py-1"
           asChild
         >
           <a href="#">{badge}</a>
         </Badge>
-        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
+
+        <h1 className="max-w-4xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
           {heading}
         </h1>
-        <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground">
-          {description}
-        </p>
-        <div className="mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm md:max-w-none md:w-fit">
+
+        <p className="max-w-2xl text-muted-foreground md:text-lg">{description}</p>
+
+        <div className="mt-8 grid w-full max-w-sm grid-cols-1 gap-4 md:w-fit md:max-w-none md:grid-cols-2">
           {buttons?.primary && (
-            <Button size="lg" className="w-full md:w-auto" asChild>
+            <Button size="lg" className="w-full" asChild>
               <a href={buttons.primary.url}>
                 {buttons.primary.text} {buttons.primary.icon}
               </a>
             </Button>
           )}
           {buttons?.secondary && (
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full md:w-auto"
-              asChild
-            >
+            <Button variant="outline" size="lg" className="w-full" asChild>
               <a href={buttons.secondary.url}>
                 {buttons.secondary.text} {buttons.secondary.icon}
               </a>
             </Button>
           )}
         </div>
-        <div className="mt-20  mx-auto w-full max-w-5xl lg:max-w-7xl aspect-video bg-accent rounded-md">
+
+        <div className="mt-16 aspect-video w-full max-w-5xl overflow-hidden rounded-md bg-muted/30 lg:max-w-7xl">
           {image && (
             <img
               src={image}
               alt={heading}
               width={1000}
               height={1000}
-              className="w-full h-full object-cover rounded-md"
+              className="size-full object-cover"
             />
           )}
         </div>

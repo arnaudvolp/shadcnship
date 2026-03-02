@@ -66,18 +66,18 @@ const Hero04 = ({
   return (
     <section
       className={cn(
-        "relative flex w-full min-h-screen items-center overflow-hidden py-12 md:py-24",
+        "relative flex min-h-screen w-full items-center overflow-hidden py-12 md:py-24",
         className,
       )}
     >
       <Background04 lineCount={14} />
       <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
 
-      <div className="relative z-10 container w-full mx-auto text-center px-6 md:px-12">
+      <div className="relative z-10 container mx-auto flex flex-col items-center gap-4 px-8 text-center">
         {badge && (
           <Badge
             variant="secondary"
-            className="py-1 px-3 border border-border gap-2"
+            className="gap-2 border border-border px-4 py-1"
           >
             {badge.avatars && badge.avatars.length > 0 && (
               <div className="flex -space-x-2">
@@ -95,20 +95,16 @@ const Hero04 = ({
             <span>{badge.text}</span>
           </Badge>
         )}
-        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl flex flex-col font-semibold leading-tight tracking-tight max-w-3xl mx-auto">
-          {heading.split("\\n").map((line, i) => (
-            <span key={`line-${i}`}>
-              {line}
-              {i < heading.split("\n").length - 1 && <br />}
-            </span>
-          ))}
+
+        <h1 className="max-w-5xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
+          {heading}
         </h1>
-        <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground">
-          {description}
-        </p>
-        <div className="mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm md:max-w-none md:w-fit">
+
+        <p className="max-w-2xl text-muted-foreground md:text-lg">{description}</p>
+
+        <div className="mt-4 grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
           {buttons?.primary && (
-            <Button size="lg" className="w-full md:w-auto" asChild>
+            <Button size="lg" className="w-full" asChild>
               <a
                 href={buttons.primary.url}
                 target={buttons.primary.openInNewPage ? "_blank" : ""}
@@ -118,12 +114,7 @@ const Hero04 = ({
             </Button>
           )}
           {buttons?.secondary && (
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full md:w-auto"
-              asChild
-            >
+            <Button variant="outline" size="lg" className="w-full" asChild>
               <a
                 href={buttons.secondary.url}
                 target={buttons.secondary.openInNewPage ? "_blank" : ""}
@@ -133,8 +124,9 @@ const Hero04 = ({
             </Button>
           )}
         </div>
+
         {logos && logos.length > 0 && (
-          <div className="mt-10 flex items-center justify-center gap-6">
+          <div className="mt-4 flex items-center justify-center gap-8">
             {logos.map((logo, index) => (
               <div key={index}>{logo}</div>
             ))}

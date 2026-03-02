@@ -33,38 +33,39 @@ const Hero01 = ({
   return (
     <section
       className={cn(
-        "min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-24",
+        "flex min-h-screen items-center justify-center overflow-hidden py-12 lg:py-24",
         className,
       )}
     >
-      <div className="container w-full mx-auto text-center lg:text-left grid lg:grid-cols-2 gap-12 p-4 ">
-        <div className="my-auto">
+      <div className="container mx-auto flex flex-col items-center gap-12 px-4 lg:flex-row">
+        {/* Text */}
+        <div className="flex flex-1 flex-col items-center gap-4 text-center lg:items-start lg:text-left">
           <Badge
             variant="secondary"
-            className="py-1 border border-border"
+            className="border border-border py-1"
             asChild
           >
             <a href="#">{badge}</a>
           </Badge>
-          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
+
+          <h1 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
             {heading}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">{description}</p>
-          <div className="mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm md:max-w-none md:w-fit lg:ml-0">
+
+          <p className="max-w-xl text-muted-foreground md:text-lg">
+            {description}
+          </p>
+
+          <div className="mt-4 grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
             {buttons?.primary && (
-              <Button size="lg" className="w-full md:w-auto" asChild>
+              <Button size="lg" className="w-full" asChild>
                 <a href={buttons.primary.url}>
                   {buttons.primary.text} {buttons.primary.icon}
                 </a>
               </Button>
             )}
             {buttons?.secondary && (
-              <Button
-                variant="outline"
-                size="lg"
-                className=" w-full md:w-auto"
-                asChild
-              >
+              <Button variant="outline" size="lg" className="w-full" asChild>
                 <a href={buttons.secondary.url}>
                   {buttons.secondary.text} {buttons.secondary.icon}
                 </a>
@@ -72,14 +73,16 @@ const Hero01 = ({
             )}
           </div>
         </div>
-        <div className="w-full aspect-video lg:aspect-square bg-accent rounded-md">
+
+        {/* Image */}
+        <div className="aspect-video w-full flex-1 overflow-hidden rounded-md bg-muted/30 lg:aspect-square">
           {image && (
             <img
               src={image}
               alt={heading}
               width={1000}
               height={1000}
-              className="w-full h-full object-cover rounded-md"
+              className="size-full object-cover"
             />
           )}
         </div>
