@@ -19,7 +19,7 @@ interface Testimonial {
 }
 
 interface Testimonial02Props {
-  tagline?: string;
+  label?: string;
   heading?: string;
   description?: string;
   testimonials?: Testimonial[];
@@ -37,13 +37,11 @@ const StarRating = ({ rating = 5 }: { rating?: number }) => (
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   if (testimonial.type === "cta") {
     return (
-      <Card className="bg-primary text-primary-foreground h-full shadow-none aspect-3/4">
-        <CardContent className="flex h-full flex-col p-6">
-          <h3 className="text-xl font-semibold">{testimonial.title}</h3>
-          <p className="mt-2 flex-1 text-sm opacity-90">
-            {testimonial.content}
-          </p>
-          <Button variant="secondary" className="mt-4 w-full" asChild>
+      <Card className="aspect-3/4 h-full bg-primary text-primary-foreground shadow-none">
+        <CardContent className="flex h-full flex-col gap-4 p-6">
+          <h3 className="text-xl font-medium">{testimonial.title}</h3>
+          <p className="flex-1 text-sm opacity-90">{testimonial.content}</p>
+          <Button variant="secondary" className="w-full" asChild>
             <a href={testimonial.button?.url || "#"}>
               {testimonial.button?.text}
             </a>
@@ -55,13 +53,13 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 
   if (testimonial.type === "image") {
     return (
-      <Card className="h-full shadow-none py-0">
-        <div className="aspect-3/4 w-full overflow-hidden rounded-xl bg-muted h-full">
+      <Card className="h-full py-0 shadow-none">
+        <div className="aspect-3/4 h-full w-full overflow-hidden rounded-xl bg-muted">
           {testimonial.image && (
             <img
               src={testimonial.image}
               alt=""
-              className="size-full object-cover aspect-3/4 h-full"
+              className="size-full object-cover"
             />
           )}
         </div>
@@ -70,22 +68,22 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   }
 
   return (
-    <Card className="h-full shadow-none p-4">
-      <CardContent className="flex h-full flex-col justify-between gap-12 p-0 ">
-        <div className="space-y-2">
+    <Card className="h-full p-4 shadow-none">
+      <CardContent className="flex h-full flex-col justify-between gap-12 p-0">
+        <div className="flex flex-col gap-2">
           <QuoteIcon className="size-4 dark:invert" />
           {testimonial.title && (
             <h4 className="text-2xl leading-tight">{testimonial.title}</h4>
           )}
         </div>
-        <div>
+        <div className="flex flex-col gap-4">
           {testimonial.content && (
-            <p className="mt-3 flex-1  text-muted-foreground">
+            <p className="flex-1 text-muted-foreground">
               {testimonial.content}
             </p>
           )}
           {testimonial.author && (
-            <div className="mt-4 flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <Avatar className="size-8">
                 <AvatarImage
                   src={testimonial.author.avatar}
@@ -114,13 +112,13 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 };
 
 const Testimonial02 = ({
-  tagline = "Testimonials",
+  label = "Testimonials",
   heading = "Wall of Love",
   description = "See what our customers are saying about their experience with our product.",
   testimonials = [
     {
       type: "image",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      image: "/images/avatars/avatar-1.webp",
     },
     {
       type: "text",
@@ -129,14 +127,13 @@ const Testimonial02 = ({
         "Daily support, tailored insights-Halse revolutionized my well-being. A most-have for a healthier life!",
       author: {
         name: "Emma Thompson",
-        avatar:
-          "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+        avatar: "/images/avatars/avatar-1.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      image: "/images/avatars/avatar-2.webp",
     },
     {
       type: "text",
@@ -145,8 +142,7 @@ const Testimonial02 = ({
         "The customer support team is exceptional. They helped us get set up quickly and answered all our questions.",
       author: {
         name: "Emily Johnson",
-        avatar:
-          "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+        avatar: "/images/avatars/avatar-2.webp",
       },
       rating: 5,
     },
@@ -157,14 +153,13 @@ const Testimonial02 = ({
         "From day one, this tool has made our processes smoother. A game-changer for productivity.",
       author: {
         name: "Alex Rodriguez",
-        avatar:
-          "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+        avatar: "/images/avatars/avatar-3.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      image: "/images/avatars/avatar-3.webp",
     },
     {
       type: "text",
@@ -173,24 +168,20 @@ const Testimonial02 = ({
         "Switching to this platform was the best decision for our business. Highly recommend!",
       author: {
         name: "Ryan Carter",
-        avatar:
-          "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+        avatar: "/images/avatars/avatar-4.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      image: "/images/avatars/avatar-4.webp",
     },
     {
       type: "cta",
       title: "Join Our Community",
       content:
         "Join thousands of happy customers who have transformed their workflow with our product.",
-      button: {
-        url: "#",
-        text: "Get Started",
-      },
+      button: { url: "#", text: "Get Started" },
     },
     {
       type: "text",
@@ -199,14 +190,13 @@ const Testimonial02 = ({
         "We expected good, but got amazing. The features are exactly what we needed.",
       author: {
         name: "Jasmine Lee",
-        avatar:
-          "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+        avatar: "/images/avatars/avatar-5.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      image: "/images/avatars/avatar-5.webp",
     },
     {
       type: "text",
@@ -215,35 +205,34 @@ const Testimonial02 = ({
         "We expected good, but got amazing. The features are exactly what we needed.",
       author: {
         name: "Jasmine Lee",
-        avatar:
-          "https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg",
+        avatar: "/images/avatars/avatar-6.webp",
       },
       rating: 5,
     },
   ],
   className,
-}: Testimonial02Props) => {
-  return (
-    <section
-      className={cn(
-        "container mx-auto px-6 py-12 md:py-24 lg:min-w-6xl",
-        className,
-      )}
-    >
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm font-medium">{tagline}</p>
-        <h2 className="mt-2 text-4xl font-semibold tracking-tight md:text-5xl">
-          {heading}
-        </h2>
-        <p className="mt-4 text-muted-foreground">{description}</p>
-      </div>
-      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard testimonial={testimonial} key={index} />
-        ))}
-      </div>
-    </section>
-  );
-};
+}: Testimonial02Props) => (
+  <section
+    className={cn(
+      "container mx-auto px-8 py-12 md:py-24 lg:min-w-6xl",
+      className,
+    )}
+  >
+    <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
+      <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+        {label}
+      </p>
+      <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
+        {heading}
+      </h2>
+      <p className="text-muted-foreground md:text-lg">{description}</p>
+    </div>
+    <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {testimonials.map((testimonial, index) => (
+        <TestimonialCard testimonial={testimonial} key={index} />
+      ))}
+    </div>
+  </section>
+);
 
 export { Testimonial02 };

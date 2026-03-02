@@ -22,29 +22,28 @@ const Stat01 = ({
     { value: "100%", label: "Free & Open Source" },
   ],
   className,
-}: Stat01Props) => {
-  return (
-    <section className={cn("container mx-auto py-12 md:py-24", className)}>
-      <div className="px-6 md:px-12">
-        <div className="mb-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
-            {heading}
-          </h2>
-          <p className="mt-2 mx-auto max-w-2xl text-lg text-muted-foreground">
-            {description}
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {stats.map((stat) => (
-            <Card key={stat.label} className="py-12 text-center shadow-none">
-              <p className="text-4xl md:text-5xl font-bold">{stat.value}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+}: Stat01Props) => (
+  <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+    <div className="mb-8 flex flex-col items-center gap-4 text-center">
+      <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
+        {heading}
+      </h2>
+      <p className="max-w-2xl text-muted-foreground md:text-lg">
+        {description}
+      </p>
+    </div>
+    <div className="grid gap-8 md:grid-cols-3">
+      {stats.map((stat) => (
+        <Card
+          key={stat.label}
+          className="flex flex-col items-center gap-2 py-12 text-center shadow-none"
+        >
+          <p className="text-4xl font-medium md:text-5xl">{stat.value}</p>
+          <p className="text-sm text-muted-foreground">{stat.label}</p>
+        </Card>
+      ))}
+    </div>
+  </section>
+);
 
 export { Stat01 };
