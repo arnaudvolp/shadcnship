@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
-import { CircleCheck, Zap } from "lucide-react";
+import { CircleCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 
@@ -84,7 +84,7 @@ const Pricing01 = ({
         { text: "Pro support" },
         { text: "Free updates" },
         { text: "Community support" },
-        ],
+      ],
       button: { text: "Contact Sales", url: "#" },
     },
   ],
@@ -94,23 +94,29 @@ const Pricing01 = ({
 
   return (
     <section className={cn("w-full py-12 md:py-24", className)}>
-      <div className="container mx-auto px-6 ">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+      <div className="container mx-auto px-8">
+        <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center">
+          <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
             {heading}
           </h2>
-          <p className="mt-2 text-lg text-muted-foreground">{description}</p>
-          <div className="mt-8 flex items-center justify-center gap-4 text-sm">
-            <span className={cn(!isYearly ? "font-medium" : "text-muted-foreground")}>
+          <p className="text-muted-foreground md:text-lg">{description}</p>
+          <div className="flex items-center gap-4 text-sm">
+            <span
+              className={cn(
+                !isYearly ? "font-medium" : "text-muted-foreground",
+              )}
+            >
               Monthly
             </span>
             <Switch checked={isYearly} onCheckedChange={setIsYearly} />
-            <span className={cn(isYearly ? "font-medium" : "text-muted-foreground")}>
+            <span
+              className={cn(isYearly ? "font-medium" : "text-muted-foreground")}
+            >
               Yearly
             </span>
           </div>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3  mx-auto">
+        <div className="mx-auto grid gap-8 lg:grid-cols-3">
           {plans.map((plan) => (
             <div key={plan.id} className="relative">
               {plan.popular && (
@@ -118,11 +124,16 @@ const Pricing01 = ({
                   <Badge>Most Popular</Badge>
                 </div>
               )}
-              <Card className={cn("flex h-full flex-col max-w-md mx-auto gap-4", plan.popular && "border-primary border-2")}>
-                <CardHeader>
-                  <CardTitle className="mt-4 text-3xl">{plan.name}</CardTitle>
-                  <div className="mt-2 flex items-baseline gap-1">
-                    <span className="text-4xl font-semibold">
+              <Card
+                className={cn(
+                  "flex h-full flex-col gap-4",
+                  plan.popular && "border-2 border-primary",
+                )}
+              >
+                <CardHeader className="flex flex-col gap-4">
+                  <CardTitle className="text-3xl">{plan.name}</CardTitle>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-medium">
                       {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
                     <span className="text-muted-foreground">
@@ -130,13 +141,16 @@ const Pricing01 = ({
                     </span>
                   </div>
                 </CardHeader>
-                <div className="px-4 my-2">
+                <div className="px-4">
                   <Separator />
                 </div>
-                <CardContent className="flex-1 ">
-                  <ul className="space-y-3">
+                <CardContent className="flex-1">
+                  <ul className="flex flex-col gap-4">
                     {plan.features.map((feature) => (
-                      <li key={feature.text} className="flex items-center gap-2">
+                      <li
+                        key={feature.text}
+                        className="flex items-center gap-2"
+                      >
                         <CircleCheck className="size-4 shrink-0 text-primary" />
                         <span>{feature.text}</span>
                       </li>
@@ -144,7 +158,12 @@ const Pricing01 = ({
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full" variant={plan.popular ? "default" : "outline"} size="lg">
+                  <Button
+                    asChild
+                    className="w-full"
+                    variant={plan.popular ? "default" : "outline"}
+                    size="lg"
+                  >
                     <a href={plan.button.url}>{plan.button.text}</a>
                   </Button>
                 </CardFooter>

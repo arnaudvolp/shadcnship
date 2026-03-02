@@ -41,7 +41,12 @@ const Pricing03 = ({
       monthlyPrice: "$12",
       yearlyPrice: "$99",
       description: "Perfect for professionals and small teams.",
-      features: ["200+ components", "Priority support", "Premium templates", "API access"],
+      features: [
+        "200+ components",
+        "Priority support",
+        "Premium templates",
+        "API access",
+      ],
       popular: true,
     },
     {
@@ -49,7 +54,12 @@ const Pricing03 = ({
       monthlyPrice: "$49",
       yearlyPrice: "$399",
       description: "For large teams with custom needs.",
-      features: ["Everything in Pro", "Dedicated support", "Custom components", "SLA guarantee"],
+      features: [
+        "Everything in Pro",
+        "Dedicated support",
+        "Custom components",
+        "SLA guarantee",
+      ],
     },
   ],
   className,
@@ -58,14 +68,14 @@ const Pricing03 = ({
 
   return (
     <section className={cn("container mx-auto py-12 md:py-24", className)}>
-      <div className="px-6 md:px-12">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+      <div className="flex flex-col gap-8 px-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+          <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
             {heading}
           </h2>
-          <p className="mt-2 text-lg text-muted-foreground">{description}</p>
+          <p className="text-muted-foreground md:text-lg">{description}</p>
         </div>
-        <Card className="mb-8 w-fit mx-auto p-0 overflow-hidden mt-4">
+        <div className="mx-auto">
           <Tabs
             value={isYearly ? "yearly" : "monthly"}
             onValueChange={(value) => setIsYearly(value === "yearly")}
@@ -85,37 +95,46 @@ const Pricing03 = ({
               </TabsTrigger>
             </TabsList>
           </Tabs>
-        </Card>
-        <div className="grid items-center gap-6 md:grid-cols-3">
+        </div>
+        <div className="grid items-center gap-8 md:grid-cols-3">
           {plans.map((plan, i) => {
             const pop = plan.popular;
             return (
               <Card
                 key={i}
                 className={cn(
-                  "flex flex-col p-6",
-                  pop && "z-10 scale-105 bg-primary dark:bg-foreground text-primary-foreground shadow-xl md:-my-4"
+                  "flex flex-col gap-4 p-6",
+                  pop &&
+                    "z-10 scale-105 bg-primary text-primary-foreground shadow-xl md:-my-4 dark:bg-foreground",
                 )}
               >
-                <div className="mb-4 flex items-center justify-between">
+                <div className="flex items-center justify-between">
                   <h3 className="text-xl font-medium">{plan.name}</h3>
                   {pop && <Badge variant="secondary">Most Popular</Badge>}
                 </div>
-                <p className="mb-2 text-4xl font-bold">
+                <p className="text-4xl font-medium">
                   {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                   <span className="text-base font-normal opacity-80">
                     /{isYearly ? "year" : "month"}
                   </span>
                 </p>
-                <p className={cn("text-sm mb-4", pop ? "opacity-80" : "text-muted-foreground")}>
+                <p
+                  className={cn(
+                    "text-sm",
+                    pop ? "opacity-80" : "text-muted-foreground",
+                  )}
+                >
                   {plan.description}
                 </p>
-                <Button variant={pop ? "secondary" : "outline"} className="w-full mb-4">
+                <Button
+                  variant={pop ? "secondary" : "outline"}
+                  className="w-full"
+                >
                   Get Started
                 </Button>
                 <Separator className={cn(pop && "bg-primary-foreground/20")} />
-                <p className="mb-4 mt-4 text-sm font-medium">What&apos;s included:</p>
-                <ul className="space-y-2">
+                <p className="text-sm font-medium">What&apos;s included:</p>
+                <ul className="flex flex-col gap-2">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-center gap-2 text-sm">
                       <Check className="size-4 shrink-0" />
