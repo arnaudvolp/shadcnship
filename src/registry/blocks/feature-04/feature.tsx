@@ -68,26 +68,29 @@ const Feature04 = ({
 }: Feature04Props) => {
   return (
     <section className={cn("py-12 md:py-24", className)}>
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-pretty">
+      <div className="container mx-auto px-8">
+        <div className="mx-auto flex flex-col items-center gap-4 text-center">
+          <h2 className="text-3xl leading-tight font-medium tracking-tight text-pretty md:text-4xl lg:text-5xl">
             {heading}
           </h2>
-          <p className="mt-2 text-lg text-muted-foreground">{description}</p>
+          <p className="max-w-2xl text-muted-foreground md:text-lg">
+            {description}
+          </p>
         </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">
+
+        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <Card
               key={feature.title}
-              className="flex flex-col gap-4 p-6 shadow-none"
+              className="flex flex-col gap-4 p-4 shadow-none"
             >
-              <div className="flex size-12 items-center justify-center rounded-md border ">
+              <div className="flex size-12 items-center justify-center rounded-md border">
                 <feature.icon
                   className="size-5 text-primary"
                   strokeWidth={1.5}
                 />
               </div>
-              <h3 className="text-lg font-semibold">{feature.title}</h3>
+              <h3 className="text-lg font-medium">{feature.title}</h3>
               <p className="text-sm text-muted-foreground">
                 {feature.description}
               </p>

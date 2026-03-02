@@ -70,22 +70,20 @@ const Feature05 = ({
 
   return (
     <section className={cn("py-12 md:py-24", className)}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="mx-auto max-w-7xl px-8">
         <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
               {heading}
             </h2>
             {description && (
-              <p className="mt-4 text-lg text-muted-foreground">
-                {description}
-              </p>
+              <p className="text-muted-foreground md:text-lg">{description}</p>
             )}
             <Accordion
               type="single"
               collapsible
               defaultValue="item-0"
-              className="mt-8"
+              className="mt-4"
               onValueChange={(value) => {
                 const index = parseInt(value.replace("item-", ""), 10);
                 if (!isNaN(index)) setActiveIndex(index);
@@ -94,7 +92,7 @@ const Feature05 = ({
               {features.map((feature, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
                   <AccordionTrigger className="gap-4 text-left hover:no-underline">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-4">
                       {feature.icon && (
                         <feature.icon
                           className="size-5 shrink-0 text-muted-foreground"
@@ -108,7 +106,7 @@ const Feature05 = ({
                     <p className={feature.icon ? "pl-8" : ""}>
                       {feature.description}
                     </p>
-                    <div className="mt-4 aspect-video overflow-hidden rounded-lg bg-accent lg:hidden">
+                    <div className="mt-4 aspect-video overflow-hidden rounded-md bg-muted/30 lg:hidden">
                       {feature.image && (
                         <img
                           src={feature.image}
@@ -122,13 +120,14 @@ const Feature05 = ({
               ))}
             </Accordion>
           </div>
+
           <div className="relative hidden lg:block">
-            <div className="sticky top-24 aspect-square overflow-hidden rounded-lg h-full border bg-accent">
+            <div className="sticky top-24 aspect-square overflow-hidden rounded-md border bg-muted/30">
               {activeImage && (
                 <img
                   src={activeImage}
                   alt="Feature illustration"
-                  className="size-full object-cover "
+                  className="size-full object-cover"
                 />
               )}
             </div>

@@ -71,7 +71,7 @@ const Hero04 = ({
       )}
     >
       <Background04 lineCount={14} />
-      <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_100%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)] md:bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,var(--background)_0%,var(--background)_40%,transparent_70%)]" />
 
       <div className="relative z-10 container mx-auto flex flex-col items-center gap-4 px-8 text-center">
         {badge && (
@@ -96,13 +96,15 @@ const Hero04 = ({
           </Badge>
         )}
 
-        <h1 className="max-w-5xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
+        <h1 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
           {heading}
         </h1>
 
-        <p className="max-w-2xl text-muted-foreground md:text-lg">{description}</p>
+        <p className="max-w-2xl text-muted-foreground md:text-lg">
+          {description}
+        </p>
 
-        <div className="mt-4 grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
           {buttons?.primary && (
             <Button size="lg" className="w-full" asChild>
               <a

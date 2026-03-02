@@ -19,7 +19,7 @@ interface Feature01Props {
 
 const Feature01 = ({
   heading = "Everything You Need to Build Faster",
-  description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship. ",
+  description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
       image: "https://www.shadcnship.com/images/image-preview.webp",
@@ -46,22 +46,25 @@ const Feature01 = ({
   className,
 }: Feature01Props) => {
   return (
-    <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight ">
+    <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+      <div className="mx-auto flex flex-col items-center gap-4 text-center">
+        <h2 className="text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
           {heading}
         </h2>
-        <p className="mt-2 text-lg text-muted-foreground">{description}</p>
+        <p className="max-w-2xl text-muted-foreground md:text-lg">
+          {description}
+        </p>
       </div>
+
       <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
-          <Card key={index} className="flex flex-col p-4 shadow-none gap-4">
-            <div className="aspect-video rounded-lg bg-accent">
+          <Card key={index} className="flex flex-col gap-4 p-4 shadow-none">
+            <div className="aspect-video overflow-hidden rounded-md bg-muted/30">
               {feature.image && (
                 <img
                   src={feature.image}
                   alt={feature.title}
-                  className="aspect-video object-cover rounded-lg"
+                  className="size-full object-cover"
                 />
               )}
             </div>
@@ -70,7 +73,7 @@ const Feature01 = ({
               {feature.description}
             </p>
             {feature.link && (
-              <Button variant="ghost" size="sm" className=" w-fit" asChild>
+              <Button variant="ghost" size="sm" className="w-fit" asChild>
                 <a href={feature.link.url}>
                   {feature.link.text}
                   <ArrowRight className="size-4" />

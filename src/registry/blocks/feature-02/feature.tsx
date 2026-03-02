@@ -44,22 +44,23 @@ const Feature02 = ({
   ],
   className,
 }: Feature02Props) => (
-  <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-    <div className="relative flex h-64 md:h-80 items-center justify-center rounded-xl bg-accent overflow-hidden">
-      <h2 className="relative text-center text-4xl md:text-5xl font-semibold leading-tight tracking-tight px-4 z-2">
+  <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+    <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-xl bg-muted-foreground/30 md:h-80">
+      <h2 className="relative z-10 px-4 text-center text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
         {heading}
       </h2>
       {image && (
         <img
           src={image}
           alt={heading}
-          className="absolute inset-0 w-full h-full object-cover  z-1"
+          className="absolute inset-0 size-full object-cover"
         />
       )}
     </div>
-    <div className="mt-6 grid gap-6 md:grid-cols-3">
+
+    <div className="mt-8 grid gap-8 md:grid-cols-3">
       {features.map((feature, i) => (
-        <Card key={i} className="flex flex-col gap-4 p-6 shadow-none">
+        <Card key={i} className="flex flex-col gap-4 p-4 shadow-none">
           <div className="grid size-10 place-items-center rounded-md bg-primary/10 text-primary">
             {feature.icon}
           </div>

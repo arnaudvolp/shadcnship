@@ -46,13 +46,15 @@ const Hero02 = ({
           <a href="#">{badge}</a>
         </Badge>
 
-        <h1 className="max-w-4xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
+        <h1 className="max-w-5xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
           {heading}
         </h1>
 
-        <p className="max-w-2xl text-muted-foreground md:text-lg">{description}</p>
+        <p className="max-w-2xl text-muted-foreground md:text-lg">
+          {description}
+        </p>
 
-        <div className="mt-8 grid w-full max-w-sm grid-cols-1 gap-4 md:w-fit md:max-w-none md:grid-cols-2">
+        <div className=" grid w-full max-w-sm grid-cols-1 gap-4 md:w-fit md:max-w-none md:grid-cols-2">
           {buttons?.primary && (
             <Button size="lg" className="w-full" asChild>
               <a href={buttons.primary.url}>

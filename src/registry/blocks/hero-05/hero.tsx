@@ -52,7 +52,7 @@ const Hero05 = ({
           {description}
         </p>
 
-        <div className="mt-4 grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
           {buttons?.primary && (
             <Button size="lg" className="w-full" asChild>
               <a href={buttons.primary.url}>

@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface Feature {
   badge: string;
   title: string;
   description: string;
   image?: string;
-  button?: {
-    text: string;
-    url: string;
-  };
+  button?: { text: string; url: string };
 }
 
 interface Feature03Props {
@@ -62,61 +59,60 @@ const Feature03 = ({
   className,
 }: Feature03Props) => {
   return (
-    <section className={cn("container mx-auto py-12 md:py-24", className)}>
-      <div className="px-6 md:px-12">
-        <div className="mx-auto max-w-3xl text-center">
-          {label && (
-            <p className="text-sm font-semibold uppercase text-muted-foreground">
-              {label}
-            </p>
-          )}
-          <h2 className="mt-2 text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-primary">
-            {heading}
-          </h2>
-          {description && (
-            <p className="mt-2 text-lg text-muted-foreground">{description}</p>
-          )}
-        </div>
-        <div className="mt-12 md:mt-16 flex flex-col gap-20 mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={cn(
-                "overflow-hidden flex flex-col md:flex-row items-center gap-12",
-                index % 2 !== 0 && "md:flex-row-reverse",
+    <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+        {label && (
+          <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+            {label}
+          </p>
+        )}
+        <h2 className="text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
+          {heading}
+        </h2>
+        {description && (
+          <p className="text-muted-foreground md:text-lg">{description}</p>
+        )}
+      </div>
+
+      <div className="mx-auto mt-16 flex flex-col gap-16">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className={cn(
+              "flex flex-col items-center gap-12 overflow-hidden md:flex-row",
+              index % 2 !== 0 && "md:flex-row-reverse",
+            )}
+          >
+            <div className="aspect-video w-full overflow-hidden rounded-md border border-border bg-muted/30 md:w-1/2">
+              {feature.image && (
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="size-full object-cover"
+                />
               )}
-            >
-              <div className="w-full md:w-1/2 aspect-video border border-border bg-accent rounded-md overflow-hidden">
-                {feature.image && (
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-full object-cover "
-                  />
-                )}
-              </div>
-              <div className="w-full md:w-1/2 space-y-6">
-                <p className="text-sm font-semibold uppercase text-muted-foreground">
-                  {feature.badge}
-                </p>
-                <h3 className="text-2xl md:text-3xl font-semibold">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground text-lg">
-                  {feature.description}
-                </p>
-                {feature.button && (
-                  <Button className="w-fit" size="lg" asChild>
-                    <a href={feature.button.url}>
-                      {feature.button.text}
-                      <ArrowUpRight className="size-4" />
-                    </a>
-                  </Button>
-                )}
-              </div>
             </div>
-          ))}
-        </div>
+            <div className="flex w-full flex-col gap-4 md:w-1/2">
+              <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+                {feature.badge}
+              </p>
+              <h3 className="text-2xl font-medium md:text-3xl">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground md:text-lg">
+                {feature.description}
+              </p>
+              {feature.button && (
+                <Button className="w-fit" size="lg" asChild>
+                  <a href={feature.button.url}>
+                    {feature.button.text}
+                    <ArrowUpRight className="size-4" />
+                  </a>
+                </Button>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
