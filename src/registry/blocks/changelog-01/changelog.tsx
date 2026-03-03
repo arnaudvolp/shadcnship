@@ -43,8 +43,8 @@ const ChangelogEntryCard = ({
   type,
 }: ChangelogEntry) => (
   <div className="relative pb-12 pl-8 last:pb-0">
-    <div className="absolute bottom-0 left-[7px] top-3 w-px bg-border last:hidden" />
-    <div className="absolute left-0 top-1.5 size-4 rounded-full border-2 border-primary bg-primary" />
+    <div className="absolute top-3 bottom-0 left-[7px] w-px bg-border last:hidden" />
+    <div className="absolute top-1.5 left-0 size-4 rounded-full border-2 border-primary bg-primary" />
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="outline" className="font-mono text-xs">
@@ -63,13 +63,20 @@ const ChangelogEntryCard = ({
       )}
       {image && (
         <div className="overflow-hidden rounded-md border bg-muted/30">
-          <img src={image} alt={title} className="aspect-video w-full object-cover" />
+          <img
+            src={image}
+            alt={title}
+            className="aspect-video w-full object-cover"
+          />
         </div>
       )}
       {highlights && highlights.length > 0 && (
         <ul className="flex flex-col gap-2 pt-2">
           {highlights.map((highlight, index) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <li
+              key={index}
+              className="flex items-start gap-2 text-sm text-muted-foreground"
+            >
               <span className="mt-2 size-1 shrink-0 rounded-full bg-muted-foreground" />
               {highlight}
             </li>
@@ -144,10 +151,12 @@ const Changelog01 = ({
   <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
     <div className="mx-auto max-w-5xl">
       <div className="mb-12 flex flex-col gap-4">
-        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+        <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
           {label}
         </p>
-        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">{heading}</h2>
+        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
+          {heading}
+        </h2>
         <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>
       <div className="relative">

@@ -54,16 +54,25 @@ const Comparison01 = ({
   heading = "Find your perfect home",
   description = "Compare our apartments side by side to find the one that best suits your lifestyle.",
   products = [
-    { name: "Studio", image: "https://www.shadcnship.com/images/image-preview.webp" },
+    {
+      name: "Studio",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
+    },
     {
       name: "2-Bedroom",
       image: "https://www.shadcnship.com/images/image-preview.webp",
       featured: true,
     },
-    { name: "Penthouse", image: "https://www.shadcnship.com/images/image-preview.webp" },
+    {
+      name: "Penthouse",
+      image: "https://www.shadcnship.com/images/image-preview.webp",
+    },
   ],
   features = [
-    { name: "Type", values: ["Studio", "2-Bedroom Apartment", "Penthouse Suite"] },
+    {
+      name: "Type",
+      values: ["Studio", "2-Bedroom Apartment", "Penthouse Suite"],
+    },
     { name: "Surface", values: ["35 m²", "75 m²", "150 m²"] },
     { name: "Bedrooms", values: ["1", "2", "4"] },
     { name: "Bathrooms", values: ["1", "2", "3"] },
@@ -83,20 +92,24 @@ const Comparison01 = ({
   ],
   className,
 }: Comparison01Props) => {
-  const gridStyle = { gridTemplateColumns: `180px repeat(${products.length}, 1fr)` };
+  const gridStyle = {
+    gridTemplateColumns: `180px repeat(${products.length}, 1fr)`,
+  };
 
   return (
     <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 text-center">
         {label && (
-          <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+          <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
             {label}
           </p>
         )}
         <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
           {heading}
         </h2>
-        {description && <p className="text-muted-foreground md:text-lg">{description}</p>}
+        {description && (
+          <p className="text-muted-foreground md:text-lg">{description}</p>
+        )}
       </div>
       <div className="mx-auto mt-12 max-w-5xl overflow-x-auto">
         <div className="min-w-[640px]">
@@ -107,7 +120,9 @@ const Comparison01 = ({
                 <div
                   className={cn(
                     "overflow-hidden rounded-md",
-                    product.featured ? "bg-foreground text-background" : "bg-muted",
+                    product.featured
+                      ? "bg-foreground text-background"
+                      : "bg-muted",
                   )}
                 >
                   <div className="aspect-3/4 w-full overflow-hidden">
@@ -130,7 +145,11 @@ const Comparison01 = ({
             ))}
           </div>
           {features.map((feature, featureIdx) => (
-            <div key={featureIdx} className="grid items-center" style={gridStyle}>
+            <div
+              key={featureIdx}
+              className="grid items-center"
+              style={gridStyle}
+            >
               <div className="p-4 pr-6">
                 <span className="text-sm font-medium text-muted-foreground">
                   {feature.name}

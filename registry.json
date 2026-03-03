@@ -1080,6 +1080,29 @@
       ]
     },
     {
+      "name": "feature-08",
+      "type": "registry:block",
+      "title": "Feature 08",
+      "description": "A bento-style feature grid with a large featured card and icon-based feature cards",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "feature"
+      ],
+      "meta": {
+        "image": "/r/previews/feature-08.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-08/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-08.tsx"
+        }
+      ]
+    },
+    {
       "name": "comparison-01",
       "type": "registry:block",
       "title": "Comparison 01",

@@ -86,15 +86,22 @@ const Integration01 = ({
     const p1 = { x: 50, y: -50 };
     const p2 = { x: 100, y: 75 };
     const x =
-      Math.pow(1 - t, 2) * p0.x + 2 * (1 - t) * t * p1.x + Math.pow(t, 2) * p2.x;
+      Math.pow(1 - t, 2) * p0.x +
+      2 * (1 - t) * t * p1.x +
+      Math.pow(t, 2) * p2.x;
     const y =
-      Math.pow(1 - t, 2) * p0.y + 2 * (1 - t) * t * p1.y + Math.pow(t, 2) * p2.y;
+      Math.pow(1 - t, 2) * p0.y +
+      2 * (1 - t) * t * p1.y +
+      Math.pow(t, 2) * p2.y;
     return { x, y };
   };
 
   const mobileIntegrations = integrations.slice(0, 5);
 
-  const renderIntegrationArc = (icons: IntegrationIcon[], className?: string) => {
+  const renderIntegrationArc = (
+    icons: IntegrationIcon[],
+    className?: string,
+  ) => {
     const count = icons.length;
     return (
       <div className={cn("relative aspect-3/1", className)}>
@@ -138,19 +145,24 @@ const Integration01 = ({
 
   return (
     <section
-      className={cn("container mx-auto overflow-hidden px-8 py-12 md:py-24", className)}
+      className={cn(
+        "container mx-auto overflow-hidden px-8 py-12 md:py-24",
+        className,
+      )}
     >
       <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
-        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+        <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
           {label}
         </p>
-        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">{heading}</h2>
+        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
+          {heading}
+        </h2>
         <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>
       <div className="relative mx-auto mt-12 max-w-5xl">
         {renderIntegrationArc(mobileIntegrations, "md:hidden")}
         {renderIntegrationArc(integrations, "hidden md:block")}
-        <div className="mx-auto mt-8 max-w-lg text-center md:absolute md:-bottom-6 md:left-0 md:right-0 lg:bottom-10">
+        <div className="mx-auto mt-8 max-w-lg text-center md:absolute md:right-0 md:-bottom-6 md:left-0 lg:bottom-10">
           <p className="text-sm font-medium md:text-base">
             &ldquo;{testimonial.quote}&rdquo;
           </p>
@@ -164,7 +176,9 @@ const Integration01 = ({
             )}
             <div className="flex flex-col gap-0.5 text-left">
               <p className="text-sm font-medium">{testimonial.author}</p>
-              <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+              <p className="text-xs text-muted-foreground">
+                {testimonial.role}
+              </p>
             </div>
           </div>
         </div>
