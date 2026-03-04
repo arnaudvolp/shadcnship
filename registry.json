@@ -656,29 +656,6 @@
       ]
     },
     {
-      "name": "footer-01",
-      "type": "registry:block",
-      "title": "Footer 01",
-      "description": "A multi-column footer with links",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [],
-      "categories": [
-        "footer"
-      ],
-      "meta": {
-        "image": "/r/previews/footer-01.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/footer-01/footer.tsx",
-          "type": "registry:component",
-          "target": "components/footer-01.tsx"
-        }
-      ]
-    },
-    {
       "name": "navbar-01",
       "type": "registry:block",
       "title": "Navbar 01",
