@@ -75,7 +75,7 @@ export const Landing = () => {
             openInNewPage: true,
           },
         }}
-        className="-mt-14 border"
+        className="-mt-14 border-b md:border"
       />
 
       {/* Features */}
@@ -87,7 +87,7 @@ export const Landing = () => {
             <span className="text-muted-foreground">build faster</span>
           </>
         }
-        className="border-x border-b"
+        className="border-b md:border-x"
       />
 
       {/* Bento */}
@@ -100,11 +100,11 @@ export const Landing = () => {
           </>
         }
         description="All blocks below are free to copy, adapt, and ship in your own projects. No attribution required."
-        className="border-x border-b"
+        className="border-b md:border-x"
       />
 
       {/* FAQ */}
-      <FaqLanding items={faqs} className="md:border-x border-b" />
+      <FaqLanding items={faqs} className="border-b md:border-x" />
 
       {/* CTA */}
       <CtaLanding

@@ -2,17 +2,14 @@
 
 import { useEffect, useState } from "react";
 import {
-  Book,
   Menu,
-  Sparkles,
+  LayoutTemplate,
   Layers,
-  Code2,
-  Blocks,
-  CircleCheckIcon,
-  CircleHelpIcon,
-  CircleIcon,
-  Sunset,
+  CreditCard,
+  HelpCircle,
+  MessageSquare,
   Zap,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -79,113 +76,52 @@ interface Navbar01Props {
 
 const defaultMenu: MenuItemWithType[] = [
   {
-    title: "Home",
-    url: "#",
-    type: "featured",
-    featured: {
-      title: "shadcn/ui",
-      description: "Beautifully designed components built with Tailwind CSS.",
-      url: "/",
-    },
-    items: [
-      {
-        title: "Introduction",
-        url: "#",
-        description:
-          "Re-usable components built using Radix UI and Tailwind CSS.",
-      },
-      {
-        title: "Installation",
-        url: "#",
-        description: "How to install dependencies and structure your app.",
-      },
-      {
-        title: "Typography",
-        url: "#",
-        description: "Styles for headings, paragraphs, lists...etc",
-      },
-    ],
-  },
-  {
-    title: "Products",
+    title: "Menu",
     url: "#",
     type: "grid",
     items: [
       {
-        title: "Components",
+        title: "Hero",
         url: "#",
-        description: "Beautiful UI components built with Tailwind CSS.",
-        icon: <Blocks className="size-5 shrink-0" />,
+        description: "Landing page hero sections.",
+        icon: <LayoutTemplate className="size-5 shrink-0" />,
       },
       {
-        title: "Templates",
+        title: "Feature",
         url: "#",
-        description: "Ready-to-use templates for your next project.",
+        description: "Highlight your product features.",
         icon: <Layers className="size-5 shrink-0" />,
       },
       {
-        title: "Blocks",
+        title: "Pricing",
         url: "#",
-        description: "Pre-built sections to speed up development.",
-        icon: <Sparkles className="size-5 shrink-0" />,
+        description: "Pricing tables and plan comparisons.",
+        icon: <CreditCard className="size-5 shrink-0" />,
       },
       {
-        title: "Themes",
+        title: "Testimonial",
         url: "#",
-        description: "Beautiful themes to customize your app.",
-        icon: <Sunset className="size-5 shrink-0" />,
-      },
-    ],
-  },
-  {
-    title: "Resources",
-    url: "#",
-    type: "list",
-    items: [
-      {
-        title: "Documentation",
-        url: "#",
-        description: "Learn how to use the library.",
-        icon: <Book className="size-5 shrink-0" />,
+        description: "Social proof and customer reviews.",
+        icon: <MessageSquare className="size-5 shrink-0" />,
       },
       {
-        title: "API Reference",
+        title: "FAQ",
         url: "#",
-        description: "Detailed API documentation for developers.",
-        icon: <Code2 className="size-5 shrink-0" />,
+        description: "Frequently asked questions sections.",
+        icon: <HelpCircle className="size-5 shrink-0" />,
       },
       {
-        title: "Support",
+        title: "CTA",
         url: "#",
-        description: "Get help from our support team.",
+        description: "Call-to-action sections.",
         icon: <Zap className="size-5 shrink-0" />,
       },
     ],
   },
-  {
-    title: "Status",
-    url: "#",
-    type: "icon",
-    items: [
-      {
-        title: "Backlog",
-        url: "#",
-        icon: <CircleHelpIcon className="size-4" />,
-      },
-      {
-        title: "In Progress",
-        url: "#",
-        icon: <CircleIcon className="size-4" />,
-      },
-      {
-        title: "Done",
-        url: "#",
-        icon: <CircleCheckIcon className="size-4" />,
-      },
-    ],
-  },
-  { title: "Pricing", url: "#" },
+  { title: "Features", url: "#" },
+  { title: "Product", url: "#" },
   { title: "Blog", url: "#" },
+  { title: "Pricing", url: "#" },
 ];
 
 const defaultAuth = {
@@ -194,10 +130,10 @@ const defaultAuth = {
 };
 
 const defaultLogo = {
-  url: "/",
-  src: "",
-  alt: "Logo",
-  title: "Acme Inc",
+  url: "#",
+  src: "/logo.svg",
+  alt: "Shadcnship",
+  title: "Shadcnship",
 };
 
 // ListItem component for featured and grid menus
@@ -213,7 +149,7 @@ const ListItem = ({
   <li>
     <NavigationMenuLink asChild>
       <Link href={href}>
-        <div className="text-sm font-medium leading-none">{title}</div>
+        <div className="text-sm leading-none font-medium">{title}</div>
         {children && (
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
@@ -253,10 +189,10 @@ const renderMenuItem = (item: MenuItemWithType) => {
               <NavigationMenuLink asChild>
                 <Link
                   href={item.featured.url}
-                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 no-underline outline-none transition-all duration-200 hover:shadow-md focus:shadow-md md:p-6"
+                  className="flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 no-underline transition-all duration-200 outline-none select-none hover:shadow-md focus:shadow-md md:p-6"
                 >
-                  <Sparkles className="size-6" />
-                  <div className="mb-2 mt-4 text-lg font-medium">
+                  <img src="/logo.svg" alt="" className="size-6 dark:invert" />
+                  <div className="mt-4 mb-2 text-lg font-medium">
                     {item.featured.title}
                   </div>
                   <p className="text-sm leading-tight text-muted-foreground">
@@ -294,7 +230,7 @@ const renderMenuItem = (item: MenuItemWithType) => {
                 <NavigationMenuLink asChild>
                   <Link
                     href={subItem.url}
-                    className="flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                    className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground"
                   >
                     {subItem.icon && (
                       <div className="flex size-10 shrink-0 items-center justify-center rounded-md border bg-background text-foreground">
@@ -409,7 +345,7 @@ const renderMobileMenuItem = (item: MenuItemWithType) => {
 
   return (
     <AccordionItem key={item.title} value={item.title} className="border-b-0">
-      <AccordionTrigger className="py-0 text-md font-semibold hover:no-underline">
+      <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
         {item.title}
       </AccordionTrigger>
       <AccordionContent className="mt-2">
@@ -417,7 +353,7 @@ const renderMobileMenuItem = (item: MenuItemWithType) => {
           <Link
             key={subItem.title}
             href={subItem.url}
-            className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+            className="flex gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground"
           >
             {subItem.icon && (
               <div className="text-foreground">{subItem.icon}</div>
@@ -457,9 +393,9 @@ const Navbar01 = ({
   return (
     <header
       className={cn(
-        "fixed top-0 z-50 py-4 transition-all duration-300 w-full",
+        "fixed top-0 z-50 w-full py-4 transition-all duration-300",
         scrolled && "w-full border-b border-border/40 bg-background",
-        className
+        className,
       )}
     >
       <div className="px-6 md:px-12">
@@ -473,11 +409,7 @@ const Navbar01 = ({
                   className="max-h-6 dark:invert"
                   alt={logo.alt}
                 />
-              ) : (
-                <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <Sparkles className="size-4" />
-                </div>
-              )}
+              ) : null}
               <span className="text-lg font-semibold tracking-tight">
                 {logo.title}
               </span>
@@ -512,11 +444,7 @@ const Navbar01 = ({
             <Link href={logo.url} className="flex items-center gap-2">
               {logo.src ? (
                 <img src={logo.src} className="max-h-8" alt={logo.alt} />
-              ) : (
-                <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <Sparkles className="size-4" />
-                </div>
-              )}
+              ) : null}
               <span className="text-lg font-semibold tracking-tight">
                 {logo.title}
               </span>

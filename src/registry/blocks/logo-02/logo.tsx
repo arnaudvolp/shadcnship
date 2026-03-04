@@ -213,7 +213,7 @@ const Logo02 = ({
   }[columns];
 
   return (
-    <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+    <section className={cn("container mx-auto py-12 md:py-24", className)}>
       <div className="mx-auto mb-12 flex max-w-2xl flex-col items-center gap-4 text-center">
         {label && (
           <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">

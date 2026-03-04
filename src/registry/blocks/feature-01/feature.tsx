@@ -56,10 +56,10 @@ const Feature01 = ({
         </p>
       </div>
 
-      <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
         {features.map((feature, index) => (
           <Card key={index} className="flex flex-col gap-4 p-4 shadow-none">
-            <div className="aspect-video overflow-hidden rounded-md bg-muted/30">
+            <div className="hidden aspect-video overflow-hidden rounded-md bg-muted/30 md:block">
               {feature.image && (
                 <img
                   src={feature.image}

@@ -105,7 +105,7 @@ const FeatureLanding = ({
       <div className="mb-16 text-center">
         <motion.p
           {...fadeUp(0)}
-          className="mb-3 text-sm font-semibold uppercase tracking-widest text-muted-foreground"
+          className="mb-3 text-sm font-semibold tracking-widest text-muted-foreground uppercase"
         >
           {label}
         </motion.p>
@@ -118,7 +118,7 @@ const FeatureLanding = ({
       </div>
 
       {/* Two columns */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-stretch max-w-5xl mx-auto border-x">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 md:border-x lg:grid-cols-2 lg:items-stretch">
         {/* Left — feature list */}
         <div className="flex flex-col divide-y divide-border border-y">
           {features.map((feature, i) => {
@@ -129,10 +129,10 @@ const FeatureLanding = ({
                 {...fadeUp(0.1 + i * 0.08)}
                 onClick={() => setActiveId(feature.id)}
                 className={cn(
-                  "group p-6 text-left transition-all duration-300 min-h-36",
+                  "group min-h-36 p-6 text-left transition-all duration-300",
                   isActive
-                    ? "opacity-100 bg-muted/40"
-                    : "opacity-35 hover:opacity-60 hover:bg-muted/20",
+                    ? "bg-muted/40 opacity-100"
+                    : "opacity-35 hover:bg-muted/20 hover:opacity-60",
                 )}
               >
                 <div className="mb-2 flex items-center gap-3">
@@ -163,9 +163,9 @@ const FeatureLanding = ({
         {/* Right — image */}
         <motion.div
           {...fadeUp(0.2)}
-          className="lg:sticky lg:top-24 lg:self-start h-full"
+          className="h-full lg:sticky lg:top-24 lg:self-start"
         >
-          <div className="relative overflow-hidden border border-r-0 bg-muted/30 h-full">
+          <div className="relative h-full overflow-hidden border-r-0 bg-muted/30 md:border">
             <AnimatePresence mode="wait">
               <motion.img
                 key={activeId}

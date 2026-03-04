@@ -45,7 +45,7 @@ const Hero04 = ({
       "https://avatar.vercel.sh/3",
     ],
   },
-  heading = "Production ready Shadcn UI & Tailwind blocks",
+  heading = "Shadcn UI Blocks, Copy & Customize",
   description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
   buttons = {
     primary: {

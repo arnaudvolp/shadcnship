@@ -114,18 +114,18 @@ const BentoCard = ({
     {...fadeUp(delay)}
     className={cn(
       "group overflow-hidden bg-muted/30",
-      stretch && "h-full flex flex-col",
+      stretch && "flex h-full flex-col",
       className,
     )}
   >
     <Link
       href={item.href}
-      className={cn("block", stretch && "flex flex-col h-full")}
+      className={cn("block", stretch && "flex h-full flex-col")}
     >
       <div
         className={cn(
           "relative overflow-hidden",
-          stretch ? "flex-1 min-h-0" : "aspect-video",
+          stretch ? "min-h-0 flex-1" : "aspect-video",
         )}
       >
         <img
@@ -135,9 +135,9 @@ const BentoCard = ({
         />
         <div className="absolute inset-0 bg-background/0 transition-colors duration-300 group-hover:bg-background/10" />
       </div>
-      <div className="flex shrink-0 items-center justify-between px-4 py-3 border-t">
+      <div className="flex shrink-0 items-center justify-between border-t px-4 py-3">
         <span className="text-sm font-medium">{item.label}</span>
-        <ArrowUpRight className="size-4 text-muted-foreground opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+        <ArrowUpRight className="size-4 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
       </div>
     </Link>
   </motion.div>
@@ -173,7 +173,7 @@ const BentoLanding = ({
       <div className="mb-16 text-center">
         <motion.p
           {...fadeUp(0)}
-          className="mb-3 text-sm font-semibold uppercase tracking-widest text-muted-foreground"
+          className="mb-3 text-sm font-semibold tracking-widest text-muted-foreground uppercase"
         >
           {label}
         </motion.p>
@@ -185,15 +185,15 @@ const BentoLanding = ({
         </motion.h2>
         <motion.p
           {...fadeUp(0.2)}
-          className="mt-4 mx-auto max-w-xl text-muted-foreground"
+          className="mx-auto mt-4 max-w-xl text-muted-foreground"
         >
           {description}
         </motion.p>
       </div>
 
-      <div className="flex flex-col divide-y divide-border border border-border max-w-5xl mx-auto ">
-        <div className="grid grid-cols-1 lg:grid-cols-3 divide-x divide-border lg:items-stretch">
-          <div className="lg:col-span-2 flex">
+      <div className="mx-auto flex max-w-5xl flex-col divide-y divide-border border border-border">
+        <div className="grid grid-cols-1 divide-x divide-border lg:grid-cols-3 lg:items-stretch">
+          <div className="flex lg:col-span-2">
             <BentoCard
               item={row1.main}
               delay={0.1}
@@ -208,13 +208,13 @@ const BentoLanding = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 divide-x divide-border lg:items-stretch">
+        <div className="grid grid-cols-1 divide-x divide-border lg:grid-cols-3 lg:items-stretch">
           <div className="flex flex-col divide-y divide-border">
             {row2.side.map((item, i) => (
               <BentoCard key={item.href} item={item} delay={0.2 + i * 0.06} />
             ))}
           </div>
-          <div className="lg:col-span-2 flex">
+          <div className="flex lg:col-span-2">
             <BentoCard
               item={row2.main}
               delay={0.22}
@@ -224,7 +224,7 @@ const BentoLanding = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-border">
+        <div className="grid grid-cols-1 divide-x divide-border md:grid-cols-3">
           {row3.map((item, i) => (
             <BentoCard key={item.href} item={item} delay={0.3 + i * 0.06} />
           ))}

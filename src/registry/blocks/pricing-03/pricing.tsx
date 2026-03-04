@@ -68,14 +68,14 @@ const Pricing03 = ({
 
   return (
     <section className={cn("container mx-auto py-12 md:py-24", className)}>
-      <div className="flex flex-col gap-8 px-8">
+      <div className="flex flex-col items-center gap-8 px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
             {heading}
           </h2>
           <p className="text-muted-foreground md:text-lg">{description}</p>
         </div>
-        <div className="mx-auto">
+        <div className="mx-auto md:mb-8">
           <Tabs
             value={isYearly ? "yearly" : "monthly"}
             onValueChange={(value) => setIsYearly(value === "yearly")}
@@ -96,16 +96,16 @@ const Pricing03 = ({
             </TabsList>
           </Tabs>
         </div>
-        <div className="grid items-center gap-8 md:grid-cols-3">
+        <div className="grid max-w-5xl items-center gap-8 md:grid-cols-3">
           {plans.map((plan, i) => {
             const pop = plan.popular;
             return (
               <Card
                 key={i}
                 className={cn(
-                  "flex flex-col gap-4 p-6",
+                  "flex flex-col gap-4 p-6 md:min-h-[450px]",
                   pop &&
-                    "z-10 scale-105 bg-primary text-primary-foreground shadow-xl md:-my-4 dark:bg-foreground",
+                    "z-10 scale-105 bg-primary text-primary-foreground shadow-xl md:-my-4 md:min-h-[500px] dark:bg-foreground",
                 )}
               >
                 <div className="flex items-center justify-between">

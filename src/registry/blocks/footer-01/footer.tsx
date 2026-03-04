@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Github, Sparkles } from "lucide-react";
+import { Github } from "lucide-react";
 
 interface FooterLink {
   label: string;
@@ -23,13 +23,11 @@ interface Footer01Props {
 const Footer01 = ({
   logo = (
     <div className="flex items-center gap-2">
-      <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-        <Sparkles className="size-4" />
-      </div>
-      <span className="font-semibold">Shadcn Blocks</span>
+      <img src="/logo.svg" alt="Shadcnship" className="size-6 dark:invert" />
+      <span className="font-semibold">Shadcnship</span>
     </div>
   ),
-  tagline = "Production-ready UI blocks built with shadcn/ui and Tailwind CSS.",
+  tagline = "Production-ready Shadcn blocks, connected to Supabase, Stripe, and Resend.",
   menuItems = [
     {
       title: "Product",
@@ -67,7 +65,7 @@ const Footer01 = ({
       ],
     },
   ],
-  copyright = `© ${new Date().getFullYear()} Shadcn Blocks. All rights reserved.`,
+  copyright = `© ${new Date().getFullYear()} Shadcnship. All rights reserved.`,
   socialLinks = [
     {
       icon: (
@@ -91,8 +89,8 @@ const Footer01 = ({
     .join(" ");
 
   return (
-    <footer className={cn("border-t w-full fixed bottom-0", className)}>
-      <div className="container mx-auto px-6 md:px-12 py-12">
+    <footer className={cn("fixed bottom-0 w-full border-t", className)}>
+      <div className="container mx-auto px-6 py-12 md:px-12">
         <div className="mb-8 max-w-sm lg:hidden">
           {logo}
           <p className="mt-4 text-sm text-muted-foreground">{tagline}</p>

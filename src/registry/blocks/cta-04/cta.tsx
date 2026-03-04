@@ -59,12 +59,12 @@ interface Cta04Props {
 }
 
 const Cta04 = ({
-  heading = "Ready to Build Faster?",
-  description = "Join thousands of developers building with production-ready components.",
+  heading = "Ship faster. Build better.",
+  description = "Production-ready shadcn/ui blocks for your next project.",
   icon = <Grid2x2Check className="size-6" />,
   buttons = {
     primary: {
-      text: "Get Started",
+      text: "Get Started now",
       url: "#",
       icon: <ArrowUpRight className="size-4" />,
     },
@@ -79,7 +79,7 @@ const Cta04 = ({
   <section className={cn("w-full", className)}>
     <div className="relative flex items-center justify-center overflow-hidden bg-zinc-950 py-16 text-white md:py-24 lg:py-32">
       <GridBackground />
-      <div className="relative z-10 container mx-auto flex flex-col items-center gap-8 px-8 text-center">
+      <div className="relative z-10 container mx-auto flex flex-col items-center gap-4 px-8 text-center">
         <div className="grid size-12 place-items-center rounded-md bg-primary text-primary-foreground">
           {icon}
         </div>
@@ -91,7 +91,12 @@ const Cta04 = ({
         </p>
         <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
           {buttons?.primary && (
-            <Button size="lg" variant="secondary" className="w-full sm:w-auto" asChild>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="w-full sm:w-auto"
+              asChild
+            >
               <a href={buttons.primary.url}>
                 {buttons.primary.text} {buttons.primary.icon}
               </a>

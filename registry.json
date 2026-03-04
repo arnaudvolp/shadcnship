@@ -1080,6 +1080,25 @@
       ]
     },
     {
+      "name": "feature-09",
+      "type": "registry:block",
+      "title": "Feature 09",
+      "description": "An integrations grid with icon cards in a 3x2 layout and social proof ratings",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "categories": ["feature"],
+      "meta": {
+        "image": "/r/previews/feature-09.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-09/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-09.tsx"
+        }
+      ]
+    },
+    {
       "name": "feature-10",
       "type": "registry:block",
       "title": "Feature 10",
@@ -1160,51 +1179,6 @@
           "path": "src/registry/blocks/logo-02/logo.tsx",
           "type": "registry:component",
           "target": "components/logo-02.tsx"
-        }
-      ]
-    },
-    {
-      "name": "table-01",
-      "type": "registry:block",
-      "title": "Table 01",
-      "description": "Data table with TanStack Table, pagination and Supabase server actions",
-      "dependencies": [
-        "lucide-react",
-        "@tanstack/react-table"
-      ],
-      "registryDependencies": [
-        "table",
-        "button",
-        "badge",
-        "select"
-      ],
-      "categories": [
-        "table"
-      ],
-      "meta": {
-        "image": "/r/previews/table-01.webp",
-        "stacks": ["supabase"]
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/table-01/table.tsx",
-          "type": "registry:component",
-          "target": "components/table-01/table.tsx"
-        },
-        {
-          "path": "src/registry/blocks/table-01/components/columns.tsx",
-          "type": "registry:component",
-          "target": "components/table-01/components/columns.tsx"
-        },
-        {
-          "path": "src/registry/blocks/table-01/components/data-table.tsx",
-          "type": "registry:component",
-          "target": "components/table-01/components/data-table.tsx"
-        },
-        {
-          "path": "src/registry/blocks/table-01/supabase/fetch-data.ts",
-          "type": "registry:component",
-          "target": "components/table-01/supabase/fetch-data.ts"
         }
       ]
     }

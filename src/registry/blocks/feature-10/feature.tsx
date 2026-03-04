@@ -143,7 +143,10 @@ const FlowVisual = () => (
     {nodes.map(({ x, y, Icon, name, meta }) => (
       <div
         key={name}
-        className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl border bg-background px-3 py-2 shadow-sm"
+        className={cn(
+          "absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl border bg-background px-3 py-2 shadow-sm",
+          (name === "Hero" || name === "CTA") && "hidden md:flex",
+        )}
         style={{ left: `${(x / 480) * 100}%`, top: `${(y / 220) * 100}%` }}
       >
         <Icon className="size-4 shrink-0 text-primary" strokeWidth={1.5} />
@@ -168,8 +171,8 @@ const FlowVisual = () => (
 );
 
 const CustomizeVisual = () => (
-  <div className="flex-1 rounded-lg bg-muted/50 p-4">
-    <div className="flex flex-col gap-2">
+  <div className="flex-1 rounded-lg bg-muted/50 p-3">
+    <div className="flex flex-col gap-1.5">
       {[
         { label: "Ghost", cls: "text-muted-foreground" },
         {
@@ -183,7 +186,7 @@ const CustomizeVisual = () => (
         <div
           key={label}
           className={cn(
-            "flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium",
+            "flex h-8 items-center justify-center rounded-md px-4 text-sm font-medium",
             cls,
           )}
         >
@@ -217,15 +220,11 @@ const TypeScriptVisual = () => (
         </div>
       </div>
       {/* Code lines as skeletons */}
-      <div className="flex flex-col gap-2.5 p-6">
+      <div className="flex flex-col gap-2 p-4">
         <Skeleton className="h-3 w-full" />
         <Skeleton className="h-3 w-9/12" />
-        <Skeleton className="mt-4 h-3 w-10/12" />
-        <Skeleton className="h-3 w-10/12" />
+        <Skeleton className="mt-3 h-3 w-10/12" />
         <Skeleton className="h-3 w-8/12" />
-        <Skeleton className="h-3 w-6/12" />
-        <Skeleton className="h-3 w-6/12" />
-        <Skeleton className="h-3 w-6/12" />
       </div>
     </div>
   </div>
@@ -344,19 +343,19 @@ const IntegrateVisual = () => (
     {spokes.map(({ x, y, Icon }) => (
       <div
         key={`${x}-${y}`}
-        className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border bg-background shadow-sm"
+        className="absolute flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border bg-background shadow-sm md:size-10"
         style={{ left: `${(x / 480) * 100}%`, top: `${(y / 220) * 100}%` }}
       >
-        <Icon className="size-5" />
+        <Icon className="size-4 md:size-5" />
       </div>
     ))}
 
     {/* Center: shadcnship logo */}
     <div
-      className="absolute flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border-2 bg-background shadow-md"
+      className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border-2 bg-background shadow-md md:size-12"
       style={{ left: "50%", top: "50%" }}
     >
-      <LogoIcon className="size-7" />
+      <LogoIcon className="size-6 md:size-7" />
     </div>
   </div>
 );
@@ -369,21 +368,23 @@ const BentoCard = ({
   description,
   visual,
   className,
+  visualClassName,
 }: {
   tag: string;
   title: string;
   description: string;
   visual: React.ReactNode;
   className?: string;
+  visualClassName?: string;
 }) => (
-  <Card className={cn("flex flex-col gap-4 p-6 shadow-none", className)}>
+  <Card className={cn("flex flex-col gap-3 p-4 shadow-none", className)}>
     <div>
       <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
         {tag}
       </p>
       <h3 className="mt-2 text-xl font-medium">{title}</h3>
     </div>
-    <div className="rounded-lg border">{visual}</div>
+    <div className={cn("rounded-lg border", visualClassName)}>{visual}</div>
     <p className="text-sm text-muted-foreground">{description}</p>
   </Card>
 );
@@ -397,9 +398,9 @@ interface Feature10Props {
 }
 
 const Feature10 = ({ label, heading, className }: Feature10Props) => (
-  <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
+  <section className={cn("container mx-auto px-8 py-12", className)}>
     {(label || heading) && (
-      <div className="mx-auto mb-12 flex max-w-2xl flex-col items-center gap-4 text-center">
+      <div className="mx-auto mb-8 flex max-w-2xl flex-col items-center gap-4 text-center">
         {label && (
           <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
             {label}
@@ -412,8 +413,8 @@ const Feature10 = ({ label, heading, className }: Feature10Props) => (
         )}
       </div>
     )}
-    <div className="flex flex-col gap-4">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
+    <div className="mx-auto flex max-w-5xl flex-col gap-3">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-5">
         <BentoCard
           tag="Copy"
           title="Copy. Paste. Ship."
@@ -429,7 +430,7 @@ const Feature10 = ({ label, heading, className }: Feature10Props) => (
           className="md:col-span-2"
         />
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         <BentoCard
           tag="TypeScript"
           title="Type-safe out of the box"

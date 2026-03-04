@@ -16,11 +16,11 @@ interface Cta02Props {
 }
 
 const Cta02 = ({
-  heading = "Ready to Build Faster?",
-  description = "Start building with production-ready components. Copy, customize, and ship your next project.",
+  heading = "Ship faster. Build better.",
+  description = "Production-ready shadcn/ui blocks for your next project.",
   buttons = {
     primary: {
-      text: "Browse Components",
+      text: "Get started now",
       url: "#",
       icon: <ArrowUpRight className="size-4" />,
     },
@@ -31,14 +31,10 @@ const Cta02 = ({
 }: Cta02Props) => (
   <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
     <Card className="grid items-center gap-8 p-8 shadow-none md:grid-cols-3 md:pb-0">
-      <div className="flex flex-col gap-4 md:col-span-2">
-        <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-          {heading}
-        </h2>
-        <p className="max-w-md text-muted-foreground md:text-lg">
-          {description}
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row">
+      <div className="flex flex-col gap-2 md:col-span-2">
+        <h2 className="text-4xl font-medium md:text-5xl">{heading}</h2>
+        <p className="text-muted-foreground md:text-lg">{description}</p>
+        <div className="mt-2 flex flex-col gap-4 sm:flex-row">
           {buttons?.primary && (
             <Button size="lg" asChild>
               <a href={buttons.primary.url}>

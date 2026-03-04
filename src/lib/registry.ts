@@ -60,16 +60,12 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
 
 // Categories that are excluded from the regular blocks page
 const excludedCategories = ["background", "social-icons"];
-// Categories that belong to SaaS blocks (separate page)
-const saasCategories = ["waitlist", "table", "dashboard", "confirmation"];
 
-// Transform all registry items to blocks (excluding backgrounds, social-icons, and SaaS categories)
+// Transform all registry items to blocks (excluding backgrounds and social-icons)
 const blocks: RegistryBlock[] = registryData.items
   .filter((item) => {
-    const categories = item.categories as string[] | undefined;
-    const isExcluded = categories?.some((cat) => excludedCategories.includes(cat));
-    const isSaas = categories?.some((cat) => saasCategories.includes(cat));
-    return !isExcluded && !isSaas;
+    const cats = item.categories as string[] | undefined;
+    return !cats?.some((cat) => excludedCategories.includes(cat));
   })
   .map(transformToBlock);
 
@@ -77,13 +73,6 @@ const blocks: RegistryBlock[] = registryData.items
 const backgroundBlocks: RegistryBlock[] = registryData.items
   .filter((item) =>
     (item.categories as string[] | undefined)?.includes("background"),
-  )
-  .map(transformToBlock);
-
-// Transform SaaS blocks separately
-const saasBlocks: RegistryBlock[] = registryData.items
-  .filter((item) =>
-    (item.categories as string[] | undefined)?.some((cat) => saasCategories.includes(cat)),
   )
   .map(transformToBlock);
 
@@ -144,54 +133,20 @@ export function getBackgroundBlock(name: string): RegistryBlock | undefined {
 }
 
 /**
- * Get all SaaS blocks
- */
-export function getSaasBlocks(): RegistryBlock[] {
-  return saasBlocks;
-}
-
-/**
- * Get a single SaaS block by name
- */
-export function getSaasBlock(name: string): RegistryBlock | undefined {
-  return saasBlocks.find((block) => block.name === name);
-}
-
-/**
- * Get all unique categories that have at least one SaaS block
- */
-export function getSaasCategories(): BlockCategory[] {
-  const categoryMap = new Map<string, BlockCategory>();
-
-  saasBlocks.forEach((block) => {
-    block.categories.forEach((category) => {
-      if (!categoryMap.has(category.name)) {
-        categoryMap.set(category.name, category);
-      }
-    });
-  });
-
-  return Array.from(categoryMap.values()).sort((a, b) =>
-    a.title.localeCompare(b.title),
-  );
-}
-
-/**
- * Get any block by name (blocks, backgrounds, or SaaS)
+ * Get any block by name (blocks or backgrounds)
  * Used for preview pages that need to handle all types
  */
 export function getAnyBlock(name: string): RegistryBlock | undefined {
   return (
     blocks.find((block) => block.name === name) ||
-    backgroundBlocks.find((block) => block.name === name) ||
-    saasBlocks.find((block) => block.name === name)
+    backgroundBlocks.find((block) => block.name === name)
   );
 }
 
 /**
- * Get all blocks including backgrounds and SaaS blocks
+ * Get all blocks including backgrounds
  * Used for generating static params
  */
 export function getAllBlocks(): RegistryBlock[] {
-  return [...blocks, ...backgroundBlocks, ...saasBlocks];
+  return [...blocks, ...backgroundBlocks];
 }
