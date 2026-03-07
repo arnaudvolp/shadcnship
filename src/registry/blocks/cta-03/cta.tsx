@@ -48,18 +48,18 @@ const GridBackground = () => {
 };
 
 interface Cta03Props {
-  heading?: string;
+  title?: string;
   description?: string;
   placeholder?: string;
-  buttonText?: string;
+  submitText?: string;
   className?: string;
 }
 
 const Cta03 = ({
-  heading = "Stay Updated",
+  title = "Stay Updated",
   description = "Subscribe to get the latest blocks, updates, and tips directly in your inbox.",
   placeholder = "Enter your email",
-  buttonText = "Subscribe",
+  submitText = "Subscribe",
   className,
 }: Cta03Props) => (
   <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
@@ -68,7 +68,7 @@ const Cta03 = ({
       <div className="relative z-10 grid items-center gap-8 lg:grid-cols-2">
         <div className="flex flex-col gap-4">
           <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-            {heading}
+            {title}
           </h2>
           <p className="text-white/50 md:text-lg">{description}</p>
         </div>
@@ -80,7 +80,7 @@ const Cta03 = ({
               className="min-h-10 flex-1 border-white/20 bg-white/10 placeholder:text-white/40 focus-visible:ring-white/30"
             />
             <Button variant="secondary" size="lg">
-              {buttonText}
+              {submitText}
             </Button>
           </div>
           <p className="text-sm text-white/40">

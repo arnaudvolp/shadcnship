@@ -3,30 +3,30 @@ import { Card } from "@/components/ui/card";
 
 interface StatItem {
   value: string;
-  label: string;
+  text: string;
 }
 
 interface Stat01Props {
-  heading?: string;
+  title?: string;
   description?: string;
   stats?: StatItem[];
   className?: string;
 }
 
 const Stat01 = ({
-  heading = "Trusted by Developers",
+  title = "Trusted by Developers",
   description = "Production-ready components built with shadcn/ui and Tailwind CSS. Copy, customize, and ship faster.",
   stats = [
-    { value: "50+", label: "Ready-to-Use Blocks" },
-    { value: "1000+", label: "Developers Using" },
-    { value: "100%", label: "Free & Open Source" },
+    { value: "50+", text: "Ready-to-Use Blocks" },
+    { value: "1000+", text: "Developers Using" },
+    { value: "100%", text: "Free & Open Source" },
   ],
   className,
 }: Stat01Props) => (
   <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
     <div className="mb-8 flex flex-col items-center gap-4 text-center">
       <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-        {heading}
+        {title}
       </h2>
       <p className="max-w-2xl text-muted-foreground md:text-lg">
         {description}
@@ -35,11 +35,11 @@ const Stat01 = ({
     <div className="grid gap-8 md:grid-cols-3">
       {stats.map((stat) => (
         <Card
-          key={stat.label}
+          key={stat.text}
           className="flex flex-col items-center gap-2 py-12 text-center shadow-none"
         >
           <p className="text-4xl font-medium md:text-5xl">{stat.value}</p>
-          <p className="text-sm text-muted-foreground">{stat.label}</p>
+          <p className="text-sm text-muted-foreground">{stat.text}</p>
         </Card>
       ))}
     </div>

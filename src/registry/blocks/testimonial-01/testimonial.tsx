@@ -11,7 +11,7 @@ interface TestimonialItem {
 }
 
 interface Testimonial01Props {
-  heading?: string;
+  title?: string;
   description?: string;
   testimonials?: TestimonialItem[];
   className?: string;
@@ -86,7 +86,7 @@ const TestimonialCard = ({ name, role, content, avatar }: TestimonialItem) => {
 };
 
 const Testimonial01 = ({
-  heading = "Loved by Developers",
+  title = "Loved by Developers",
   description = "See what developers are saying about building faster with our components",
   testimonials: items = testimonials,
   className,
@@ -98,7 +98,7 @@ const Testimonial01 = ({
     <section className={cn("container mx-auto py-12 md:py-24", className)}>
       <div className="mx-auto flex flex-col items-center gap-4 px-8 text-center">
         <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-          {heading}
+          {title}
         </h2>
         <p className="max-w-2xl text-muted-foreground md:text-lg">
           {description}

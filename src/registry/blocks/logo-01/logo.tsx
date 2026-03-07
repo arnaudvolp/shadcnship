@@ -18,7 +18,7 @@ interface Logo {
 
 interface Logo01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   logos?: Logo[];
   className?: string;
 }
@@ -42,7 +42,7 @@ const LogoCard = ({ logo }: { logo: Logo }) => (
 
 const Logo01 = ({
   label = "Our Partners",
-  heading = "We work with the best partners",
+  title = "We work with the best partners",
   logos = defaultLogos,
   className,
 }: Logo01Props) => {
@@ -60,7 +60,7 @@ const Logo01 = ({
             </p>
           )}
           <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-            {heading}
+            {title}
           </h2>
         </div>
       </div>

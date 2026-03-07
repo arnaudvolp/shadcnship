@@ -11,35 +11,35 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface Plan {
   name: string;
-  monthlyPrice: string;
-  yearlyPrice: string;
+  prices: {
+    monthly: string;
+    yearly: string;
+  };
   description: string;
   features: string[];
   popular?: boolean;
 }
 
 interface Pricing03Props {
-  heading?: string;
+  title?: string;
   description?: string;
   plans?: Plan[];
   className?: string;
 }
 
 const Pricing03 = ({
-  heading = "Flexible Plans for Every Budget",
+  title = "Flexible Plans for Every Budget",
   description = "Choose the plan that fits your needs. No hidden fees.",
   plans = [
     {
       name: "Free",
-      monthlyPrice: "$0",
-      yearlyPrice: "$0",
+      prices: { monthly: "$0", yearly: "$0" },
       description: "Great for personal projects and exploration.",
       features: ["50+ components", "Community support", "Free updates"],
     },
     {
       name: "Pro",
-      monthlyPrice: "$12",
-      yearlyPrice: "$99",
+      prices: { monthly: "$12", yearly: "$99" },
       description: "Perfect for professionals and small teams.",
       features: [
         "200+ components",
@@ -51,8 +51,7 @@ const Pricing03 = ({
     },
     {
       name: "Enterprise",
-      monthlyPrice: "$49",
-      yearlyPrice: "$399",
+      prices: { monthly: "$49", yearly: "$399" },
       description: "For large teams with custom needs.",
       features: [
         "Everything in Pro",
@@ -64,21 +63,21 @@ const Pricing03 = ({
   ],
   className,
 }: Pricing03Props) => {
-  const [isYearly, setIsYearly] = useState(false);
+  const [isAnnual, setIsAnnual] = useState(false);
 
   return (
     <section className={cn("container mx-auto py-12 md:py-24", className)}>
       <div className="flex flex-col items-center gap-8 px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-            {heading}
+            {title}
           </h2>
           <p className="text-muted-foreground md:text-lg">{description}</p>
         </div>
         <div className="mx-auto md:mb-8">
           <Tabs
-            value={isYearly ? "yearly" : "monthly"}
-            onValueChange={(value) => setIsYearly(value === "yearly")}
+            value={isAnnual ? "yearly" : "monthly"}
+            onValueChange={(value) => setIsAnnual(value === "yearly")}
           >
             <TabsList>
               <TabsTrigger
@@ -113,9 +112,9 @@ const Pricing03 = ({
                   {pop && <Badge variant="secondary">Most Popular</Badge>}
                 </div>
                 <p className="text-4xl font-medium">
-                  {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                  {isAnnual ? plan.prices.yearly : plan.prices.monthly}
                   <span className="text-base font-normal opacity-80">
-                    /{isYearly ? "year" : "month"}
+                    /{isAnnual ? "year" : "month"}
                   </span>
                 </p>
                 <p

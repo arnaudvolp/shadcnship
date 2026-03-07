@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Check, X } from "lucide-react";
+import { LogoIcon } from "@/registry/blocks/social-icons/icons";
 
 type FeatureValue =
   | string
@@ -9,7 +10,8 @@ type FeatureValue =
 
 interface Product {
   name: string;
-  image?: string;
+  img?: string;
+  icon?: React.ReactNode;
   featured?: boolean;
 }
 interface Feature {
@@ -18,7 +20,7 @@ interface Feature {
 }
 interface Comparison01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   products?: Product[];
   features?: Feature[];
@@ -50,45 +52,33 @@ const FeatureValueCell = ({ value }: { value: FeatureValue }) => {
 };
 
 const Comparison01 = ({
-  label = "Compare",
-  heading = "Find your perfect home",
-  description = "Compare our apartments side by side to find the one that best suits your lifestyle.",
+  label = "Why Shadcnship",
+  title = "Stop building from scratch",
+  description = "See how Shadcnship compares to the alternatives.",
   products = [
     {
-      name: "Studio",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      name: "From Scratch",
+      icon: <LogoIcon className="size-20" />,
     },
     {
-      name: "2-Bedroom",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      name: "Shadcnship",
       featured: true,
+      icon: <LogoIcon className="size-20 invert" />,
     },
     {
-      name: "Penthouse",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      name: "Other UI Kits",
+      icon: <LogoIcon className="size-20" />,
     },
   ],
   features = [
-    {
-      name: "Type",
-      values: ["Studio", "2-Bedroom Apartment", "Penthouse Suite"],
-    },
-    { name: "Surface", values: ["35 m²", "75 m²", "150 m²"] },
-    { name: "Bedrooms", values: ["1", "2", "4"] },
-    { name: "Bathrooms", values: ["1", "2", "3"] },
-    { name: "Balcony", values: [false, true, true] },
-    { name: "Parking", values: [false, true, true] },
-    { name: "Floor", values: ["Ground", "3rd - 8th", "Top Floor"] },
-    { name: "View", values: ["Courtyard", "City View", "Panoramic"] },
-    { name: "Price", values: ["$1,200/mo", "$2,400/mo", "$5,500/mo"] },
-    {
-      name: "Finishes",
-      values: [
-        { type: "colors", values: ["#f5f5f5", "#d4d4d4"] },
-        { type: "colors", values: ["#f5f5f5", "#a3a3a3", "#78716c"] },
-        { type: "colors", values: ["#1f2937", "#78716c", "#f5f5f5"] },
-      ],
-    },
+    { name: "Setup time", values: ["Days of work", "Minutes", "Hours"] },
+    { name: "Copy-paste ready", values: [false, true, false] },
+    { name: "shadcn/ui native", values: [true, true, false] },
+    { name: "Own the code", values: [true, true, false] },
+    { name: "Supabase ready", values: [false, true, false] },
+    { name: "Dark mode", values: [false, true, "Partial"] },
+    { name: "TypeScript", values: [true, true, "Partial"] },
+    { name: "Price", values: ["Your time", "Free", "$$$"] },
   ],
   className,
 }: Comparison01Props) => {
@@ -105,7 +95,7 @@ const Comparison01 = ({
           </p>
         )}
         <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-          {heading}
+          {title}
         </h2>
         {description && (
           <p className="text-muted-foreground md:text-lg">{description}</p>
@@ -125,18 +115,20 @@ const Comparison01 = ({
                       : "bg-muted",
                   )}
                 >
-                  <div className="aspect-3/4 w-full overflow-hidden">
-                    {product.image ? (
+                  <div className="aspect-square w-full overflow-hidden">
+                    {product.img ? (
                       <img
-                        src={product.image}
+                        src={product.img}
                         alt={product.name}
                         className="size-full object-cover"
                       />
                     ) : (
                       <div className="flex size-full items-center justify-center bg-muted-foreground/10">
-                        <span className="text-4xl font-light text-muted-foreground/30">
-                          {idx + 1}
-                        </span>
+                        {product.icon ?? (
+                          <span className="text-4xl font-light text-muted-foreground/30">
+                            {idx + 1}
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>

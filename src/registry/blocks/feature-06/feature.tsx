@@ -1,19 +1,19 @@
 import { cn } from "@/lib/utils";
 import { IterationCw, Handshake, FolderCog, UserRoundPlus } from "lucide-react";
 
-interface Step {
+interface StepItem {
   step: number;
   title: string;
   description: string;
-  image?: string;
+  img?: string;
   icon?: React.ReactNode;
 }
 
 interface Feature06Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
-  steps?: Step[];
+  steps?: StepItem[];
   className?: string;
 }
 
@@ -22,7 +22,7 @@ const StepCard = ({
   index,
   total,
 }: {
-  step: Step;
+  step: StepItem;
   index: number;
   total: number;
 }) => {
@@ -50,9 +50,9 @@ const StepCard = ({
         </p>
       </div>
       <div className="mt-4 aspect-video w-full overflow-hidden rounded-md bg-muted">
-        {step.image ? (
+        {step.img ? (
           <img
-            src={step.image}
+            src={step.img}
             alt={step.title}
             className="size-full object-cover"
           />
@@ -76,7 +76,7 @@ const StepCard = ({
 
 const Feature06 = ({
   label = "How it works",
-  heading = "Work normally. We handle the rest.",
+  title = "Work normally. We handle the rest.",
   description = "Get started in minutes with our simple 4-step process. No complex setup required.",
   steps = [
     {
@@ -116,7 +116,7 @@ const Feature06 = ({
         {label}
       </p>
       <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-        {heading}
+        {title}
       </h2>
       {description && (
         <p className="max-w-xl text-muted-foreground md:text-lg">

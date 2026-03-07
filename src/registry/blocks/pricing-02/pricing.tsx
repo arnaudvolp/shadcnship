@@ -8,21 +8,21 @@ interface Plan {
   popular?: boolean;
 }
 
-interface Feature {
+interface FeatureItem {
   name: string;
   values: (string | boolean)[];
 }
 
 interface Pricing02Props {
-  heading?: string;
+  title?: string;
   description?: string;
   plans?: Plan[];
-  features?: Feature[];
+  features?: FeatureItem[];
   className?: string;
 }
 
 const Pricing02 = ({
-  heading = "Compare Plans",
+  title = "Compare Plans",
   description = "Choose the plan that fits your needs.",
   plans = [
     { name: "Basic", price: "$29" },
@@ -47,7 +47,7 @@ const Pricing02 = ({
     <div className="px-8">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
         <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-          {heading}
+          {title}
         </h2>
         <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>

@@ -10,13 +10,13 @@ import {
 } from "@/components/ui/accordion";
 
 interface FaqItem {
-  question: string;
-  answer: string;
+  title: string;
+  description: string;
 }
 
 interface Faq01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   items?: FaqItem[];
   className?: string;
@@ -24,30 +24,30 @@ interface Faq01Props {
 
 const defaultItems: FaqItem[] = [
   {
-    question: "What is this component library?",
-    answer:
+    title: "What is this component library?",
+    description:
       "A collection of production-ready UI blocks built with shadcn/ui and Tailwind CSS. Copy, paste, and customize to build faster.",
   },
   {
-    question: "Is it free to use?",
-    answer:
+    title: "Is it free to use?",
+    description:
       "Yes, all components are free and open source. Use them in personal and commercial projects without restrictions.",
   },
   {
-    question: "Can I customize the components?",
-    answer:
+    title: "Can I customize the components?",
+    description:
       "Absolutely! Since you own the code, you can customize every aspect. Change colors, sizes, animations, and more to match your brand.",
   },
   {
-    question: "What dependencies are required?",
-    answer:
+    title: "What dependencies are required?",
+    description:
       "Components are built on shadcn/ui and Tailwind CSS. Some components may require additional dependencies like Radix UI primitives.",
   },
 ];
 
 const Faq01 = ({
   label = "FAQ",
-  heading = "Frequently Asked Questions",
+  title = "Common Questions",
   description,
   items = defaultItems,
   className,
@@ -60,7 +60,7 @@ const Faq01 = ({
         </p>
       )}
       <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-        {heading}
+        {title}
       </h2>
       {description && (
         <p className="max-w-xl text-muted-foreground md:text-lg">
@@ -80,14 +80,14 @@ const Faq01 = ({
           className="relative rounded-md border-0 bg-muted/50 px-6 data-[state=open]:bg-muted"
         >
           <AccordionTrigger className="group flex items-center justify-between gap-4 py-5 text-left text-lg font-medium hover:no-underline">
-            {item.question}
+            {item.title}
             <span className="absolute right-4 z-10 flex size-8 shrink-0 items-center justify-center rounded-full bg-background shadow-sm">
               <Plus className="size-4 text-muted-foreground group-data-[state=open]:hidden" />
               <X className="hidden size-4 text-muted-foreground group-data-[state=open]:block" />
             </span>
           </AccordionTrigger>
           <AccordionContent className="pb-5 text-base text-muted-foreground">
-            {item.answer}
+            {item.description}
           </AccordionContent>
         </AccordionItem>
       ))}

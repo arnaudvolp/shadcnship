@@ -9,7 +9,7 @@ import {
   PostHogIcon,
 } from "@/registry/blocks/social-icons/icons";
 
-interface Integration {
+interface IntegrationItems {
   icon: React.ReactNode;
   name: string;
   description: string;
@@ -17,14 +17,14 @@ interface Integration {
 
 interface Feature09Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   link?: { text: string; url: string };
-  integrations?: Integration[];
+  integrations?: IntegrationItems[];
   className?: string;
 }
 
-const defaultIntegrations: Integration[] = [
+const defaultIntegrations: IntegrationItems[] = [
   {
     icon: <NotionIcon className="size-8" />,
     name: "Notion",
@@ -59,7 +59,7 @@ const defaultIntegrations: Integration[] = [
 
 const Feature09 = ({
   label = "Integrations",
-  heading = "Works with your stack",
+  title = "Works with your stack",
   description = "Pre-built blocks that plug into the tools your team already relies on — no configuration required.",
   link = { text: "View all integrations", url: "#" },
   integrations = defaultIntegrations,
@@ -71,7 +71,7 @@ const Feature09 = ({
         {label}
       </p>
       <h2 className="max-w-2xl text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-        {heading}
+        {title}
       </h2>
       <p className="text-muted-foreground md:text-lg">{description}</p>
       {link && (

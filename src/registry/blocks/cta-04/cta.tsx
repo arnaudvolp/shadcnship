@@ -48,32 +48,36 @@ const GridBackground = () => {
 };
 
 interface Cta04Props {
-  heading?: string;
+  title?: string;
   description?: string;
   buttons?: {
-    primary?: { text: string; url: string; icon?: React.ReactNode };
-    secondary?: { text: string; url: string; icon?: React.ReactNode };
-  };
+    text: string;
+    url?: string;
+    icon?: React.ReactNode;
+    variant?: "default" | "outline" | "ghost" | "secondary" | "link";
+  }[];
   icon?: React.ReactNode;
   className?: string;
 }
 
 const Cta04 = ({
-  heading = "Ship faster. Build better.",
+  title = "Ship faster. Build better.",
   description = "Production-ready shadcn/ui blocks for your next project.",
   icon = <Grid2x2Check className="size-6" />,
-  buttons = {
-    primary: {
+  buttons = [
+    {
       text: "Get Started now",
       url: "#",
       icon: <ArrowUpRight className="size-4" />,
+      variant: "secondary",
     },
-    secondary: {
+    {
       text: "View Docs",
       url: "#",
       icon: <Book className="size-4" />,
+      variant: "outline",
     },
-  },
+  ],
   className,
 }: Cta04Props) => (
   <section className={cn("w-full", className)}>
@@ -84,37 +88,32 @@ const Cta04 = ({
           {icon}
         </div>
         <h2 className="max-w-3xl text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
-          {heading}
+          {title}
         </h2>
         <p className="max-w-lg text-base leading-relaxed text-white/50 md:text-lg">
           {description}
         </p>
-        <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-          {buttons?.primary && (
-            <Button
-              size="lg"
-              variant="secondary"
-              className="w-full sm:w-auto"
-              asChild
-            >
-              <a href={buttons.primary.url}>
-                {buttons.primary.text} {buttons.primary.icon}
-              </a>
-            </Button>
-          )}
-          {buttons?.secondary && (
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto"
-              asChild
-            >
-              <a href={buttons.secondary.url}>
-                {buttons.secondary.text} {buttons.secondary.icon}
-              </a>
-            </Button>
-          )}
-        </div>
+        {buttons && buttons.length > 0 && (
+          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+            {buttons.map((btn, i) => (
+              <Button
+                key={i}
+                size="lg"
+                variant={btn.variant ?? "secondary"}
+                className={cn(
+                  "w-full sm:w-auto",
+                  btn.variant === "outline" &&
+                    "border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white",
+                )}
+                asChild
+              >
+                <a href={btn.url}>
+                  {btn.text} {btn.icon}
+                </a>
+              </Button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   </section>

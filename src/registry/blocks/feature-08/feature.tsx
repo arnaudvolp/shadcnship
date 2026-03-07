@@ -1,16 +1,9 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  LucideIcon,
-  Copy,
-  Sparkles,
-  Code2,
-  LayoutTemplate,
-  Gauge,
-} from "lucide-react";
+import { Copy, Sparkles, Code2, LayoutTemplate, Gauge } from "lucide-react";
 
 interface FeatureItem {
-  icon: LucideIcon;
+  icon: React.ReactNode;
   title: string;
   description: string;
   featured?: boolean;
@@ -18,18 +11,13 @@ interface FeatureItem {
 
 interface Feature08Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   features?: FeatureItem[];
   className?: string;
 }
 
-const FeatureCard = ({
-  icon: Icon,
-  title,
-  description,
-  featured,
-}: FeatureItem) => (
+const FeatureCard = ({ icon, title, description, featured }: FeatureItem) => (
   <Card
     className={cn(
       featured
@@ -49,10 +37,14 @@ const FeatureCard = ({
             : "border-border/50 bg-background/50",
         )}
       >
-        <Icon
-          className={cn("size-5", !featured && "text-foreground")}
-          strokeWidth={1.5}
-        />
+        <span
+          className={cn(
+            "flex items-center justify-center",
+            !featured && "text-foreground",
+          )}
+        >
+          {icon}
+        </span>
       </div>
       <div
         className={cn("flex flex-col gap-2", featured && "mt-auto gap-3 pt-8")}
@@ -68,36 +60,36 @@ const FeatureCard = ({
 
 const Feature08 = ({
   label = "Features",
-  heading = "Everything You Need to Build Faster",
+  title = "Everything You Need to Build Faster",
   description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
-      icon: Copy,
+      icon: <Copy className="size-5" />,
       title: "Copy & Paste Ready",
       description:
         "All components are ready to use out of the box. Just copy the code and paste it into your project — no configuration needed.",
       featured: true,
     },
     {
-      icon: Sparkles,
+      icon: <Sparkles className="size-5" />,
       title: "Fully Customizable",
       description:
         "Built with Tailwind CSS, every component is fully customizable to match your brand.",
     },
     {
-      icon: Code2,
+      icon: <Code2 className="size-5" />,
       title: "TypeScript First",
       description:
         "Written in TypeScript with full type safety and IntelliSense support for better DX.",
     },
     {
-      icon: LayoutTemplate,
+      icon: <LayoutTemplate className="size-5" />,
       title: "Pre-built Templates",
       description:
         "Start with production-ready templates for common layouts and patterns.",
     },
     {
-      icon: Gauge,
+      icon: <Gauge className="size-5" />,
       title: "Performance Optimized",
       description:
         "Lightweight components with zero runtime overhead and fast load times.",
@@ -113,7 +105,7 @@ const Feature08 = ({
         </p>
       )}
       <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-        {heading}
+        {title}
       </h2>
       {description && (
         <p className="text-muted-foreground md:text-lg">{description}</p>

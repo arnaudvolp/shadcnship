@@ -9,7 +9,7 @@ interface Author {
 }
 
 interface BlogPost {
-  image?: string;
+  img?: string;
   category: string;
   readTime: string;
   title: string;
@@ -21,14 +21,14 @@ interface BlogPost {
 
 interface Blog01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   posts?: BlogPost[];
   className?: string;
 }
 
 const BlogCard = ({
-  image,
+  img,
   category,
   readTime,
   title,
@@ -40,9 +40,9 @@ const BlogCard = ({
   <Card className="group overflow-hidden bg-transparent py-0 shadow-none">
     <a href={href} className="flex flex-col">
       <div className="aspect-4/3 w-full overflow-hidden rounded-md bg-muted/30">
-        {image && (
+        {img && (
           <img
-            src={image}
+            src={img}
             alt={title}
             className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
@@ -80,11 +80,11 @@ const BlogCard = ({
 
 const Blog01 = ({
   label = "Blog",
-  heading = "Latest Articles",
+  title = "Latest Articles",
   description = "Discover insights, tutorials, and best practices to build better products faster.",
   posts = [
     {
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "https://www.shadcnship.com/images/image-preview.webp",
       category: "Design System",
       readTime: "5 min read",
       title: "Building Consistent UI with Shadcn",
@@ -94,7 +94,7 @@ const Blog01 = ({
       date: "15 Jan, 2026",
     },
     {
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "https://www.shadcnship.com/images/image-preview.webp",
       category: "Tutorial",
       readTime: "8 min read",
       title: "From Zero to Landing Page in 10 Minutes",
@@ -107,7 +107,7 @@ const Blog01 = ({
       date: "12 Jan, 2026",
     },
     {
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "https://www.shadcnship.com/images/image-preview.webp",
       category: "Best Practices",
       readTime: "4 min read",
       title: "Accessible Components That Convert",
@@ -128,7 +128,7 @@ const Blog01 = ({
         {label}
       </p>
       <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
-        {heading}
+        {title}
       </h2>
       <p className="text-muted-foreground md:text-lg">{description}</p>
     </div>

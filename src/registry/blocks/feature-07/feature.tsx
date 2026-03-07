@@ -6,7 +6,7 @@ import { Play, Pause, ArrowUpRight } from "lucide-react";
 
 interface Feature07Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   videoSrc?: string;
   thumbnailSrc?: string;
@@ -20,7 +20,7 @@ interface Feature07Props {
 
 const Feature07 = ({
   label = "See it in action",
-  heading = "A demo is worth a thousand words",
+  title = "A demo is worth a thousand words",
   description = "Watch how our platform transforms the way teams work together. No complex setup, just results.",
   videoSrc = "https://videos.pexels.com/video-files/8005482/8005482-uhd_2560_1440_25fps.mp4",
   thumbnailSrc = "https://www.apple.com/v/airpods-max/j/images/overview/bento/blue/bento_1_airpod_max_blue__blqgkfdancya_xlarge_2x.jpg",
@@ -56,7 +56,7 @@ const Feature07 = ({
           </p>
         )}
         <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-          {heading}
+          {title}
         </h2>
         {description && (
           <p className="text-muted-foreground md:text-lg">{description}</p>
@@ -165,13 +165,13 @@ const Feature07WithOverlay = (
     overlayDescription="Match with expert recruiters and fill your hardest roles in record time."
     showArrowButton
     label=""
-    heading=""
+    title=""
     description=""
   />
 );
 
 const Feature07Minimal = (
-  props: Omit<Feature07Props, "label" | "heading" | "description">,
-) => <Feature07 {...props} label="" heading="" description="" />;
+  props: Omit<Feature07Props, "label" | "title" | "description">,
+) => <Feature07 {...props} label="" title="" description="" />;
 
 export { Feature07, Feature07WithOverlay, Feature07Minimal };

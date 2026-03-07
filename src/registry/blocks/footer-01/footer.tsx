@@ -2,19 +2,19 @@ import { cn } from "@/lib/utils";
 import { Github } from "lucide-react";
 
 interface FooterLink {
-  label: string;
+  text: string;
   href: string;
 }
 
-interface FooterMenuItem {
+interface FooterItem {
   title: string;
   links: FooterLink[];
 }
 
 interface Footer01Props {
   logo?: React.ReactNode;
-  tagline?: string;
-  menuItems?: FooterMenuItem[];
+  slogan?: string;
+  items?: FooterItem[];
   copyright?: string;
   socialLinks?: { icon: React.ReactNode; href: string }[];
   className?: string;
@@ -27,46 +27,50 @@ const Footer01 = ({
       <span className="font-semibold">Shadcnship</span>
     </div>
   ),
-  tagline = "Production-ready Shadcn blocks, connected to Supabase, Stripe, and Resend.",
-  menuItems = [
+  slogan = "Production-ready Shadcn blocks, connected to Supabase, Stripe, and Resend.",
+  items = [
     {
       title: "Product",
       links: [
-        { label: "Overview", href: "#" },
-        { label: "Features", href: "#" },
-        { label: "Pricing", href: "#" },
-        { label: "Releases", href: "#" },
+        { text: "Overview", href: "#" },
+        { text: "Features", href: "#" },
+        { text: "Pricing", href: "#" },
+        { text: "Releases", href: "#" },
       ],
     },
     {
       title: "Company",
       links: [
-        { label: "About us", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "News", href: "#" },
-        { label: "Contact", href: "#" },
+        { text: "About us", href: "#" },
+        { text: "Careers", href: "#" },
+        { text: "News", href: "#" },
+        { text: "Contact", href: "#" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { label: "Blog", href: "#" },
-        { label: "Events", href: "#" },
-        { label: "Tutorials", href: "#" },
-        { label: "Support", href: "#" },
+        { text: "Blog", href: "#" },
+        { text: "Events", href: "#" },
+        { text: "Tutorials", href: "#" },
+        { text: "Support", href: "#" },
       ],
     },
     {
       title: "Social",
       links: [
-        { label: "Twitter", href: "#" },
-        { label: "Instagram", href: "#" },
-        { label: "LinkedIn", href: "#" },
+        { text: "Twitter", href: "#" },
+        { text: "Instagram", href: "#" },
+        { text: "LinkedIn", href: "#" },
       ],
     },
   ],
   copyright = `© ${new Date().getFullYear()} Shadcnship. All rights reserved.`,
   socialLinks = [
+    {
+      icon: <Github className="size-5" />,
+      href: "#",
+    },
     {
       icon: (
         <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
@@ -75,60 +79,49 @@ const Footer01 = ({
       ),
       href: "#",
     },
-    {
-      icon: <Github className="size-5" />,
-      href: "#",
-    },
   ],
   className,
 }: Footer01Props) => {
-  const count = menuItems.length;
-  const desktopGridTemplate = `1.5fr ${Array(count).fill("1fr").join(" ")}`;
-  const tabletGridTemplate = Array(count <= 3 ? 3 : count)
-    .fill("1fr")
-    .join(" ");
+  const colsTemplate = `repeat(${items.length}, 1fr)`;
 
   return (
-    <footer className={cn("fixed bottom-0 w-full border-t", className)}>
+    <footer className={cn("w-full border-t", className)}>
       <div className="container mx-auto px-6 py-12 md:px-12">
-        <div className="mb-8 max-w-sm lg:hidden">
-          {logo}
-          <p className="mt-4 text-sm text-muted-foreground">{tagline}</p>
-        </div>
-
-        <div
-          className="grid grid-cols-2 gap-8 md:grid-cols-(--tablet-cols) lg:grid-cols-(--desktop-cols)"
-          style={
-            {
-              "--tablet-cols": tabletGridTemplate,
-              "--desktop-cols": desktopGridTemplate,
-            } as React.CSSProperties
-          }
-        >
-          <div className="hidden lg:block lg:pr-8">
+        {/* Top section */}
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
+          {/* Logo + slogan */}
+          <div className="lg:w-64 lg:shrink-0">
             {logo}
-            <p className="mt-4 text-sm text-muted-foreground">{tagline}</p>
+            <p className="mt-4 text-sm text-muted-foreground">{slogan}</p>
           </div>
-          {menuItems.map((item) => (
-            <div key={item.title}>
-              <h3 className="mb-4 text-sm font-semibold">{item.title}</h3>
-              <ul className="space-y-3">
-                {item.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+          {/* Nav groups */}
+          <div
+            className="grid flex-1 grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-(--cols)"
+            style={{ "--cols": colsTemplate } as React.CSSProperties}
+          >
+            {items.map((item) => (
+              <div key={item.title}>
+                <h3 className="mb-4 text-sm font-semibold">{item.title}</h3>
+                <ul className="space-y-3">
+                  {item.links.map((link) => (
+                    <li key={link.text}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row">
           <p className="text-sm text-muted-foreground">{copyright}</p>
           <div className="flex gap-4">
             {socialLinks.map((social, i) => (
@@ -136,9 +129,10 @@ const Footer01 = ({
                 key={i}
                 href={social.href}
                 target="_blank"
-                className="text-muted-foreground hover:text-primary"
+                rel="noopener noreferrer"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <div className="size-4">{social.icon}</div>
+                {social.icon}
               </a>
             ))}
           </div>

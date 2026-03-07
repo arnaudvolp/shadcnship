@@ -24,7 +24,7 @@ interface Testimonial {
 
 interface Integration01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   integrations?: IntegrationIcon[];
   testimonial?: Testimonial;
@@ -57,7 +57,7 @@ const IntegrationIconBubble = ({
 
 const Integration01 = ({
   label = "Seamless integrations",
-  heading = "Works with your favorite tools",
+  title = "Works with your favorite tools",
   description = "Connect with the apps you already use. Our components integrate seamlessly with your existing workflow, from AI assistants to collaboration tools.",
   integrations = [
     { icon: <SlackIcon className="w-full p-1.5" /> },
@@ -155,7 +155,7 @@ const Integration01 = ({
           {label}
         </p>
         <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
-          {heading}
+          {title}
         </h2>
         <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>

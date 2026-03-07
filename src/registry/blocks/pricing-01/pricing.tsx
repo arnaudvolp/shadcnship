@@ -15,102 +15,92 @@ import { CircleCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 
-interface PricingFeature {
-  text: string;
-}
-
 interface PricingPlan {
-  id: string;
   name: string;
-  monthlyPrice: string;
-  yearlyPrice: string;
-  features: PricingFeature[];
+  prices: {
+    monthly: string;
+    yearly: string;
+  };
+  features: string[];
   popular?: boolean;
-  button: { text: string; url: string };
+  cta: { text: string; url: string };
 }
 
 interface Pricing01Props {
-  heading?: string;
+  title?: string;
   description?: string;
   plans?: PricingPlan[];
   className?: string;
 }
 
 const Pricing01 = ({
-  heading = "Simple, Transparent Pricing",
+  title = "Simple, Transparent Pricing",
   description = "Choose the plan that fits your needs. No hidden fees.",
   plans = [
     {
-      id: "starter",
       name: "Starter",
-      monthlyPrice: "$0",
-      yearlyPrice: "$0",
+      prices: { monthly: "$0", yearly: "$0" },
       features: [
-        { text: "All core components" },
-        { text: "Community support" },
-        { text: "Free updates" },
-        { text: "Free support" },
+        "All core components",
+        "Community support",
+        "Free updates",
+        "Free support",
       ],
-      button: { text: "Get Started", url: "#" },
+      cta: { text: "Get Started", url: "#" },
     },
     {
-      id: "pro",
       name: "Pro",
-      monthlyPrice: "$49",
-      yearlyPrice: "$490",
+      prices: { monthly: "$49", yearly: "$490" },
       popular: true,
       features: [
-        { text: "Everything in Starter" },
-        { text: "Premium components" },
-        { text: "Priority support" },
-        { text: "Early access" },
-        { text: "Pro support" },
-        { text: "Free updates" },
-        { text: "Community support" },
+        "Everything in Starter",
+        "Premium components",
+        "Priority support",
+        "Early access",
+        "Pro support",
+        "Free updates",
+        "Community support",
       ],
-      button: { text: "Start Free Trial", url: "#" },
+      cta: { text: "Start Free Trial", url: "#" },
     },
     {
-      id: "enterprise",
       name: "Enterprise",
-      monthlyPrice: "$99",
-      yearlyPrice: "$990",
+      prices: { monthly: "$99", yearly: "$990" },
       features: [
-        { text: "Everything in Pro" },
-        { text: "Custom components" },
-        { text: "Dedicated support" },
-        { text: "SLA guarantee" },
-        { text: "Early access" },
-        { text: "Pro support" },
-        { text: "Free updates" },
-        { text: "Community support" },
+        "Everything in Pro",
+        "Custom components",
+        "Dedicated support",
+        "SLA guarantee",
+        "Early access",
+        "Pro support",
+        "Free updates",
+        "Community support",
       ],
-      button: { text: "Contact Sales", url: "#" },
+      cta: { text: "Contact Sales", url: "#" },
     },
   ],
   className,
 }: Pricing01Props) => {
-  const [isYearly, setIsYearly] = useState(false);
-
+  const [isAnnual, setIsAnnual] = useState(false);
   return (
     <section className={cn("w-full py-12 md:py-24", className)}>
       <div className="container mx-auto px-8">
         <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center">
           <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-            {heading}
+            {title}
           </h2>
           <p className="text-muted-foreground md:text-lg">{description}</p>
           <div className="flex items-center gap-4 text-sm">
             <span
               className={cn(
-                !isYearly ? "font-medium" : "text-muted-foreground",
+                !isAnnual ? "font-medium" : "text-muted-foreground",
               )}
             >
               Monthly
             </span>
-            <Switch checked={isYearly} onCheckedChange={setIsYearly} />
+            <Switch checked={isAnnual} onCheckedChange={setIsAnnual} />
             <span
-              className={cn(isYearly ? "font-medium" : "text-muted-foreground")}
+              className={cn(isAnnual ? "font-medium" : "text-muted-foreground")}
             >
               Yearly
             </span>
@@ -118,7 +108,7 @@ const Pricing01 = ({
         </div>
         <div className="mx-auto grid gap-8 lg:grid-cols-3">
           {plans.map((plan) => (
-            <div key={plan.id} className="relative">
+            <div key={plan.name} className="relative">
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge>Most Popular</Badge>
@@ -134,10 +124,10 @@ const Pricing01 = ({
                   <CardTitle className="text-3xl">{plan.name}</CardTitle>
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl font-medium">
-                      {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                      {isAnnual ? plan.prices.yearly : plan.prices.monthly}
                     </span>
                     <span className="text-muted-foreground">
-                      {isYearly ? "/year" : "/month"}
+                      {isAnnual ? "/year" : "/month"}
                     </span>
                   </div>
                 </CardHeader>
@@ -147,12 +137,9 @@ const Pricing01 = ({
                 <CardContent className="flex-1">
                   <ul className="flex flex-col gap-4">
                     {plan.features.map((feature) => (
-                      <li
-                        key={feature.text}
-                        className="flex items-center gap-2"
-                      >
+                      <li key={feature} className="flex items-center gap-2">
                         <CircleCheck className="size-4 shrink-0 text-primary" />
-                        <span>{feature.text}</span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -164,7 +151,7 @@ const Pricing01 = ({
                     variant={plan.popular ? "default" : "outline"}
                     size="lg"
                   >
-                    <a href={plan.button.url}>{plan.button.text}</a>
+                    <a href={plan.cta.url}>{plan.cta.text}</a>
                   </Button>
                 </CardFooter>
               </Card>

@@ -14,7 +14,7 @@ interface Client {
 
 interface Logo02Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   clients?: Client[];
   industries?: string[];
@@ -65,9 +65,9 @@ const ClientCard = ({ client }: { client: Client }) => {
           </p>
           <a
             href={client.featured.href}
-            className="inline-flex items-center gap-1 text-sm font-medium transition-all hover:gap-2"
+            className="inline-flex items-center justify-center gap-1 text-center text-sm font-medium transition-all hover:gap-2"
           >
-            Learn more <ArrowRight className="size-3.5" />
+            Learn more <ArrowRight className="size-4" />
           </a>
         </div>
       )}
@@ -156,38 +156,39 @@ const FilterDropdown = ({
 
 const Logo02 = ({
   label = "Trusted by",
-  heading = "Our Clients",
+  title = "Our Clients",
   description = "We are proud of contributing to the success of the world's leading brands",
   clients = [
-    { name: "Aramex", industry: "Logistics" },
+    { name: "Google", industry: "Software", technology: "AI" },
     {
-      name: "Gazprom",
-      industry: "Gas",
+      name: "Anthropic",
+      industry: "AI",
+      technology: "AI",
       featured: {
         title: "Case Study",
         description:
-          "See How We helped European gas market data go digital for the first time",
+          "See how we partnered with Anthropic to build safer and more capable AI systems at scale.",
         href: "#",
       },
     },
-    { name: "ESET", industry: "Computer Software" },
-    { name: "Blackboard", industry: "Retail" },
-    { name: "Sky Media", industry: "Fintech", technology: "Cloud" },
-    { name: "HAVAS", industry: "Media & Entertainment" },
-    { name: "TAIT", industry: "Logistics" },
-    { name: "Acino", industry: "Oil & Gas", technology: "AI" },
-    { name: "PACE", industry: "Computer Software" },
-    { name: "Teleologica", industry: "Retail", technology: "Cloud" },
+    { name: "Tesla", industry: "Automotive", technology: "AI" },
+    { name: "Stripe", industry: "Fintech", technology: "Cloud" },
+    { name: "Vercel", industry: "Software", technology: "Cloud" },
+    { name: "OpenAI", industry: "AI", technology: "AI" },
+    { name: "Figma", industry: "Design" },
+    { name: "Linear", industry: "Software" },
+    { name: "Notion", industry: "Productivity", technology: "Cloud" },
+    { name: "Resend", industry: "Fintech", technology: "Cloud" },
   ],
   industries = [
-    "Logistics",
-    "Oil & Gas",
-    "Computer Software",
-    "Retail",
+    "AI",
+    "Software",
     "Fintech",
-    "Media & Entertainment",
+    "Automotive",
+    "Design",
+    "Productivity",
   ],
-  technologies = ["Cloud", "AI", "Blockchain", "IoT"],
+  technologies = ["Cloud", "AI"],
   showFilters = true,
   columns = 5,
   className,
@@ -221,7 +222,7 @@ const Logo02 = ({
           </p>
         )}
         <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-          {heading}
+          {title}
         </h2>
         {description && (
           <p className="text-muted-foreground md:text-lg">{description}</p>

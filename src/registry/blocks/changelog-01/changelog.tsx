@@ -7,13 +7,13 @@ interface ChangelogEntry {
   title: string;
   description?: string;
   highlights?: string[];
-  image?: string;
+  img?: string;
   type?: "feature" | "improvement" | "fix" | "breaking";
 }
 
 interface Changelog01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   entries?: ChangelogEntry[];
   className?: string;
@@ -39,7 +39,7 @@ const ChangelogEntryCard = ({
   title,
   description,
   highlights,
-  image,
+  img,
   type,
 }: ChangelogEntry) => (
   <div className="relative pb-12 pl-8 last:pb-0">
@@ -61,10 +61,10 @@ const ChangelogEntryCard = ({
       {description && (
         <p className="leading-relaxed text-muted-foreground">{description}</p>
       )}
-      {image && (
+      {img && (
         <div className="overflow-hidden rounded-md border bg-muted/30">
           <img
-            src={image}
+            src={img}
             alt={title}
             className="aspect-video w-full object-cover"
           />
@@ -89,7 +89,7 @@ const ChangelogEntryCard = ({
 
 const Changelog01 = ({
   label = "Changelog",
-  heading = "Our journey",
+  title = "Our journey",
   description = "Follow along as we ship new features, improvements, and fixes to make our product better every day.",
   entries = [
     {
@@ -98,7 +98,7 @@ const Changelog01 = ({
       title: "AI-Powered Code Suggestions",
       description:
         "Introducing intelligent code suggestions powered by machine learning. Get real-time recommendations as you type.",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "https://www.shadcnship.com/images/image-preview.webp",
       type: "feature",
       highlights: [
         "Context-aware code completions",
@@ -138,7 +138,7 @@ const Changelog01 = ({
       title: "Team Collaboration Features",
       description:
         "Real-time collaboration tools that make working with your team seamless and intuitive.",
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "https://www.shadcnship.com/images/image-preview.webp",
       highlights: [
         "Live cursor tracking",
         "Inline comments and mentions",
@@ -155,7 +155,7 @@ const Changelog01 = ({
           {label}
         </p>
         <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
-          {heading}
+          {title}
         </h2>
         <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>

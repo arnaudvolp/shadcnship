@@ -7,7 +7,7 @@ import { QuoteIcon } from "@/components/social-icons";
 
 interface Testimonial {
   type: "text" | "image" | "cta";
-  image?: string;
+  img?: string;
   title?: string;
   content?: string;
   author?: {
@@ -20,7 +20,7 @@ interface Testimonial {
 
 interface Testimonial02Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   testimonials?: Testimonial[];
   className?: string;
@@ -55,9 +55,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
     return (
       <Card className="h-full py-0 shadow-none">
         <div className="aspect-3/4 h-full w-full overflow-hidden rounded-xl bg-muted">
-          {testimonial.image && (
+          {testimonial.img && (
             <img
-              src={testimonial.image}
+              src={testimonial.img}
               alt=""
               className="size-full object-cover"
             />
@@ -113,12 +113,12 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 
 const Testimonial02 = ({
   label = "Testimonials",
-  heading = "Wall of Love",
+  title = "Wall of Love",
   description = "See what our customers are saying about their experience with our product.",
   testimonials = [
     {
       type: "image",
-      image: "/images/avatars/avatar-1.webp",
+      img: "/images/avatars/avatar-1.webp",
     },
     {
       type: "text",
@@ -133,7 +133,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      image: "/images/avatars/avatar-2.webp",
+      img: "/images/avatars/avatar-2.webp",
     },
     {
       type: "text",
@@ -159,7 +159,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      image: "/images/avatars/avatar-3.webp",
+      img: "/images/avatars/avatar-3.webp",
     },
     {
       type: "text",
@@ -174,7 +174,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      image: "/images/avatars/avatar-4.webp",
+      img: "/images/avatars/avatar-4.webp",
     },
     {
       type: "cta",
@@ -196,7 +196,7 @@ const Testimonial02 = ({
     },
     {
       type: "image",
-      image: "/images/avatars/avatar-5.webp",
+      img: "/images/avatars/avatar-5.webp",
     },
     {
       type: "text",
@@ -223,7 +223,7 @@ const Testimonial02 = ({
         {label}
       </p>
       <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
-        {heading}
+        {title}
       </h2>
       <p className="text-muted-foreground md:text-lg">{description}</p>
     </div>

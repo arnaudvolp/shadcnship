@@ -9,24 +9,24 @@ interface Socials {
 interface TeamMember {
   name: string;
   role: string;
-  image?: string;
+  img?: string;
   socials?: Socials[];
 }
 
 interface Team01Props {
   label?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   members?: TeamMember[];
   className?: string;
 }
 
-const TeamMemberCard = ({ name, role, image, socials }: TeamMember) => (
+const TeamMemberCard = ({ name, role, img, socials }: TeamMember) => (
   <div className="group relative overflow-hidden rounded-xl">
     <div className="aspect-3/4 w-full bg-muted/30">
-      {image && (
+      {img && (
         <img
-          src={image}
+          src={img}
           alt={name}
           className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
@@ -59,13 +59,13 @@ const TeamMemberCard = ({ name, role, image, socials }: TeamMember) => (
 
 const Team01 = ({
   label = "Our team",
-  heading = "Meet the Team",
+  title = "Meet the Team",
   description = "We're a passionate group of designers and developers building beautiful, accessible components for the modern web.",
   members = [
     {
       name: "Sarah Chen",
       role: "Lead Designer",
-      image: "/images/avatars/avatar-1.webp",
+      img: "/images/avatars/avatar-1.webp",
       socials: [
         { icon: <LinkedInIcon className="size-4" />, href: "#" },
         { icon: <XIcon className="size-4" />, href: "#" },
@@ -74,7 +74,7 @@ const Team01 = ({
     {
       name: "Marcus Johnson",
       role: "Senior Developer",
-      image: "/images/avatars/avatar-4.webp",
+      img: "/images/avatars/avatar-4.webp",
       socials: [
         { icon: <LinkedInIcon className="size-4" />, href: "#" },
         { icon: <XIcon className="size-4" />, href: "#" },
@@ -83,7 +83,7 @@ const Team01 = ({
     {
       name: "Emily Rodriguez",
       role: "Product Manager",
-      image: "/images/avatars/avatar-5.webp",
+      img: "/images/avatars/avatar-5.webp",
       socials: [
         { icon: <LinkedInIcon className="size-4" />, href: "#" },
         { icon: <XIcon className="size-4" />, href: "#" },
@@ -98,7 +98,7 @@ const Team01 = ({
         {label}
       </p>
       <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
-        {heading}
+        {title}
       </h2>
       <p className="text-muted-foreground md:text-lg">{description}</p>
     </div>

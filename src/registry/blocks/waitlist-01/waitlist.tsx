@@ -17,7 +17,7 @@ type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 interface Waitlist01Props {
   badge?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   inputPlaceholder?: string;
   buttonText?: string;
@@ -48,7 +48,7 @@ const isValidEmail = (email: string): boolean => {
 
 const Waitlist01 = ({
   badge = "Coming Soon",
-  heading = "Join the Waiting List",
+  title = "Join the Waiting List",
   description = "Be amongst the first to experience our product. Sign up to be notified when we launch!",
   inputPlaceholder = "Enter your email",
   buttonText = "Join waitlist",
@@ -113,7 +113,7 @@ const Waitlist01 = ({
 
         {/* Heading */}
         <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
-          {heading}
+          {title}
         </h2>
 
         {/* Description */}

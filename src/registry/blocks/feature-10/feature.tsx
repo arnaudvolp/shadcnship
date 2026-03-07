@@ -393,22 +393,22 @@ const BentoCard = ({
 
 interface Feature10Props {
   label?: string;
-  heading?: string;
+  title?: string;
   className?: string;
 }
 
-const Feature10 = ({ label, heading, className }: Feature10Props) => (
+const Feature10 = ({ label, title, className }: Feature10Props) => (
   <section className={cn("container mx-auto px-8 py-12", className)}>
-    {(label || heading) && (
+    {(label || title) && (
       <div className="mx-auto mb-8 flex max-w-2xl flex-col items-center gap-4 text-center">
         {label && (
           <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
             {label}
           </p>
         )}
-        {heading && (
+        {title && (
           <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
-            {heading}
+            {title}
           </h2>
         )}
       </div>

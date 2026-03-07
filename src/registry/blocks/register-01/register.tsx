@@ -47,7 +47,7 @@ type RegisterFormData = z.infer<typeof registerSchema>;
 
 interface Register01Props {
   logo?: React.ReactNode;
-  heading?: string;
+  title?: string;
   description?: string;
   socialLinks?: { icon: React.ReactNode; href: string; title: string }[];
   onSubmit?: (data: RegisterFormData) => void;
@@ -58,7 +58,7 @@ interface Register01Props {
 
 const Register01 = ({
   logo = <LogoIcon className="size-10 dark:invert" />,
-  heading = "Create an account",
+  title = "Create an account",
   description = "Enter your details to get started",
   socialLinks = [
     { icon: <GoogleIcon className="size-5" />, href: "#", title: "Google" },
@@ -122,7 +122,7 @@ const Register01 = ({
       <Card className="w-full max-w-md rounded-2xl">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-2">{logo}</div>
-          <h1 className="text-2xl font-semibold tracking-tight">{heading}</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
           <p className="text-sm text-muted-foreground">{description}</p>
         </CardHeader>
 

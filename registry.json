@@ -84,34 +84,6 @@
       ]
     },
     {
-      "name": "hero-04",
-      "type": "registry:block",
-      "title": "Hero 04",
-      "description": "A full-screen centered hero with vertical line background",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "badge",
-        "avatar",
-        "https://shadcnship.com/r/background-04.json"
-      ],
-      "categories": [
-        "hero"
-      ],
-      "meta": {
-        "image": "/r/previews/hero-04.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/hero-04/hero.tsx",
-          "type": "registry:component",
-          "target": "components/hero-04.tsx"
-        }
-      ]
-    },
-    {
       "name": "hero-05",
       "type": "registry:block",
       "title": "Hero 05",
@@ -160,31 +132,6 @@
           "path": "src/registry/blocks/feature-01/feature.tsx",
           "type": "registry:component",
           "target": "components/feature-01.tsx"
-        }
-      ]
-    },
-    {
-      "name": "feature-02",
-      "type": "registry:block",
-      "title": "Feature 02",
-      "description": "A feature section with hero image and icon cards",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
-      "categories": [
-        "feature"
-      ],
-      "meta": {
-        "image": "/r/previews/feature-02.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/feature-02/feature.tsx",
-          "type": "registry:component",
-          "target": "components/feature-02.tsx"
         }
       ]
     },
