@@ -37,14 +37,11 @@ const Hero03 = ({
 }: Hero03Props) => {
   return (
     <section
-      className={cn(
-        "flex min-h-screen items-center overflow-hidden",
-        className,
-      )}
+      className={cn("relative w-full overflow-hidden", className)}
     >
-      <div className="grid w-full lg:grid-cols-2">
+      <div className="flex min-h-screen flex-col lg:flex-row">
         {/* Text */}
-        <div className="container m-auto flex flex-col items-center gap-4 p-8 text-center md:p-20 lg:items-start lg:text-left">
+        <div className="container m-auto flex flex-1 flex-col items-center gap-4 px-6 py-16 text-center md:py-20 lg:items-start lg:text-left">
           <Badge
             variant="secondary"
             className="border border-border py-1"
@@ -60,10 +57,10 @@ const Hero03 = ({
           <p className="text-muted-foreground md:text-lg">{description}</p>
 
           {buttons && buttons.length > 0 && (
-            <div className="grid w-full grid-cols-1 gap-4 md:w-fit md:grid-cols-2">
-              {buttons.map((btn, i) => (
+            <div className="grid w-full grid-cols-1 gap-4 sm:w-fit sm:grid-cols-2">
+              {buttons.map((btn) => (
                 <Button
-                  key={i}
+                  key={btn.text}
                   size="lg"
                   variant={btn.variant ?? "default"}
                   className="w-full"
@@ -93,8 +90,8 @@ const Hero03 = ({
         </div>
 
         {/* Image */}
-        <div className="aspect-video w-full bg-muted/30 lg:aspect-auto lg:h-screen">
-          {img && (
+        {img && (
+          <div className="aspect-video w-full bg-muted/30 lg:aspect-auto lg:flex-1">
             <img
               src={img}
               alt={title}
@@ -102,8 +99,8 @@ const Hero03 = ({
               height={1000}
               className="size-full object-cover"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

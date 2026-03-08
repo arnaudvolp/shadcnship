@@ -85,8 +85,8 @@ const Footer01 = ({
   const colsTemplate = `repeat(${items.length}, 1fr)`;
 
   return (
-    <footer className={cn("w-full border-t", className)}>
-      <div className="container mx-auto px-6 py-12 md:px-12">
+    <footer className={cn("fixed bottom-0 w-full border-t", className)}>
+      <div className="mx-auto px-8 py-12 md:px-16">
         {/* Top section */}
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
           {/* Logo + slogan */}

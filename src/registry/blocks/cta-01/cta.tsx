@@ -26,11 +26,6 @@ const Cta01 = ({
       url: "#",
       icon: <ArrowUpRight className="size-4" />,
     },
-    {
-      text: "Get started now",
-      url: "#",
-      icon: <ArrowUpRight className="size-4" />,
-    },
   ],
   className,
 }: Cta01Props) => (

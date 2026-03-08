@@ -15,14 +15,14 @@ export function BlockPreview() {
   return (
     <div className="relative w-full overflow-hidden border-t bg-accent">
       <div
-        className="mx-auto transition-all duration-300 w-full shadow-sm h-[700px] overflow-auto"
+        className="mx-auto h-[750px] w-full overflow-auto shadow-sm transition-all duration-300"
         style={{ width: screenWidths[screenSize] }}
       >
         <iframe
           ref={iframeRef}
           src={`${previewBasePath}/${block.name}/preview`}
-          height="100%" width="100%"
-
+          height="100%"
+          width="100%"
           title={`Preview of ${block.title}`}
         />
       </div>

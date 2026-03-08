@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Book, Grid2x2Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { LogoIcon } from "../social-icons/icons";
 
 const GRID = 80;
 
@@ -63,7 +64,7 @@ interface Cta04Props {
 const Cta04 = ({
   title = "Ship faster. Build better.",
   description = "Production-ready shadcn/ui blocks for your next project.",
-  icon = <Grid2x2Check className="size-6" />,
+  icon = <LogoIcon className="size-6 invert" />,
   buttons = [
     {
       text: "Get Started now",
@@ -84,7 +85,7 @@ const Cta04 = ({
     <div className="relative flex items-center justify-center overflow-hidden bg-zinc-950 py-16 text-white md:py-24 lg:py-32">
       <GridBackground />
       <div className="relative z-10 container mx-auto flex flex-col items-center gap-4 px-8 text-center">
-        <div className="grid size-12 place-items-center rounded-md bg-primary text-primary-foreground">
+        <div className="grid size-12 place-items-center rounded-md border border-white/6 bg-primary text-primary-foreground dark:border dark:bg-background">
           {icon}
         </div>
         <h2 className="max-w-3xl text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">

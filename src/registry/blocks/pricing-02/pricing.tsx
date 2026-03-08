@@ -6,6 +6,7 @@ interface Plan {
   name: string;
   price: string;
   popular?: boolean;
+  cta?: { text: string; url: string };
 }
 
 interface FeatureItem {
@@ -25,10 +26,19 @@ const Pricing02 = ({
   title = "Compare Plans",
   description = "Choose the plan that fits your needs.",
   plans = [
-    { name: "Basic", price: "$29" },
-    { name: "Standard", price: "$59" },
-    { name: "Pro", price: "$99", popular: true },
-    { name: "Enterprise", price: "$199" },
+    { name: "Basic", price: "$29", cta: { text: "Get Started", url: "#" } },
+    { name: "Standard", price: "$59", cta: { text: "Get Started", url: "#" } },
+    {
+      name: "Pro",
+      price: "$99",
+      popular: true,
+      cta: { text: "Get Started", url: "#" },
+    },
+    {
+      name: "Enterprise",
+      price: "$199",
+      cta: { text: "Contact Sales", url: "#" },
+    },
   ],
   features = [
     { name: "Components", values: ["50+", "100+", "200+", "Unlimited"] },
@@ -43,22 +53,25 @@ const Pricing02 = ({
   ],
   className,
 }: Pricing02Props) => (
-  <section className={cn("container mx-auto py-12 md:py-24", className)}>
-    <div className="px-8">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-        <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
+  <section
+    className={cn("relative w-full overflow-hidden py-16 md:py-24", className)}
+  >
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
           {title}
         </h2>
-        <p className="text-muted-foreground md:text-lg">{description}</p>
+        <p className="text-muted-foreground">{description}</p>
       </div>
-      <div className="mt-8 overflow-x-auto">
+
+      <div className="mt-12 overflow-x-auto">
         <table className="w-full min-w-[800px] border-collapse">
           <thead>
             <tr>
               <th className="p-4" />
-              {plans.map((plan, i) => (
+              {plans.map((plan) => (
                 <th
-                  key={i}
+                  key={plan.name}
                   className={cn(
                     "p-6 text-center",
                     plan.popular &&
@@ -73,8 +86,8 @@ const Pricing02 = ({
             </tr>
           </thead>
           <tbody>
-            {features.map((feature, i) => (
-              <tr key={i} className="border-b">
+            {features.map((feature) => (
+              <tr key={feature.name} className="border-b">
                 <td className="p-4 font-medium">{feature.name}</td>
                 {feature.values.map((value, j) => (
                   <td
@@ -97,9 +110,9 @@ const Pricing02 = ({
             ))}
             <tr>
               <td className="p-4" />
-              {plans.map((plan, i) => (
+              {plans.map((plan) => (
                 <td
-                  key={i}
+                  key={plan.name}
                   className={cn(
                     "p-4 text-center",
                     plan.popular && "rounded-b-md bg-primary/5",
@@ -108,8 +121,11 @@ const Pricing02 = ({
                   <Button
                     variant={plan.popular ? "default" : "outline"}
                     className="w-full"
+                    asChild
                   >
-                    Get Started
+                    <a href={plan.cta?.url ?? "#"}>
+                      {plan.cta?.text ?? "Get Started"}
+                    </a>
                   </Button>
                 </td>
               ))}

@@ -18,6 +18,7 @@ interface Plan {
   description: string;
   features: string[];
   popular?: boolean;
+  cta: { text: string; url: string };
 }
 
 interface Pricing03Props {
@@ -36,6 +37,7 @@ const Pricing03 = ({
       prices: { monthly: "$0", yearly: "$0" },
       description: "Great for personal projects and exploration.",
       features: ["50+ components", "Community support", "Free updates"],
+      cta: { text: "Get Started", url: "#" },
     },
     {
       name: "Pro",
@@ -48,6 +50,7 @@ const Pricing03 = ({
         "API access",
       ],
       popular: true,
+      cta: { text: "Start Free Trial", url: "#" },
     },
     {
       name: "Enterprise",
@@ -59,6 +62,7 @@ const Pricing03 = ({
         "Custom components",
         "SLA guarantee",
       ],
+      cta: { text: "Contact Sales", url: "#" },
     },
   ],
   className,
@@ -66,84 +70,97 @@ const Pricing03 = ({
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className={cn("container mx-auto py-12 md:py-24", className)}>
-      <div className="flex flex-col items-center gap-8 px-8">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
+    <section
+      className={cn(
+        "relative w-full overflow-hidden py-16 md:py-24",
+        className,
+      )}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
             {title}
           </h2>
-          <p className="text-muted-foreground md:text-lg">{description}</p>
-        </div>
-        <div className="mx-auto md:mb-8">
+          <p className="text-muted-foreground">{description}</p>
+
           <Tabs
             value={isAnnual ? "yearly" : "monthly"}
             onValueChange={(value) => setIsAnnual(value === "yearly")}
           >
-            <TabsList>
+            <TabsList className="border">
               <TabsTrigger
                 value="monthly"
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="data-[state=active]:rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 Monthly
               </TabsTrigger>
               <TabsTrigger
                 value="yearly"
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="data-[state=active]:rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 Annual
               </TabsTrigger>
             </TabsList>
           </Tabs>
         </div>
-        <div className="grid max-w-5xl items-center gap-8 md:grid-cols-3">
-          {plans.map((plan, i) => {
-            const pop = plan.popular;
-            return (
-              <Card
-                key={i}
+
+        <div className="mt-8 flex flex-col items-center gap-4 lg:flex-row lg:items-stretch">
+          {plans.map((plan) => (
+            <Card
+              key={plan.name}
+              className={cn(
+                "flex w-full max-w-sm flex-col gap-4 rounded-sm p-6 shadow-none lg:min-h-[450px]",
+                plan.popular &&
+                  "bg-primary text-primary-foreground dark:bg-foreground",
+              )}
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-medium">{plan.name}</h3>
+                {plan.popular && (
+                  <Badge variant="secondary">Most Popular</Badge>
+                )}
+              </div>
+
+              <p className="text-4xl font-medium">
+                {isAnnual ? plan.prices.yearly : plan.prices.monthly}
+                <span className="text-base font-normal opacity-80">
+                  /{isAnnual ? "year" : "month"}
+                </span>
+              </p>
+
+              <p
                 className={cn(
-                  "flex flex-col gap-4 p-6 md:min-h-[450px]",
-                  pop &&
-                    "z-10 scale-105 bg-primary text-primary-foreground shadow-xl md:-my-4 md:min-h-[500px] dark:bg-foreground",
+                  "line-clamp-2 min-h-10 text-sm",
+                  plan.popular ? "opacity-80" : "text-muted-foreground",
                 )}
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-medium">{plan.name}</h3>
-                  {pop && <Badge variant="secondary">Most Popular</Badge>}
-                </div>
-                <p className="text-4xl font-medium">
-                  {isAnnual ? plan.prices.yearly : plan.prices.monthly}
-                  <span className="text-base font-normal opacity-80">
-                    /{isAnnual ? "year" : "month"}
-                  </span>
-                </p>
-                <p
-                  className={cn(
-                    "text-sm",
-                    pop ? "opacity-80" : "text-muted-foreground",
-                  )}
-                >
-                  {plan.description}
-                </p>
-                <Button
-                  variant={pop ? "secondary" : "outline"}
-                  className="w-full"
-                >
-                  Get Started
-                </Button>
-                <Separator className={cn(pop && "bg-primary-foreground/20")} />
-                <p className="text-sm font-medium">What&apos;s included:</p>
-                <ul className="flex flex-col gap-2">
-                  {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm">
-                      <Check className="size-4 shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            );
-          })}
+                {plan.description}
+              </p>
+
+              <Button
+                variant={plan.popular ? "secondary" : "outline"}
+                className="w-full"
+                asChild
+              >
+                <a href={plan.cta.url}>{plan.cta.text}</a>
+              </Button>
+
+              <Separator
+                className={cn(plan.popular && "bg-primary-foreground/20")}
+              />
+
+              <p className="text-sm font-medium">What&apos;s included:</p>
+
+              <ul className="flex flex-col gap-2">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-2 text-sm">
+                    <Check className="size-4 shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

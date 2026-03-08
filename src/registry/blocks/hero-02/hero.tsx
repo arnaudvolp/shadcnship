@@ -39,44 +39,46 @@ const Hero02 = ({
         className,
       )}
     >
-      <div className="relative z-10 container mx-auto flex flex-col items-center gap-4 px-8 text-center">
-        {badge && (
-          <Badge
-            variant="secondary"
-            className="border border-border py-1"
-            asChild
-          >
-            <a href={badge.url}>{badge.text}</a>
-          </Badge>
-        )}
+      <div className="container mx-auto px-6">
+        <div className="relative z-10 flex flex-col items-center gap-4 text-center">
+          {badge && (
+            <Badge
+              variant="secondary"
+              className="border border-border py-1"
+              asChild
+            >
+              <a href={badge.url}>{badge.text}</a>
+            </Badge>
+          )}
 
-        <h1 className="max-w-5xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
-          {title}
-        </h1>
+          <h1 className="max-w-5xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
+            {title}
+          </h1>
 
-        <p className="text-muted-foreground md:text-lg">{description}</p>
+          <p className="text-muted-foreground md:text-lg">{description}</p>
 
-        {buttons && buttons.length > 0 && (
-          <div className="grid w-full grid-cols-1 gap-3 md:w-fit md:grid-cols-2">
-            {buttons.map((btn, i) => (
-              <Button
-                key={btn.text}
-                size="lg"
-                variant={btn.variant ?? "default"}
-                className="w-full"
-                asChild
-              >
-                <a href={btn.url}>
-                  {btn.text}
-                  {btn.icon}
-                </a>
-              </Button>
-            ))}
-          </div>
-        )}
+          {buttons && buttons.length > 0 && (
+            <div className="grid w-full grid-cols-1 gap-4 sm:w-fit sm:grid-cols-2">
+              {buttons.map((btn) => (
+                <Button
+                  key={btn.text}
+                  size="lg"
+                  variant={btn.variant ?? "default"}
+                  className="w-full"
+                  asChild
+                >
+                  <a href={btn.url}>
+                    {btn.text}
+                    {btn.icon}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          )}
+        </div>
 
-        <div className="aspect-video w-full max-w-3xl overflow-hidden rounded-md bg-muted/30 md:mt-16 lg:max-w-7xl">
-          {img && (
+        {img && (
+          <div className="relative z-10 mx-auto mt-12 aspect-video w-full max-w-3xl overflow-hidden rounded-md bg-muted/30 lg:max-w-7xl">
             <img
               src={img}
               alt={title}
@@ -84,8 +86,8 @@ const Hero02 = ({
               height={1000}
               className="size-full object-cover"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );
