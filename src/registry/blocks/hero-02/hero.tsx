@@ -29,7 +29,7 @@ const Hero02 = ({
     },
     { text: "View Docs", url: "#", variant: "outline" },
   ],
-  img = "https://www.shadcnship.com/images/image-preview.webp",
+  img = "/images/placeholders/hero-architecture-8.webp",
   className,
 }: Hero02Props) => {
   return (
@@ -40,7 +40,7 @@ const Hero02 = ({
       )}
     >
       <div className="container mx-auto px-6">
-        <div className="relative z-10 flex flex-col items-center gap-4 text-center">
+        <div className="relative z-10 flex flex-col items-center gap-4 text-center md:pt-16">
           {badge && (
             <Badge
               variant="secondary"
@@ -55,7 +55,9 @@ const Hero02 = ({
             {title}
           </h1>
 
-          <p className="text-muted-foreground md:text-lg">{description}</p>
+          <p className="max-w-3xl text-muted-foreground md:text-lg">
+            {description}
+          </p>
 
           {buttons && buttons.length > 0 && (
             <div className="grid w-full grid-cols-1 gap-4 sm:w-fit sm:grid-cols-2">
@@ -78,13 +80,13 @@ const Hero02 = ({
         </div>
 
         {img && (
-          <div className="relative z-10 mx-auto mt-12 aspect-video w-full max-w-3xl overflow-hidden rounded-md bg-muted/30 lg:max-w-7xl">
+          <div className="mt-6 aspect-video w-full bg-muted/30 md:mt-16">
             <img
               src={img}
               alt={title}
               width={1000}
               height={1000}
-              className="size-full object-cover"
+              className="size-full rounded-md object-cover"
             />
           </div>
         )}

@@ -36,9 +36,9 @@ const row1 = {
   },
   side: [
     {
-      href: "/blocks/pricing-01",
-      src: "/r/previews/pricing-01.webp",
-      srcDark: "/r/previews/pricing-01-dark.webp",
+      href: "/blocks/pricing-03",
+      src: "/r/previews/pricing-03.webp",
+      srcDark: "/r/previews/pricing-03-dark.webp",
       label: "Pricing",
     },
     {
@@ -59,16 +59,16 @@ const row2 = {
       label: "FAQ",
     },
     {
-      href: "/blocks/contact-01",
-      src: "/r/previews/contact-01.webp",
-      srcDark: "/r/previews/contact-01-dark.webp",
-      label: "Contact",
+      href: "/blocks/waitlist-01",
+      src: "/r/previews/waitlist-01.webp",
+      srcDark: "/r/previews/waitlist-01-dark.webp",
+      label: "Waitlist",
     },
   ] as [BentoItem, BentoItem],
   main: {
-    href: "/blocks/feature-05",
-    src: "/r/previews/feature-05.webp",
-    srcDark: "/r/previews/feature-05-dark.webp",
+    href: "/blocks/feature-01",
+    src: "/r/previews/feature-01.webp",
+    srcDark: "/r/previews/feature-01-dark.webp",
     label: "Feature",
   },
 };
@@ -76,16 +76,16 @@ const row2 = {
 // Ligne 3 : 3 items égaux
 const row3: BentoItem[] = [
   {
-    href: "/blocks/pricing-02",
-    src: "/r/previews/pricing-02.webp",
-    srcDark: "/r/previews/pricing-02-dark.webp",
-    label: "Pricing Alt",
+    href: "/blocks/team-01",
+    src: "/r/previews/team-01.webp",
+    srcDark: "/r/previews/team-01-dark.webp",
+    label: "Team",
   },
   {
     href: "/blocks/hero-04",
-    src: "/r/previews/hero-04.webp",
+    src: "/r/previews/hero-01.webp",
     srcDark: "/r/previews/hero-04-dark.webp",
-    label: "Hero Alt",
+    label: "Hero",
   },
   {
     href: "/blocks/login-01",

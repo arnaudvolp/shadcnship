@@ -1,11 +1,11 @@
 const logos = [
   {
     name: "Next.js",
-    icon: <NextIcon className="size-6" />,
+    icon: <NextIcon className="size-6 dark:invert" />,
   },
   {
     name: "Shadcn/ui",
-    icon: <ShadcnIcon className="size-5" />,
+    icon: <ShadcnIcon className="size-5 dark:invert" />,
   },
   {
     name: "React",

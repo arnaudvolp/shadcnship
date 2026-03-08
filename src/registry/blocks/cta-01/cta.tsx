@@ -19,7 +19,7 @@ interface Cta01Props {
 const Cta01 = ({
   title = "Ship faster. Build better.",
   description = "Production-ready shadcn/ui blocks for your next project.",
-  logo = <LogoIcon className="size-16" />,
+  logo = <LogoIcon className="size-16 dark:invert" />,
   buttons = [
     {
       text: "Get started now",

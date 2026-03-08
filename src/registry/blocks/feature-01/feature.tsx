@@ -27,21 +27,21 @@ const Feature01 = ({
   description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
-      img: "https://images.pexels.com/photos/6766628/pexels-photo-6766628.jpeg",
+      img: "/images/placeholders/hero-architecture-1.webp",
       title: "Copy & Paste Ready",
       description:
         "All components are ready to use. Just copy the code and paste it into your project.",
       link: { text: "View More", url: "#" },
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-8.webp",
       title: "Fully Customizable",
       description:
         "Built with Tailwind CSS, every component is fully customizable to match your brand.",
       link: { text: "View More", url: "#" },
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-3.webp",
       title: "TypeScript First",
       description:
         "Written in TypeScript with full type safety and IntelliSense support for better DX.",
@@ -59,7 +59,7 @@ const Feature01 = ({
         <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
           <Card
             key={feature.title}

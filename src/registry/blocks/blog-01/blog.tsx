@@ -39,7 +39,7 @@ const BlogCard = ({
 }: BlogPost) => (
   <Card className="group overflow-hidden bg-transparent py-0 shadow-none">
     <a href={href} className="flex flex-col">
-      <div className="aspect-4/3 w-full overflow-hidden rounded-md bg-muted/30">
+      <div className="aspect-4/3 w-full overflow-hidden rounded-t-md bg-muted/30">
         {img && (
           <img
             src={img}
@@ -63,13 +63,13 @@ const BlogCard = ({
             {description}
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <Avatar className="size-9">
+        <div className="flex items-center gap-2">
+          <Avatar className="size-8">
             <AvatarImage src={author.avatar} alt={author.name} />
             <AvatarFallback className="bg-muted/30" />
           </Avatar>
-          <div className="flex flex-col gap-0.5 text-sm">
-            <p className="font-medium">{author.name}</p>
+          <div className="flex flex-col gap-0 text-xs">
+            <p className="t font-medium">{author.name}</p>
             <p className="text-muted-foreground">{date}</p>
           </div>
         </div>
@@ -84,7 +84,7 @@ const Blog01 = ({
   description = "Discover insights, tutorials, and best practices to build better products faster.",
   posts = [
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-10.webp",
       category: "Design System",
       readTime: "5 min read",
       title: "Building Consistent UI with Shadcn",
@@ -94,7 +94,7 @@ const Blog01 = ({
       date: "15 Jan, 2026",
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-12.webp",
       category: "Tutorial",
       readTime: "8 min read",
       title: "From Zero to Landing Page in 10 Minutes",
@@ -107,7 +107,7 @@ const Blog01 = ({
       date: "12 Jan, 2026",
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-11.webp",
       category: "Best Practices",
       readTime: "4 min read",
       title: "Accessible Components That Convert",

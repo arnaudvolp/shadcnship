@@ -1,12 +1,15 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface Banner01Props {
   title?: string;
   description?: string;
   button?: {
     text: string;
-    url: string;
+    url?: string;
+    icon?: React.ReactNode;
+    variant?: "default" | "outline" | "ghost" | "secondary" | "link";
   };
   className?: string;
 }
@@ -17,29 +20,35 @@ const Banner01 = ({
   button = {
     text: "Register now",
     url: "#",
+    variant: "outline",
+    icon: (
+      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+    ),
   },
   className,
 }: Banner01Props) => {
   return (
-    <div
-      className={cn("w-full bg-primary text-neutral-50 fixed top-0", className)}
-    >
+    <div className={cn("fixed top-0 w-full border-b bg-background", className)}>
       <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 md:px-6">
         <p className="text-sm">
           <span className="font-semibold">{title}</span>
-          <span className="mx-2 text-neutral-400 dark:text-neutral-500">·</span>
-          <span className="text-neutral-300 dark:text-neutral-600">
-            {description}
-          </span>
+          <span className="mx-2 text-muted-foreground">·</span>
+          <span className="text-muted-foreground">{description}</span>
         </p>
         {button && (
-          <a
-            href={button.url}
-            className="group flex shrink-0 items-center gap-1 text-sm font-medium transition-colors hover:text-neutral-300 dark:hover:text-neutral-600"
+          <Button
+            key={button.text}
+            variant={button.variant ?? "default"}
+            asChild
           >
-            {button.text}
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+            <a
+              href={button.url}
+              className="group flex shrink-0 items-center gap-1 text-sm font-medium"
+            >
+              {button.text}
+              {button.icon}
+            </a>
+          </Button>
         )}
       </div>
     </div>

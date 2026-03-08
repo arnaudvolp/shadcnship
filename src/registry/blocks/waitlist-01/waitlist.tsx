@@ -16,7 +16,7 @@ import { toast } from "sonner";
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 interface Waitlist01Props {
-  badge?: string;
+  label?: string;
   title?: string;
   description?: string;
   inputPlaceholder?: string;
@@ -47,7 +47,7 @@ const isValidEmail = (email: string): boolean => {
 // ============================================================================
 
 const Waitlist01 = ({
-  badge = "Coming Soon",
+  label = "Coming Soon",
   title = "Join the Waiting List",
   description = "Be amongst the first to experience our product. Sign up to be notified when we launch!",
   inputPlaceholder = "Enter your email",
@@ -57,10 +57,10 @@ const Waitlist01 = ({
   errorMessage = "Something went wrong. Please try again.",
   socialProof = {
     avatars: [
-      "https://github.com/shadcn.png",
-      "https://github.com/shadcn.png",
-      "https://github.com/shadcn.png",
-      "https://github.com/shadcn.png",
+      "/images/avatars/avatar-1.webp",
+      "/images/avatars/avatar-2.webp",
+      "/images/avatars/avatar-3.webp",
+      "/images/avatars/avatar-4.webp",
     ],
     text: "Join 2,500+ others on the waitlist",
   },
@@ -106,10 +106,9 @@ const Waitlist01 = ({
     <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
       <div className="mx-auto max-w-2xl space-y-4 text-center">
         {/* Badge */}
-        <Badge variant="outline" className="gap-1.5 uppercase">
-          <div className="size-1.5 rounded-full bg-primary" />
-          {badge}
-        </Badge>
+        <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+          {label}
+        </p>
 
         {/* Heading */}
         <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
@@ -121,14 +120,14 @@ const Waitlist01 = ({
 
         {/* Email Form */}
         <form onSubmit={handleSubmit}>
-          <div className="mx-auto flex max-w-md items-center gap-2 rounded-full border bg-background p-1.5 shadow-sm">
+          <div className="mx-auto flex max-w-md items-center gap-2 rounded-full border bg-background p-1.5 shadow-none">
             <Input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={inputPlaceholder}
               disabled={isDisabled}
-              className="flex-1 rounded-full border-0 bg-transparent shadow-none focus-visible:ring-0"
+              className="flex-1 border-0 bg-transparent shadow-none focus-visible:ring-0"
             />
             <Button
               type="submit"
@@ -155,7 +154,7 @@ const Waitlist01 = ({
                   key={index}
                   src={avatar}
                   alt={`User ${index + 1}`}
-                  className="size-8 rounded-full border-2 border-background object-cover"
+                  className="size-8 rounded-full border border-border object-cover"
                 />
               ))}
             </div>

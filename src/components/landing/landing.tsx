@@ -1,16 +1,8 @@
 "use client";
 
-import { Hero04 } from "@/registry/blocks/hero-04/hero";
-import { Faq01 } from "@/registry/blocks/faq-01/faq";
-import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Copy,
-  Terminal,
-  Paintbrush,
-  Zap,
   Blocks,
-  Users,
 } from "lucide-react";
 import { BentoLanding } from "@/components/landing/bento-landing";
 import { HeroLanding } from "@/components/landing/hero-landing";

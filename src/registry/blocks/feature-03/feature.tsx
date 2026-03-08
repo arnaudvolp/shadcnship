@@ -24,7 +24,7 @@ const Feature03 = ({
   description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-1.webp",
       badge: "Copy & Paste Ready",
       title: "Copy & Paste Ready Everything You Need to Build Faster",
       description:
@@ -32,7 +32,7 @@ const Feature03 = ({
       button: { text: "Browse Components", url: "#" },
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-2.webp",
       badge: "Fully Customizable",
       title: "Fully Customizable",
       description:
@@ -40,7 +40,7 @@ const Feature03 = ({
       button: { text: "View Docs", url: "#" },
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-3.webp",
       badge: "TypeScript First",
       title: "TypeScript First",
       description:
@@ -48,7 +48,7 @@ const Feature03 = ({
       button: { text: "Get Started", url: "#" },
     },
     {
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-4.webp",
       badge: "Accessible by Default",
       title: "Accessible by Default",
       description:
@@ -74,7 +74,7 @@ const Feature03 = ({
         )}
       </div>
 
-      <div className="mx-auto mt-16 flex max-w-5xl flex-col gap-16 md:gap-20">
+      <div className="mx-auto mt-16 flex max-w-5xl flex-col gap-16 md:mt-24 md:gap-24">
         {features.map((feature, index) => (
           <div
             key={index}
@@ -96,7 +96,7 @@ const Feature03 = ({
               <p className="text-sm font-semibold text-muted-foreground uppercase">
                 {feature.badge}
               </p>
-              <h3 className="text-2xl font-semibold md:text-3xl">
+              <h3 className="text-2xl font-medium md:text-3xl">
                 {feature.title}
               </h3>
               <p className="text-muted-foreground">{feature.description}</p>

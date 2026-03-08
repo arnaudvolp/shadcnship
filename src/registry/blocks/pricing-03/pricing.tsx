@@ -104,7 +104,7 @@ const Pricing03 = ({
           </Tabs>
         </div>
 
-        <div className="mt-8 flex flex-col items-center gap-4 lg:flex-row lg:items-stretch">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 lg:flex-row lg:items-stretch">
           {plans.map((plan) => (
             <Card
               key={plan.name}

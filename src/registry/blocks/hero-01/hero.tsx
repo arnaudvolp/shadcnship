@@ -29,7 +29,7 @@ const Hero01 = ({
     },
     { text: "View Docs", url: "#", variant: "outline" },
   ],
-  img = "https://www.shadcnship.com/images/image-preview.webp",
+  img = "/images/placeholders/hero-architecture-4.webp",
   className,
 }: Hero01Props) => {
   return (

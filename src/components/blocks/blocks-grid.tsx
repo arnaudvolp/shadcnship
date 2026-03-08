@@ -21,10 +21,16 @@ const columnClasses: Record<ColumnCount, string> = {
   4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
 };
 
-export function BlocksGrid({ blocks, categories, initialCategory }: BlocksGridProps) {
+export function BlocksGrid({
+  blocks,
+  categories,
+  initialCategory,
+}: BlocksGridProps) {
   // Filter state
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory || "all");
+  const [selectedCategory, setSelectedCategory] = useState(
+    initialCategory || "all",
+  );
 
   // View state
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
@@ -44,7 +50,7 @@ export function BlocksGrid({ blocks, categories, initialCategory }: BlocksGridPr
         block.title.toLowerCase().includes(searchLower) ||
         block.description.toLowerCase().includes(searchLower) ||
         block.categories.some((cat) =>
-          cat.title.toLowerCase().includes(searchLower)
+          cat.title.toLowerCase().includes(searchLower),
         );
 
       // Category filter
@@ -78,7 +84,7 @@ export function BlocksGrid({ blocks, categories, initialCategory }: BlocksGridPr
           isFiltered={debouncedSearch !== "" || selectedCategory !== "all"}
         />
       ) : viewMode === "grid" ? (
-        <div className={cn("grid gap-6", columnClasses[columns])}>
+        <div className={cn("grid gap-4", columnClasses[columns])}>
           {filteredBlocks.map((block) => (
             <BlockCard key={block.name} block={block} />
           ))}

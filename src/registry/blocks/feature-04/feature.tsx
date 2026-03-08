@@ -72,9 +72,7 @@ const Feature04 = ({
           <h2 className="text-3xl leading-tight font-medium tracking-tight text-pretty md:text-4xl lg:text-5xl">
             {title}
           </h2>
-          <p className="max-w-2xl text-muted-foreground md:text-lg">
-            {description}
-          </p>
+          <p className="text-muted-foreground md:text-lg">{description}</p>
         </div>
 
         <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">

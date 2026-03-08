@@ -32,16 +32,14 @@ const Hero03 = ({
     { text: "View Docs", url: "#", variant: "outline" },
   ],
   ratingText = "Loved by developers worldwide",
-  img = "https://www.shadcnship.com/images/image-preview.webp",
+  img = "/images/placeholders/hero-architecture-1.webp",
   className,
 }: Hero03Props) => {
   return (
-    <section
-      className={cn("relative w-full overflow-hidden", className)}
-    >
-      <div className="flex min-h-screen flex-col lg:flex-row">
+    <section className={cn("relative w-full overflow-hidden", className)}>
+      <div className="flex min-h-screen flex-col gap-4 lg:flex-row lg:gap-0">
         {/* Text */}
-        <div className="container m-auto flex flex-1 flex-col items-center gap-4 px-6 py-16 text-center md:py-20 lg:items-start lg:text-left">
+        <div className="container m-auto flex flex-col items-center gap-4 px-6 py-16 text-center lg:items-start lg:p-20 lg:text-left">
           <Badge
             variant="secondary"
             className="border border-border py-1"
@@ -54,7 +52,9 @@ const Hero03 = ({
             {title}
           </h1>
 
-          <p className="text-muted-foreground md:text-lg">{description}</p>
+          <p className="max-w-3xl text-muted-foreground md:text-lg">
+            {description}
+          </p>
 
           {buttons && buttons.length > 0 && (
             <div className="grid w-full grid-cols-1 gap-4 sm:w-fit sm:grid-cols-2">
@@ -91,13 +91,13 @@ const Hero03 = ({
 
         {/* Image */}
         {img && (
-          <div className="aspect-video w-full bg-muted/30 lg:aspect-auto lg:flex-1">
+          <div className="aspect-video w-full bg-muted/30">
             <img
               src={img}
               alt={title}
               width={1000}
-              height={1000}
-              className="size-full object-cover"
+              height={200}
+              className="aspect-video size-full object-cover"
             />
           </div>
         )}

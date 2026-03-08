@@ -39,28 +39,28 @@ const Feature05 = ({
       description:
         "Every component is ready to use. Just copy the code and paste it into your project.",
       icon: Copy,
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-8.webp",
     },
     {
       title: "Fully Customizable",
       description:
         "Built with Tailwind CSS, every component can be easily modified to match your brand.",
       icon: SquareDashedMousePointer,
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-1.webp",
     },
     {
       title: "TypeScript First",
       description:
         "All components are fully typed with TypeScript for better developer experience.",
       icon: TypeOutline,
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-3.webp",
     },
     {
       title: "Accessible by Default",
       description:
         "Built on Radix UI primitives, all components follow WAI-ARIA guidelines.",
       icon: Info,
-      img: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-4.webp",
     },
   ],
   className,
@@ -71,7 +71,7 @@ const Feature05 = ({
   return (
     <section className={cn("py-12 md:py-24", className)}>
       <div className="mx-auto max-w-7xl px-8">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-16 lg:grid-cols-2">
           <div className="flex flex-col gap-4">
             <h2 className="text-3xl leading-tight font-medium tracking-tight md:text-4xl lg:text-5xl">
               {title}

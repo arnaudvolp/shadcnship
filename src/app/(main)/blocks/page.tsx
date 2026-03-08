@@ -24,7 +24,7 @@ export default async function BlocksPage({ searchParams }: BlocksPageProps) {
 
   // Convert blocks to serializable format (remove component function)
   const serializableBlocks: SerializableRegistryBlock[] = blocks.map(
-    ({ component, ...rest }) => rest
+    ({ component, ...rest }) => rest,
   );
 
   // Prepare blocks for JSON-LD
@@ -38,7 +38,7 @@ export default async function BlocksPage({ searchParams }: BlocksPageProps) {
   return (
     <>
       <BlocksPageJsonLd blocks={blocksForJsonLd} />
-      <div className="container mx-auto py-12 border-x px-4">
+      <div className="container mx-auto border-x px-4 py-12">
         {blocks.length === 0 ? (
           <BlocksEmpty />
         ) : (
