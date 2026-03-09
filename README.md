@@ -7,7 +7,7 @@ All components are fully open and editable, integrating naturally into your code
 
 ⭐ **Star this repo** to follow development • [Shadcnship.com](https://shadcnship.com)
 
-<img width="1268" height="508" alt="image" src="https://github.com/user-attachments/assets/8273b3a6-2322-4c24-96f7-54fae48a1c9d" />
+![Capture d’écran 2026-03-09 à 20 59 03](https://github.com/user-attachments/assets/7b3e625b-5e62-489b-9a8c-c5400ba8ec00)
 
 **Tech Stack:** Next.js 16+ • TypeScript • Tailwind CSS • Shadcn UI • Supabase/PostgreSQL
 
@@ -21,7 +21,7 @@ All components are fully open and editable, integrating naturally into your code
 
 ## Available Blocks
 
-Discover **47+ blocks** to build complete landing pages and SaaS applications.
+Discover **40+ blocks** to build complete landing pages and SaaS applications.
 
 | Hero           | Feature        | Pricing        | Call to Action | Background     | Footer/Navigation/Logo ... |
 | :------------- | :------------- | :------------- | :------------- | :------------- | :------------------------- |
