@@ -1046,25 +1046,6 @@
       ]
     },
     {
-      "name": "feature-10",
-      "type": "registry:block",
-      "title": "Feature 10",
-      "description": "A bento-style feature grid with built-in UI mockups for copy, customize, TypeScript, and integrations",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [],
-      "categories": ["feature"],
-      "meta": {
-        "image": "/r/previews/feature-10.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/feature-10/feature.tsx",
-          "type": "registry:component",
-          "target": "components/feature-10.tsx"
-        }
-      ]
-    },
-    {
       "name": "feature-08",
       "type": "registry:block",
       "title": "Feature 08",

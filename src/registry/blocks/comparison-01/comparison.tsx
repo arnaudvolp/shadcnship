@@ -52,33 +52,33 @@ const FeatureValueCell = ({ value }: { value: FeatureValue }) => {
 };
 
 const Comparison01 = ({
-  label = "Why Shadcnship",
-  title = "Stop building from scratch",
-  description = "See how Shadcnship compares to the alternatives.",
+  label = "Why choose us",
+  title = "Not all creams are created equal",
+  description = "See how our formula compares to the competition.",
   products = [
     {
-      name: "From Scratch",
-      icon: <LogoIcon className="size-20" />,
+      name: "Basic Cream",
+      img: "/images/placeholders/product-design-1.webp",
     },
     {
-      name: "Shadcnship",
+      name: "Lumière Pro",
       featured: true,
-      icon: <LogoIcon className="size-20 invert" />,
+      img: "/images/placeholders/product-design-2.webp",
     },
     {
-      name: "Other UI Kits",
-      icon: <LogoIcon className="size-20" />,
+      name: "Other Brands",
+      img: "/images/placeholders/product-design-3.webp",
     },
   ],
   features = [
-    { name: "Setup time", values: ["Days of work", "Minutes", "Hours"] },
-    { name: "Copy-paste ready", values: [false, true, false] },
-    { name: "shadcn/ui native", values: [true, true, false] },
-    { name: "Own the code", values: [true, true, false] },
-    { name: "Supabase ready", values: [false, true, false] },
-    { name: "Dark mode", values: [false, true, "Partial"] },
-    { name: "TypeScript", values: [true, true, "Partial"] },
-    { name: "Price", values: ["Your time", "Free", "$$$"] },
+    { name: "Hydration duration", values: ["4 hours", "72 hours", "8 hours"] },
+    { name: "Dermatologist tested", values: [false, true, false] },
+    { name: "Fragrance-free", values: [false, true, false] },
+    { name: "For sensitive skin", values: [false, true, "Partial"] },
+    { name: "SPF protection", values: [false, true, false] },
+    { name: "Natural ingredients", values: ["Partial", true, false] },
+    { name: "Vegan & cruelty-free", values: [false, true, false] },
+    { name: "Price", values: ["$12", "$48", "$65"] },
   ],
   className,
 }: Comparison01Props) => {
@@ -102,7 +102,7 @@ const Comparison01 = ({
         )}
       </div>
       <div className="mx-auto mt-12 max-w-5xl overflow-x-auto">
-        <div className="min-w-[640px]">
+        <div className="flex min-w-[640px] flex-col gap-1">
           <div className="grid" style={gridStyle}>
             <div className="p-4" />
             {products.map((product, idx) => (
@@ -143,7 +143,7 @@ const Comparison01 = ({
               style={gridStyle}
             >
               <div className="p-4 pr-6">
-                <span className="text-sm font-medium text-muted-foreground">
+                <span className="line-clamp-2 text-sm font-medium text-muted-foreground">
                   {feature.name}
                 </span>
               </div>
@@ -151,9 +151,9 @@ const Comparison01 = ({
                 <div
                   key={valueIdx}
                   className={cn(
-                    "flex justify-center p-4",
+                    "mx-2 flex h-full items-center justify-center rounded-md p-4",
                     products[valueIdx]?.featured &&
-                      "bg-foreground/5 first:rounded-t-xl last:rounded-b-xl",
+                      "bg-foreground/5 px-4 first:rounded-t-xl last:rounded-b-xl",
                   )}
                 >
                   <FeatureValueCell value={value} />

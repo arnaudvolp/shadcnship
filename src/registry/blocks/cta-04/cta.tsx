@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Book, Grid2x2Check } from "lucide-react";
+import { ArrowUpRight, Book } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LogoIcon } from "../social-icons/icons";

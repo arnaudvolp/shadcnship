@@ -82,10 +82,10 @@ const row3: BentoItem[] = [
     label: "Team",
   },
   {
-    href: "/blocks/hero-04",
-    src: "/r/previews/hero-01.webp",
-    srcDark: "/r/previews/hero-04-dark.webp",
-    label: "Hero",
+    href: "/blocks/comparison-01",
+    src: "/r/previews/comparison-01.webp",
+    srcDark: "/r/previews/comparison-01dark.webp",
+    label: "Comparison",
   },
   {
     href: "/blocks/login-01",

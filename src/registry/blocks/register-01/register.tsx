@@ -106,7 +106,7 @@ const Register01 = ({
     <button
       type="button"
       onClick={onToggle}
-      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+      className="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
     >
       {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
     </button>
@@ -115,13 +115,13 @@ const Register01 = ({
   return (
     <section
       className={cn(
-        "min-h-screen w-full flex items-center justify-center bg-muted/30 p-4",
+        "flex min-h-screen w-full items-center justify-center bg-muted/30 p-4",
         className,
       )}
     >
       <Card className="w-full max-w-md rounded-2xl">
         <CardHeader className="text-center">
-          <div className="flex justify-center mb-2">{logo}</div>
+          <div className="mb-2 flex justify-center">{logo}</div>
           <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
           <p className="text-sm text-muted-foreground">{description}</p>
         </CardHeader>
@@ -139,7 +139,7 @@ const Register01 = ({
                   <FormItem>
                     <FormControl>
                       <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                        <Mail className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
                         <Input
                           placeholder="Email"
                           className="pl-10"
@@ -159,11 +159,11 @@ const Register01 = ({
                   <FormItem>
                     <FormControl>
                       <div className="relative">
-                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                        <Lock className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
                         <Input
                           type={showPassword ? "text" : "password"}
                           placeholder="Password"
-                          className="pl-10 pr-10"
+                          className="pr-10 pl-10"
                           {...field}
                         />
                         <PasswordToggle
@@ -184,11 +184,11 @@ const Register01 = ({
                   <FormItem>
                     <FormControl>
                       <div className="relative">
-                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                        <Lock className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
                         <Input
                           type={showConfirmPassword ? "text" : "password"}
                           placeholder="Confirm Password"
-                          className="pl-10 pr-10"
+                          className="pr-10 pl-10"
                           {...field}
                         />
                         <PasswordToggle
@@ -255,7 +255,7 @@ const Register01 = ({
             {loginLink.text}{" "}
             <a
               href={loginLink.href}
-              className="font-medium text-foreground hover:underline underline-offset-4"
+              className="font-medium text-foreground underline-offset-4 hover:underline"
             >
               Sign in
             </a>

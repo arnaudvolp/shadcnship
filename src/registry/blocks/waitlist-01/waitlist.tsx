@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Loader2, XCircle } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 
@@ -127,7 +126,7 @@ const Waitlist01 = ({
               onChange={(e) => setEmail(e.target.value)}
               placeholder={inputPlaceholder}
               disabled={isDisabled}
-              className="flex-1 border-0 bg-transparent shadow-none focus-visible:ring-0"
+              className="flex-1 rounded-full border-0 bg-transparent shadow-none focus-visible:ring-0"
             />
             <Button
               type="submit"

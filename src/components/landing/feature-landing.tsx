@@ -52,14 +52,12 @@ const defaultFeatures: Feature[] = [
     imageAlt: "Ready-to-use blocks preview",
   },
   {
-    id: "supabase",
-    title: "Supabase connected",
+    id: "install",
+    title: "One-command install",
     description:
-      "Auth, database and storage already wired up. Drop in a connected block and your backend is done.",
-    badge: "New",
-    href: "/blocks?supabase=true",
-    image: "/images/landing/supabase.webp",
-    imageAlt: "Supabase connected preview",
+      "Add any block to your project with a single npx command. Powered by the shadcn registry — no manual copy needed.",
+    image: "/images/landing/npx.webp",
+    imageAlt: "One-command install preview",
   },
   {
     id: "darkmode",
@@ -99,7 +97,10 @@ const FeatureLanding = ({
 
   return (
     <section
-      className={cn("container mx-auto py-16 md:py-24 lg:py-32", className)}
+      className={cn(
+        "container mx-auto mb-16 pt-16 md:py-24 lg:py-32",
+        className,
+      )}
     >
       {/* Header */}
       <div className="mb-16 text-center">
@@ -118,7 +119,7 @@ const FeatureLanding = ({
       </div>
 
       {/* Two columns */}
-      <div className="mx-auto grid max-w-5xl grid-cols-1 md:border-x lg:grid-cols-2 lg:items-stretch">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 border-x lg:grid-cols-2 lg:items-stretch">
         {/* Left — feature list */}
         <div className="flex flex-col divide-y divide-border border-y">
           {features.map((feature, i) => {
@@ -165,7 +166,7 @@ const FeatureLanding = ({
           {...fadeUp(0.2)}
           className="h-full lg:sticky lg:top-24 lg:self-start"
         >
-          <div className="relative h-full overflow-hidden border-r-0 bg-muted/30 md:border">
+          <div className="relative h-full overflow-hidden bg-muted/30 md:border md:border-r-0">
             <AnimatePresence mode="wait">
               <motion.img
                 key={activeId}
