@@ -11,14 +11,14 @@ interface ContactInfo {
 }
 
 interface Contact01Props {
-  heading?: string;
+  title?: string;
   description?: string;
   contactInfo?: ContactInfo[];
   className?: string;
 }
 
 const Contact01 = ({
-  heading = "Get in Touch",
+  title = "Get in Touch",
   description = "Have questions about our components? Want to collaborate? We'd love to hear from you.",
   contactInfo = [
     { icon: <Phone className="size-4" />, value: "+1 (555) 123-4567" },
@@ -32,7 +32,7 @@ const Contact01 = ({
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
-              {heading}
+              {title}
             </h2>
             <p className="mt-2 text-lg text-muted-foreground">{description}</p>
             <div className="mt-8 flex flex-wrap gap-6">

@@ -1,82 +1,86 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface FeatureItem {
-  image?: string;
+  img?: string;
   title: string;
   description: string;
   link?: { text: string; url: string };
 }
 
 interface Feature01Props {
-  heading?: string;
+  title: string;
   description?: string;
   features?: FeatureItem[];
   className?: string;
 }
 
 const Feature01 = ({
-  heading = "Everything You Need to Build Faster",
-  description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship. ",
+  title = "Everything You Need to Build Faster",
+  description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-1.webp",
       title: "Copy & Paste Ready",
       description:
         "All components are ready to use. Just copy the code and paste it into your project.",
-      link: { text: "Browse Components", url: "#" },
+      link: { text: "View More", url: "#" },
     },
     {
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-8.webp",
       title: "Fully Customizable",
       description:
         "Built with Tailwind CSS, every component is fully customizable to match your brand.",
-      link: { text: "View Docs", url: "#" },
+      link: { text: "View More", url: "#" },
     },
     {
-      image: "https://www.shadcnship.com/images/image-preview.webp",
+      img: "/images/placeholders/hero-architecture-3.webp",
       title: "TypeScript First",
       description:
         "Written in TypeScript with full type safety and IntelliSense support for better DX.",
-      link: { text: "Get Started", url: "#" },
+      link: { text: "View More", url: "#" },
     },
   ],
   className,
 }: Feature01Props) => {
   return (
-    <section className={cn("container mx-auto px-6 py-12 md:py-24", className)}>
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight ">
-          {heading}
+    <section className={cn("container mx-auto px-4 py-12 md:py-24", className)}>
+      <div className="flex flex-col items-center gap-2 text-center">
+        <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl">
+          {title}
         </h2>
-        <p className="mt-2 text-lg text-muted-foreground">{description}</p>
+        <p className="text-muted-foreground md:text-lg">{description}</p>
       </div>
-      <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {features.map((feature, index) => (
-          <Card key={index} className="flex flex-col p-4 shadow-none gap-4">
-            <div className="aspect-video rounded-lg bg-accent">
-              {feature.image && (
+
+      <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature) => (
+          <Card
+            key={feature.title}
+            className="flex flex-col gap-0 rounded-2xl p-2 shadow-none"
+          >
+            <CardHeader className="gap-0 p-0">
+              {feature.img && (
                 <img
-                  src={feature.image}
+                  src={feature.img}
                   alt={feature.title}
-                  className="aspect-video object-cover rounded-lg"
+                  className="aspect-4/3 h-full w-auto rounded-lg border"
                 />
               )}
-            </div>
-            <h3 className="text-xl font-medium">{feature.title}</h3>
-            <p className="flex-1 text-sm text-muted-foreground">
-              {feature.description}
-            </p>
-            {feature.link && (
-              <Button variant="ghost" size="sm" className=" w-fit" asChild>
-                <a href={feature.link.url}>
-                  {feature.link.text}
-                  <ArrowRight className="size-4" />
-                </a>
-              </Button>
-            )}
+            </CardHeader>
+            <CardContent className="flex flex-1 flex-col gap-2 p-4">
+              <h3 className="text-lg font-semibold">{feature.title}</h3>
+              <p className="flex-1 text-sm text-muted-foreground">
+                {feature.description}
+              </p>
+              {feature.link && (
+                <Button variant="outline" className="mt-2 w-full">
+                  <a href={feature.link.url}>{feature.link.text}</a>
+                  <ArrowUpRight />
+                </Button>
+              )}
+            </CardContent>
           </Card>
         ))}
       </div>

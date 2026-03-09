@@ -69,9 +69,9 @@ const FormField = ({
 interface Login01Props {
   logo?: React.ReactNode;
   logoText?: string;
-  image?: string;
+  img?: string;
   tagline?: string;
-  heading?: string;
+  title?: string;
   subheading?: string;
   description?: string;
   socialLinks?: { icon: React.ReactNode; href: string; title: string }[];
@@ -80,21 +80,21 @@ interface Login01Props {
 }
 
 const Login01 = ({
-  logo = <LogoIcon className="size-6 dark:invert invert" />,
-  logoText = "ShadcnShip",
-  image = "https://www.shadcnship.com/images/image-preview.webp",
+  logo = <LogoIcon className="size-6 invert dark:invert" />,
+  logoText = "Shadcnship",
+  img = "/images/placeholders/hero-architecture-9.webp",
   tagline = "Convert your ideas into successful business.",
-  heading = "Sign Up Account",
+  title = "Sign Up Account",
   subheading = "Get Started",
   description = "Enter your personal data to create your account.",
   socialLinks = [
     {
-      icon: <GoogleIcon className="size-5 mr-2" />,
+      icon: <GoogleIcon className="mr-2 size-5" />,
       href: "#",
       title: "Google",
     },
     {
-      icon: <GithubIcon className="size-5 mr-2" />,
+      icon: <GithubIcon className="mr-2 size-5" />,
       href: "#",
       title: "Github",
     },
@@ -117,15 +117,15 @@ const Login01 = ({
         {/* Left Side - Gradient */}
         <div
           className={cn(
-            "relative hidden lg:flex flex-col justify-between p-10 overflow-hidden",
+            "relative hidden flex-col justify-between overflow-hidden p-10 lg:flex",
             "bg-accent text-white",
           )}
         >
-          {image && (
+          {img && (
             <img
-              src={image}
+              src={img}
               alt="img"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover h-full"
+              className="absolute top-0 right-0 left-0 w-full object-cover"
             ></img>
           )}
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
@@ -134,10 +134,10 @@ const Login01 = ({
             <span className="text-lg font-semibold">{logoText}</span>
           </div>
           <div className="relative z-10 max-w-md">
-            <p className="text-sm text-muted mb-2 dark:text-muted-foreground">
+            <p className="mb-2 text-sm text-muted dark:text-muted-foreground">
               {subheading}
             </p>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+            <h2 className="text-3xl leading-tight font-medium tracking-tight md:text-4xl">
               {tagline}
             </h2>
           </div>
@@ -146,20 +146,18 @@ const Login01 = ({
         {/* Right Side - Form */}
         <div className="flex flex-col justify-center px-6 py-12 lg:px-16 xl:px-24">
           <div className="mx-auto w-full max-w-md">
-            <div className="mb-4 flex items-center gap-2 justify-center lg:hidden">
+            <div className="mb-4 flex items-center justify-center gap-2 lg:hidden">
               {logo}
             </div>
 
             <div className="mb-6 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
-                {heading}
-              </h1>
+              <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
               <p className="mt-2 text-sm text-muted-foreground">
                 {description}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="mb-6 grid grid-cols-2 gap-4">
               {socialLinks.map((link) => (
                 <Button
                   variant="outline"
@@ -224,7 +222,7 @@ const Login01 = ({
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {showPassword ? (
                     <EyeOff className="size-4" />
@@ -247,7 +245,7 @@ const Login01 = ({
               Already have an account?{" "}
               <a
                 href="#"
-                className="font-medium text-foreground hover:underline underline-offset-4"
+                className="font-medium text-foreground underline-offset-4 hover:underline"
               >
                 Log in
               </a>

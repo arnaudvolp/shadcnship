@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { getAnyBlock, getAllBlocks } from "@/lib/registry";
 import { PreviewThemeHandler } from "@/components/blocks";
 import { constructMetadata } from "@/config/site";
 
 interface PreviewPageProps {
   params: Promise<{ name: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
@@ -31,6 +32,7 @@ export async function generateMetadata({
 
 export default async function PreviewPage(props: PreviewPageProps) {
   const params = await props.params;
+  const searchParams = await props.searchParams;
   const { name } = params;
 
   const blockDetails = getAnyBlock(name);
@@ -39,7 +41,16 @@ export default async function PreviewPage(props: PreviewPageProps) {
     notFound();
   }
 
-  const Component = blockDetails.component;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = blockDetails.component as React.ComponentType<any>;
+
+  // Convert searchParams to simple object for components that need it
+  const searchParamsObj = Object.fromEntries(
+    Object.entries(searchParams).map(([key, value]) => [
+      key,
+      Array.isArray(value) ? value[0] : value,
+    ])
+  );
 
   return (
     <>
@@ -52,7 +63,7 @@ export default async function PreviewPage(props: PreviewPageProps) {
             </div>
           }
         >
-          <Component />
+          <Component searchParams={searchParamsObj} />
         </Suspense>
       </div>
     </>

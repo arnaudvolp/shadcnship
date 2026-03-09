@@ -2,86 +2,80 @@ import { ArrowUpRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 interface Hero03Props {
   badge?: string;
-  heading?: string;
+  title?: string;
   description?: string;
   buttons?: {
-    primary?: { text: string; url: string; icon?: React.ReactNode };
-    secondary?: { text: string; url: string; icon?: React.ReactNode };
-  };
+    text: string;
+    url?: string;
+    icon?: React.ReactNode;
+    variant?: "default" | "outline" | "ghost" | "secondary" | "link";
+  }[];
   ratingText?: string;
-  stats?: { value: string; label: string }[];
-  image?: string;
+  img?: string;
   className?: string;
 }
 
 const Hero03 = ({
   badge = "100% Free & Open Source",
-  heading = "Shadcn UI Blocks, Copy & Customize",
+  title = "Shadcn UI Blocks, Copy & Customize",
   description = "Pre-built landing page components for React. Just copy the code and focus on what matters — your product.",
-  buttons = {
-    primary: {
+  buttons = [
+    {
       text: "Browse Components",
       url: "#",
       icon: <ArrowUpRight className="size-4" />,
     },
-    secondary: { text: "View Docs", url: "#" },
-  },
-  ratingText = "Loved by developers worldwide",
-  stats = [
-    { value: "50+", label: "Blocks" },
-    { value: "100%", label: "Free" },
-    { value: "Open", label: "Source" },
+    { text: "View Docs", url: "#", variant: "outline" },
   ],
-  image = "https://www.shadcnship.com/images/image-preview.webp",
+  ratingText = "Loved by developers worldwide",
+  img = "/images/placeholders/hero-architecture-1.webp",
   className,
 }: Hero03Props) => {
   return (
-    <section
-      className={cn(
-        "min-h-screen flex items-center overflow-hidden",
-        className,
-      )}
-    >
-      <div className="w-full grid lg:grid-cols-2">
-        <div className="m-auto container p-6 md:p-20 text-center lg:text-left space-y-4">
+    <section className={cn("relative w-full overflow-hidden", className)}>
+      <div className="flex min-h-screen flex-col gap-4 lg:flex-row lg:gap-0">
+        {/* Text */}
+        <div className="container m-auto flex flex-col items-center gap-4 px-6 py-16 text-center lg:items-start lg:p-20 lg:text-left">
           <Badge
             variant="secondary"
-            className="py-1 border border-border"
+            className="border border-border py-1"
             asChild
           >
             <a href="#">{badge}</a>
           </Badge>
-          <h1 className=" text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight">
-            {heading}
+
+          <h1 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
+            {title}
           </h1>
-          <p className="mt-2 text-muted-foreground">{description}</p>
-          <div className="mt-0 flex flex-col md:flex-row items-center gap-4 justify-center lg:justify-start">
-            {buttons?.primary && (
-              <Button size="lg" className="w-full md:w-auto" asChild>
-                <a href={buttons.primary.url}>
-                  {buttons.primary.text} {buttons.primary.icon}
-                </a>
-              </Button>
-            )}
-            {buttons?.secondary && (
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full md:w-auto"
-                asChild
-              >
-                <a href={buttons.secondary.url}>
-                  {buttons.secondary.text} {buttons.secondary.icon}
-                </a>
-              </Button>
-            )}
-          </div>
-          <div className="mt-8 flex items-center gap-2 justify-center lg:justify-start">
+
+          <p className="max-w-3xl text-muted-foreground md:text-lg">
+            {description}
+          </p>
+
+          {buttons && buttons.length > 0 && (
+            <div className="grid w-full grid-cols-1 gap-4 sm:w-fit sm:grid-cols-2">
+              {buttons.map((btn) => (
+                <Button
+                  key={btn.text}
+                  size="lg"
+                  variant={btn.variant ?? "default"}
+                  className="w-full"
+                  asChild
+                >
+                  <a href={btn.url}>
+                    {btn.text}
+                    {btn.icon}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-4 flex items-center gap-2">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -93,35 +87,20 @@ const Hero03 = ({
             <Separator orientation="vertical" className="h-4" />
             <span className="text-sm text-muted-foreground">{ratingText}</span>
           </div>
-          <Card className="mt-8 w-full shadow-none max-w-2xl">
-            <div className="flex divide-x">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex flex-1 flex-col items-center"
-                >
-                  <span className="text-xl lg:text-2xl font-semibold">
-                    {stat.value}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Card>
         </div>
-        <div className="w-full aspect-video lg:aspect-auto lg:h-screen bg-accent">
-          {image && (
+
+        {/* Image */}
+        {img && (
+          <div className="aspect-video w-full bg-muted/30">
             <img
-              src={image}
-              alt={heading}
+              src={img}
+              alt={title}
               width={1000}
-              height={1000}
-              className="w-full h-full object-cover"
+              height={200}
+              className="aspect-video size-full object-cover"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

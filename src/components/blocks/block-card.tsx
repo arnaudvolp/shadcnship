@@ -28,14 +28,14 @@ export function BlockCard({ block, basePath = "/blocks" }: BlockCardProps) {
                 <div className="mb-2 text-4xl">
                   {block.categories[0]?.icon || "📦"}
                 </div>
-                <p className="text-muted-foreground text-xs">{block.title}</p>
+                <p className="text-xs text-muted-foreground">{block.title}</p>
               </div>
             </div>
           )}
         </div>
 
         {/* Hover overlay */}
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between gap-2 border-t border-border bg-background p-4 opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="absolute right-0 bottom-0 left-0 flex items-center justify-between gap-2 border-t border-border bg-background p-4 opacity-0 transition-opacity group-hover:opacity-100">
           <p className="text-muted-foreground">{block.title}</p>
           <ArrowUpRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
@@ -45,7 +45,7 @@ export function BlockCard({ block, basePath = "/blocks" }: BlockCardProps) {
 
   return (
     <Link href={`${basePath}/${block.name}`} className="block">
-      <Card className="group cursor-pointer overflow-hidden shadow-none p-0 transition-all hover:shadow-lg">
+      <Card className="group cursor-pointer overflow-hidden rounded-sm p-0 shadow-none transition-all hover:shadow-lg">
         <CardContent className="p-0">{cardContent}</CardContent>
       </Card>
     </Link>

@@ -1,28 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {
-  Book,
-  Menu,
-  Sparkles,
-  Layers,
-  Code2,
-  Blocks,
-  CircleCheckIcon,
-  CircleHelpIcon,
-  CircleIcon,
-  Sunset,
-  Zap,
-} from "lucide-react";
-import Link from "next/link";
-
+import { useState } from "react";
 import { cn } from "@/lib/utils";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -39,543 +18,263 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  Blocks,
+  ChevronDown,
+  Layers,
+  Menu,
+  Sparkles,
+  Sunset,
+} from "lucide-react";
 
-interface MenuItem {
-  title: string;
+// ---- Types ----
+
+interface NavSubItem {
+  text: string;
   url: string;
   description?: string;
   icon?: React.ReactNode;
-  items?: MenuItem[];
 }
 
-interface FeaturedItem {
-  title: string;
-  description: string;
+interface NavItemSimple {
+  type: "link";
+  text: string;
   url: string;
 }
 
-interface MenuItemWithType {
+interface NavItemMenu {
+  type: "menu";
   title: string;
+  items: NavSubItem[];
+}
+
+type NavItem = NavItemSimple | NavItemMenu;
+
+interface NavButton {
+  text: string;
   url: string;
-  type?: "featured" | "grid" | "list" | "simple" | "icon";
-  featured?: FeaturedItem;
-  items?: MenuItem[];
+  variant?: "default" | "outline" | "ghost" | "secondary";
 }
 
 interface Navbar01Props {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  menu?: MenuItemWithType[];
-  auth?: {
-    login?: { title: string; url: string };
-    signup?: { title: string; url: string };
-  };
+  logo?: React.ReactNode;
+  navItems?: NavItem[];
+  buttons?: NavButton[];
   className?: string;
 }
 
-const defaultMenu: MenuItemWithType[] = [
-  {
-    title: "Home",
-    url: "#",
-    type: "featured",
-    featured: {
-      title: "shadcn/ui",
-      description: "Beautifully designed components built with Tailwind CSS.",
-      url: "/",
-    },
-    items: [
-      {
-        title: "Introduction",
-        url: "#",
-        description:
-          "Re-usable components built using Radix UI and Tailwind CSS.",
-      },
-      {
-        title: "Installation",
-        url: "#",
-        description: "How to install dependencies and structure your app.",
-      },
-      {
-        title: "Typography",
-        url: "#",
-        description: "Styles for headings, paragraphs, lists...etc",
-      },
-    ],
-  },
-  {
-    title: "Products",
-    url: "#",
-    type: "grid",
-    items: [
-      {
-        title: "Components",
-        url: "#",
-        description: "Beautiful UI components built with Tailwind CSS.",
-        icon: <Blocks className="size-5 shrink-0" />,
-      },
-      {
-        title: "Templates",
-        url: "#",
-        description: "Ready-to-use templates for your next project.",
-        icon: <Layers className="size-5 shrink-0" />,
-      },
-      {
-        title: "Blocks",
-        url: "#",
-        description: "Pre-built sections to speed up development.",
-        icon: <Sparkles className="size-5 shrink-0" />,
-      },
-      {
-        title: "Themes",
-        url: "#",
-        description: "Beautiful themes to customize your app.",
-        icon: <Sunset className="size-5 shrink-0" />,
-      },
-    ],
-  },
-  {
-    title: "Resources",
-    url: "#",
-    type: "list",
-    items: [
-      {
-        title: "Documentation",
-        url: "#",
-        description: "Learn how to use the library.",
-        icon: <Book className="size-5 shrink-0" />,
-      },
-      {
-        title: "API Reference",
-        url: "#",
-        description: "Detailed API documentation for developers.",
-        icon: <Code2 className="size-5 shrink-0" />,
-      },
-      {
-        title: "Support",
-        url: "#",
-        description: "Get help from our support team.",
-        icon: <Zap className="size-5 shrink-0" />,
-      },
-    ],
-  },
-  {
-    title: "Status",
-    url: "#",
-    type: "icon",
-    items: [
-      {
-        title: "Backlog",
-        url: "#",
-        icon: <CircleHelpIcon className="size-4" />,
-      },
-      {
-        title: "In Progress",
-        url: "#",
-        icon: <CircleIcon className="size-4" />,
-      },
-      {
-        title: "Done",
-        url: "#",
-        icon: <CircleCheckIcon className="size-4" />,
-      },
-    ],
-  },
-  { title: "Pricing", url: "#" },
-  { title: "Blog", url: "#" },
-];
+// ---- Desktop menu item card ----
 
-const defaultAuth = {
-  login: { title: "Sign in", url: "#" },
-  signup: { title: "Get Started", url: "#" },
-};
-
-const defaultLogo = {
-  url: "/",
-  src: "",
-  alt: "Logo",
-  title: "Acme Inc",
-};
-
-// ListItem component for featured and grid menus
-const ListItem = ({
-  title,
-  href,
-  children,
-}: {
-  title: string;
-  href: string;
-  children?: React.ReactNode;
-}) => (
-  <li>
-    <NavigationMenuLink asChild>
-      <Link href={href}>
-        <div className="text-sm font-medium leading-none">{title}</div>
-        {children && (
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
+const SubItemCard = ({ item }: { item: NavSubItem }) => (
+  <NavigationMenuLink asChild>
+    <a
+      href={item.url}
+      className="flex items-start gap-2 rounded-md p-4 transition-colors hover:bg-muted"
+    >
+      {item.icon && (
+        <div className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-md border bg-background text-muted-foreground">
+          {item.icon}
+        </div>
+      )}
+      <div>
+        <p className="text-sm leading-snug font-semibold">{item.text}</p>
+        {item.description && (
+          <p className="mt-0.5 text-sm leading-snug text-muted-foreground">
+            {item.description}
           </p>
         )}
-      </Link>
-    </NavigationMenuLink>
-  </li>
+      </div>
+    </a>
+  </NavigationMenuLink>
 );
 
-// Render desktop menu items based on type
-const renderMenuItem = (item: MenuItemWithType) => {
-  // Simple link without dropdown
-  if (!item.items) {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuLink
-          asChild
-          className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground"
-        >
-          <Link href={item.url}>{item.title}</Link>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-    );
-  }
+// ---- Mobile accordion group ----
 
-  // Featured type (like Home in shadcn docs)
-  if (item.type === "featured" && item.featured) {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="bg-transparent">
-          {item.title}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid gap-2 p-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-            <li className="row-span-3">
-              <NavigationMenuLink asChild>
-                <Link
-                  href={item.featured.url}
-                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-4 no-underline outline-none transition-all duration-200 hover:shadow-md focus:shadow-md md:p-6"
-                >
-                  <Sparkles className="size-6" />
-                  <div className="mb-2 mt-4 text-lg font-medium">
-                    {item.featured.title}
-                  </div>
-                  <p className="text-sm leading-tight text-muted-foreground">
-                    {item.featured.description}
-                  </p>
-                </Link>
-              </NavigationMenuLink>
-            </li>
-            {item.items.map((subItem) => (
-              <ListItem
-                key={subItem.title}
-                href={subItem.url}
-                title={subItem.title}
-              >
-                {subItem.description}
-              </ListItem>
-            ))}
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  // Grid type (2 columns)
-  if (item.type === "grid") {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="bg-transparent">
-          {item.title}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid gap-2 p-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-            {item.items.map((subItem) => (
-              <li key={subItem.title}>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href={subItem.url}
-                    className="flex select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-                  >
-                    {subItem.icon && (
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-md border bg-background text-foreground">
-                        {subItem.icon}
-                      </div>
-                    )}
-                    <div>
-                      <div className="text-sm font-semibold">
-                        {subItem.title}
-                      </div>
-                      {subItem.description && (
-                        <p className="text-sm leading-snug text-muted-foreground">
-                          {subItem.description}
-                        </p>
-                      )}
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            ))}
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  // List type (single column with description)
-  if (item.type === "list") {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="bg-transparent">
-          {item.title}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid w-[300px] gap-1 p-2">
-            {item.items.map((subItem) => (
-              <li key={subItem.title}>
-                <NavigationMenuLink asChild>
-                  <Link href={subItem.url}>
-                    <div className="font-medium">{subItem.title}</div>
-                    {subItem.description && (
-                      <div className="text-sm text-muted-foreground">
-                        {subItem.description}
-                      </div>
-                    )}
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            ))}
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  // Icon type (simple links with icons)
-  if (item.type === "icon") {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="bg-transparent">
-          {item.title}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid w-[200px] gap-1 p-2">
-            {item.items.map((subItem) => (
-              <li key={subItem.title}>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href={subItem.url}
-                    className="flex flex-row items-center gap-2"
-                  >
-                    {subItem.icon}
-                    {subItem.title}
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            ))}
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  // Default: simple dropdown
+const MobileMenuGroup = ({ item }: { item: NavItemMenu }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <NavigationMenuItem key={item.title}>
-      <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[200px] gap-1 p-2">
-          {item.items.map((subItem) => (
-            <li key={subItem.title}>
-              <NavigationMenuLink asChild>
-                <Link href={subItem.url}>{subItem.title}</Link>
-              </NavigationMenuLink>
-            </li>
-          ))}
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-  );
-};
-
-// Render mobile menu items
-const renderMobileMenuItem = (item: MenuItemWithType) => {
-  if (!item.items) {
-    return (
-      <Link key={item.title} href={item.url} className="text-md font-semibold">
+    <div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between py-3 text-base font-semibold"
+      >
         {item.title}
-      </Link>
-    );
-  }
-
-  return (
-    <AccordionItem key={item.title} value={item.title} className="border-b-0">
-      <AccordionTrigger className="py-0 text-md font-semibold hover:no-underline">
-        {item.title}
-      </AccordionTrigger>
-      <AccordionContent className="mt-2">
-        {item.items.map((subItem) => (
-          <Link
-            key={subItem.title}
-            href={subItem.url}
-            className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            {subItem.icon && (
-              <div className="text-foreground">{subItem.icon}</div>
-            )}
-            <div>
-              <div className="text-sm font-semibold">{subItem.title}</div>
-              {subItem.description && (
-                <p className="text-sm leading-snug text-muted-foreground">
-                  {subItem.description}
-                </p>
+        <ChevronDown
+          className={cn(
+            "size-4 text-muted-foreground transition-transform",
+            open && "rotate-180",
+          )}
+        />
+      </button>
+      {open && (
+        <div className="flex flex-col gap-1 pb-2 pl-2">
+          {item.items.map((sub) => (
+            <a
+              key={sub.text}
+              href={sub.url}
+              className="flex items-center gap-2 rounded-md py-2 text-sm text-muted-foreground hover:text-foreground"
+            >
+              {sub.icon && (
+                <span className="flex size-7 items-center justify-center rounded border bg-muted text-muted-foreground">
+                  {sub.icon}
+                </span>
               )}
-            </div>
-          </Link>
-        ))}
-      </AccordionContent>
-    </AccordionItem>
+              {sub.text}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
+
+// ---- Main component ----
 
 const Navbar01 = ({
-  logo = defaultLogo,
-  menu = defaultMenu,
-  auth = defaultAuth,
+  logo = (
+    <a href="/" className="flex items-center gap-2">
+      <img src="/logo.svg" alt="Shadcnship" className="size-5 dark:invert" />
+      <span className="font-semibold">Shadcnship</span>
+    </a>
+  ),
+  navItems = [
+    {
+      type: "menu",
+      title: "Menu",
+      items: [
+        {
+          text: "Components",
+          url: "#",
+          description: "Beautiful UI components built with Tailwind CSS.",
+          icon: <Blocks className="size-4 shrink-0" />,
+        },
+        {
+          text: "Templates",
+          url: "#",
+          description: "Ready-to-use templates for your next project.",
+          icon: <Layers className="size-4 shrink-0" />,
+        },
+        {
+          text: "Blocks",
+          url: "#",
+          description: "Pre-built sections to speed up development.",
+          icon: <Sparkles className="size-4 shrink-0" />,
+        },
+        {
+          text: "Themes",
+          url: "#",
+          description: "Beautiful themes to customize your app.",
+          icon: <Sunset className="size-4 shrink-0" />,
+        },
+      ],
+    },
+    { type: "link", text: "Features", url: "#" },
+    { type: "link", text: "Product", url: "#" },
+    { type: "link", text: "Blog", url: "#" },
+    { type: "link", text: "Pricing", url: "#" },
+  ],
+  buttons = [
+    { text: "Sign in", url: "#", variant: "ghost" },
+    { text: "Get Started", url: "#", variant: "default" },
+  ],
   className,
-}: Navbar01Props) => {
-  const [scrolled, setScrolled] = useState(false);
+}: Navbar01Props) => (
+  <header className={cn("fixed top-0 w-full border-b", className)}>
+    <div className="container mx-auto flex h-14 items-center justify-between px-6 md:px-12">
+      {/* Logo */}
+      <div className="shrink-0">{logo}</div>
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <header
-      className={cn(
-        "fixed top-0 z-50 py-4 transition-all duration-300 w-full",
-        scrolled && "w-full border-b border-border/40 bg-background",
-        className
-      )}
-    >
-      <div className="px-6 md:px-12">
-        {/* Desktop Menu */}
-        <nav className="hidden items-center justify-between lg:flex">
-          <div className="flex items-center gap-6">
-            <Link href={logo.url} className="flex items-center gap-2">
-              {logo.src ? (
-                <img
-                  src={logo.src}
-                  className="max-h-6 dark:invert"
-                  alt={logo.alt}
-                />
+      {/* Desktop nav */}
+      <nav className="hidden items-center lg:flex">
+        <NavigationMenu>
+          <NavigationMenuList>
+            {navItems.map((item) =>
+              item.type === "menu" ? (
+                <NavigationMenuItem key={item.title}>
+                  <NavigationMenuTrigger className="bg-transparent text-sm font-medium">
+                    {item.title}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[520px] grid-cols-2 gap-1 p-3">
+                      {item.items.map((sub) => (
+                        <li key={sub.text}>
+                          <SubItemCard item={sub} />
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
               ) : (
-                <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <Sparkles className="size-4" />
-                </div>
-              )}
-              <span className="text-lg font-semibold tracking-tight">
-                {logo.title}
-              </span>
-            </Link>
-            <NavigationMenu viewport={false}>
-              <NavigationMenuList>
-                {menu.map((item) => renderMenuItem(item))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="flex gap-2">
-            {auth && (
-              <>
-                {auth.login && (
-                  <Button asChild variant="ghost" size="sm">
-                    <Link href={auth.login.url}>{auth.login.title}</Link>
-                  </Button>
-                )}
-                {auth.signup && (
-                  <Button asChild size="sm">
-                    <Link href={auth.signup.url}>{auth.signup.title}</Link>
-                  </Button>
-                )}
-              </>
+                <NavigationMenuItem key={item.text}>
+                  <NavigationMenuLink asChild>
+                    <a
+                      href={item.url}
+                      className="inline-flex h-9 items-center px-4 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                    >
+                      {item.text}
+                    </a>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ),
+            )}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </nav>
+
+      {/* Desktop CTA buttons */}
+      <div className="hidden items-center gap-2 lg:flex">
+        {buttons.map((btn) => (
+          <Button key={btn.text} variant={btn.variant ?? "default"} asChild>
+            <a href={btn.url}>{btn.text}</a>
+          </Button>
+        ))}
+      </div>
+
+      {/* Mobile hamburger */}
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" size="icon" className="lg:hidden">
+            <Menu className="size-5" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-80 p-0">
+          <SheetHeader className="border-b px-6 py-4">
+            <SheetTitle asChild>
+              <div>{logo}</div>
+            </SheetTitle>
+          </SheetHeader>
+          <div className="flex flex-col px-6 py-4">
+            {navItems.map((item) =>
+              item.type === "menu" ? (
+                <MobileMenuGroup key={item.title} item={item} />
+              ) : (
+                <a
+                  key={item.text}
+                  href={item.url}
+                  className="py-3 text-base font-semibold hover:text-muted-foreground"
+                >
+                  {item.text}
+                </a>
+              ),
             )}
           </div>
-        </nav>
-
-        {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
-            <Link href={logo.url} className="flex items-center gap-2">
-              {logo.src ? (
-                <img src={logo.src} className="max-h-8" alt={logo.alt} />
-              ) : (
-                <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <Sparkles className="size-4" />
-                </div>
-              )}
-              <span className="text-lg font-semibold tracking-tight">
-                {logo.title}
-              </span>
-            </Link>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    <Link href={logo.url} className="flex items-center gap-2">
-                      {logo.src ? (
-                        <img
-                          src={logo.src}
-                          className="max-h-8"
-                          alt={logo.alt}
-                        />
-                      ) : (
-                        <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                          <Sparkles className="size-4" />
-                        </div>
-                      )}
-                      <span className="text-lg font-semibold tracking-tight">
-                        {logo.title}
-                      </span>
-                    </Link>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="flex w-full flex-col gap-4"
-                  >
-                    {menu.map((item) => renderMobileMenuItem(item))}
-                  </Accordion>
-                  <div className="flex flex-col gap-3">
-                    {auth.login && (
-                      <Button asChild variant="outline">
-                        <Link href={auth.login.url}>{auth.login.title}</Link>
-                      </Button>
-                    )}
-                    {auth.signup && (
-                      <Button asChild>
-                        <Link href={auth.signup.url}>{auth.signup.title}</Link>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+          <div className="mt-auto flex flex-col gap-3 border-t px-6 py-6">
+            {buttons.map((btn) => (
+              <Button
+                key={btn.text}
+                variant={btn.variant === "ghost" ? "outline" : btn.variant}
+                className="w-full"
+                asChild
+              >
+                <a href={btn.url}>{btn.text}</a>
+              </Button>
+            ))}
           </div>
-        </div>
-      </div>
-    </header>
-  );
-};
+        </SheetContent>
+      </Sheet>
+    </div>
+  </header>
+);
 
 export { Navbar01 };
+export type { NavItem, NavSubItem, NavButton, Navbar01Props };

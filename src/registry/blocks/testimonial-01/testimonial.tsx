@@ -11,7 +11,7 @@ interface TestimonialItem {
 }
 
 interface Testimonial01Props {
-  heading?: string;
+  title?: string;
   description?: string;
   testimonials?: TestimonialItem[];
   className?: string;
@@ -64,19 +64,19 @@ const TestimonialCard = ({ name, role, content, avatar }: TestimonialItem) => {
     .toUpperCase();
 
   return (
-    <Card className="w-80 p-6 gap-4">
+    <Card className="w-80 gap-4 p-6">
       <div className="flex items-center gap-2">
-        <Avatar className="size-10 bg-primary text-primary-foreground">
+        <Avatar className="size-10">
           {avatar ? (
             <img src={avatar} alt={name} className="size-full object-cover" />
           ) : (
-            <AvatarFallback className="bg-primary text-primary-foreground font-medium">
+            <AvatarFallback className="bg-primary font-medium text-primary-foreground">
               {initials}
             </AvatarFallback>
           )}
         </Avatar>
-        <div>
-          <p className="font-semibold">{name}</p>
+        <div className="flex flex-col gap-0.5">
+          <p className="font-medium">{name}</p>
           <p className="text-sm text-muted-foreground">{role}</p>
         </div>
       </div>
@@ -86,7 +86,7 @@ const TestimonialCard = ({ name, role, content, avatar }: TestimonialItem) => {
 };
 
 const Testimonial01 = ({
-  heading = "Loved by Developers",
+  title = "Loved by Developers",
   description = "See what developers are saying about building faster with our components",
   testimonials: items = testimonials,
   className,
@@ -96,17 +96,15 @@ const Testimonial01 = ({
 
   return (
     <section className={cn("container mx-auto py-12 md:py-24", className)}>
-      <div className="px-6 md:px-12">
-        <div className="mx-auto text-center">
-          <h2 className=" text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
-            {heading}
-          </h2>
-          <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
-            {description}
-          </p>
-        </div>
+      <div className="mx-auto flex flex-col items-center gap-4 px-8 text-center">
+        <h2 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl">
+          {title}
+        </h2>
+        <p className="max-w-2xl text-muted-foreground md:text-lg">
+          {description}
+        </p>
       </div>
-      <div className="relative flex flex-col overflow-hidden mt-8">
+      <div className="relative mt-8 flex flex-col overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />

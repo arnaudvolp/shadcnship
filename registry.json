@@ -66,7 +66,6 @@
       "registryDependencies": [
         "button",
         "badge",
-        "card",
         "separator"
       ],
       "categories": [
@@ -84,34 +83,6 @@
       ]
     },
     {
-      "name": "hero-04",
-      "type": "registry:block",
-      "title": "Hero 04",
-      "description": "A full-screen centered hero with vertical line background",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "badge",
-        "avatar",
-        "https://shadcnship.com/r/background-04.json"
-      ],
-      "categories": [
-        "hero"
-      ],
-      "meta": {
-        "image": "/r/previews/hero-04.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/hero-04/hero.tsx",
-          "type": "registry:component",
-          "target": "components/hero-04.tsx"
-        }
-      ]
-    },
-    {
       "name": "hero-05",
       "type": "registry:block",
       "title": "Hero 05",
@@ -121,7 +92,8 @@
       ],
       "registryDependencies": [
         "button",
-        "badge"
+        "badge",
+        "avatar"
       ],
       "categories": [
         "hero"
@@ -160,31 +132,6 @@
           "path": "src/registry/blocks/feature-01/feature.tsx",
           "type": "registry:component",
           "target": "components/feature-01.tsx"
-        }
-      ]
-    },
-    {
-      "name": "feature-02",
-      "type": "registry:block",
-      "title": "Feature 02",
-      "description": "A feature section with hero image and icon cards",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
-      "categories": [
-        "feature"
-      ],
-      "meta": {
-        "image": "/r/previews/feature-02.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/feature-02/feature.tsx",
-          "type": "registry:component",
-          "target": "components/feature-02.tsx"
         }
       ]
     },
@@ -275,7 +222,7 @@
         "button",
         "card",
         "switch",
-        "badge"
+        "separator"
       ],
       "categories": [
         "pricing"
@@ -652,6 +599,29 @@
           "path": "src/registry/blocks/contact-01/contact.tsx",
           "type": "registry:component",
           "target": "components/contact-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-01",
+      "type": "registry:block",
+      "title": "Footer 01",
+      "description": "A multi-column footer with links",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "footer"
+      ],
+      "meta": {
+        "image": "/r/previews/footer-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/footer-01/footer.tsx",
+          "type": "registry:component",
+          "target": "components/footer-01.tsx"
         }
       ]
     },
@@ -1053,6 +1023,48 @@
           "path": "src/registry/blocks/feature-07/feature.tsx",
           "type": "registry:component",
           "target": "components/feature-07.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-09",
+      "type": "registry:block",
+      "title": "Feature 09",
+      "description": "An integrations grid with icon cards in a 3x2 layout and social proof ratings",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "categories": ["feature"],
+      "meta": {
+        "image": "/r/previews/feature-09.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-09/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-09.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-08",
+      "type": "registry:block",
+      "title": "Feature 08",
+      "description": "A bento-style feature grid with a large featured card and icon-based feature cards",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "feature"
+      ],
+      "meta": {
+        "image": "/r/previews/feature-08.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-08/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-08.tsx"
         }
       ]
     },

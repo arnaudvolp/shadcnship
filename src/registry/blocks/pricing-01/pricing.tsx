@@ -1,155 +1,172 @@
 "use client";
 
 import { useState } from "react";
+import { CircleCheck } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { Badge } from "@/components/ui/badge";
-import { CircleCheck, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 
-interface PricingFeature {
-  text: string;
-}
-
-interface PricingPlan {
-  id: string;
+interface Plan {
   name: string;
-  monthlyPrice: string;
-  yearlyPrice: string;
-  features: PricingFeature[];
+  prices: {
+    monthly: string;
+    yearly: string;
+  };
+  features: string[];
   popular?: boolean;
-  button: { text: string; url: string };
+  cta: { text: string; url: string };
 }
 
 interface Pricing01Props {
-  heading?: string;
+  title?: string;
   description?: string;
-  plans?: PricingPlan[];
+  plans?: Plan[];
   className?: string;
 }
 
 const Pricing01 = ({
-  heading = "Simple, Transparent Pricing",
+  title = "Simple, Transparent Pricing",
   description = "Choose the plan that fits your needs. No hidden fees.",
   plans = [
     {
-      id: "starter",
       name: "Starter",
-      monthlyPrice: "$0",
-      yearlyPrice: "$0",
+      prices: { monthly: "$0", yearly: "$0" },
       features: [
-        { text: "All core components" },
-        { text: "Community support" },
-        { text: "Free updates" },
-        { text: "Free support" },
+        "All core components",
+        "Community support",
+        "Free updates",
+        "Free support",
       ],
-      button: { text: "Get Started", url: "#" },
+      cta: { text: "Get Started", url: "#" },
     },
     {
-      id: "pro",
       name: "Pro",
-      monthlyPrice: "$49",
-      yearlyPrice: "$490",
+      prices: { monthly: "$49", yearly: "$490" },
       popular: true,
       features: [
-        { text: "Everything in Starter" },
-        { text: "Premium components" },
-        { text: "Priority support" },
-        { text: "Early access" },
-        { text: "Pro support" },
-        { text: "Free updates" },
-        { text: "Community support" },
+        "Everything in Starter",
+        "Premium components",
+        "Priority support",
+        "Early access",
+        "Pro support",
+        "Free updates",
+        "Community support",
       ],
-      button: { text: "Start Free Trial", url: "#" },
+      cta: { text: "Start Free Trial", url: "#" },
     },
     {
-      id: "enterprise",
       name: "Enterprise",
-      monthlyPrice: "$99",
-      yearlyPrice: "$990",
+      prices: { monthly: "$99", yearly: "$790" },
       features: [
-        { text: "Everything in Pro" },
-        { text: "Custom components" },
-        { text: "Dedicated support" },
-        { text: "SLA guarantee" },
-        { text: "Early access" },
-        { text: "Pro support" },
-        { text: "Free updates" },
-        { text: "Community support" },
-        ],
-      button: { text: "Contact Sales", url: "#" },
+        "Everything in Pro",
+        "Custom components",
+        "Dedicated support",
+        "SLA guarantee",
+        "Early access",
+        "Pro support",
+        "Free updates",
+        "Community support",
+      ],
+      cta: { text: "Contact Sales", url: "#" },
     },
   ],
   className,
 }: Pricing01Props) => {
-  const [isYearly, setIsYearly] = useState(false);
+  const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className={cn("w-full py-12 md:py-24", className)}>
-      <div className="container mx-auto px-6 ">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
-            {heading}
+    <section
+      className={cn(
+        "relative w-full overflow-hidden py-16 md:py-24",
+        className,
+      )}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
+            {title}
           </h2>
-          <p className="mt-2 text-lg text-muted-foreground">{description}</p>
-          <div className="mt-8 flex items-center justify-center gap-4 text-sm">
-            <span className={cn(!isYearly ? "font-medium" : "text-muted-foreground")}>
+          <p className="text-muted-foreground">{description}</p>
+          <div className="flex items-center gap-4">
+            <span
+              className={cn(
+                "text-sm",
+                !isAnnual ? "font-semibold" : "text-muted-foreground",
+              )}
+            >
               Monthly
             </span>
-            <Switch checked={isYearly} onCheckedChange={setIsYearly} />
-            <span className={cn(isYearly ? "font-medium" : "text-muted-foreground")}>
+            <Switch checked={isAnnual} onCheckedChange={setIsAnnual} />
+            <span
+              className={cn(
+                "text-sm",
+                isAnnual ? "font-semibold" : "text-muted-foreground",
+              )}
+            >
               Yearly
             </span>
           </div>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3  mx-auto">
+
+        <div className="lg: mt-12 flex flex-col items-center gap-8 lg:flex-row lg:items-stretch">
           {plans.map((plan) => (
-            <div key={plan.id} className="relative">
+            <Card
+              key={plan.name}
+              className={cn(
+                "relative flex w-full max-w-md flex-col",
+                plan.popular ? "border-2 border-foreground" : "",
+              )}
+            >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge>Most Popular</Badge>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="rounded-full bg-foreground px-4 py-1.5 text-sm font-medium whitespace-nowrap text-background">
+                    Most Popular
+                  </span>
                 </div>
               )}
-              <Card className={cn("flex h-full flex-col max-w-md mx-auto gap-4", plan.popular && "border-primary border-2")}>
-                <CardHeader>
-                  <CardTitle className="mt-4 text-3xl">{plan.name}</CardTitle>
-                  <div className="mt-2 flex items-baseline gap-1">
-                    <span className="text-4xl font-semibold">
-                      {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                    </span>
-                    <span className="text-muted-foreground">
-                      {isYearly ? "/year" : "/month"}
-                    </span>
-                  </div>
-                </CardHeader>
-                <div className="px-4 my-2">
-                  <Separator />
+
+              <CardHeader>
+                <h3 className="text-2xl font-medium">{plan.name}</h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl font-semibold">
+                    {isAnnual ? plan.prices.yearly : plan.prices.monthly}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {isAnnual ? "/year" : "/month"}
+                  </span>
                 </div>
-                <CardContent className="flex-1 ">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature) => (
-                      <li key={feature.text} className="flex items-center gap-2">
-                        <CircleCheck className="size-4 shrink-0 text-primary" />
-                        <span>{feature.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild className="w-full" variant={plan.popular ? "default" : "outline"} size="lg">
-                    <a href={plan.button.url}>{plan.button.text}</a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
+              </CardHeader>
+
+              <CardContent className="flex flex-1 flex-col gap-4">
+                <Separator />
+                <ul className="flex flex-1 flex-col gap-3">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-4">
+                      <CircleCheck className="size-4 shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+
+              <CardFooter>
+                <Button
+                  size="lg"
+                  variant={plan.popular ? "default" : "outline"}
+                  className="w-full"
+                  asChild
+                >
+                  <a href={plan.cta.url}>{plan.cta.text}</a>
+                </Button>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>
