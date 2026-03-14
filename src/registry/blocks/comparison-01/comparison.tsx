@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Check, X } from "lucide-react";
-import { LogoIcon } from "@/registry/blocks/social-icons/icons";
 
 type FeatureValue =
   | string
@@ -58,16 +57,16 @@ const Comparison01 = ({
   products = [
     {
       name: "Basic Cream",
-      img: "/images/placeholders/product-design-1.webp",
+      img: "https://www.shadcnship.com/images/placeholders/product-design-1.webp",
     },
     {
       name: "Lumière Pro",
       featured: true,
-      img: "/images/placeholders/product-design-2.webp",
+      img: "https://www.shadcnship.com/images/placeholders/product-design-2.webp",
     },
     {
       name: "Other Brands",
-      img: "/images/placeholders/product-design-3.webp",
+      img: "https://www.shadcnship.com/images/placeholders/product-design-3.webp",
     },
   ],
   features = [

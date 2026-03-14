@@ -32,7 +32,7 @@ const Hero03 = ({
     { text: "View Docs", url: "#", variant: "outline" },
   ],
   ratingText = "Loved by developers worldwide",
-  img = "/images/placeholders/hero-architecture-1.webp",
+  img = "https://www.shadcnship.com/images/placeholders/hero-architecture-1.webp",
   className,
 }: Hero03Props) => {
   return (

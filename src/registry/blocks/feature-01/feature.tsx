@@ -22,21 +22,21 @@ const Feature01 = ({
   description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
-      img: "/images/placeholders/hero-architecture-1.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-1.webp",
       title: "Copy & Paste Ready",
       description:
         "All components are ready to use. Just copy the code and paste it into your project.",
       link: { text: "View More", url: "#" },
     },
     {
-      img: "/images/placeholders/hero-architecture-8.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-8.webp",
       title: "Fully Customizable",
       description:
         "Built with Tailwind CSS, every component is fully customizable to match your brand.",
       link: { text: "View More", url: "#" },
     },
     {
-      img: "/images/placeholders/hero-architecture-3.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-3.webp",
       title: "TypeScript First",
       description:
         "Written in TypeScript with full type safety and IntelliSense support for better DX.",

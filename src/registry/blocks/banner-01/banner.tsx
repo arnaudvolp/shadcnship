@@ -29,8 +29,8 @@ const Banner01 = ({
 }: Banner01Props) => {
   return (
     <div className={cn("fixed top-0 w-full border-b bg-background", className)}>
-      <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 md:px-6">
-        <p className="text-sm">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-2 px-4 py-3 md:flex-row md:gap-4 md:px-6">
+        <p className="flex-col text-sm">
           <span className="font-semibold">{title}</span>
           <span className="mx-2 text-muted-foreground">·</span>
           <span className="text-muted-foreground">{description}</span>
@@ -43,7 +43,7 @@ const Banner01 = ({
           >
             <a
               href={button.url}
-              className="group flex shrink-0 items-center gap-1 text-sm font-medium"
+              className="group flex w-full shrink-0 items-center gap-1 text-sm font-medium md:w-fit"
             >
               {button.text}
               {button.icon}

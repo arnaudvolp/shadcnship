@@ -144,7 +144,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "card"
+        "button"
       ],
       "categories": [
         "feature"
@@ -301,7 +301,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "button"
+        "button",
+        "https://shadcnship.com/r/social-icons.json"
       ],
       "categories": [
         "cta"
@@ -380,7 +381,7 @@
       ],
       "registryDependencies": [
         "button",
-        "card"
+        "https://shadcnship.com/r/social-icons.json"
       ],
       "categories": [
         "cta"
@@ -558,7 +559,8 @@
       "dependencies": [],
       "registryDependencies": [
         "card",
-        "https://magicui.design/r/marquee.json"
+        "https://magicui.design/r/marquee.json",
+        "https://shadcnship.com/r/social-icons.json"
       ],
       "categories": [
         "logo"
@@ -636,8 +638,7 @@
       "registryDependencies": [
         "button",
         "sheet",
-        "navigation-menu",
-        "accordion"
+        "navigation-menu"
       ],
       "categories": [
         "navbar"
@@ -929,7 +930,9 @@
       "dependencies": [
         "lucide-react"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button"
+      ],
       "categories": [
         "banner"
       ],
@@ -1027,25 +1030,6 @@
       ]
     },
     {
-      "name": "feature-09",
-      "type": "registry:block",
-      "title": "Feature 09",
-      "description": "An integrations grid with icon cards in a 3x2 layout and social proof ratings",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [],
-      "categories": ["feature"],
-      "meta": {
-        "image": "/r/previews/feature-09.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/feature-09/feature.tsx",
-          "type": "registry:component",
-          "target": "components/feature-09.tsx"
-        }
-      ]
-    },
-    {
       "name": "feature-08",
       "type": "registry:block",
       "title": "Feature 08",
@@ -1053,7 +1037,9 @@
       "dependencies": [
         "lucide-react"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
       "categories": [
         "feature"
       ],
@@ -1065,6 +1051,25 @@
           "path": "src/registry/blocks/feature-08/feature.tsx",
           "type": "registry:component",
           "target": "components/feature-08.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-09",
+      "type": "registry:block",
+      "title": "Feature 09",
+      "description": "An integrations grid with icon cards in a 3x2 layout and social proof ratings",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["https://shadcnship.com/r/social-icons.json"],
+      "categories": ["feature"],
+      "meta": {
+        "image": "/r/previews/feature-09.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-09/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-09.tsx"
         }
       ]
     },

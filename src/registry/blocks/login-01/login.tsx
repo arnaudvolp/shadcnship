@@ -82,7 +82,7 @@ interface Login01Props {
 const Login01 = ({
   logo = <LogoIcon className="size-6 invert dark:invert" />,
   logoText = "Shadcnship",
-  img = "/images/placeholders/hero-architecture-9.webp",
+  img = "https://www.shadcnship.com/images/placeholders/hero-architecture-9.webp",
   tagline = "Convert your ideas into successful business.",
   title = "Sign Up Account",
   subheading = "Get Started",

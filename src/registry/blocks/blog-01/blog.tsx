@@ -84,17 +84,20 @@ const Blog01 = ({
   description = "Discover insights, tutorials, and best practices to build better products faster.",
   posts = [
     {
-      img: "/images/placeholders/hero-architecture-10.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-10.webp",
       category: "Design System",
       readTime: "5 min read",
       title: "Building Consistent UI with Shadcn",
       description:
         "Learn how to create a cohesive design system using Shadcn components.",
-      author: { name: "Sarah Chen", avatar: "/images/avatars/avatar-1.webp" },
+      author: {
+        name: "Sarah Chen",
+        avatar: "https://www.shadcnship.com/mages/avatars/avatar-1.webp",
+      },
       date: "15 Jan, 2026",
     },
     {
-      img: "/images/placeholders/hero-architecture-12.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-12.webp",
       category: "Tutorial",
       readTime: "8 min read",
       title: "From Zero to Landing Page in 10 Minutes",
@@ -102,12 +105,12 @@ const Blog01 = ({
         "Ship your next project faster with pre-built blocks and components.",
       author: {
         name: "Marcus Johnson",
-        avatar: "/images/avatars/avatar-4.webp",
+        avatar: "https://www.shadcnship.com/mages/avatars/avatar-4.webp",
       },
       date: "12 Jan, 2026",
     },
     {
-      img: "/images/placeholders/hero-architecture-11.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-11.webp",
       category: "Best Practices",
       readTime: "4 min read",
       title: "Accessible Components That Convert",
@@ -115,7 +118,7 @@ const Blog01 = ({
         "Why accessibility matters for your business and how to implement it.",
       author: {
         name: "Emily Rodriguez",
-        avatar: "/images/avatars/avatar-5.webp",
+        avatar: "https://www.shadcnship.com/mages/avatars/avatar-5.webp",
       },
       date: "10 Jan, 2026",
     },
