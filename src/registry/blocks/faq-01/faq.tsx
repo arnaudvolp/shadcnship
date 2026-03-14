@@ -95,4 +95,4 @@ const Faq01 = ({
   </section>
 );
 
-export { Faq01 };
+export default Faq01;

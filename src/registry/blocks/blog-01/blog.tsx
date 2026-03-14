@@ -140,4 +140,4 @@ const Blog01 = ({
   </section>
 );
 
-export { Blog01 };
+export default Blog01;

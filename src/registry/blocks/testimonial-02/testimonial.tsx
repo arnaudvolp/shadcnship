@@ -235,4 +235,4 @@ const Testimonial02 = ({
   </section>
 );
 
-export { Testimonial02 };
+export default Testimonial02;

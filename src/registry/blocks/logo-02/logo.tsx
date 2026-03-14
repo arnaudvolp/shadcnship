@@ -260,4 +260,4 @@ const Logo02 = ({
   );
 };
 
-export { Logo02 };
+export default Logo02;

@@ -142,4 +142,4 @@ const Footer01 = ({
   );
 };
 
-export { Footer01 };
+export default Footer01;

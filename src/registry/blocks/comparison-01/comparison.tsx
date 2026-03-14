@@ -167,4 +167,4 @@ const Comparison01 = ({
   );
 };
 
-export { Comparison01 };
+export default Comparison01;

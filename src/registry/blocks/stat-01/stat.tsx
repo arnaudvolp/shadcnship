@@ -46,4 +46,4 @@ const Stat01 = ({
   </section>
 );
 
-export { Stat01 };
+export default Stat01;

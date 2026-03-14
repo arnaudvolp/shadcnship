@@ -52,4 +52,4 @@ const Background02 = ({
   );
 };
 
-export { Background02 };
+export default Background02;

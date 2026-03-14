@@ -51,4 +51,4 @@ const Background03 = ({
   );
 };
 
-export { Background03 };
+export default Background03;

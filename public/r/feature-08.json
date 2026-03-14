@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-08",
+  "title": "Feature 08",
+  "description": "A bento-style feature grid with a large featured card and icon-based feature cards",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/blocks/feature-08/feature.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Card, CardContent } from \"@/components/ui/card\";\nimport { Copy, Sparkles, Code2, LayoutTemplate, Gauge } from \"lucide-react\";\n\ninterface FeatureItem {\n  icon: React.ReactNode;\n  title: string;\n  description: string;\n  featured?: boolean;\n}\n\ninterface Feature08Props {\n  label?: string;\n  title?: string;\n  description?: string;\n  features?: FeatureItem[];\n  className?: string;\n}\n\nconst FeatureCard = ({ icon, title, description, featured }: FeatureItem) => (\n  <Card\n    className={cn(\n      featured\n        ? \"border-0 bg-linear-to-br from-primary to-primary/70 text-primary-foreground md:col-span-2 lg:col-span-1 lg:row-span-2\"\n        : \"bg-muted dark:bg-background\",\n      \"shadow-none\",\n    )}\n  >\n    <CardContent\n      className={cn(\"flex flex-col\", featured ? \"h-full gap-0\" : \"gap-4\")}\n    >\n      <div\n        className={cn(\n          \"flex size-12 items-center justify-center rounded-lg border backdrop-blur-sm\",\n          featured\n            ? \"border-white/20 bg-white/10\"\n            : \"border-border/50 bg-background/50\",\n        )}\n      >\n        <span\n          className={cn(\n            \"flex items-center justify-center\",\n            !featured && \"text-foreground\",\n          )}\n        >\n          {icon}\n        </span>\n      </div>\n      <div\n        className={cn(\"flex flex-col gap-2\", featured && \"mt-auto gap-3 pt-8\")}\n      >\n        <h3 className={cn(\"font-medium\", featured && \"text-xl\")}>{title}</h3>\n        <p className={cn(\"text-sm\", !featured && \"text-muted-foreground\")}>\n          {description}\n        </p>\n      </div>\n    </CardContent>\n  </Card>\n);\n\nconst Feature08 = ({\n  label = \"Features\",\n  title = \"Everything You Need to Build Faster\",\n  description = \"Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.\",\n  features = [\n    {\n      icon: <Copy className=\"size-5\" />,\n      title: \"Copy & Paste Ready\",\n      description:\n        \"All components are ready to use out of the box. Just copy the code and paste it into your project — no configuration needed.\",\n      featured: true,\n    },\n    {\n      icon: <Sparkles className=\"size-5\" />,\n      title: \"Fully Customizable\",\n      description:\n        \"Built with Tailwind CSS, every component is fully customizable to match your brand.\",\n    },\n    {\n      icon: <Code2 className=\"size-5\" />,\n      title: \"TypeScript First\",\n      description:\n        \"Written in TypeScript with full type safety and IntelliSense support for better DX.\",\n    },\n    {\n      icon: <LayoutTemplate className=\"size-5\" />,\n      title: \"Pre-built Templates\",\n      description:\n        \"Start with production-ready templates for common layouts and patterns.\",\n    },\n    {\n      icon: <Gauge className=\"size-5\" />,\n      title: \"Performance Optimized\",\n      description:\n        \"Lightweight components with zero runtime overhead and fast load times.\",\n    },\n  ],\n  className,\n}: Feature08Props) => (\n  <section className={cn(\"px-8 py-12 md:py-24\", className)}>\n    <div className=\"container mx-auto flex max-w-5xl flex-col items-center gap-4 text-center\">\n      {label && (\n        <p className=\"text-sm font-semibold tracking-widest text-muted-foreground uppercase\">\n          {label}\n        </p>\n      )}\n      <h2 className=\"text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl\">\n        {title}\n      </h2>\n      {description && (\n        <p className=\"text-muted-foreground md:text-lg\">{description}</p>\n      )}\n    </div>\n    <div className=\"mx-auto mt-12 grid max-w-5xl gap-2 md:grid-cols-2 lg:grid-cols-3\">\n      {features.map((feature, index) => (\n        <FeatureCard key={index} {...feature} />\n      ))}\n    </div>\n  </section>\n);\n\nexport default Feature08;\n",
+      "type": "registry:component",
+      "target": "components/feature-08.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/feature-08.webp"
+  },
+  "categories": [
+    "feature"
+  ],
+  "type": "registry:block"
+}

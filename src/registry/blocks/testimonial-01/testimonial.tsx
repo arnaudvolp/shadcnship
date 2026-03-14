@@ -122,4 +122,4 @@ const Testimonial01 = ({
   );
 };
 
-export { Testimonial01 };
+export default Testimonial01;

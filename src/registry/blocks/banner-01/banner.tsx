@@ -55,4 +55,4 @@ const Banner01 = ({
   );
 };
 
-export { Banner01 };
+export default Banner01;

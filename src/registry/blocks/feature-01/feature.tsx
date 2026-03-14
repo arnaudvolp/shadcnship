@@ -88,4 +88,4 @@ const Feature01 = ({
   );
 };
 
-export { Feature01 };
+export default Feature01;

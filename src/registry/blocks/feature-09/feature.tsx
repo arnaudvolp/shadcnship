@@ -113,4 +113,4 @@ const Feature09 = ({
   </section>
 );
 
-export { Feature09 };
+export default Feature09;

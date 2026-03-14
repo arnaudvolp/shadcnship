@@ -72,4 +72,4 @@ const Contact01 = ({
   );
 };
 
-export { Contact01 };
+export default Contact01;

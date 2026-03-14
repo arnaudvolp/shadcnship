@@ -120,4 +120,4 @@ const Cta04 = ({
   </section>
 );
 
-export { Cta04 };
+export default Cta04;

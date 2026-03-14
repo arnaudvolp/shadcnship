@@ -257,4 +257,5 @@ const Login01 = ({
   );
 };
 
-export { Login01, signUpSchema, type SignUpFormData };
+export default Login01;
+export { signUpSchema, type SignUpFormData };

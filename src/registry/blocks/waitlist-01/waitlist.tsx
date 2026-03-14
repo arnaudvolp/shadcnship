@@ -165,5 +165,5 @@ const Waitlist01 = ({
   );
 };
 
-export { Waitlist01 };
+export default Waitlist01;
 export type { Waitlist01Props };

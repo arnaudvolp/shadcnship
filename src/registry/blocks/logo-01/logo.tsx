@@ -82,4 +82,4 @@ const Logo01 = ({
   );
 };
 
-export { Logo01 };
+export default Logo01;

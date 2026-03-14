@@ -276,5 +276,5 @@ const Navbar01 = ({
   </header>
 );
 
-export { Navbar01 };
+export default Navbar01;
 export type { NavItem, NavSubItem, NavButton, Navbar01Props };

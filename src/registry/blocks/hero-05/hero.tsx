@@ -104,4 +104,4 @@ const Hero05 = ({
   );
 };
 
-export { Hero05 };
+export default Hero05;

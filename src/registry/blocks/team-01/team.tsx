@@ -110,4 +110,4 @@ const Team01 = ({
   </section>
 );
 
-export { Team01 };
+export default Team01;
