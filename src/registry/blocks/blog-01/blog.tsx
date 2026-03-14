@@ -92,7 +92,7 @@ const Blog01 = ({
         "Learn how to create a cohesive design system using Shadcn components.",
       author: {
         name: "Sarah Chen",
-        avatar: "https://www.shadcnship.com/mages/avatars/avatar-1.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-1.webp",
       },
       date: "15 Jan, 2026",
     },
@@ -105,7 +105,7 @@ const Blog01 = ({
         "Ship your next project faster with pre-built blocks and components.",
       author: {
         name: "Marcus Johnson",
-        avatar: "https://www.shadcnship.com/mages/avatars/avatar-4.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-4.webp",
       },
       date: "12 Jan, 2026",
     },
@@ -118,7 +118,7 @@ const Blog01 = ({
         "Why accessibility matters for your business and how to implement it.",
       author: {
         name: "Emily Rodriguez",
-        avatar: "https://www.shadcnship.com/mages/avatars/avatar-5.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-5.webp",
       },
       date: "10 Jan, 2026",
     },

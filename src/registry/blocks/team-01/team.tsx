@@ -65,7 +65,7 @@ const Team01 = ({
     {
       name: "Sarah Chen",
       role: "Lead Designer",
-      img: "https://www.shadcnship.com/mages/avatars/avatar-1.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-1.webp",
       socials: [
         { icon: <LinkedInIcon className="size-4" />, href: "#" },
         { icon: <XIcon className="size-4" />, href: "#" },
@@ -74,7 +74,7 @@ const Team01 = ({
     {
       name: "Marcus Johnson",
       role: "Senior Developer",
-      img: "https://www.shadcnship.com/mages/avatars/avatar-4.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-4.webp",
       socials: [
         { icon: <LinkedInIcon className="size-4" />, href: "#" },
         { icon: <XIcon className="size-4" />, href: "#" },
@@ -83,7 +83,7 @@ const Team01 = ({
     {
       name: "Emily Rodriguez",
       role: "Product Manager",
-      img: "https://www.shadcnship.com/mages/avatars/avatar-5.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-5.webp",
       socials: [
         { icon: <LinkedInIcon className="size-4" />, href: "#" },
         { icon: <XIcon className="size-4" />, href: "#" },

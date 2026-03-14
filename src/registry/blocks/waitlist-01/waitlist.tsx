@@ -56,10 +56,10 @@ const Waitlist01 = ({
   errorMessage = "Something went wrong. Please try again.",
   socialProof = {
     avatars: [
-      "https://www.shadcnship.com/mages/avatars/avatar-1.webp",
-      "https://www.shadcnship.com/mages/avatars/avatar-2.webp",
-      "https://www.shadcnship.com/mages/avatars/avatar-3.webp",
-      "https://www.shadcnship.com/mages/avatars/avatar-4.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-1.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-2.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-3.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-4.webp",
     ],
     text: "Join 2,500+ others on the waitlist",
   },
