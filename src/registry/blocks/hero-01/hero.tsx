@@ -29,7 +29,7 @@ const Hero01 = ({
     },
     { text: "View Docs", url: "#", variant: "outline" },
   ],
-  img = "/images/placeholders/hero-architecture-4.webp",
+  img = "https://www.shadcnship.com/images/placeholders/hero-architecture-4.webp",
   className,
 }: Hero01Props) => {
   return (
@@ -93,4 +93,4 @@ const Hero01 = ({
   );
 };
 
-export { Hero01 };
+export default Hero01;

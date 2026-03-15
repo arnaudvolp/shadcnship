@@ -24,9 +24,9 @@ const Hero05 = ({
   badge = {
     text: "Trusted by developers",
     avatars: [
-      "/images/avatars/avatar-1.webp",
-      "/images/avatars/avatar-2.webp",
-      "/images/avatars/avatar-3.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-1.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-2.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-3.webp",
     ],
   },
   title = "Shadcn UI Blocks, Copy & Customize",
@@ -104,4 +104,4 @@ const Hero05 = ({
   );
 };
 
-export { Hero05 };
+export default Hero05;

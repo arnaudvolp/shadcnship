@@ -168,4 +168,4 @@ const Changelog01 = ({
   </section>
 );
 
-export { Changelog01 };
+export default Changelog01;

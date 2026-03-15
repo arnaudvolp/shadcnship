@@ -24,7 +24,7 @@ const Feature03 = ({
   description = "Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.",
   features = [
     {
-      img: "/images/placeholders/hero-architecture-1.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-1.webp",
       badge: "Copy & Paste Ready",
       title: "Copy & Paste Ready Everything You Need to Build Faster",
       description:
@@ -32,7 +32,7 @@ const Feature03 = ({
       button: { text: "Browse Components", url: "#" },
     },
     {
-      img: "/images/placeholders/hero-architecture-2.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-2.webp",
       badge: "Fully Customizable",
       title: "Fully Customizable",
       description:
@@ -40,7 +40,7 @@ const Feature03 = ({
       button: { text: "View Docs", url: "#" },
     },
     {
-      img: "/images/placeholders/hero-architecture-3.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-3.webp",
       badge: "TypeScript First",
       title: "TypeScript First",
       description:
@@ -48,7 +48,7 @@ const Feature03 = ({
       button: { text: "Get Started", url: "#" },
     },
     {
-      img: "/images/placeholders/hero-architecture-4.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-4.webp",
       badge: "Accessible by Default",
       title: "Accessible by Default",
       description:
@@ -116,4 +116,4 @@ const Feature03 = ({
   );
 };
 
-export { Feature03 };
+export default Feature03;

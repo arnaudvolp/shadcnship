@@ -174,4 +174,5 @@ const Feature07Minimal = (
   props: Omit<Feature07Props, "label" | "title" | "description">,
 ) => <Feature07 {...props} label="" title="" description="" />;
 
-export { Feature07, Feature07WithOverlay, Feature07Minimal };
+export default Feature07;
+export { Feature07WithOverlay, Feature07Minimal };

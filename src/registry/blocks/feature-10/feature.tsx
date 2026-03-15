@@ -448,4 +448,4 @@ const Feature10 = ({ label, title, className }: Feature10Props) => (
   </section>
 );
 
-export { Feature10 };
+export default Feature10;

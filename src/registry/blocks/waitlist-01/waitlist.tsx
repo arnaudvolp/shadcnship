@@ -56,10 +56,10 @@ const Waitlist01 = ({
   errorMessage = "Something went wrong. Please try again.",
   socialProof = {
     avatars: [
-      "/images/avatars/avatar-1.webp",
-      "/images/avatars/avatar-2.webp",
-      "/images/avatars/avatar-3.webp",
-      "/images/avatars/avatar-4.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-1.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-2.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-3.webp",
+      "https://www.shadcnship.com/images/avatars/avatar-4.webp",
     ],
     text: "Join 2,500+ others on the waitlist",
   },
@@ -165,5 +165,5 @@ const Waitlist01 = ({
   );
 };
 
-export { Waitlist01 };
+export default Waitlist01;
 export type { Waitlist01Props };

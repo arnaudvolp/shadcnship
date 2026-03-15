@@ -58,4 +58,4 @@ const Cta01 = ({
   </section>
 );
 
-export { Cta01 };
+export default Cta01;

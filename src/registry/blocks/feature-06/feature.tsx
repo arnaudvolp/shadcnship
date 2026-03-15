@@ -137,4 +137,4 @@ const Feature06 = ({
   </section>
 );
 
-export { Feature06 };
+export default Feature06;

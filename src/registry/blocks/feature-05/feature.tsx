@@ -39,28 +39,28 @@ const Feature05 = ({
       description:
         "Every component is ready to use. Just copy the code and paste it into your project.",
       icon: Copy,
-      img: "/images/placeholders/hero-architecture-8.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-8.webp",
     },
     {
       title: "Fully Customizable",
       description:
         "Built with Tailwind CSS, every component can be easily modified to match your brand.",
       icon: SquareDashedMousePointer,
-      img: "/images/placeholders/hero-architecture-1.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-1.webp",
     },
     {
       title: "TypeScript First",
       description:
         "All components are fully typed with TypeScript for better developer experience.",
       icon: TypeOutline,
-      img: "/images/placeholders/hero-architecture-3.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-3.webp",
     },
     {
       title: "Accessible by Default",
       description:
         "Built on Radix UI primitives, all components follow WAI-ARIA guidelines.",
       icon: Info,
-      img: "/images/placeholders/hero-architecture-4.webp",
+      img: "https://www.shadcnship.com/images/placeholders/hero-architecture-4.webp",
     },
   ],
   className,
@@ -138,4 +138,4 @@ const Feature05 = ({
   );
 };
 
-export { Feature05 };
+export default Feature05;

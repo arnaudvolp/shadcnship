@@ -11,15 +11,15 @@ export const siteConfig = {
   url:
     process.env.NODE_ENV === "production"
       ? `https://${process.env.NEXT_PUBLIC_SITE_URL}` || ""
-      : "http://localhost:3000",
+      : `${process.env.NEXT_PUBLIC_SITE_URL}`,
   ogImage: "/og-image.png",
   author: {
-    name: "Arnaud Volpi",
+    name: "Arnaud Vlp",
     url: "https://twitter.com/arnaudbuilds",
     twitter: "@arnaudbuilds",
   },
   links: {
-    github: "https://github.com/arnaudvolpi/shadcn-ui-blocks",
+    github: "https://github.com/arnaudvolp/shadcn-ui-blocks",
   },
   keywords: [
     "ShadcnShip",

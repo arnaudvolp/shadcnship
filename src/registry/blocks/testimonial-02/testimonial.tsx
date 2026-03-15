@@ -118,7 +118,7 @@ const Testimonial02 = ({
   testimonials = [
     {
       type: "image",
-      img: "/images/avatars/avatar-1.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-1.webp",
     },
     {
       type: "text",
@@ -127,13 +127,13 @@ const Testimonial02 = ({
         "Daily support, tailored insights-Halse revolutionized my well-being. A most-have for a healthier life!",
       author: {
         name: "Emma Thompson",
-        avatar: "/images/avatars/avatar-1.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-1.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      img: "/images/avatars/avatar-2.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-2.webp",
     },
     {
       type: "text",
@@ -142,7 +142,7 @@ const Testimonial02 = ({
         "The customer support team is exceptional. They helped us get set up quickly and answered all our questions.",
       author: {
         name: "Emily Johnson",
-        avatar: "/images/avatars/avatar-2.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-2.webp",
       },
       rating: 5,
     },
@@ -153,13 +153,13 @@ const Testimonial02 = ({
         "From day one, this tool has made our processes smoother. A game-changer for productivity.",
       author: {
         name: "Alex Rodriguez",
-        avatar: "/images/avatars/avatar-3.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-3.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      img: "/images/avatars/avatar-3.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-3.webp",
     },
     {
       type: "text",
@@ -168,13 +168,13 @@ const Testimonial02 = ({
         "Switching to this platform was the best decision for our business. Highly recommend!",
       author: {
         name: "Ryan Carter",
-        avatar: "/images/avatars/avatar-4.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-4.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      img: "/images/avatars/avatar-4.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-4.webp",
     },
     {
       type: "cta",
@@ -190,13 +190,13 @@ const Testimonial02 = ({
         "We expected good, but got amazing. The features are exactly what we needed.",
       author: {
         name: "Jasmine Lee",
-        avatar: "/images/avatars/avatar-5.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-5.webp",
       },
       rating: 5,
     },
     {
       type: "image",
-      img: "/images/avatars/avatar-5.webp",
+      img: "https://www.shadcnship.com/images/avatars/avatar-5.webp",
     },
     {
       type: "text",
@@ -205,7 +205,7 @@ const Testimonial02 = ({
         "We expected good, but got amazing. The features are exactly what we needed.",
       author: {
         name: "Jasmine Lee",
-        avatar: "/images/avatars/avatar-6.webp",
+        avatar: "https://www.shadcnship.com/images/avatars/avatar-6.webp",
       },
       rating: 5,
     },
@@ -235,4 +235,4 @@ const Testimonial02 = ({
   </section>
 );
 
-export { Testimonial02 };
+export default Testimonial02;

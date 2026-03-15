@@ -66,7 +66,6 @@
       "registryDependencies": [
         "button",
         "badge",
-        "card",
         "separator"
       ],
       "categories": [
@@ -84,34 +83,6 @@
       ]
     },
     {
-      "name": "hero-04",
-      "type": "registry:block",
-      "title": "Hero 04",
-      "description": "A full-screen centered hero with vertical line background",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "badge",
-        "avatar",
-        "https://shadcnship.com/r/background-04.json"
-      ],
-      "categories": [
-        "hero"
-      ],
-      "meta": {
-        "image": "/r/previews/hero-04.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/hero-04/hero.tsx",
-          "type": "registry:component",
-          "target": "components/hero-04.tsx"
-        }
-      ]
-    },
-    {
       "name": "hero-05",
       "type": "registry:block",
       "title": "Hero 05",
@@ -121,7 +92,8 @@
       ],
       "registryDependencies": [
         "button",
-        "badge"
+        "badge",
+        "avatar"
       ],
       "categories": [
         "hero"
@@ -160,31 +132,6 @@
           "path": "src/registry/blocks/feature-01/feature.tsx",
           "type": "registry:component",
           "target": "components/feature-01.tsx"
-        }
-      ]
-    },
-    {
-      "name": "feature-02",
-      "type": "registry:block",
-      "title": "Feature 02",
-      "description": "A feature section with hero image and icon cards",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
-      "categories": [
-        "feature"
-      ],
-      "meta": {
-        "image": "/r/previews/feature-02.webp"
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/feature-02/feature.tsx",
-          "type": "registry:component",
-          "target": "components/feature-02.tsx"
         }
       ]
     },
@@ -275,7 +222,7 @@
         "button",
         "card",
         "switch",
-        "badge"
+        "separator"
       ],
       "categories": [
         "pricing"
@@ -1080,6 +1027,48 @@
       ]
     },
     {
+      "name": "feature-09",
+      "type": "registry:block",
+      "title": "Feature 09",
+      "description": "An integrations grid with icon cards in a 3x2 layout and social proof ratings",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "categories": ["feature"],
+      "meta": {
+        "image": "/r/previews/feature-09.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-09/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-09.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-08",
+      "type": "registry:block",
+      "title": "Feature 08",
+      "description": "A bento-style feature grid with a large featured card and icon-based feature cards",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "feature"
+      ],
+      "meta": {
+        "image": "/r/previews/feature-08.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-08/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-08.tsx"
+        }
+      ]
+    },
+    {
       "name": "comparison-01",
       "type": "registry:block",
       "title": "Comparison 01",
@@ -1118,51 +1107,6 @@
           "path": "src/registry/blocks/logo-02/logo.tsx",
           "type": "registry:component",
           "target": "components/logo-02.tsx"
-        }
-      ]
-    },
-    {
-      "name": "table-01",
-      "type": "registry:block",
-      "title": "Table 01",
-      "description": "Data table with TanStack Table, pagination and Supabase server actions",
-      "dependencies": [
-        "lucide-react",
-        "@tanstack/react-table"
-      ],
-      "registryDependencies": [
-        "table",
-        "button",
-        "badge",
-        "select"
-      ],
-      "categories": [
-        "table"
-      ],
-      "meta": {
-        "image": "/r/previews/table-01.webp",
-        "stacks": ["supabase"]
-      },
-      "files": [
-        {
-          "path": "src/registry/blocks/table-01/table.tsx",
-          "type": "registry:component",
-          "target": "components/table-01/table.tsx"
-        },
-        {
-          "path": "src/registry/blocks/table-01/components/columns.tsx",
-          "type": "registry:component",
-          "target": "components/table-01/components/columns.tsx"
-        },
-        {
-          "path": "src/registry/blocks/table-01/components/data-table.tsx",
-          "type": "registry:component",
-          "target": "components/table-01/components/data-table.tsx"
-        },
-        {
-          "path": "src/registry/blocks/table-01/supabase/fetch-data.ts",
-          "type": "registry:component",
-          "target": "components/table-01/supabase/fetch-data.ts"
         }
       ]
     }

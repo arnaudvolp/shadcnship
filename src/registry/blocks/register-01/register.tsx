@@ -266,4 +266,5 @@ const Register01 = ({
   );
 };
 
-export { Register01, registerSchema, type RegisterFormData };
+export default Register01;
+export { registerSchema, type RegisterFormData };

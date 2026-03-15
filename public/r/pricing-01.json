@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-01",
+  "title": "Pricing 01",
+  "description": "A 3-column pricing table with monthly/yearly toggle",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "switch",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/pricing-01/pricing.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { CircleCheck } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardFooter,\n  CardHeader,\n} from \"@/components/ui/card\";\nimport { Switch } from \"@/components/ui/switch\";\nimport { Separator } from \"@/components/ui/separator\";\n\ninterface Plan {\n  name: string;\n  prices: {\n    monthly: string;\n    yearly: string;\n  };\n  features: string[];\n  popular?: boolean;\n  cta: { text: string; url: string };\n}\n\ninterface Pricing01Props {\n  title?: string;\n  description?: string;\n  plans?: Plan[];\n  className?: string;\n}\n\nconst Pricing01 = ({\n  title = \"Simple, Transparent Pricing\",\n  description = \"Choose the plan that fits your needs. No hidden fees.\",\n  plans = [\n    {\n      name: \"Starter\",\n      prices: { monthly: \"$0\", yearly: \"$0\" },\n      features: [\n        \"All core components\",\n        \"Community support\",\n        \"Free updates\",\n        \"Free support\",\n      ],\n      cta: { text: \"Get Started\", url: \"#\" },\n    },\n    {\n      name: \"Pro\",\n      prices: { monthly: \"$49\", yearly: \"$490\" },\n      popular: true,\n      features: [\n        \"Everything in Starter\",\n        \"Premium components\",\n        \"Priority support\",\n        \"Early access\",\n        \"Pro support\",\n        \"Free updates\",\n        \"Community support\",\n      ],\n      cta: { text: \"Start Free Trial\", url: \"#\" },\n    },\n    {\n      name: \"Enterprise\",\n      prices: { monthly: \"$99\", yearly: \"$790\" },\n      features: [\n        \"Everything in Pro\",\n        \"Custom components\",\n        \"Dedicated support\",\n        \"SLA guarantee\",\n        \"Early access\",\n        \"Pro support\",\n        \"Free updates\",\n        \"Community support\",\n      ],\n      cta: { text: \"Contact Sales\", url: \"#\" },\n    },\n  ],\n  className,\n}: Pricing01Props) => {\n  const [isAnnual, setIsAnnual] = useState(false);\n\n  return (\n    <section\n      className={cn(\n        \"relative w-full overflow-hidden py-16 md:py-24\",\n        className,\n      )}\n    >\n      <div className=\"container mx-auto px-4\">\n        <div className=\"flex flex-col items-center gap-4 text-center\">\n          <h2 className=\"text-4xl font-medium tracking-tight md:text-5xl\">\n            {title}\n          </h2>\n          <p className=\"text-muted-foreground\">{description}</p>\n          <div className=\"flex items-center gap-4\">\n            <span\n              className={cn(\n                \"text-sm\",\n                !isAnnual ? \"font-semibold\" : \"text-muted-foreground\",\n              )}\n            >\n              Monthly\n            </span>\n            <Switch checked={isAnnual} onCheckedChange={setIsAnnual} />\n            <span\n              className={cn(\n                \"text-sm\",\n                isAnnual ? \"font-semibold\" : \"text-muted-foreground\",\n              )}\n            >\n              Yearly\n            </span>\n          </div>\n        </div>\n\n        <div className=\"lg: mt-12 flex flex-col items-center gap-8 lg:flex-row lg:items-stretch\">\n          {plans.map((plan) => (\n            <Card\n              key={plan.name}\n              className={cn(\n                \"relative flex w-full max-w-md flex-col\",\n                plan.popular ? \"border-2 border-foreground\" : \"\",\n              )}\n            >\n              {plan.popular && (\n                <div className=\"absolute -top-4 left-1/2 -translate-x-1/2\">\n                  <span className=\"rounded-full bg-foreground px-4 py-1.5 text-sm font-medium whitespace-nowrap text-background\">\n                    Most Popular\n                  </span>\n                </div>\n              )}\n\n              <CardHeader>\n                <h3 className=\"text-2xl font-medium\">{plan.name}</h3>\n                <div className=\"flex items-baseline gap-1\">\n                  <span className=\"text-5xl font-semibold\">\n                    {isAnnual ? plan.prices.yearly : plan.prices.monthly}\n                  </span>\n                  <span className=\"text-muted-foreground\">\n                    {isAnnual ? \"/year\" : \"/month\"}\n                  </span>\n                </div>\n              </CardHeader>\n\n              <CardContent className=\"flex flex-1 flex-col gap-4\">\n                <Separator />\n                <ul className=\"flex flex-1 flex-col gap-3\">\n                  {plan.features.map((feature) => (\n                    <li key={feature} className=\"flex items-center gap-4\">\n                      <CircleCheck className=\"size-4 shrink-0\" />\n                      <span>{feature}</span>\n                    </li>\n                  ))}\n                </ul>\n              </CardContent>\n\n              <CardFooter>\n                <Button\n                  size=\"lg\"\n                  variant={plan.popular ? \"default\" : \"outline\"}\n                  className=\"w-full\"\n                  asChild\n                >\n                  <a href={plan.cta.url}>{plan.cta.text}</a>\n                </Button>\n              </CardFooter>\n            </Card>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport default Pricing01;\n",
+      "type": "registry:component",
+      "target": "components/pricing-01.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/pricing-01.webp"
+  },
+  "categories": [
+    "pricing"
+  ],
+  "type": "registry:block"
+}

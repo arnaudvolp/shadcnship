@@ -131,4 +131,4 @@ const Background05 = ({
   );
 };
 
-export { Background05 };
+export default Background05;

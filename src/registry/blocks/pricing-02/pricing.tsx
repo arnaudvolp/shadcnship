@@ -137,4 +137,4 @@ const Pricing02 = ({
   </section>
 );
 
-export { Pricing02 };
+export default Pricing02;

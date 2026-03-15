@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Background03 } from "@/components/background-03";
+import Background03 from "@/components/background-03";
 
 interface StatItem {
   value: string;
@@ -54,4 +54,4 @@ const Stat02 = ({
   </section>
 );
 
-export { Stat02 };
+export default Stat02;

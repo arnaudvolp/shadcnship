@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LogoLanding } from "@/components/landing/logo-landing";
-import { Background02 } from "@/registry/blocks/background-02/background";
+import Background02 from "@/registry/blocks/background-02/background";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -59,17 +59,17 @@ const HeroLanding = ({
   return (
     <section
       className={cn(
-        "flex flex-col w-full min-h-screen overflow-hidden relative",
+        "relative flex min-h-screen w-full flex-col overflow-hidden",
         className,
       )}
     >
       <Background02 className="-z-1" mask="center" />
-      <div className="flex-1 flex items-center justify-center py-12 md:py-24">
-        <div className="container w-full mx-auto text-center px-6 md:px-12">
+      <div className="flex flex-1 items-center justify-center py-12 md:py-24">
+        <div className="container mx-auto w-full px-6 text-center md:px-12">
           <motion.div {...fadeUp(0)}>
             <Badge
               variant="secondary"
-              className="py-1 border border-border"
+              className="border border-border py-1"
               asChild
             >
               <a href="#">{badge}</a>
@@ -78,26 +78,26 @@ const HeroLanding = ({
 
           <motion.h1
             {...fadeUp(0.1)}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl flex flex-col font-medium leading-tight tracking-tight max-w-5xl mx-auto"
+            className="mx-auto mt-4 flex max-w-5xl flex-col text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl"
           >
             {heading}
           </motion.h1>
 
           <motion.p
             {...fadeUp(0.2)}
-            className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground"
+            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
           >
             {description}
           </motion.p>
 
           <motion.div
             {...fadeUp(0.3)}
-            className="mt-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm md:max-w-none md:w-fit"
+            className="mx-auto mt-6 grid max-w-sm grid-cols-1 gap-4 md:w-fit md:max-w-none md:grid-cols-2"
           >
             {buttons?.primary && (
               <Button
                 size="lg"
-                className="w-full md:w-auto rounded-full"
+                className="w-full rounded-full md:w-auto"
                 asChild
               >
                 <a
@@ -112,7 +112,7 @@ const HeroLanding = ({
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full md:w-auto rounded-full"
+                className="w-full rounded-full md:w-auto"
                 asChild
               >
                 <a

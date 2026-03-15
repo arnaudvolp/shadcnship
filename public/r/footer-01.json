@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-01",
+  "title": "Footer 01",
+  "description": "A multi-column footer with links",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/blocks/footer-01/footer.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Github } from \"lucide-react\";\n\ninterface FooterLink {\n  text: string;\n  href: string;\n}\n\ninterface FooterItem {\n  title: string;\n  links: FooterLink[];\n}\n\ninterface Footer01Props {\n  logo?: React.ReactNode;\n  slogan?: string;\n  items?: FooterItem[];\n  copyright?: string;\n  socialLinks?: { icon: React.ReactNode; href: string }[];\n  className?: string;\n}\n\nconst Footer01 = ({\n  logo = (\n    <div className=\"flex items-center gap-2\">\n      <img src=\"/logo.svg\" alt=\"Shadcnship\" className=\"size-6 dark:invert\" />\n      <span className=\"font-semibold\">Shadcnship</span>\n    </div>\n  ),\n  slogan = \"Production-ready Shadcn blocks, connected to Supabase, Stripe, and Resend.\",\n  items = [\n    {\n      title: \"Product\",\n      links: [\n        { text: \"Overview\", href: \"#\" },\n        { text: \"Features\", href: \"#\" },\n        { text: \"Pricing\", href: \"#\" },\n        { text: \"Releases\", href: \"#\" },\n      ],\n    },\n    {\n      title: \"Company\",\n      links: [\n        { text: \"About us\", href: \"#\" },\n        { text: \"Careers\", href: \"#\" },\n        { text: \"News\", href: \"#\" },\n        { text: \"Contact\", href: \"#\" },\n      ],\n    },\n    {\n      title: \"Resources\",\n      links: [\n        { text: \"Blog\", href: \"#\" },\n        { text: \"Events\", href: \"#\" },\n        { text: \"Tutorials\", href: \"#\" },\n        { text: \"Support\", href: \"#\" },\n      ],\n    },\n    {\n      title: \"Social\",\n      links: [\n        { text: \"Twitter\", href: \"#\" },\n        { text: \"Instagram\", href: \"#\" },\n        { text: \"LinkedIn\", href: \"#\" },\n      ],\n    },\n  ],\n  copyright = `© ${new Date().getFullYear()} Shadcnship. All rights reserved.`,\n  socialLinks = [\n    {\n      icon: <Github className=\"size-5\" />,\n      href: \"#\",\n    },\n    {\n      icon: (\n        <svg className=\"size-5\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n          <path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\" />\n        </svg>\n      ),\n      href: \"#\",\n    },\n  ],\n  className,\n}: Footer01Props) => {\n  const colsTemplate = `repeat(${items.length}, 1fr)`;\n\n  return (\n    <footer className={cn(\"fixed bottom-0 w-full border-t\", className)}>\n      <div className=\"mx-auto px-8 py-12 md:px-16\">\n        {/* Top section */}\n        <div className=\"flex flex-col gap-10 lg:flex-row lg:gap-16\">\n          {/* Logo + slogan */}\n          <div className=\"lg:w-64 lg:shrink-0\">\n            {logo}\n            <p className=\"mt-4 text-sm text-muted-foreground\">{slogan}</p>\n          </div>\n\n          {/* Nav groups */}\n          <div\n            className=\"grid flex-1 grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-(--cols)\"\n            style={{ \"--cols\": colsTemplate } as React.CSSProperties}\n          >\n            {items.map((item) => (\n              <div key={item.title}>\n                <h3 className=\"mb-4 text-sm font-semibold\">{item.title}</h3>\n                <ul className=\"space-y-3\">\n                  {item.links.map((link) => (\n                    <li key={link.text}>\n                      <a\n                        href={link.href}\n                        className=\"text-sm text-muted-foreground transition-colors hover:text-foreground\"\n                      >\n                        {link.text}\n                      </a>\n                    </li>\n                  ))}\n                </ul>\n              </div>\n            ))}\n          </div>\n        </div>\n\n        {/* Bottom bar */}\n        <div className=\"mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row\">\n          <p className=\"text-sm text-muted-foreground\">{copyright}</p>\n          <div className=\"flex gap-4\">\n            {socialLinks.map((social, i) => (\n              <a\n                key={i}\n                href={social.href}\n                target=\"_blank\"\n                rel=\"noopener noreferrer\"\n                className=\"text-muted-foreground transition-colors hover:text-foreground\"\n              >\n                {social.icon}\n              </a>\n            ))}\n          </div>\n        </div>\n      </div>\n    </footer>\n  );\n};\n\nexport default Footer01;\n",
+      "type": "registry:component",
+      "target": "components/footer-01.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/footer-01.webp"
+  },
+  "categories": [
+    "footer"
+  ],
+  "type": "registry:block"
+}

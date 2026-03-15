@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-09",
+  "title": "Feature 09",
+  "description": "An integrations grid with icon cards in a 3x2 layout and social proof ratings",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/blocks/feature-09/feature.tsx",
+      "content": "import { ArrowUpRight } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport {\n  NotionIcon,\n  SlackIcon,\n  GithubIcon,\n  SupabaseIcon,\n  ClaudeIcon,\n  PostHogIcon,\n} from \"@/registry/blocks/social-icons/icons\";\n\ninterface IntegrationItems {\n  icon: React.ReactNode;\n  name: string;\n  description: string;\n}\n\ninterface Feature09Props {\n  label?: string;\n  title?: string;\n  description?: string;\n  link?: { text: string; url: string };\n  integrations?: IntegrationItems[];\n  className?: string;\n}\n\nconst defaultIntegrations: IntegrationItems[] = [\n  {\n    icon: <NotionIcon className=\"size-8\" />,\n    name: \"Notion\",\n    description: \"Manage your docs and knowledge base in one place.\",\n  },\n  {\n    icon: <SlackIcon className=\"size-8\" />,\n    name: \"Slack\",\n    description: \"Communicate instantly and keep teams aligned in real time.\",\n  },\n  {\n    icon: <GithubIcon className=\"size-8\" />,\n    name: \"GitHub\",\n    description: \"Track code changes and collaborate on pull requests.\",\n  },\n  {\n    icon: <SupabaseIcon className=\"size-8\" />,\n    name: \"Supabase\",\n    description: \"Connect auth, database, and storage in minutes.\",\n  },\n  {\n    icon: <ClaudeIcon className=\"size-8\" />,\n    name: \"Claude\",\n    description: \"Add AI capabilities powered by Anthropic out of the box.\",\n  },\n  {\n    icon: <PostHogIcon className=\"size-8\" />,\n    name: \"PostHog\",\n    description: \"Track analytics and understand your user behavior.\",\n  },\n];\n\nconst Feature09 = ({\n  label = \"Integrations\",\n  title = \"Works with your stack\",\n  description = \"Pre-built blocks that plug into the tools your team already relies on — no configuration required.\",\n  link = { text: \"View all integrations\", url: \"#\" },\n  integrations = defaultIntegrations,\n  className,\n}: Feature09Props) => (\n  <section className={cn(\"container mx-auto px-8 py-12 md:py-24\", className)}>\n    <div className=\"flex flex-col items-center gap-4 text-center\">\n      <p className=\"text-sm font-semibold tracking-widest text-muted-foreground uppercase\">\n        {label}\n      </p>\n      <h2 className=\"max-w-2xl text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl\">\n        {title}\n      </h2>\n      <p className=\"text-muted-foreground md:text-lg\">{description}</p>\n      {link && (\n        <a\n          href={link.url}\n          className=\"flex items-center gap-1 text-sm font-medium text-primary hover:underline\"\n        >\n          {link.text}\n          <ArrowUpRight className=\"size-3.5\" />\n        </a>\n      )}\n    </div>\n\n    <div className=\"mt-10 overflow-hidden rounded-md border bg-card\">\n      <div className=\"grid grid-cols-1 md:grid-cols-3\">\n        {integrations.map((integration, i) => (\n          <div\n            key={integration.name}\n            className={cn(\n              \"flex flex-col items-center gap-3 p-8 text-center\",\n              i < integrations.length - 1 && \"border-b md:border-b-0\",\n              i % 3 !== 2 && \"md:border-r\",\n              i < 3 && \"md:border-b\",\n            )}\n          >\n            <div className=\"flex size-14 items-center justify-center rounded-xl border bg-background shadow-sm\">\n              {integration.icon}\n            </div>\n            <div>\n              <p className=\"font-semibold\">{integration.name}</p>\n              <p className=\"mt-1 text-sm text-muted-foreground\">\n                {integration.description}\n              </p>\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  </section>\n);\n\nexport default Feature09;\n",
+      "type": "registry:component",
+      "target": "components/feature-09.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/feature-09.webp"
+  },
+  "categories": [
+    "feature"
+  ],
+  "type": "registry:block"
+}

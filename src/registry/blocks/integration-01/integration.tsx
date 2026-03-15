@@ -187,4 +187,4 @@ const Integration01 = ({
   );
 };
 
-export { Integration01 };
+export default Integration01;
