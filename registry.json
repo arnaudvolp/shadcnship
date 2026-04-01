@@ -948,6 +948,32 @@
       ]
     },
     {
+      "name": "cookie-01",
+      "type": "registry:block",
+      "title": "Cookie 01",
+      "description": "A floating cookie consent card with accept button and learn more link",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "categories": [
+        "cookie"
+      ],
+      "meta": {
+        "image": "/r/previews/cookie-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/cookie-01/cookie.tsx",
+          "type": "registry:component",
+          "target": "components/cookie-01.tsx"
+        }
+      ]
+    },
+    {
       "name": "waitlist-01",
       "type": "registry:block",
       "title": "Waitlist 01",

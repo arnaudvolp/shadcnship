@@ -42,6 +42,7 @@ next-env.d.ts
 
 #claude
 .claude
+.agents
 
 # playwright
 /test-results/
