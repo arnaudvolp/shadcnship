@@ -552,6 +552,29 @@
       ]
     },
     {
+      "name": "stat-03",
+      "type": "registry:block",
+      "title": "Stat 03",
+      "description": "A bento-grid stats section mixing images and metric cards",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "stat"
+      ],
+      "meta": {
+        "image": "/r/previews/stat-03.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/stat-03/stat.tsx",
+          "type": "registry:component",
+          "target": "components/stat-03.tsx"
+        }
+      ]
+    },
+    {
       "name": "logo-01",
       "type": "registry:block",
       "title": "Logo 01",

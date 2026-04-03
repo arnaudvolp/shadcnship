@@ -36,11 +36,11 @@ const Cookie01 = ({
   return (
     <div
       className={cn(
-        "fixed bottom-0 z-50 w-full p-4 sm:right-4 sm:w-80",
+        "fixed bottom-0 z-50 w-full p-4 sm:right-4 sm:w-92",
         className,
       )}
     >
-      <Card className="rounded-none shadow-none sm:rounded-xl">
+      <Card className="rounded-md shadow-none">
         <CardContent className="flex flex-col items-center gap-5 p-6 text-center">
           <Cookie className="size-10 text-primary" strokeWidth={1.5} />
           <div className="flex flex-col items-center gap-2">
