@@ -15,6 +15,9 @@ interface Cookie01Props {
   acceptButton?: {
     text?: string;
   };
+  declineButton?: {
+    text?: string;
+  };
   className?: string;
 }
 
@@ -25,7 +28,10 @@ const Cookie01 = ({
     url: "#",
   },
   acceptButton = {
-    text: "Okay",
+    text: "Accept",
+  },
+  declineButton = {
+    text: "Decline",
   },
   className,
 }: Cookie01Props) => {
@@ -54,9 +60,18 @@ const Cookie01 = ({
               </a>
             )}
           </div>
-          <Button className="w-full" onClick={() => setVisible(false)}>
-            {acceptButton.text}
-          </Button>
+          <div className="flex w-full gap-3">
+            <Button className="flex-1" onClick={() => setVisible(false)}>
+              {acceptButton.text}
+            </Button>
+            <Button
+              variant="outline"
+              className="flex-1"
+              onClick={() => setVisible(false)}
+            >
+              {declineButton.text}
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>

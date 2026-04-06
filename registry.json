@@ -83,6 +83,32 @@
       ]
     },
     {
+      "name": "hero-04",
+      "type": "registry:block",
+      "title": "Hero 04",
+      "description": "A centered hero with multi-image cards below at varying heights",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "categories": [
+        "hero"
+      ],
+      "meta": {
+        "image": "/r/previews/hero-04.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-04/hero.tsx",
+          "type": "registry:component",
+          "target": "components/hero-04.tsx"
+        }
+      ]
+    },
+    {
       "name": "hero-05",
       "type": "registry:block",
       "title": "Hero 05",

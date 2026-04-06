@@ -34,13 +34,13 @@ const Stat03 = ({
       text: "User Satisfaction Score",
       icon: <Star className="size-5 fill-foreground" />,
     },
-    { value: "4.9", text: "Average Rating", suffix: "/5" },
+    { value: "4.9", text: "Average Rating", suffix: "/ 5" },
   ],
   className,
 }: Stat03Props) => (
   <section className={cn("container mx-auto px-8 py-12 md:py-24", className)}>
     {/* Header */}
-    <div className="mb-12 flex flex-col items-center gap-4 text-center">
+    <div className="mb-12 flex flex-col items-center gap-2 text-center">
       <p className="text-sm font-semibold tracking-widest text-muted-foreground uppercase">
         {label}
       </p>
@@ -53,14 +53,14 @@ const Stat03 = ({
     </div>
 
     {/* Bento grid */}
-    <div className="mx-auto grid max-w-5xl grid-cols-2 auto-rows-[150px] gap-3 md:grid-cols-4 md:auto-rows-[180px]">
+    <div className="mx-auto grid max-w-5xl auto-rows-[150px] grid-cols-2 gap-3 md:auto-rows-[180px] md:grid-cols-4">
       {/* Main image — full width on mobile (row-span-2), col 1 on desktop */}
-      <div className="col-span-2 row-span-2 overflow-hidden rounded-2xl md:col-span-1">
+      <div className="col-span-2 row-span-2 overflow-hidden rounded-xl md:col-span-1">
         <img src={mainImage} alt="" className="size-full object-cover" />
       </div>
 
       {/* Stat 1 — half width mobile, col 2 desktop */}
-      <div className="col-span-1 flex flex-col justify-between rounded-2xl bg-muted p-4 md:p-5">
+      <div className="col-span-1 flex flex-col justify-between rounded-xl bg-muted p-4 md:p-5">
         <p className="text-sm text-muted-foreground">{stats[0].text}</p>
         <p className="text-3xl font-medium tracking-tight md:text-5xl">
           {stats[0].value}
@@ -68,7 +68,7 @@ const Stat03 = ({
       </div>
 
       {/* Stat 2 — half width mobile, col 3–4 desktop */}
-      <div className="col-span-1 flex flex-col justify-between rounded-2xl bg-muted p-4 md:col-span-2 md:p-5">
+      <div className="col-span-1 flex flex-col justify-between rounded-xl bg-muted p-4 md:col-span-2 md:p-5">
         {stats[1].icon}
         <div>
           <p className="text-3xl font-medium tracking-tight md:text-5xl">
@@ -79,7 +79,7 @@ const Stat03 = ({
       </div>
 
       {/* Stat 3 — half width mobile, col 2 desktop */}
-      <div className="col-span-1 flex flex-col justify-end rounded-2xl bg-muted p-4 md:p-5">
+      <div className="col-span-1 flex flex-col justify-end rounded-xl bg-muted p-4 md:p-5">
         <p className="text-3xl font-medium tracking-tight md:text-5xl">
           {stats[2].value}
           {stats[2].suffix && (
@@ -92,13 +92,21 @@ const Stat03 = ({
       </div>
 
       {/* Secondary image 1 — half width mobile, col 3 desktop */}
-      <div className="col-span-1 overflow-hidden rounded-2xl">
-        <img src={secondaryImages[0]} alt="" className="size-full object-cover" />
+      <div className="col-span-1 overflow-hidden rounded-xl">
+        <img
+          src={secondaryImages[0]}
+          alt=""
+          className="size-full object-cover"
+        />
       </div>
 
       {/* Secondary image 2 — full width mobile, col 4 desktop */}
-      <div className="col-span-2 overflow-hidden rounded-2xl md:col-span-1">
-        <img src={secondaryImages[1]} alt="" className="size-full object-cover" />
+      <div className="col-span-2 overflow-hidden rounded-xl md:col-span-1">
+        <img
+          src={secondaryImages[1]}
+          alt=""
+          className="size-full object-cover"
+        />
       </div>
     </div>
   </section>
