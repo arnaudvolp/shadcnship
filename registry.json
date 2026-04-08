@@ -704,6 +704,44 @@
       ]
     },
     {
+      "name": "navbar-02",
+      "type": "registry:block",
+      "title": "Navbar 02",
+      "description": "A responsive navbar with mega menu, grouped columns, featured panel, and mobile accordion",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "sheet",
+        "navigation-menu"
+      ],
+      "categories": [
+        "navbar"
+      ],
+      "meta": {
+        "image": "/r/previews/navbar-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/navbar-02/navbar.tsx",
+          "type": "registry:component",
+          "target": "components/navbar-02/navbar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/navbar-02/components.tsx",
+          "type": "registry:component",
+          "target": "components/navbar-02/components.tsx"
+        },
+        {
+          "path": "src/registry/blocks/navbar-02/types.ts",
+          "type": "registry:component",
+          "target": "components/navbar-02/types.ts"
+        }
+      ]
+    },
+    {
       "name": "team-01",
       "type": "registry:block",
       "title": "Team 01",
@@ -1145,6 +1183,31 @@
           "path": "src/registry/blocks/feature-09/feature.tsx",
           "type": "registry:component",
           "target": "components/feature-09.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-11",
+      "type": "registry:block",
+      "title": "Feature 11",
+      "description": "A feature section with a split left-aligned header and two large image cards with text below",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "categories": [
+        "feature"
+      ],
+      "meta": {
+        "image": "/r/previews/feature-11.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-11/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-11.tsx"
         }
       ]
     },
