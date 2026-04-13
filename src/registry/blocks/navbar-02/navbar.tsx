@@ -56,7 +56,7 @@ const Navbar02 = ({
           text: "Hero Sections",
           url: "#",
           description: "Beautiful above-the-fold layouts to capture attention.",
-          icon: <LayoutTemplate className="size-4" />,
+          icon: <LayoutTemplate className="size-5" />,
         },
         {
           text: "Feature Blocks",
@@ -79,7 +79,8 @@ const Navbar02 = ({
         {
           text: "CTA Sections",
           url: "#",
-          description: "Drive conversions with compelling call-to-action blocks.",
+          description:
+            "Drive conversions with compelling call-to-action blocks.",
           icon: <MousePointerClick className="size-4" />,
         },
       ],
@@ -178,7 +179,7 @@ const Navbar02 = ({
   ],
   className,
 }: Navbar02Props) => {
-  const [openMenu, setOpenMenu] = useState<string | null>("Blocks");
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = (key: string) => {

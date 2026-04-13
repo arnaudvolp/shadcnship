@@ -45,13 +45,6 @@ export const DropdownSubItem = ({ item }: { item: NavSubItem }) => (
     href={item.url}
     className="flex items-start gap-3 rounded-md p-3 transition-colors hover:bg-muted"
   >
-    {item.icon && (
-      <div className="relative flex size-8 shrink-0 items-center justify-center border border-border text-muted-foreground">
-        <div className="absolute -inset-x-1.5 top-1/2 h-px bg-border" />
-        <div className="absolute -inset-y-1.5 left-1/2 w-px bg-border" />
-        <span className="relative z-10">{item.icon}</span>
-      </div>
-    )}
     <div className="flex flex-col gap-0.5">
       <p className="text-sm leading-snug font-semibold">{item.text}</p>
       {item.description && (
