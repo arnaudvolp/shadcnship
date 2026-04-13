@@ -1,4 +1,4 @@
-import { Monitor } from "lucide-react";
+import { Blocks } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
@@ -19,7 +19,7 @@ interface Feature11Props {
 const Feature11 = ({
   badge = {
     text: "How it Works",
-    icon: <Monitor className="size-3.5" />,
+    icon: <Blocks className="size-3.5" />,
   },
   title = "Ship faster with\nproduction-ready blocks.",
   description = "Pre-built, customizable blocks for your landing page. Copy the code, adapt it to your brand, and go live in minutes.",
@@ -67,7 +67,7 @@ const Feature11 = ({
           {cards.map((card, index) => (
             <div key={index} className="flex flex-col gap-4">
               {/* Card container */}
-              <div className="flex aspect-4/3 items-center justify-center overflow-hidden rounded-2xl bg-muted p-8">
+              <div className="flex aspect-4/3 items-center justify-center overflow-hidden rounded-2xl bg-muted p-4 lg:p-8">
                 {card.img ? (
                   <img
                     src={card.img}
