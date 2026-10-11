@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-21",
+  "title": "Feature 21",
+  "description": "A centered header with badge, a wide radial panel holding a photo card and an icon card joined by a seam badge, and a row of four icon columns below. Use it to present a two-sided story such as human plus AI, then back it with four short benefits.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge",
+    "card",
+    "https://shadcnship.com/r/social-icons.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/feature-21/feature.tsx",
+      "content": "import {\n  Copy,\n  LayoutTemplate,\n  Sparkles,\n  SquareDashedMousePointer,\n  type LucideIcon,\n} from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { Card } from \"@/components/ui/card\";\nimport { LogoIcon } from \"../social-icons/icons\";\n\ninterface Feature21Column {\n  icon: LucideIcon;\n  title: string;\n  description: string;\n}\n\ninterface Feature21Props {\n  label?: string | null;\n  title?: string;\n  description?: string;\n  image?: string;\n  imageAlt?: string;\n  seamLabel?: string | null;\n  columns?: Feature21Column[];\n  className?: string;\n}\n\nconst defaultColumns: Feature21Column[] = [\n  {\n    icon: Copy,\n    title: \"Copy & Paste Ready\",\n    description:\n      \"Copy any component directly into your project. No dependencies, just pure code you own.\",\n  },\n  {\n    icon: LayoutTemplate,\n    title: \"Pre-built Templates\",\n    description:\n      \"Start with production-ready templates for common layouts and patterns.\",\n  },\n  {\n    icon: Sparkles,\n    title: \"Developer Experience\",\n    description:\n      \"Built with TypeScript, fully typed, and optimized for modern frameworks.\",\n  },\n  {\n    icon: SquareDashedMousePointer,\n    title: \"Fully Customizable\",\n    description:\n      \"Every component is built with Tailwind CSS. Modify styles easily.\",\n  },\n];\n\nconst Feature21 = ({\n  label,\n  title = \"Everything You Need to Build Faster\",\n  description = \"Production-ready blocks built with shadcn/ui and Tailwind CSS. Copy, customize, and ship.\",\n  image = \"https://www.shadcnship.com/images/placeholders/product-design-2.webp\",\n  imageAlt = \"Product preview\",\n  seamLabel = \"Copy + Ship\",\n  columns = defaultColumns,\n  className,\n}: Feature21Props) => (\n  <section className={cn(\"container mx-auto px-6 py-12 md:py-24\", className)}>\n    <div className=\"flex flex-col items-center gap-4 text-center\">\n      {label && (\n        <Badge variant=\"secondary\" className=\"rounded-full\">\n          {label}\n        </Badge>\n      )}\n      <h2 className=\"text-4xl leading-tight font-medium tracking-tight md:text-5xl\">\n        {title}\n      </h2>\n      {description && (\n        <p className=\"max-w-xl text-muted-foreground md:text-lg\">\n          {description}\n        </p>\n      )}\n    </div>\n\n    <div className=\"mx-auto mt-12 max-w-5xl\">\n      <Card className=\"relative items-center justify-center overflow-hidden rounded-2xl bg-muted p-6 shadow-none md:p-12\">\n        <div\n          aria-hidden=\"true\"\n          className=\"absolute inset-0 bg-[repeating-conic-gradient(var(--border)_0_0.3deg,transparent_0.3deg_12deg)] mask-radial-from-transparent mask-radial-from-30% mask-radial-to-black\"\n        />\n        <div\n          aria-hidden=\"true\"\n          className=\"absolute top-1/2 left-1/2 size-80 -translate-x-3/4 -translate-y-1/2 rounded-full border\"\n        />\n        <div\n          aria-hidden=\"true\"\n          className=\"absolute top-1/2 left-1/2 size-80 -translate-x-1/4 -translate-y-1/2 rounded-full border\"\n        />\n        <div className=\"relative flex w-full max-w-xl flex-col items-center gap-6 md:flex-row\">\n          <div className=\"aspect-square w-full max-w-60 overflow-hidden rounded-2xl border bg-background p-2 md:max-w-none md:flex-1\">\n            <img\n              src={image}\n              alt={imageAlt}\n              className=\"size-full rounded-lg object-cover\"\n            />\n          </div>\n          {seamLabel && (\n            <Badge\n              variant=\"outline\"\n              className=\"absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background px-3 py-1 whitespace-nowrap shadow-sm\"\n            >\n              {seamLabel}\n            </Badge>\n          )}\n          <div className=\"flex aspect-square w-full max-w-60 items-center justify-center rounded-2xl border bg-background md:max-w-none md:flex-1\">\n            <LogoIcon className=\"size-16 dark:invert\" />\n          </div>\n        </div>\n      </Card>\n\n      <ul className=\"mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4\">\n        {columns.map((column) => (\n          <li key={column.title} className=\"flex flex-col gap-4\">\n            <div\n              className=\"flex size-10 items-center justify-center rounded-lg border bg-background\"\n              aria-hidden=\"true\"\n            >\n              <column.icon className=\"size-5 text-muted-foreground\" />\n            </div>\n            <div className=\"flex flex-col gap-2\">\n              <h3 className=\"text-lg font-medium\">{column.title}</h3>\n              <p className=\"text-sm text-muted-foreground\">\n                {column.description}\n              </p>\n            </div>\n          </li>\n        ))}\n      </ul>\n    </div>\n  </section>\n);\n\nexport default Feature21;\n",
+      "type": "registry:component",
+      "target": "components/feature-21.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/feature-21.webp"
+  },
+  "categories": [
+    "feature"
+  ],
+  "type": "registry:block"
+}

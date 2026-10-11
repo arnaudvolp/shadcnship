@@ -1726,7 +1726,7 @@
       "name": "image-compare",
       "type": "registry:block",
       "title": "Image Compare",
-      "description": "A before/after image slider \u2014 drag the divider to compare both sides in real time",
+      "description": "A before/after image slider — drag the divider to compare both sides in real time",
       "dependencies": [
         "lucide-react"
       ],
@@ -1742,6 +1742,322 @@
           "path": "src/registry/blocks/image-compare/output-showcase.tsx",
           "type": "registry:component",
           "target": "components/image-compare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-02",
+      "type": "registry:block",
+      "title": "Blog 02",
+      "description": "Blog index section with a large featured post, a list of the latest posts beside it, and a carousel of more articles with arrows and pagination dots. Use it as the top of a blog or resources page when you have enough content to highlight one story and browse the rest.",
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "carousel"
+      ],
+      "categories": [
+        "blog"
+      ],
+      "meta": {
+        "image": "/r/previews/blog-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/blog-02/blog.tsx",
+          "type": "registry:component",
+          "target": "components/blog-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-06",
+      "type": "registry:block",
+      "title": "CTA 06",
+      "description": "A single square image card with gradient overlay, logo icon, accent title and pill button, centered on a dense grid of empty square bento tiles that adapts to mobile and tablet. Use it as a closing call to action that looks like one lit tile in a dashboard.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "https://shadcnship.com/r/social-icons.json"
+      ],
+      "categories": [
+        "cta"
+      ],
+      "meta": {
+        "image": "/r/previews/cta-06.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/cta-06/cta.tsx",
+          "type": "registry:component",
+          "target": "components/cta-06.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-01",
+      "type": "registry:block",
+      "title": "Error 01",
+      "description": "Full-screen 404 page with a large watermark error code behind the headline, a short explanation with a link back home, and a minimal top and bottom bar. Use it as the not-found page of any Next.js site so lost visitors find their way back.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "categories": [
+        "error"
+      ],
+      "meta": {
+        "image": "/r/previews/error-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/error-01/error.tsx",
+          "type": "registry:component",
+          "target": "components/error-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-21",
+      "type": "registry:block",
+      "title": "Feature 21",
+      "description": "A centered header with badge, a wide radial panel holding a photo card and an icon card joined by a seam badge, and a row of four icon columns below. Use it to present a two-sided story such as human plus AI, then back it with four short benefits.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "card",
+        "https://shadcnship.com/r/social-icons.json"
+      ],
+      "categories": [
+        "feature"
+      ],
+      "meta": {
+        "image": "/r/previews/feature-21.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/feature-21/feature.tsx",
+          "type": "registry:component",
+          "target": "components/feature-21.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-02",
+      "type": "registry:block",
+      "title": "Footer 02",
+      "description": "Centered footer with a logo, service labels, a single row of navigation links, social icon buttons, and legal links. Use it on portfolios, agency sites, and landing pages that need a compact footer instead of a multi-column sitemap.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "categories": [
+        "footer"
+      ],
+      "meta": {
+        "image": "/r/previews/footer-02.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/footer-02/footer.tsx",
+          "type": "registry:component",
+          "target": "components/footer-02.tsx"
+        }
+      ]
+    },
+    {
+      "name": "forgot-password-01",
+      "type": "registry:block",
+      "title": "Forgot Password 01",
+      "description": "Split forgot-password screen with a visual panel and a centered email form that sends a reset link, then confirms with a resend option. Use it as the password recovery step of your auth flow next to your login and sign-up pages.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "categories": [
+        "login"
+      ],
+      "meta": {
+        "image": "/r/previews/forgot-password-01.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/forgot-password-01/forgot-password.tsx",
+          "type": "registry:component",
+          "target": "components/forgot-password-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-07",
+      "type": "registry:block",
+      "title": "Hero 07",
+      "description": "Centered hero with a status badge, headline, inline email capture form, and a portrait image that fades into the background. Use it on launch or early-access pages where collecting emails is the main goal of the first screen.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "input"
+      ],
+      "categories": [
+        "hero"
+      ],
+      "meta": {
+        "image": "/r/previews/hero-07.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-07/hero.tsx",
+          "type": "registry:component",
+          "target": "components/hero-07.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-08",
+      "type": "registry:block",
+      "title": "Hero 08",
+      "description": "Centered hero with an AI-style prompt card, an award badge, and a row of customer logos over an optional background image. Use it for AI builders and developer tools where the first action is typing a request, with social proof right under the fold.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "textarea",
+        "toggle",
+        "https://shadcnship.com/r/social-icons.json"
+      ],
+      "categories": [
+        "hero"
+      ],
+      "meta": {
+        "image": "/r/previews/hero-08.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/hero-08/hero.tsx",
+          "type": "registry:component",
+          "target": "components/hero-08.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-06",
+      "type": "registry:block",
+      "title": "Pricing 06",
+      "description": "Single-plan pricing section with a split card: a highlighted plan column with price, CTA, and two feature lists, next to an intro column with a call booking link and guarantee notes. Use it for flat-rate subscriptions, productized services, or lifetime deals where there is only one offer to sell.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "separator"
+      ],
+      "categories": [
+        "pricing"
+      ],
+      "meta": {
+        "image": "/r/previews/pricing-06.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/pricing-06/pricing.tsx",
+          "type": "registry:component",
+          "target": "components/pricing-06.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-07",
+      "type": "registry:block",
+      "title": "Stat 07",
+      "description": "Stats section with a headline, a list of growth drivers with the icon beside each title and the description under the title, and a bar chart with a trend line where the latest bar is highlighted. Use it on about, traction or product pages when a number needs a chart and the reasons behind it.",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "badge",
+        "chart"
+      ],
+      "categories": [
+        "stat"
+      ],
+      "meta": {
+        "image": "/r/previews/stat-07.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/stat-07/stat.tsx",
+          "type": "registry:component",
+          "target": "components/stat-07.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-08",
+      "type": "registry:block",
+      "title": "Stat 08",
+      "description": "Two thin concentric arcs carrying floating avatars and status chips, three big metrics centered inside, a two-line headline and a row of outlined tag pills. Use it for community or creator platforms that want a lively proof section.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge"
+      ],
+      "categories": [
+        "stat"
+      ],
+      "meta": {
+        "image": "/r/previews/stat-08.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/stat-08/stat.tsx",
+          "type": "registry:component",
+          "target": "components/stat-08.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-05",
+      "type": "registry:block",
+      "title": "Testimonial 05",
+      "description": "Single testimonial in a split layout: a large portrait in a soft muted frame with an avatar-stack social proof pill, next to a star rating, one big quote, supporting details, the author, and topic tags. Use it when one strong customer story should carry the proof on a landing or case study page.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge"
+      ],
+      "categories": [
+        "testimonial"
+      ],
+      "meta": {
+        "image": "/r/previews/testimonial-05.webp"
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/testimonial-05/testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/testimonial-05.tsx"
         }
       ]
     }

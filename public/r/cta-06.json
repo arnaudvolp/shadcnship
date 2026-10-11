@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-06",
+  "title": "CTA 06",
+  "description": "A single square image card with gradient overlay, logo icon, accent title and pill button, centered on a dense grid of empty square bento tiles that adapts to mobile and tablet. Use it as a closing call to action that looks like one lit tile in a dashboard.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "https://shadcnship.com/r/social-icons.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/cta-06/cta.tsx",
+      "content": "import { ArrowUpRight } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { Card } from \"@/components/ui/card\";\nimport { LogoIcon } from \"../social-icons/icons\";\n\ninterface Cta06Props {\n  title?: string;\n  accent?: string;\n  description?: string;\n  buttonText?: string;\n  buttonUrl?: string;\n  image?: string;\n  className?: string;\n}\n\n/* 4x4 cells on mobile (2x2 card, side columns cropped in half), 8x8 from md and 10x8 from lg (2x2 card) */\nconst MOBILE_TILES = 12;\nconst TABLET_TILES = 60;\nconst DESKTOP_TILES = 76;\n\nconst Cta06 = ({\n  title = \"Start building\",\n  accent = \"now.\",\n  description = \"Production-ready blocks that follow your theme. Copy, paste, ship.\",\n  buttonText = \"Get started\",\n  buttonUrl = \"#\",\n  image = \"https://www.shadcnship.com/images/placeholders/hero-architecture-12.webp\",\n  className,\n}: Cta06Props) => (\n  <section\n    className={cn(\n      \"my-12 w-full overflow-hidden md:my-0 md:h-screen\",\n      className,\n    )}\n  >\n    <div className=\"mx-auto px-6 md:h-full md:px-0\">\n      <div className=\"relative -mx-6 aspect-3/4 overflow-hidden md:mx-0 md:aspect-auto md:h-full\">\n        <div className=\"absolute top-1/2 left-1/2 grid w-4/3 -translate-x-1/2 -translate-y-1/2 grid-cols-4 gap-2 md:w-11/10 md:grid-cols-8 md:gap-3 lg:grid-cols-10\">\n          {Array.from({ length: DESKTOP_TILES }).map((_, i) => (\n            <div\n              key={i}\n              aria-hidden=\"true\"\n              className={cn(\n                \"aspect-square cursor-pointer rounded-lg bg-muted/50 transition-all duration-300 hover:bg-muted md:rounded-xl\",\n                i >= MOBILE_TILES && \"hidden md:block\",\n                i >= TABLET_TILES && \"md:hidden lg:block\",\n              )}\n            />\n          ))}\n          <Card className=\"relative col-span-2 col-start-2 row-span-2 row-start-2 justify-end overflow-hidden rounded-2xl p-0 shadow-none md:col-start-4 md:row-start-4 lg:col-start-5\">\n            <img\n              src={image}\n              alt=\"\"\n              className=\"absolute inset-0 size-full object-cover\"\n            />\n            <div\n              aria-hidden=\"true\"\n              className=\"absolute inset-0 bg-linear-to-t from-background via-background/90 to-background/30\"\n            />\n            <div className=\"relative flex flex-col items-center gap-2 p-4 text-center\">\n              <div\n                aria-hidden=\"true\"\n                className=\"flex size-8 items-center justify-center rounded-full border bg-background/60\"\n              >\n                <LogoIcon className=\"size-4 dark:invert\" />\n              </div>\n              <h2 className=\"text-xl leading-tight font-medium tracking-tight xl:text-3xl\">\n                {title}{\" \"}\n                {accent && (\n                  <span className=\"font-serif font-normal italic\">\n                    {accent}\n                  </span>\n                )}\n              </h2>\n              {description && (\n                <p className=\"max-w-xs text-sm text-foreground/70\">\n                  {description}\n                </p>\n              )}\n              {buttonText && (\n                <Button\n                  className=\"h-8 min-w-48 rounded-full px-3 text-xs\"\n                  size=\"lg\"\n                  asChild\n                >\n                  <a href={buttonUrl}>\n                    {buttonText}\n                    <ArrowUpRight />\n                  </a>\n                </Button>\n              )}\n            </div>\n          </Card>\n        </div>\n      </div>\n    </div>\n  </section>\n);\n\nexport default Cta06;\n",
+      "type": "registry:component",
+      "target": "components/cta-06.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/cta-06.webp"
+  },
+  "categories": [
+    "cta"
+  ],
+  "type": "registry:block"
+}

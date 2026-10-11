@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-02",
+  "title": "Footer 02",
+  "description": "Centered footer with a logo, service labels, a single row of navigation links, social icon buttons, and legal links. Use it on portfolios, agency sites, and landing pages that need a compact footer instead of a multi-column sitemap.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/footer-02/footer.tsx",
+      "content": "import { Fragment } from \"react\";\nimport { Dribbble, Github, Hexagon, Instagram, Linkedin } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { Separator } from \"@/components/ui/separator\";\n\ninterface FooterLink {\n  text: string;\n  href: string;\n}\n\ninterface SocialLink {\n  label: string;\n  href: string;\n  icon: React.ReactNode;\n}\n\ninterface Footer02Props {\n  logo?: React.ReactNode;\n  labels?: string[];\n  links?: FooterLink[];\n  socialLinks?: SocialLink[];\n  legalLinks?: FooterLink[];\n  copyright?: string;\n  className?: string;\n}\n\nconst Footer02 = ({\n  logo = (\n    <div className=\"flex items-center gap-2\">\n      <Hexagon className=\"size-6\" aria-hidden=\"true\" />\n      <span className=\"text-xl font-semibold tracking-tight\">Acme</span>\n    </div>\n  ),\n  labels = [\"Product design\", \"Web development\", \"Brand identity\"],\n  links = [\n    { text: \"Work\", href: \"#\" },\n    { text: \"Services\", href: \"#\" },\n    { text: \"About\", href: \"#\" },\n    { text: \"Pricing\", href: \"#\" },\n    { text: \"Contact\", href: \"#\" },\n  ],\n  socialLinks = [\n    { label: \"GitHub\", href: \"#\", icon: <Github /> },\n    { label: \"LinkedIn\", href: \"#\", icon: <Linkedin /> },\n    { label: \"Instagram\", href: \"#\", icon: <Instagram /> },\n    { label: \"Dribbble\", href: \"#\", icon: <Dribbble /> },\n  ],\n  legalLinks = [\n    { text: \"Terms & Conditions\", href: \"#\" },\n    { text: \"Privacy Policy\", href: \"#\" },\n    { text: \"Cookie Policy\", href: \"#\" },\n  ],\n  copyright = `© ${new Date().getFullYear()} Acme. All rights reserved.`,\n  className,\n}: Footer02Props) => {\n  return (\n    <footer className={cn(\"w-full py-12 md:py-16\", className)}>\n      <div className=\"container mx-auto flex flex-col items-center gap-6 px-6 text-center\">\n        {logo}\n\n        {labels.length > 0 && (\n          <ul className=\"flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs tracking-wide text-muted-foreground uppercase\">\n            {labels.map((label) => (\n              <li key={label} className=\"flex items-center gap-2\">\n                <span\n                  className=\"size-1 rounded-full bg-muted-foreground\"\n                  aria-hidden=\"true\"\n                />\n                {label}\n              </li>\n            ))}\n          </ul>\n        )}\n      </div>\n\n      <Separator className=\"my-8 md:my-10\" />\n\n      <div className=\"container mx-auto flex flex-col items-center gap-8 px-6 text-center\">\n        <nav aria-label=\"Footer\">\n          <ul className=\"flex flex-wrap items-center justify-center gap-x-8 gap-y-3\">\n            {links.map((link) => (\n              <li key={link.text}>\n                <a\n                  href={link.href}\n                  className=\"text-sm text-muted-foreground transition-colors hover:text-foreground\"\n                >\n                  {link.text}\n                </a>\n              </li>\n            ))}\n          </ul>\n        </nav>\n\n        {socialLinks.length > 0 && (\n          <ul className=\"flex items-center justify-center gap-3\">\n            {socialLinks.map((social) => (\n              <li key={social.label}>\n                <Button variant=\"outline\" size=\"icon\" asChild>\n                  <a\n                    href={social.href}\n                    aria-label={social.label}\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                  >\n                    {social.icon}\n                  </a>\n                </Button>\n              </li>\n            ))}\n          </ul>\n        )}\n\n        <div className=\"flex flex-col items-center gap-3\">\n          {legalLinks.length > 0 && (\n            <ul className=\"flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-muted-foreground\">\n              {legalLinks.map((link, i) => (\n                <Fragment key={link.text}>\n                  {i > 0 && (\n                    <li aria-hidden=\"true\" className=\"hidden h-3 sm:block\">\n                      <Separator orientation=\"vertical\" />\n                    </li>\n                  )}\n                  <li>\n                    <a\n                      href={link.href}\n                      className=\"transition-colors hover:text-foreground\"\n                    >\n                      {link.text}\n                    </a>\n                  </li>\n                </Fragment>\n              ))}\n            </ul>\n          )}\n          <p className=\"text-xs text-muted-foreground\">{copyright}</p>\n        </div>\n      </div>\n    </footer>\n  );\n};\n\nexport default Footer02;\n",
+      "type": "registry:component",
+      "target": "components/footer-02.tsx"
+    }
+  ],
+  "meta": {
+    "image": "/r/previews/footer-02.webp"
+  },
+  "categories": [
+    "footer"
+  ],
+  "type": "registry:block"
+}
