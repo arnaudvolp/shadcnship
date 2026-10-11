@@ -7,7 +7,7 @@
  * Usage:
  *   npm run screenshots                               # new or changed blocks
  *   npm run screenshots -- --only hero-08,footer-02   # these blocks
- *   npm run screenshots -- --all                      # every block
+ *   npm run screenshots:all                           # every block
  *   BASE_URL=http://localhost:3001 npm run screenshots
  */
 import { chromium, type BrowserContext } from "playwright";
@@ -77,7 +77,9 @@ function pickBlocks() {
       throw new Error(`Unknown blocks: ${unknown.join(", ")}`);
     return items.filter((i) => names.includes(i.name));
   }
-  if (process.argv.includes("--all")) return items;
+  // `npm run screenshots --all` (no `--`) is eaten by npm and exposed as npm_config_all
+  if (process.argv.includes("--all") || process.env.npm_config_all === "true")
+    return items;
   return items.filter((i) => previewStatus(i) !== "ok");
 }
 
@@ -88,8 +90,8 @@ async function newThemeContext(
   const context = await browser.newContext({
     viewport: VIEWPORT,
     deviceScaleFactor: 1,
-    // Emulate OS-level dark preference (handles media queries)
-    colorScheme: "dark",
+    // Emulate OS-level color scheme (handles media queries)
+    colorScheme: theme,
   });
 
   // Inject CSS to hide Next.js dev tools and debug elements

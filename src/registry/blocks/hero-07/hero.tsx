@@ -33,12 +33,12 @@ const isValidEmail = (email: string): boolean => {
 };
 
 const Hero07 = ({
-  badge = "Now in private beta",
-  title = "Get early access before",
-  highlight = "launch day",
-  description = "Leave your email and we'll let you know the moment the doors open. One message, no noise.",
+  badge = "Coming soon",
+  title = "Be the first to try the",
+  highlight = "next release",
+  description = "Be amongst the first to get new blocks. Sign up to be notified when we launch!",
   inputPlaceholder = "you@company.com",
-  buttonText = "Get early access",
+  buttonText = "Join waitlist",
   helperText = "No spam. Unsubscribe at any time.",
   image = {
     src: "https://www.shadcnship.com/images/placeholders/hero-architecture-1.webp",
@@ -103,7 +103,7 @@ const Hero07 = ({
             </Badge>
           )}
 
-          <h1 className="max-w-2xl text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="text-4xl leading-tight font-medium tracking-tight md:text-5xl lg:text-6xl">
             {title}{" "}
             {highlight && (
               <em className="font-serif font-normal italic">{highlight}</em>
@@ -163,7 +163,8 @@ const Hero07 = ({
               className={cn(
                 "text-xs text-muted-foreground",
                 status === "error" && "text-destructive",
-                status === "success" && "py-2 text-sm font-medium text-foreground",
+                status === "success" &&
+                  "py-2 text-sm font-medium text-foreground",
               )}
             >
               {status === "error" || status === "success"

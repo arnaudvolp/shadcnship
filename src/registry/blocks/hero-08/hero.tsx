@@ -50,12 +50,12 @@ interface Hero08Props {
 }
 
 const Hero08 = ({
-  title = "Ship ideas that",
-  highlight = "actually hold up.",
-  description = "Describe what you want to build and get a first version in minutes.",
+  title = "Build landing pages ",
+  highlight = "that convert.",
+  description = "Describe the page you want and get a first version in minutes, built from production-ready shadcn/ui blocks.",
   prompt = {
-    placeholder: "Describe the app you want to build…",
-    label: "Describe your project",
+    placeholder: "Describe the page you want to build…",
+    label: "Describe your page",
     chips: [
       { label: "Attach", icon: <Paperclip /> },
       { label: "Web search", icon: <Globe /> },
@@ -64,10 +64,10 @@ const Hero08 = ({
   },
   onSubmit,
   buttons = [
-    { text: "Get started", url: "#" },
-    { text: "Book a demo", url: "#", variant: "outline" },
+    { text: "Browse Components", url: "#" },
+    { text: "View Docs", url: "#", variant: "outline" },
   ],
-  badge = "#1 Product of the Week",
+  badge = "Production-ready components",
   logos = [
     { name: "Next.js", icon: <NextIcon className="size-5" /> },
     { name: "Tailwind", icon: <TailwindIcon className="size-5" /> },

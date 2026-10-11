@@ -43,9 +43,9 @@ interface Stat07Props {
 }
 
 const Stat07 = ({
-  badge = "Our growth",
-  title = "More developers ship faster with ready-to-use blocks every month",
-  driversTitle = "Why developers choose us",
+  badge = "Community",
+  title = "Developers ship faster with production-ready blocks, month after month",
+  driversTitle = "Why developers choose Shadcnship",
   drivers = [
     {
       icon: <Copy className="size-4" />,

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "registry:build": "npx shadcn@latest build",
-    "screenshots": "tsx scripts/generate-screenshots.ts"
+    "screenshots": "tsx scripts/generate-screenshots.ts",
+    "screenshots:all": "tsx scripts/generate-screenshots.ts --all"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

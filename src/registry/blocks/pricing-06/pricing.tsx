@@ -1,4 +1,4 @@
-import { Check, Zap } from "lucide-react";
+import { Check, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -33,53 +33,53 @@ interface Pricing06Props {
 }
 
 const Pricing06 = ({
-  title = "Everything you need.",
-  subtitle = "One flat",
-  highlight = "monthly rate.",
-  description = "Skip the tiers and the add-ons. Get every feature, unlimited requests, and a dedicated team for a single monthly price.",
+  title = "Simple pricing.",
+  subtitle = "One plan,",
+  highlight = "everything included.",
+  description = "Skip the tiers and the add-ons. Get every block, unlimited projects, and free updates for a single monthly price.",
   intro = {
     title: "Start with a call",
     description:
-      "Book a 15-minute call to see how we work and whether the plan fits your roadmap.",
+      "Book a 15-minute call to see whether the plan fits your project and your stack.",
     cta: { text: "Book a call", url: "#" },
   },
   notes = [
     {
-      title: "Pause anytime",
+      title: "Cancel anytime",
       description:
-        "Pause or cancel your subscription whenever you need. Unused days roll over to next month.",
+        "Cancel your subscription whenever you need. You keep access until the end of the billing period.",
     },
     {
-      title: "Satisfaction guarantee",
+      title: "Money-back guarantee",
       description:
-        "Not happy after the first week? Get 75% of your payment back, no questions asked.",
+        "Not happy after the first week? Get a full refund, no questions asked.",
     },
   ],
   plan = {
-    badge: "2 spots left",
-    name: "Full partnership",
-    price: "$3,995",
+    badge: "Most popular",
+    name: "All-access",
+    price: "$99",
     period: "/month",
     cta: { text: "Get started", url: "#" },
     featureGroups: [
       {
         title: "What's included",
         items: [
-          "One request at a time",
-          "48-hour average delivery",
-          "Unlimited revisions",
-          "Unlimited brand assets",
-          "Progress tracking",
+          "Every block and template",
+          "Unlimited projects",
+          "Free lifetime updates",
+          "Full source code ownership",
+          "Figma design files",
         ],
       },
       {
-        title: "How we work",
+        title: "How it works",
         items: [
-          "Shared project workspace",
-          "Dedicated chat channel",
-          "Weekly sync call",
-          "Async video updates",
-          "Cancel anytime",
+          "Copy and paste the code",
+          "Customize with Tailwind CSS",
+          "Ship to production",
+          "Priority email support",
+          "Private community access",
         ],
       },
     ],
@@ -95,7 +95,7 @@ const Pricing06 = ({
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="max-w-2xl text-4xl font-medium tracking-tight md:text-5xl">
+          <h2 className="max-w-2xl text-4xl leading-tight font-medium tracking-tight md:text-5xl">
             {title}
             {(subtitle || highlight) && <br />}
             {subtitle}{" "}
@@ -106,7 +106,7 @@ const Pricing06 = ({
           <p className="max-w-xl text-muted-foreground">{description}</p>
         </div>
 
-        <Card className="mx-auto mt-12 grid max-w-5xl gap-0 overflow-hidden p-0 md:grid-cols-5">
+        <Card className="mx-auto mt-12 grid max-w-5xl gap-0 overflow-hidden p-0 shadow-none md:grid-cols-5">
           {/* Plan column: first on mobile, right on desktop */}
           <div className="flex flex-col gap-6 bg-primary p-6 text-primary-foreground md:order-last md:col-span-3 md:p-8">
             <div className="flex flex-col gap-3">
@@ -161,7 +161,7 @@ const Pricing06 = ({
             <div className="flex flex-col items-start gap-3">
               <div className="flex items-center gap-2">
                 <span className="flex size-8 items-center justify-center rounded-md border bg-background">
-                  <Zap className="size-4" aria-hidden="true" />
+                  <Phone className="size-4" aria-hidden="true" />
                 </span>
                 <h3 className="text-lg font-medium">{intro.title}</h3>
               </div>

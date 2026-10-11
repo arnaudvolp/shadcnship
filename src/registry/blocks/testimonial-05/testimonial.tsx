@@ -26,7 +26,7 @@ interface Testimonial05Props {
 const Testimonial05 = ({
   image = {
     src: "https://www.shadcnship.com/images/avatars/avatar-3.webp",
-    alt: "Portrait of Daniel Park",
+    alt: "Portrait of Alex Chen",
   },
   socialProof = {
     avatars: [
@@ -34,13 +34,13 @@ const Testimonial05 = ({
       "https://www.shadcnship.com/images/avatars/avatar-2.webp",
       "https://www.shadcnship.com/images/avatars/avatar-4.webp",
     ],
-    text: "500+ teams already on board",
+    text: "1000+ developers already on board",
   },
   rating = 5,
-  quote = "Working with them changed how our whole team ships. Their attention to detail, clear thinking, and steady pace made every release feel easy.",
-  details = "They delivered practical solutions tailored to our workflow and helped us cut our release cycle in half.",
-  author = { name: "Daniel Park", role: "Head of Product" },
-  tags = ["Product design", "Web platform", "Design system"],
+  quote = "These components saved our team weeks of development time. Copy, paste, customize—it's that simple!",
+  details = "We dropped the blocks straight into our project and shipped our new landing page in just a couple of days.",
+  author = { name: "Alex Chen", role: "Frontend Developer" },
+  tags = ["Landing page", "Design system", "Web platform"],
   className,
 }: Testimonial05Props) => {
   const filled = Math.max(0, Math.min(5, Math.round(rating)));

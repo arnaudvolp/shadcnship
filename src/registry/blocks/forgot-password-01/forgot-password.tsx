@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ArrowRight, Hexagon, Loader2, MailCheck } from "lucide-react";
+import { ArrowRight, Loader2, MailCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -33,13 +33,13 @@ const isValidEmail = (email: string): boolean => {
 const ForgotPassword01 = ({
   logo = (
     <div className="flex items-center gap-2">
-      <Hexagon className="size-5" aria-hidden="true" />
-      <span className="font-semibold tracking-tight">Acme</span>
+      <img src="/logo.svg" alt="Shadcnship" className="size-5 dark:invert" />
+      <span className="font-semibold tracking-tight">Shadcnship</span>
     </div>
   ),
   image = "https://www.shadcnship.com/images/placeholders/hero-architecture-5.webp",
-  tagline = "Simplify the process. Ship the results.",
-  subtitle = "Focus on the big picture while we handle the details.",
+  tagline = "Get back to building.",
+  subtitle = "Recover your access in a minute and ship your next project.",
   title = "Forgot your password?",
   description = "Enter the email linked to your account and we'll send you a reset link.",
   buttonText = "Send reset link",
@@ -90,7 +90,7 @@ const ForgotPassword01 = ({
         className,
       )}
     >
-      <Card className="grid w-full max-w-4xl gap-0 overflow-hidden p-3 md:grid-cols-5">
+      <Card className="grid w-full max-w-4xl gap-0 overflow-hidden p-3 shadow-none md:grid-cols-5">
         {/* Visual panel — hidden on mobile */}
         <div className="relative hidden overflow-hidden rounded-md md:col-span-2 md:block">
           {image && (

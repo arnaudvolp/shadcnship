@@ -42,14 +42,14 @@ interface OrbitItem {
 }
 
 const defaultMetrics: Stat08Metric[] = [
-  { value: "97M+", label: "Total views" },
-  { value: "33+", label: "Creators" },
-  { value: "$2M+", label: "Deals closed" },
+  { value: "50+", label: "Ready-to-use blocks" },
+  { value: "1000+", label: "Developers using" },
+  { value: "100%", label: "Free & open source" },
 ];
 
 const defaultTags: Stat08Tag[] = [
-  { icon: ShoppingCart, label: "E-commerce brand" },
-  { icon: Layers, label: "Multiple items" },
+  { icon: ShoppingCart, label: "SaaS landing page" },
+  { icon: Layers, label: "Ready-to-use blocks" },
   { icon: TrendingUp, label: "Pricing" },
   { icon: Headphones, label: "Support" },
 ];
@@ -222,7 +222,7 @@ const Orbit = ({
 
 const Stat08 = ({
   metrics = defaultMetrics,
-  title = "We build the best communities for creators",
+  title = "Trusted by developers building with shadcn/ui",
   tags = defaultTags,
   className,
 }: Stat08Props) => (

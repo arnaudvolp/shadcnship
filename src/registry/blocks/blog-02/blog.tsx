@@ -42,7 +42,7 @@ const PostMeta = ({ date, readTime }: Pick<Post, "date" | "readTime">) => (
 
 const Blog02 = ({
   featured = {
-    title: "How small teams ship big products with a shared component library",
+    title: "Building consistent UI with a shared shadcn/ui component library",
     category: "Engineering",
     date: "Sep 18, 2026",
     readTime: "8 min read",
@@ -52,7 +52,7 @@ const Blog02 = ({
   latestTitle = "Latest posts",
   latest = [
     {
-      title: "Designing clear navigation for complex dashboards",
+      title: "From zero to landing page in 10 minutes",
       category: "Design",
       date: "Sep 15, 2026",
       readTime: "5 min read",
@@ -60,7 +60,7 @@ const Blog02 = ({
       href: "#",
     },
     {
-      title: "A practical guide to dark mode with design tokens",
+      title: "A practical guide to dark mode with shadcn/ui tokens",
       category: "Design",
       date: "Sep 11, 2026",
       readTime: "6 min read",
@@ -68,7 +68,7 @@ const Blog02 = ({
       href: "#",
     },
     {
-      title: "Building accessible forms that users finish",
+      title: "Accessible forms that users actually finish",
       category: "Product",
       date: "Sep 8, 2026",
       readTime: "4 min read",
@@ -76,7 +76,7 @@ const Blog02 = ({
       href: "#",
     },
     {
-      title: "What we learned shipping 40 releases in a year",
+      title: "What we learned shipping 50 blocks in a year",
       category: "Company",
       date: "Sep 2, 2026",
       readTime: "7 min read",
@@ -87,7 +87,7 @@ const Blog02 = ({
   collectionTitle = "From the team",
   collection = [
     {
-      title: "Why we write docs before code",
+      title: "Why we design the API before the block",
       category: "Process",
       date: "Aug 28, 2026",
       readTime: "5 min read",
@@ -107,7 +107,7 @@ const Blog02 = ({
         "Async by default, sync when it matters: how we keep a distributed team aligned.",
     },
     {
-      title: "Keeping a design system alive after launch",
+      title: "Keeping a component library alive after launch",
       category: "Design",
       date: "Aug 14, 2026",
       readTime: "4 min read",

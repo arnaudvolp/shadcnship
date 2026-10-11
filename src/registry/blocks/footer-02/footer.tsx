@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Dribbble, Github, Hexagon, Instagram, Linkedin } from "lucide-react";
+import { Dribbble, Github, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -28,16 +28,16 @@ interface Footer02Props {
 const Footer02 = ({
   logo = (
     <div className="flex items-center gap-2">
-      <Hexagon className="size-6" aria-hidden="true" />
-      <span className="text-xl font-semibold tracking-tight">Acme</span>
+      <img src="/logo.svg" alt="Shadcnship" className="size-6 dark:invert" />
+      <span className="text-xl font-semibold tracking-tight">Shadcnship</span>
     </div>
   ),
-  labels = ["Product design", "Web development", "Brand identity"],
+  labels = ["Production-ready blocks", "Copy & paste", "Open source"],
   links = [
-    { text: "Work", href: "#" },
-    { text: "Services", href: "#" },
-    { text: "About", href: "#" },
+    { text: "Blocks", href: "#" },
+    { text: "Docs", href: "#" },
     { text: "Pricing", href: "#" },
+    { text: "About", href: "#" },
     { text: "Contact", href: "#" },
   ],
   socialLinks = [
@@ -51,11 +51,11 @@ const Footer02 = ({
     { text: "Privacy Policy", href: "#" },
     { text: "Cookie Policy", href: "#" },
   ],
-  copyright = `© ${new Date().getFullYear()} Acme. All rights reserved.`,
+  copyright = `© ${new Date().getFullYear()} Shadcnship. All rights reserved.`,
   className,
 }: Footer02Props) => {
   return (
-    <footer className={cn("w-full py-12 md:py-16", className)}>
+    <footer className={cn("fixed bottom-0 w-full py-12 md:py-16", className)}>
       <div className="container mx-auto flex flex-col items-center gap-6 px-6 text-center">
         {logo}
 
