@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { SerializableRegistryBlock } from "@/types/blocks";
 
@@ -14,6 +15,13 @@ export function BlockCard({ block, basePath = "/blocks" }: BlockCardProps) {
     <>
       {/* Preview Area */}
       <div className="relative w-full overflow-hidden bg-background">
+        {block.isNew && (
+          <div className="absolute top-2 right-2 z-10">
+            <Badge variant="secondary" className="rounded-sm text-xs shadow-sm">
+              New
+            </Badge>
+          </div>
+        )}
         <div className="relative aspect-video w-full">
           {block.image ? (
             <Image

@@ -1759,6 +1759,7 @@
         "blog"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/blog-02.webp"
       },
       "files": [
@@ -1786,6 +1787,7 @@
         "cta"
       ],
       "meta": {
+        "addedAt": "2026-10-09",
         "image": "/r/previews/cta-06.webp"
       },
       "files": [
@@ -1807,6 +1809,7 @@
         "error"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/error-01.webp"
       },
       "files": [
@@ -1834,6 +1837,7 @@
         "feature"
       ],
       "meta": {
+        "addedAt": "2026-10-09",
         "image": "/r/previews/feature-21.webp"
       },
       "files": [
@@ -1860,6 +1864,7 @@
         "footer"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/footer-02.webp"
       },
       "files": [
@@ -1888,6 +1893,7 @@
         "login"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/forgot-password-01.webp"
       },
       "files": [
@@ -1915,6 +1921,7 @@
         "hero"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/hero-07.webp"
       },
       "files": [
@@ -1944,6 +1951,7 @@
         "hero"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/hero-08.webp"
       },
       "files": [
@@ -1972,6 +1980,7 @@
         "pricing"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/pricing-06.webp"
       },
       "files": [
@@ -1999,6 +2008,7 @@
         "stat"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/stat-07.webp"
       },
       "files": [
@@ -2025,6 +2035,7 @@
         "stat"
       ],
       "meta": {
+        "addedAt": "2026-10-09",
         "image": "/r/previews/stat-08.webp"
       },
       "files": [
@@ -2051,6 +2062,7 @@
         "testimonial"
       ],
       "meta": {
+        "addedAt": "2026-10-01",
         "image": "/r/previews/testimonial-05.webp"
       },
       "files": [

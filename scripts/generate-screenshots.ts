@@ -1,16 +1,29 @@
-import { chromium } from "playwright";
-import { readFileSync, mkdirSync, existsSync, unlinkSync } from "fs";
+/**
+ * Generate block previews (public/r/previews/<name>.webp).
+ *
+ * By default only blocks whose preview is missing, or older than the block's
+ * code, are captured. Needs the dev server running (npm run dev).
+ *
+ * Usage:
+ *   npm run screenshots                               # new or changed blocks
+ *   npm run screenshots -- --only hero-08,footer-02   # these blocks
+ *   npm run screenshots -- --all                      # every block
+ *   BASE_URL=http://localhost:3001 npm run screenshots
+ */
+import { chromium, type BrowserContext } from "playwright";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  statSync,
+  unlinkSync,
+} from "fs";
 import { join } from "path";
 import sharp from "sharp";
 
-interface RegistryItem {
+interface Item {
   name: string;
-  title: string;
-  categories: string[];
-}
-
-interface Registry {
-  items: RegistryItem[];
+  files?: { path: string }[];
 }
 
 const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
@@ -25,157 +38,197 @@ const VIEWPORT = {
 // WebP compression quality (0-100)
 const WEBP_QUALITY = 80;
 
-async function generateScreenshots() {
-  // Read registry to get all block names
-  const registryPath = join(process.cwd(), "registry.json");
-  const registry: Registry = JSON.parse(readFileSync(registryPath, "utf-8"));
-  const blocks = registry.items;
+// This site only shows light previews. Add "dark" to also write <name>-dark.webp
+type Theme = "light" | "dark";
+const THEMES: readonly Theme[] = ["light"];
 
-  // Create output directory if it doesn't exist
-  if (!existsSync(OUTPUT_DIR)) {
-    mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
+function mtime(path: string): number {
+  return existsSync(path) ? statSync(path).mtimeMs : 0;
+}
 
-  console.log(
-    `🚀 Starting screenshot generation for ${blocks.length} blocks...`,
+function loadItems(): Item[] {
+  const registry = JSON.parse(
+    readFileSync(join(process.cwd(), "registry.json"), "utf-8"),
   );
-  console.log(`📁 Output directory: ${OUTPUT_DIR}`);
-  console.log(`🌐 Base URL: ${BASE_URL}`);
-  console.log(`📐 Viewport: ${VIEWPORT.width}x${VIEWPORT.height} (16:9)`);
-  console.log(`🗜️  WebP quality: ${WEBP_QUALITY}\n`);
+  return registry.items as Item[];
+}
 
-  // Launch browser
-  const browser = await chromium.launch({
-    headless: true,
-  });
+// "ok" only when every preview exists and is newer than the block's code
+function previewStatus(item: Item): "ok" | "stale" | "missing" {
+  const previews = THEMES.map((t) =>
+    join(OUTPUT_DIR, `${item.name}${t === "dark" ? "-dark" : ""}.webp`),
+  );
+  if (!previews.every(existsSync)) return "missing";
+  const codeTime = Math.max(
+    ...(item.files ?? []).map((f) => mtime(join(process.cwd(), f.path))),
+  );
+  return codeTime > Math.min(...previews.map(mtime)) ? "stale" : "ok";
+}
 
+function pickBlocks() {
+  const items = loadItems();
+  const onlyIndex = process.argv.indexOf("--only");
+  if (onlyIndex !== -1) {
+    const names = (process.argv[onlyIndex + 1] ?? "")
+      .split(",")
+      .filter(Boolean);
+    const unknown = names.filter((n) => !items.some((i) => i.name === n));
+    if (unknown.length)
+      throw new Error(`Unknown blocks: ${unknown.join(", ")}`);
+    return items.filter((i) => names.includes(i.name));
+  }
+  if (process.argv.includes("--all")) return items;
+  return items.filter((i) => previewStatus(i) !== "ok");
+}
+
+async function newThemeContext(
+  browser: Awaited<ReturnType<typeof chromium.launch>>,
+  theme: Theme,
+): Promise<BrowserContext> {
   const context = await browser.newContext({
     viewport: VIEWPORT,
     deviceScaleFactor: 1,
+    // Emulate OS-level dark preference (handles media queries)
+    colorScheme: "dark",
   });
 
-  const page = await context.newPage();
-
   // Inject CSS to hide Next.js dev tools and debug elements
-  await page.addInitScript(() => {
-    // Create style element to hide dev tools
+  await context.addInitScript(() => {
     const style = document.createElement("style");
     style.textContent = `
-      /* Hide Next.js dev tools */
-      [data-nextjs-dialog-overlay],
       [data-nextjs-toast],
-      nextjs-portal,
       #__next-build-watcher,
       [data-nextjs-scroll],
-      /* Hide any debug buttons */
       button[aria-label*="debug"],
       button[aria-label*="Debug"],
-      [class*="nextjs"],
-      /* Hide React DevTools */
       #react-devtools-hook__agent {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
       }
     `;
-    document.head.appendChild(style);
+    document.addEventListener("DOMContentLoaded", () =>
+      document.head.appendChild(style),
+    );
   });
 
+  return context;
+}
+
+async function capture(context: BrowserContext, name: string, theme: Theme) {
+  const page = await context.newPage();
+  const suffix = theme === "dark" ? "-dark" : "";
+  const tempPath = join(OUTPUT_DIR, `${name}${suffix}.png`);
+  const outputPath = join(OUTPUT_DIR, `${name}${suffix}.webp`);
+
+  try {
+    const query = theme === "dark" ? "?theme=dark" : "";
+    const response = await page.goto(
+      `${BASE_URL}/blocks/${name}/preview${query}`,
+      {
+        waitUntil: "networkidle",
+        timeout: 30000,
+      },
+    );
+
+    // A build or runtime error renders the Next.js overlay: never save it as a preview
+    const overlayError = await page.evaluate(() => {
+      const root = document.querySelector("nextjs-portal")?.shadowRoot;
+      const text = root?.textContent ?? "";
+      return /Build Error|Runtime Error|Unhandled|Module not found|Failed to compile/.test(
+        text,
+      )
+        ? text.slice(0, 160)
+        : null;
+    });
+    if (!response || response.status() >= 400 || overlayError) {
+      throw new Error(
+        overlayError ?? `HTTP ${response?.status() ?? "no response"}`,
+      );
+    }
+
+    // next-themes uses class-based dark mode: force the `dark` class on <html>
+    if (theme === "dark") {
+      await page.evaluate(() => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.setAttribute("data-theme", "dark");
+      });
+    }
+
+    // Wait for content to be fully rendered and animations to settle
+    await page.waitForTimeout(1500);
+
+    // Remove the dev overlay host now that we know it holds no error
+    await page.evaluate(() =>
+      document.querySelector("nextjs-portal")?.remove(),
+    );
+
+    await page.screenshot({
+      path: tempPath,
+      type: "png",
+      clip: { x: 0, y: 0, width: VIEWPORT.width, height: VIEWPORT.height },
+    });
+    await sharp(tempPath).webp({ quality: WEBP_QUALITY }).toFile(outputPath);
+    console.log(`   ✅ ${name}${suffix}.webp`);
+    return true;
+  } catch (error) {
+    console.error(
+      `   ❌ ${name}${suffix}: ${(error as Error).message.split("\n")[0]}`,
+    );
+    return false;
+  } finally {
+    if (existsSync(tempPath)) unlinkSync(tempPath);
+    await page.close();
+  }
+}
+
+async function generateScreenshots() {
+  const blocks = pickBlocks();
+  if (blocks.length === 0) {
+    console.log(
+      "✨ All previews are up to date. Use --all to regenerate everything.",
+    );
+    return;
+  }
+
+  // Fail fast if the dev server is down instead of capturing error pages
+  try {
+    await fetch(BASE_URL);
+  } catch {
+    throw new Error(
+      `Dev server not reachable at ${BASE_URL}. Run npm run dev first.`,
+    );
+  }
+
+  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
+
+  console.log(
+    `🚀 Capturing ${blocks.length} blocks (${THEMES.join(" + ")}): ${blocks.map((b) => b.name).join(", ")}`,
+  );
+  console.log(`🌐 Base URL: ${BASE_URL}\n`);
+
+  const browser = await chromium.launch({ headless: true });
   let successCount = 0;
   let errorCount = 0;
 
-  for (const block of blocks) {
-    const previewUrl = `${BASE_URL}/blocks/${block.name}/preview`;
-    const tempPath = join(OUTPUT_DIR, `${block.name}.png`);
-    const outputPath = join(OUTPUT_DIR, `${block.name}.webp`);
-
-    try {
-      console.log(`📸 Capturing: ${block.name}...`);
-
-      // Navigate to preview page
-      await page.goto(previewUrl, {
-        waitUntil: "networkidle",
-        timeout: 30000,
-      });
-
-      // Wait for content to be fully rendered and animations to settle
-      await page.waitForTimeout(1500);
-
-      // Hide any dynamically added dev tools
-      await page.evaluate(() => {
-        // Remove Next.js dev overlay
-        const devOverlay = document.querySelector("nextjs-portal");
-        if (devOverlay) devOverlay.remove();
-
-        // Remove any fixed position debug buttons in corners
-        document
-          .querySelectorAll('[style*="position: fixed"]')
-          .forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
-
-            // If it's a small element in the bottom-right corner, likely a debug button
-            if (
-              rect.width < 150 &&
-              rect.height < 150 &&
-              rect.bottom > viewportHeight - 100 &&
-              rect.right > viewportWidth - 100
-            ) {
-              (el as HTMLElement).style.display = "none";
-            }
-          });
-
-        // Also hide by common dev tool patterns
-        document
-          .querySelectorAll(
-            '[id*="__next"], [class*="__next"], [id*="devtools"], [class*="devtools"]',
-          )
-          .forEach((el) => {
-            if (el.tagName !== "SCRIPT") {
-              (el as HTMLElement).style.display = "none";
-            }
-          });
-      });
-
-      // Take screenshot as PNG first
-      await page.screenshot({
-        path: tempPath,
-        type: "png",
-        clip: {
-          x: 0,
-          y: 0,
-          width: VIEWPORT.width,
-          height: VIEWPORT.height,
-        },
-      });
-
-      // Convert to WebP with compression
-      await sharp(tempPath).webp({ quality: WEBP_QUALITY }).toFile(outputPath);
-
-      // Remove temporary PNG file
-      unlinkSync(tempPath);
-
-      console.log(`   ✅ Saved: ${block.name}.webp`);
-      successCount++;
-    } catch (error) {
-      console.error(`   ❌ Error capturing ${block.name}:`, error);
-      errorCount++;
-
-      // Clean up temp file if it exists
-      if (existsSync(tempPath)) {
-        unlinkSync(tempPath);
-      }
+  for (const theme of THEMES) {
+    const context = await newThemeContext(browser, theme);
+    for (const block of blocks) {
+      if (await capture(context, block.name, theme)) successCount++;
+      else errorCount++;
     }
+    await context.close();
   }
 
   await browser.close();
 
-  console.log(`\n📊 Summary:`);
-  console.log(`   ✅ Success: ${successCount}`);
-  console.log(`   ❌ Errors: ${errorCount}`);
-  console.log(`   📁 Screenshots saved to: ${OUTPUT_DIR}`);
+  console.log(
+    `\n📊 Summary: ✅ ${successCount} · ❌ ${errorCount} · 📁 ${OUTPUT_DIR}`,
+  );
+  if (errorCount > 0) process.exitCode = 1;
 }
 
-// Run the script
-generateScreenshots().catch(console.error);
+generateScreenshots().catch((error) => {
+  console.error(`❌ ${error.message}`);
+  process.exitCode = 1;
+});

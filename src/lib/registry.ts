@@ -10,6 +10,15 @@ import type {
 // Re-export categories for convenience
 export { categories, getAllCategories };
 
+// Blocks added within this many days get a "New" badge
+const NEW_BLOCK_DAYS = 30;
+
+function isRecent(addedAt: string | undefined): boolean {
+  if (!addedAt) return false;
+  const ageMs = Date.now() - new Date(addedAt).getTime();
+  return ageMs >= 0 && ageMs < NEW_BLOCK_DAYS * 24 * 60 * 60 * 1000;
+}
+
 /**
  * Transform a registry.json item to a RegistryBlock with enriched data
  */
@@ -48,6 +57,9 @@ function transformToBlock(item: RegistryJsonItem): RegistryBlock {
       `/r/previews/${item.name}.webp`,
     // Pass through meta for stacks and other metadata
     meta: item.meta,
+    addedAt: item.meta?.addedAt as string | undefined,
+    version: item.meta?.version as string | undefined,
+    isNew: isRecent(item.meta?.addedAt as string | undefined),
     // Lazy load the component based on block name convention
     component: React.lazy(() =>
       import(`@/registry/blocks/${item.name}/${componentName}`).then((mod) => ({

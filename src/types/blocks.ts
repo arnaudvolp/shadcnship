@@ -23,6 +23,8 @@ export interface RegistryFile {
 export interface RegistryMeta {
   image?: string;
   stacks?: string[];
+  addedAt?: string; // ISO date the block was added, e.g. "2026-10-01"
+  version?: string; // Release that ships the block, e.g. "v1.1.4"
   [key: string]: unknown;
 }
 
@@ -59,6 +61,9 @@ export interface RegistryBlock {
   registryDependencies?: string[];
   image?: string;
   meta?: RegistryMeta;
+  addedAt?: string; // ISO date the block was added
+  version?: string; // Release that ships the block
+  isNew?: boolean; // Added less than NEW_BLOCK_DAYS ago
 }
 
 // Serializable version (for passing to Client Components)
